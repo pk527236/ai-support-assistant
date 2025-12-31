@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Virtual Environment
+ai-support-bot-env/
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Vector Database (Large files)
+chroma_db/
+*.db
+
+# Data files (may contain sensitive information)
+data/
+zendesk_articles/
+*.json
+*.docx
+*.pdf
+
+# Keep data directory structure but ignore contents
+!data/.gitkeep
+!data/README.md
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Chrome/Firefox extensions
+*.crx
+*.xpi
+
+# Temporary files
+*.tmp
+tmp/
