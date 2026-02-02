@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Support Bot - Fast & Smart</title>
+    <title>DVSum Support Agent</title>
     <style>
         * {
             margin: 0;
@@ -12,365 +12,64 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
 
         .container {
+            max-width: 1000px;
+            margin: 0 auto;
             background: white;
-            border-radius: 20px;
+            border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
-            display: flex;
-            flex-direction: column;
             overflow: hidden;
         }
 
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
+            padding: 24px;
             text-align: center;
         }
 
         .header h1 {
             font-size: 24px;
-            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .status {
-            font-size: 12px;
-            margin-top: 5px;
+            font-size: 13px;
             opacity: 0.9;
         }
 
-        .status-indicator {
+        .status-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            margin-right: 5px;
+            margin-right: 6px;
             animation: pulse 2s infinite;
         }
 
-        .status-online {
-            background: #4ade80;
-        }
-
-        .status-offline {
-            background: #ef4444;
-            animation: none;
-        }
+        .status-online { background: #4ade80; }
+        .status-offline { background: #ef4444; animation: none; }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
 
-        .chat-container {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
+        .main-content {
+            padding: 24px;
+        }
+
+        .ticket-form {
             background: #f9fafb;
-        }
-
-        .message {
-            margin-bottom: 16px;
-            display: flex;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message.user {
-            justify-content: flex-end;
-        }
-
-        .message-content {
-            max-width: 70%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            word-wrap: break-word;
-            line-height: 1.6;
-            text-align: left;
-        }
-
-        .message.user .message-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-bottom-right-radius: 4px;
-        }
-
-        .message.bot .message-content {
-            background: white;
-            color: #1f2937;
-            border: 1px solid #e5e7eb;
-            border-bottom-left-radius: 4px;
-        }
-
-        /* Better formatting for bot messages */
-        .message.bot .message-content p {
-            margin: 0 0 10px 0;
-        }
-
-        .message.bot .message-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .message.bot .message-content strong {
-            display: block;
-            margin: 12px 0 8px 0;
-            color: #374151;
-        }
-
-        .message.bot .message-content ul,
-        .message.bot .message-content ol {
-            margin: 8px 0;
-            padding-left: 20px;
-        }
-
-        .message.bot .message-content li {
-            margin: 6px 0;
-            line-height: 1.5;
-        }
-
-        .message-label {
-            font-size: 11px;
-            color: #6b7280;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .sources {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #e5e7eb;
-            font-size: 12px;
-            color: #6b7280;
-        }
-
-        .sources-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .source-item {
-            background: #f3f4f6;
-            padding: 6px 10px;
+            padding: 24px;
             border-radius: 8px;
-            margin-top: 5px;
-            font-size: 11px;
-        }
-
-        .ticket-suggestion {
-            margin-top: 12px;
-            padding: 12px;
-            background: #fef3c7;
-            border: 1px solid #fbbf24;
-            border-radius: 8px;
-            font-size: 13px;
-        }
-
-        .ticket-suggestion-title {
-            font-weight: 600;
-            color: #92400e;
-            margin-bottom: 8px;
-        }
-
-        .ticket-button {
-            background: #f59e0b;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .ticket-button:hover {
-            background: #d97706;
-        }
-
-        .ticket-success {
-            margin-top: 12px;
-            padding: 12px;
-            background: #d1fae5;
-            border: 1px solid #10b981;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #065f46;
-        }
-
-        .input-container {
-            display: flex;
-            padding: 20px;
-            background: white;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .input-container input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 25px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .input-container input:focus {
-            border-color: #667eea;
-        }
-
-        .input-container button {
-            margin-left: 10px;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .input-container button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .input-container button:active {
-            transform: translateY(0);
-        }
-
-        .input-container button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .loading {
-            display: flex;
-            gap: 5px;
-            padding: 12px 16px;
-        }
-
-        .loading-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #667eea;
-            animation: bounce 1.4s infinite ease-in-out both;
-        }
-
-        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
-        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-
-        .error-message {
-            background: #fee2e2;
-            color: #991b1b;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 10px 20px;
-            font-size: 14px;
-        }
-
-        .empty-state {
-            text-align: center;
-            color: #9ca3af;
-            padding: 40px 20px;
-        }
-
-        .empty-state-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            animation: slideDown 0.3s;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h2 {
-            color: #1f2937;
-            font-size: 20px;
-        }
-
-        .close {
-            color: #9ca3af;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close:hover {
-            color: #4b5563;
+            margin-bottom: 24px;
         }
 
         .form-group {
@@ -379,218 +78,505 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #374151;
             font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
             font-size: 14px;
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 12px;
             border: 2px solid #e5e7eb;
             border-radius: 8px;
             font-size: 14px;
             font-family: inherit;
-            transition: border-color 0.2s;
+            resize: vertical;
+            min-height: 120px;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group textarea:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
+        .quick-examples {
+            margin-bottom: 16px;
         }
 
-        .modal-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            margin-top: 24px;
-        }
-
-        .btn-cancel {
-            padding: 10px 20px;
-            background: #f3f4f6;
-            color: #4b5563;
-            border: none;
-            border-radius: 8px;
+        .quick-examples h3 {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 8px;
             font-weight: 600;
+        }
+
+        .example-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .example-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.2s;
+            font-size: 12px;
+            transition: all 0.2s;
         }
 
-        .btn-cancel:hover {
-            background: #e5e7eb;
+        .example-btn:hover {
+            background: #f3f4f6;
+            border-color: #667eea;
+            transform: translateY(-1px);
         }
 
-        .btn-submit {
-            padding: 10px 20px;
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .badge-s1 { background: #fee2e2; color: #991b1b; }
+        .badge-s2 { background: #fef3c7; color: #92400e; }
+        .badge-s3 { background: #d1fae5; color: #065f46; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 8px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.2s;
         }
 
-        .btn-submit:hover {
+        .submit-btn:hover {
             transform: translateY(-2px);
         }
 
-        .btn-submit:disabled {
+        .submit-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
         }
 
-        .speed-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            margin-left: 8px;
+        .response-container {
+            display: none;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .response-section {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .response-section h3 {
+            color: #1f2937;
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .response-section p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .classification-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .classification-item {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .classification-item strong {
+            display: block;
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .classification-item span {
+            color: #1f2937;
+            font-size: 14px;
             font-weight: 600;
+        }
+
+        .sla-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .sla-critical { background: #fee2e2; color: #991b1b; }
+        .sla-high { background: #fef3c7; color: #92400e; }
+        .sla-normal { background: #d1fae5; color: #065f46; }
+
+        .acknowledgment-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 16px;
+            margin: 12px 0;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #1f2937;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .solution-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+
+        .solution-box h4 {
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .sources-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .sources-list li {
+            background: #f3f4f6;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-box {
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+            padding: 16px;
+            border-radius: 4px;
+            color: #991b1b;
+        }
+
+        .new-ticket-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .new-ticket-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Chat Styles */
+        .chat-container {
+            display: none;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .chat-header {
+            color: #1f2937;
+            margin-bottom: 16px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            background: #f9fafb;
+            margin-bottom: 16px;
+        }
+
+        .chat-message {
+            margin-bottom: 16px;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-message.user {
+            text-align: right;
+        }
+
+        .chat-message-content {
+            display: inline-block;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+
+        .chat-message.user .chat-message-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .chat-message.assistant .chat-message-content {
+            background: white;
+            border: 1px solid #e5e7eb;
+            color: #1f2937;
+        }
+
+        /* Formatting within chat messages */
+        .chat-message-content strong {
+            font-weight: 600;
+            color: inherit;
+        }
+
+        .chat-message.assistant .chat-sources {
+            display: inline-block;
+            max-width: 80%;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #6b7280;
+            padding: 4px 8px;
+            background: #f3f4f6;
+            border-radius: 6px;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .chat-send-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .chat-send-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .chat-send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .chat-typing {
+            display: inline-block;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #9ca3af;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤖 AI Support Bot </h1>
+            <h1>🎫 DVSum AI Support Agent</h1>
             <div class="status">
-                <span class="status-indicator status-offline" id="statusIndicator"></span>
+                <span class="status-dot" id="statusDot"></span>
                 <span id="statusText">Checking connection...</span>
             </div>
         </div>
 
-        <div class="chat-container" id="chatContainer">
-            <div class="empty-state">
-                <div class="empty-state-icon">💬</div>
-                <p><strong>Ask me anything about AWS, DevOps, Cloud, or IT Support!</strong></p>
-                <p style="font-size: 12px; margin-top: 8px;">Powered by Groq AI - Lightning fast responses! ⚡</p>
-                <p style="font-size: 12px; margin-top: 4px;">If I can't help, I'll create a support ticket for you.</p>
-            </div>
-        </div>
+        <div class="main-content">
+            <!-- Ticket Form -->
+            <div class="ticket-form" id="ticketForm">
+                <div class="form-group">
+                    <label for="ticketText">Describe your issue or question:</label>
+                    <textarea 
+                        id="ticketText" 
+                        placeholder=""
+                        disabled
+                    ></textarea>
+                </div>
 
-        <div class="input-container">
-            <input 
-                type="text" 
-                id="userInput" 
-                placeholder="Type your question here" 
-                disabled
-            />
-            <button id="sendButton" disabled>Send</button>
-        </div>
-    </div>
-
-    <!-- Ticket Creation Modal -->
-    <div id="ticketModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>🎫 Create Support Ticket</h2>
-                <span class="close">&times;</span>
+                <button class="submit-btn" id="submitBtn" onclick="handleTicket()" disabled>
+                    Submit Ticket
+                </button>
             </div>
-            <form id="ticketForm">
-                <div class="form-group">
-                    <label for="ticketEmail">Your Email *</label>
-                    <input type="email" id="ticketEmail" required placeholder="your.email@company.com">
+
+            <!-- Response Container -->
+            <div class="response-container" id="responseContainer">
+                <div class="response-section">
+                    <h3>📊 Classification</h3>
+                    <div class="classification-grid" id="classificationGrid"></div>
                 </div>
-                <div class="form-group">
-                    <label for="ticketSubject">Subject *</label>
-                    <input type="text" id="ticketSubject" required placeholder="Brief description of your issue">
+
+                <div class="response-section">
+                    <h3>💬 Understanding Your Issue</h3>
+                    <p id="explanation"></p>
                 </div>
-                <div class="form-group">
-                    <label for="ticketDescription">Description *</label>
-                    <textarea id="ticketDescription" required placeholder="Detailed description of your issue..."></textarea>
+
+                <div class="response-section">
+                    <h3>✉️ Acknowledgment</h3>
+                    <div class="acknowledgment-box" id="acknowledgment"></div>
                 </div>
-                <div class="form-group">
-                    <label for="ticketPriority">Priority</label>
-                    <select id="ticketPriority">
-                        <option value="1">Low</option>
-                        <option value="2" selected>Medium</option>
-                        <option value="3">High</option>
-                        <option value="4">Urgent</option>
-                    </select>
+
+                <div class="response-section" id="solutionSection" style="display: none;">
+                    <h3>🔍 Immediate Solution</h3>
+                    <div class="solution-box" id="solution"></div>
+                    <ul class="sources-list" id="sourcesList"></ul>
                 </div>
-                <div class="modal-buttons">
-                    <button type="button" class="btn-cancel" onclick="closeTicketModal()">Cancel</button>
-                    <button type="submit" class="btn-submit" id="submitTicket">Create Ticket</button>
+
+                <div class="response-section" id="frSection" style="display: none;">
+                    <h3>📝 Future Request (FR) Summary</h3>
+                    <div class="solution-box" id="frSummary"></div>
                 </div>
-            </form>
+
+                <button class="new-ticket-btn" onclick="resetForm()">
+                    ➕ Submit Another Ticket
+                </button>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-header">💭 Continue Conversation</div>
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        class="chat-input" 
+                        id="chatInput" 
+                        placeholder="Ask a follow-up question..."
+                        onkeypress="handleChatKeyPress(event)"
+                    >
+                    <button class="chat-send-btn" id="chatSendBtn" onclick="sendChatMessage()">
+                        Send
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading" id="loadingState" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p style="margin-top: 16px; color: #6b7280;">Processing your ticket...</p>
+            </div>
         </div>
     </div>
 
     <script>
         const API_URL = 'http://localhost:5000';
-        const chatContainer = document.getElementById('chatContainer');
-        const userInput = document.getElementById('userInput');
-        const sendButton = document.getElementById('sendButton');
-        const statusIndicator = document.getElementById('statusIndicator');
-        const statusText = document.getElementById('statusText');
-        const ticketModal = document.getElementById('ticketModal');
-        const ticketForm = document.getElementById('ticketForm');
-
         let isConnected = false;
-        let currentQuestion = '';
-        let userEmail = '';
-
-        // Function to format text with proper line breaks and structure
-        function formatText(text) {
-            // Convert markdown-style formatting to HTML
-            text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-            
-            // Handle numbered lists
-            text = text.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
-            
-            // Wrap consecutive <li> elements in <ol>
-            text = text.replace(/(<li>.*<\/li>\s*)+/g, function(match) {
-                return '<ol>' + match + '</ol>';
-            });
-            
-            // Handle bullet points
-            text = text.replace(/^[-•]\s+(.+)$/gm, '<li>$1</li>');
-            text = text.replace(/(<li>.*<\/li>\s*(?!<\/ol>))+/g, function(match) {
-                if (!match.includes('<ol>')) {
-                    return '<ul>' + match + '</ul>';
-                }
-                return match;
-            });
-            
-            // Handle line breaks and paragraphs
-            const lines = text.split('\n');
-            let formattedText = '';
-            let inList = false;
-            
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i].trim();
-                
-                if (line.startsWith('<ol>') || line.startsWith('<ul>')) {
-                    inList = true;
-                    formattedText += line;
-                } else if (line.startsWith('</ol>') || line.startsWith('</ul>')) {
-                    inList = false;
-                    formattedText += line;
-                } else if (line.includes('<li>')) {
-                    formattedText += line;
-                } else if (line.length > 0 && !inList) {
-                    formattedText += '<p>' + line + '</p>';
-                } else if (!inList) {
-                    formattedText += line;
-                }
-            }
-            
-            return formattedText;
-        }
+        let currentTicketText = '';
 
         // Check health status
         async function checkHealth() {
@@ -598,133 +584,296 @@
                 const response = await fetch(`${API_URL}/health`);
                 const data = await response.json();
                 
-                const isInitialized = data.qa_system === 'initialized' || 
-                                     data.qa_system === 'with knowledge base' || 
-                                     data.qa_system === 'general knowledge only' ||
-                                     data.llm === 'initialized';
-                
-                if (data.status === 'healthy' && isInitialized) {
+                if (data.status === 'healthy' && data.llm === 'initialized') {
                     isConnected = true;
-                    statusIndicator.className = 'status-indicator status-online';
-                    
-                    if (data.qa_system === 'with knowledge base' || data.qa_system === 'initialized') {
-                        statusText.textContent = '⚡ Connected & Ready (AI + Knowledge Base)';
-                    } else {
-                        statusText.textContent = '⚡ Connected & Ready (AI Mode)';
-                    }
-                    
-                    userInput.disabled = false;
-                    sendButton.disabled = false;
+                    document.getElementById('statusDot').className = 'status-dot status-online';
+                    document.getElementById('statusText').textContent = '✅ Connected & Ready';
+                    document.getElementById('ticketText').disabled = false;
+                    document.getElementById('submitBtn').disabled = false;
                 } else {
-                    throw new Error('System not fully initialized');
+                    throw new Error('System not initialized');
                 }
             } catch (error) {
                 isConnected = false;
-                statusIndicator.className = 'status-indicator status-offline';
-                statusText.textContent = 'Disconnected - Please start the server';
-                userInput.disabled = true;
-                sendButton.disabled = true;
+                document.getElementById('statusDot').className = 'status-dot status-offline';
+                document.getElementById('statusText').textContent = '❌ Disconnected - Start Flask app';
+                document.getElementById('ticketText').disabled = true;
+                document.getElementById('submitBtn').disabled = true;
+            }
+        }
+
+        function useExample(text) {
+            document.getElementById('ticketText').value = text;
+        }
+
+        async function handleTicket() {
+            const ticketText = document.getElementById('ticketText').value.trim();
+            
+            if (!ticketText) {
+                alert('Please describe your issue');
+                return;
+            }
+
+            currentTicketText = ticketText;
+
+            // Show loading
+            document.getElementById('ticketForm').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+
+            try {
+                const response = await fetch(`${API_URL}/handle-ticket`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ticket_text: ticketText })
+                });
+
+                const data = await response.json();
+
+                // Hide loading
+                document.getElementById('loadingState').style.display = 'none';
+
+                if (data.error) {
+                    showError(data.error);
+                    return;
+                }
+
+                // Check if redirected
+                if (data.redirected) {
+                    showRedirect(data);
+                    return;
+                }
+
+                // Show response
+                showResponse(data);
+
+                // Initialize chat
+                initializeChat();
+
+            } catch (error) {
+                document.getElementById('loadingState').style.display = 'none';
+                showError('Failed to connect to server. Make sure Flask app is running on port 5000.');
+                console.error('Error:', error);
+            }
+        }
+
+        function showResponse(data) {
+            const classification = data.classification;
+            const sla = data.sla;
+
+            // Classification
+            const classGrid = document.getElementById('classificationGrid');
+            classGrid.innerHTML = `
+                <div class="classification-item">
+                    <strong>Severity</strong>
+                    <span>${classification.severity} - ${classification.severity_name}</span>
+                </div>
+                <div class="classification-item">
+                    <strong>Type</strong>
+                    <span>${classification.ticket_type}</span>
+                </div>
+                <div class="classification-item">
+                    <strong>Response SLA</strong>
+                    <span>${sla.response_time}</span>
+                </div>
+                <div class="classification-item">
+                    <strong>Resolution SLA</strong>
+                    <span>${sla.resolution_time}</span>
+                </div>
+            `;
+
+            // Explanation
+            document.getElementById('explanation').textContent = data.simple_explanation;
+
+            // Acknowledgment
+            document.getElementById('acknowledgment').textContent = data.acknowledgment;
+
+            // Solution (if available)
+            if (data.immediate_solution) {
+                document.getElementById('solutionSection').style.display = 'block';
+                document.getElementById('solution').innerHTML = formatText(data.immediate_solution.solution);
                 
-                if (chatContainer.children.length === 1) {
-                    showError('⚠️ Cannot connect to server. Make sure Flask app is running on port 5000.');
+                const sourcesList = document.getElementById('sourcesList');
+                sourcesList.innerHTML = '';
+                if (data.immediate_solution.sources && data.immediate_solution.sources.length > 0) {
+                    data.immediate_solution.sources.forEach(source => {
+                        const li = document.createElement('li');
+                        li.textContent = source;
+                        sourcesList.appendChild(li);
+                    });
                 }
             }
+
+            // FR Summary (if available)
+            if (data.fr_summary) {
+                document.getElementById('frSection').style.display = 'block';
+                document.getElementById('frSummary').innerHTML = formatText(data.fr_summary);
+            }
+
+            // Show response container
+            document.getElementById('responseContainer').style.display = 'block';
+        }
+
+        function showRedirect(data) {
+            const responseContainer = document.getElementById('responseContainer');
+            responseContainer.innerHTML = `
+                <div class="response-section">
+                    <h3>🔀 Redirect Notice</h3>
+                    <div class="solution-box">
+                        <p style="white-space: pre-wrap;">${data.message}</p>
+                    </div>
+                </div>
+                <button class="new-ticket-btn" onclick="resetForm()">
+                    ➕ Submit Another Ticket
+                </button>
+            `;
+            responseContainer.style.display = 'block';
         }
 
         function showError(message) {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.textContent = message;
-            chatContainer.innerHTML = '';
-            chatContainer.appendChild(errorDiv);
-        }
-
-        function addMessage(text, isUser, sources = null, suggestTicket = false, question = '') {
-            if (chatContainer.querySelector('.empty-state')) {
-                chatContainer.innerHTML = '';
-            }
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-            
-            // Format the text for bot messages
-            const formattedText = isUser ? text : formatText(text);
-            
-            let messageHTML = `
-                <div>
-                    <div class="message-label">${isUser ? 'You' : '🤖 AI Assistant'}</div>
-                    <div class="message-content">
-                        ${formattedText}
+            const responseContainer = document.getElementById('responseContainer');
+            responseContainer.innerHTML = `
+                <div class="error-box">
+                    <strong>Error:</strong> ${message}
+                </div>
+                <button class="new-ticket-btn" onclick="resetForm()">
+                    ➕ Try Again
+                </button>
             `;
-
-            if (sources && sources.length > 0 && sources[0] !== 'General AI Knowledge') {
-                messageHTML += `
-                    <div class="sources">
-                        <div class="sources-title">📚 Sources:</div>
-                        ${sources.map(source => `
-                            <div class="source-item">${source}</div>
-                        `).join('')}
-                    </div>
-                `;
-            }
-
-            if (suggestTicket) {
-                messageHTML += `
-                    <div class="ticket-suggestion">
-                        <div class="ticket-suggestion-title">🎫 Need more help?</div>
-                        <p style="margin-bottom: 10px; color: #78350f;">I couldn't fully answer your question. Would you like to create a support ticket?</p>
-                        <button class="ticket-button" onclick="openTicketModal(\`${question.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\`)">
-                            Create Support Ticket
-                        </button>
-                    </div>
-                `;
-            }
-
-            messageHTML += `</div></div>`;
-            messageDiv.innerHTML = messageHTML;
-            
-            chatContainer.appendChild(messageDiv);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+            responseContainer.style.display = 'block';
         }
 
-        function showLoading() {
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'message bot';
-            loadingDiv.id = 'loadingMessage';
-            loadingDiv.innerHTML = `
-                <div>
-                    <div class="message-label">🤖 AI Assistant</div>
-                    <div class="message-content">
-                        <div class="loading">
-                            <div class="loading-dot"></div>
-                            <div class="loading-dot"></div>
-                            <div class="loading-dot"></div>
-                        </div>
+        function formatText(text) {
+            // Convert **text** to bold
+            text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            
+            // Convert line breaks to <br>
+            text = text.replace(/\n/g, '<br>');
+            
+            return text;
+        }
+
+        function resetForm() {
+            document.getElementById('ticketText').value = '';
+            document.getElementById('ticketForm').style.display = 'block';
+            document.getElementById('responseContainer').style.display = 'none';
+            document.getElementById('chatContainer').style.display = 'none';
+            document.getElementById('chatMessages').innerHTML = '';
+            currentTicketText = '';
+            document.getElementById('responseContainer').innerHTML = `
+                <div class="response-section">
+                    <h3>📊 Classification</h3>
+                    <div class="classification-grid" id="classificationGrid"></div>
+                </div>
+                <div class="response-section">
+                    <h3>💬 Understanding Your Issue</h3>
+                    <p id="explanation"></p>
+                </div>
+                <div class="response-section">
+                    <h3>✉️ Acknowledgment</h3>
+                    <div class="acknowledgment-box" id="acknowledgment"></div>
+                </div>
+                <div class="response-section" id="solutionSection" style="display: none;">
+                    <h3>🔍 Immediate Solution</h3>
+                    <div class="solution-box" id="solution"></div>
+                    <ul class="sources-list" id="sourcesList"></ul>
+                </div>
+                <div class="response-section" id="frSection" style="display: none;">
+                    <h3>📝 Future Request (FR) Summary</h3>
+                    <div class="solution-box" id="frSummary"></div>
+                </div>
+                <button class="new-ticket-btn" onclick="resetForm()">
+                    ➕ Submit Another Ticket
+                </button>
+            `;
+        }
+
+        // Chat Functions
+        function initializeChat() {
+            const chatContainer = document.getElementById('chatContainer');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Show chat container
+            chatContainer.style.display = 'block';
+            
+            // Add initial message
+            addChatMessage('assistant', "I've analyzed your ticket. Feel free to ask me any follow-up questions about this issue or the proposed solution.");
+        }
+
+        function addChatMessage(role, content, sources = null) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${role}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'chat-message-content';
+            
+            // Format the content (preserve formatting for assistant messages)
+            if (role === 'assistant') {
+                contentDiv.innerHTML = formatText(content);
+            } else {
+                contentDiv.textContent = content;
+            }
+            
+            messageDiv.appendChild(contentDiv);
+            
+            if (sources && sources.length > 0) {
+                const sourcesDiv = document.createElement('div');
+                sourcesDiv.className = 'chat-sources';
+                sourcesDiv.textContent = `Sources: ${sources.join(', ')}`;
+                messageDiv.appendChild(sourcesDiv);
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message assistant';
+            typingDiv.id = 'typingIndicator';
+            
+            typingDiv.innerHTML = `
+                <div class="chat-typing">
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
                     </div>
                 </div>
             `;
-            chatContainer.appendChild(loadingDiv);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function removeLoading() {
-            const loadingMessage = document.getElementById('loadingMessage');
-            if (loadingMessage) {
-                loadingMessage.remove();
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
             }
         }
 
-        async function sendMessage() {
-            const question = userInput.value.trim();
-            if (!question || !isConnected) return;
-
-            currentQuestion = question;
-            addMessage(question, true);
-            userInput.value = '';
-            sendButton.disabled = true;
-
-            showLoading();
-
+        async function sendChatMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const message = chatInput.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addChatMessage('user', message);
+            
+            // Clear input and disable
+            chatInput.value = '';
+            chatInput.disabled = true;
+            chatSendBtn.disabled = true;
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
             try {
                 const response = await fetch(`${API_URL}/chat`, {
                     method: 'POST',
@@ -732,110 +881,40 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ 
-                        question: question,
-                        email: userEmail 
+                        question: message,
+                        context: currentTicketText
                     })
                 });
-
-                removeLoading();
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Failed to get response');
-                }
-
+                
                 const data = await response.json();
                 
+                // Remove typing indicator
+                removeTypingIndicator();
+                
                 if (data.error) {
-                    addMessage(`❌ Error: ${data.error}\n\n${data.message || ''}`, false);
+                    addChatMessage('assistant', 'Sorry, I encountered an error. Please try again.');
                 } else {
-                    addMessage(data.answer, false, data.sources, data.suggest_ticket, question);
+                    addChatMessage('assistant', data.answer, data.sources);
                 }
+                
             } catch (error) {
-                removeLoading();
-                addMessage(`❌ Sorry, I encountered an error: ${error.message}\n\nPlease check:\n1. Flask server is running\n2. GROQ_API_KEY is set in .env file\n3. Try refreshing the page`, false);
-                console.error('Error:', error);
+                removeTypingIndicator();
+                addChatMessage('assistant', 'Sorry, I encountered an error. Please try again.');
+                console.error('Chat error:', error);
             } finally {
-                sendButton.disabled = false;
+                chatInput.disabled = false;
+                chatSendBtn.disabled = false;
+                chatInput.focus();
             }
         }
 
-        function openTicketModal(question = '') {
-            ticketModal.style.display = 'block';
-            document.getElementById('ticketSubject').value = question;
-            document.getElementById('ticketDescription').value = `Original Question: ${question}\n\nAdditional Details:\n`;
-        }
-
-        function closeTicketModal() {
-            ticketModal.style.display = 'none';
-            ticketForm.reset();
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == ticketModal) {
-                closeTicketModal();
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
             }
         }
 
-        // Close button
-        document.querySelector('.close').onclick = closeTicketModal;
-
-        // Handle ticket form submission
-        ticketForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitButton = document.getElementById('submitTicket');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Creating...';
-
-            const ticketData = {
-                email: document.getElementById('ticketEmail').value,
-                subject: document.getElementById('ticketSubject').value,
-                description: document.getElementById('ticketDescription').value,
-                priority: parseInt(document.getElementById('ticketPriority').value)
-            };
-
-            userEmail = ticketData.email;
-
-            try {
-                const response = await fetch(`${API_URL}/create-ticket`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(ticketData)
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.success) {
-                    closeTicketModal();
-                    
-                    const successMessage = `✅ Support ticket created successfully!\nTicket ID: #${data.ticket_id}\nOur team will respond to you soon at ${ticketData.email}`;
-                    
-                    addMessage(successMessage, false);
-                } else {
-                    alert('Failed to create ticket: ' + (data.error || 'Unknown error'));
-                }
-            } catch (error) {
-                alert('Error creating ticket: ' + error.message);
-                console.error('Error:', error);
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Create Ticket';
-            }
-        });
-
-        // Event listeners
-        sendButton.addEventListener('click', sendMessage);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Check health on load and periodically
+        // Initialize
         checkHealth();
         setInterval(checkHealth, 5000);
     </script>

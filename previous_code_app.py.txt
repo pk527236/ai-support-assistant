@@ -1,0 +1,650 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+from unittest.mock import MagicMock
+sys.modules['posthog'] = MagicMock()
+
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from langchain_community.vectorstores import Chroma
+from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
+from langchain_groq import ChatGroq
+import os
+from dotenv import load_dotenv
+import requests
+import re
+from datetime import datetime
+
+# Import smart hybrid search
+from smart_hybrid_search import get_smart_searcher, is_dvsum_related
+
+load_dotenv()
+
+app = Flask(__name__)
+CORS(app)
+
+# Configuration
+FRESHSERVICE_DOMAIN = os.getenv('FRESHSERVICE_DOMAIN', 'your-domain.freshservice.com')
+FRESHSERVICE_API_KEY = os.getenv('FRESHSERVICE_API_KEY', 'your-api-key')
+GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
+
+# Global variables
+vector_store = None
+qa_chain = None
+standalone_llm = None
+smart_searcher = None
+
+# Priority level configurations
+PRIORITY_LEVELS = {
+    1: {"name": "Critical", "sla": "1 hour", "response_time": "Immediate"},
+    2: {"name": "High", "sla": "4 hours", "response_time": "Within 30 minutes"},
+    3: {"name": "Medium", "sla": "1 business day", "response_time": "Within 2 hours"},
+    4: {"name": "Low", "sla": "3 business days", "response_time": "Within 24 hours"}
+}
+
+def get_embeddings():
+    """Get embeddings for vector store"""
+    try:
+        from langchain_community.embeddings import HuggingFaceEmbeddings
+        print("🔧 Loading HuggingFace embeddings...")
+        embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={'device': 'cpu'}
+        )
+        print("✅ Embeddings loaded")
+        return embeddings
+    except Exception as e:
+        print(f"❌ Embeddings failed: {e}")
+        raise
+
+def initialize_llm():
+    """Initialize Groq LLM"""
+    global standalone_llm
+    
+    if not GROQ_API_KEY:
+        print("⚠️ No GROQ_API_KEY found")
+        return None
+    
+    try:
+        standalone_llm = ChatGroq(
+            groq_api_key=GROQ_API_KEY,
+            model_name="llama-3.3-70b-versatile",
+            temperature=0.3,
+            max_tokens=2048
+        )
+        print("✅ Groq LLM initialized")
+        return standalone_llm
+    except Exception as e:
+        print(f"❌ Error initializing Groq: {e}")
+        return None
+
+def initialize_qa_system():
+    """Initialize BOTH search methods"""
+    global vector_store, qa_chain, smart_searcher
+    
+    llm = initialize_llm()
+    if not llm:
+        return
+    
+    print("\n" + "="*80)
+    print("🚀 Initializing AI Support Agent")
+    print("="*80)
+    
+    # Method 1: Smart Hybrid Search
+    print("\n📊 Method 1: Smart Hybrid Search (Keyword-based)")
+    smart_searcher = get_smart_searcher()
+    
+    if smart_searcher and smart_searcher.articles:
+        print(f"✅ Loaded {len(smart_searcher.articles)} articles")
+    else:
+        print("⚠️ No articles found. Run: python zendesk_scraper.py")
+    
+    # Method 2: Vector Search
+    print("\n🧠 Method 2: Vector Search (Semantic)")
+    persist_directory = "./chroma_db"
+    
+    if os.path.exists(persist_directory):
+        try:
+            embeddings = get_embeddings()
+            vector_store = Chroma(
+                persist_directory=persist_directory,
+                embedding_function=embeddings
+            )
+            
+            test_results = vector_store.similarity_search("test", k=1)
+            if test_results:
+                print(f"✅ Vector database loaded")
+                
+                prompt_template = """You are an expert DVSum technical support assistant.
+
+Context from knowledge base:
+{context}
+
+Question: {question}
+
+Provide a clear, detailed answer using the context above. Include step-by-step instructions when relevant.
+
+Answer:"""
+
+                PROMPT = PromptTemplate(
+                    template=prompt_template, 
+                    input_variables=["context", "question"]
+                )
+                
+                qa_chain = RetrievalQA.from_chain_type(
+                    llm=llm,
+                    chain_type="stuff",
+                    retriever=vector_store.as_retriever(search_kwargs={"k": 3}),
+                    chain_type_kwargs={"prompt": PROMPT},
+                    return_source_documents=True
+                )
+            else:
+                print("⚠️ Vector database is empty")
+                vector_store = None
+                
+        except Exception as e:
+            print(f"⚠️ Vector search failed: {e}")
+            vector_store = None
+    else:
+        print("⚠️ No vector database found")
+    
+    print("="*80 + "\n")
+
+def analyze_ticket_priority(ticket_text):
+    """
+    Analyze ticket and determine priority level using AI
+    Returns: priority_level (1-4), reasoning, urgency_indicators
+    """
+    if not standalone_llm:
+        return 3, "Default priority", []
+    
+    priority_analysis_prompt = f"""You are a support ticket triage expert. Analyze this support ticket and determine its priority level.
+
+TICKET CONTENT:
+{ticket_text}
+
+PRIORITY LEVELS:
+1 - CRITICAL: System down, data loss, security breach, production outage affecting multiple users
+2 - HIGH: Major functionality broken, significant performance issues, blocking workflow
+3 - MEDIUM: Feature not working as expected, moderate impact, workaround available
+4 - LOW: Minor issues, cosmetic problems, feature requests, questions
+
+Analyze the ticket for:
+- Urgency keywords (down, critical, urgent, ASAP, production, outage, error, failed)
+- Impact scope (multiple users, single user, team, organization)
+- Business impact (revenue loss, deadline, compliance, security)
+- Severity of issue (blocking work, inconvenient, minor)
+
+Respond in this EXACT format:
+PRIORITY: [1-4]
+REASONING: [One sentence explanation]
+INDICATORS: [Comma-separated list of urgency indicators found]"""
+
+    try:
+        response = standalone_llm.invoke(priority_analysis_prompt)
+        analysis = response.content
+        
+        # Parse response
+        priority_match = re.search(r'PRIORITY:\s*(\d)', analysis)
+        reasoning_match = re.search(r'REASONING:\s*(.+?)(?=INDICATORS:|$)', analysis, re.DOTALL)
+        indicators_match = re.search(r'INDICATORS:\s*(.+?)$', analysis, re.DOTALL)
+        
+        priority = int(priority_match.group(1)) if priority_match else 3
+        reasoning = reasoning_match.group(1).strip() if reasoning_match else "Standard priority assignment"
+        indicators = [i.strip() for i in indicators_match.group(1).split(',')] if indicators_match else []
+        
+        return priority, reasoning, indicators
+    
+    except Exception as e:
+        print(f"⚠️ Priority analysis failed: {e}")
+        return 3, "Default priority due to analysis error", []
+
+def extract_ticket_info(ticket_text):
+    """
+    Extract structured information from ticket text
+    Returns: dict with ticket_id, subject, description, requester
+    """
+    ticket_info = {
+        "ticket_id": None,
+        "subject": None,
+        "description": ticket_text,
+        "requester": None,
+        "timestamp": datetime.now().isoformat()
+    }
+    
+    # Try to extract ticket ID
+    ticket_id_patterns = [
+        r'Ticket\s*#?\s*:?\s*(\d+)',
+        r'ID\s*:?\s*(\d+)',
+        r'#(\d{4,})'
+    ]
+    for pattern in ticket_id_patterns:
+        match = re.search(pattern, ticket_text, re.IGNORECASE)
+        if match:
+            ticket_info["ticket_id"] = match.group(1)
+            break
+    
+    # Try to extract subject/title
+    subject_patterns = [
+        r'Subject\s*:?\s*(.+?)(?:\n|$)',
+        r'Title\s*:?\s*(.+?)(?:\n|$)',
+        r'Issue\s*:?\s*(.+?)(?:\n|$)'
+    ]
+    for pattern in subject_patterns:
+        match = re.search(pattern, ticket_text, re.IGNORECASE)
+        if match:
+            ticket_info["subject"] = match.group(1).strip()
+            break
+    
+    # Try to extract requester
+    requester_patterns = [
+        r'From\s*:?\s*(.+?)(?:\n|$)',
+        r'Requester\s*:?\s*(.+?)(?:\n|$)',
+        r'User\s*:?\s*(.+?)(?:\n|$)'
+    ]
+    for pattern in requester_patterns:
+        match = re.search(pattern, ticket_text, re.IGNORECASE)
+        if match:
+            ticket_info["requester"] = match.group(1).strip()
+            break
+    
+    return ticket_info
+
+def generate_acknowledgment(ticket_info, priority_level, reasoning):
+    """Generate professional ticket acknowledgment"""
+    priority_info = PRIORITY_LEVELS[priority_level]
+    
+    acknowledgment = f"""🎫 TICKET ACKNOWLEDGMENT
+{'='*80}
+
+"""
+    
+    if ticket_info["ticket_id"]:
+        acknowledgment += f"Ticket ID: #{ticket_info['ticket_id']}\n"
+    
+    if ticket_info["subject"]:
+        acknowledgment += f"Subject: {ticket_info['subject']}\n"
+    
+    if ticket_info["requester"]:
+        acknowledgment += f"Requester: {ticket_info['requester']}\n"
+    
+    acknowledgment += f"""
+Priority Level: {priority_info['name']} (P{priority_level})
+Response SLA: {priority_info['response_time']}
+Resolution SLA: {priority_info['sla']}
+
+Priority Assessment: {reasoning}
+
+Status: ✅ Acknowledged and assigned to support team
+Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+{'='*80}
+"""
+    
+    return acknowledgment
+
+def generate_support_response(ticket_text, ticket_info, priority_level):
+    """
+    Generate intelligent support response using knowledge base
+    """
+    sources = []
+    answer = ""
+    search_methods_used = []
+    
+    try:
+        # Determine if this is DVSum-related
+        if is_dvsum_related(ticket_text):
+            print(f"\n🎯 DVSum-related ticket detected")
+            
+            context_parts = []
+            
+            # Method 1: Keyword Search
+            if smart_searcher and smart_searcher.articles:
+                print("🔍 Searching knowledge base (Keyword)...")
+                try:
+                    keyword_context = smart_searcher.search_and_get_context(
+                        ticket_text, 
+                        max_articles=3
+                    )
+                    
+                    if keyword_context:
+                        context_parts.append(("Keyword Search", keyword_context))
+                        search_methods_used.append("Knowledge Base")
+                        
+                        urls = re.findall(r'URL: (https?://[^\s]+)', keyword_context)
+                        sources.extend(urls)
+                except Exception as e:
+                    print(f"⚠️ Keyword search failed: {e}")
+            
+            # Method 2: Semantic Search
+            if vector_store:
+                print("🧠 Searching knowledge base (Semantic)...")
+                try:
+                    docs = vector_store.similarity_search(ticket_text, k=3)
+                    
+                    if docs:
+                        semantic_context = "\n\nRELATED DOCUMENTATION:\n\n"
+                        for i, doc in enumerate(docs, 1):
+                            semantic_context += f"Document {i}:\n{doc.page_content[:1500]}\n\n"
+                        
+                        context_parts.append(("Semantic Search", semantic_context))
+                        search_methods_used.append("Documentation")
+                except Exception as e:
+                    print(f"⚠️ Semantic search failed: {e}")
+            
+            # Generate response with context
+            if context_parts:
+                combined_context = ""
+                for method, context in context_parts:
+                    combined_context += f"\n{'='*60}\n{method.upper()}\n{'='*60}\n{context}\n"
+                
+                priority_info = PRIORITY_LEVELS[priority_level]
+                
+                support_prompt = f"""You are a professional DVSum technical support agent. A support ticket has been submitted.
+
+TICKET PRIORITY: {priority_info['name']} (P{priority_level})
+RESPONSE SLA: {priority_info['response_time']}
+
+TICKET CONTENT:
+{ticket_text}
+
+KNOWLEDGE BASE INFORMATION:
+{combined_context}
+
+Your task as a support agent:
+1. Acknowledge that you understand the issue
+2. Provide a clear, step-by-step solution based on the knowledge base
+3. Be empathetic and professional
+4. For P1/P2 tickets, emphasize urgency and provide immediate action items
+5. Include relevant documentation links if available
+6. Offer next steps if the solution doesn't work
+
+Provide your response in this format:
+
+**Understanding Your Issue:**
+[Brief summary showing you understand the problem]
+
+**Solution:**
+[Detailed step-by-step resolution]
+
+**Additional Resources:**
+[Links to relevant documentation if available]
+
+**Next Steps:**
+[What to do if this doesn't resolve the issue]
+
+Generate your support response:"""
+
+                response = standalone_llm.invoke(support_prompt)
+                answer = response.content
+                
+                if not sources:
+                    sources = ["DVSum Knowledge Base"]
+        
+        # Fallback to general support response
+        if not answer:
+            print("🌐 Generating general support response...")
+            
+            priority_info = PRIORITY_LEVELS[priority_level]
+            
+            general_prompt = f"""You are a professional technical support agent specializing in DVSum, AWS, DevOps, and IT Support.
+
+TICKET PRIORITY: {priority_info['name']} (P{priority_level})
+
+TICKET CONTENT:
+{ticket_text}
+
+Provide a professional support response with:
+1. Acknowledgment of the issue
+2. Troubleshooting steps or solution
+3. Empathy and professionalism
+4. Next steps
+
+Response:"""
+            
+            response = standalone_llm.invoke(general_prompt)
+            answer = response.content
+            sources = ["General Support Knowledge"]
+            search_methods_used.append("General Knowledge")
+        
+        return answer, sources, search_methods_used
+    
+    except Exception as e:
+        print(f"❌ Error generating response: {e}")
+        return "I apologize, but I'm experiencing technical difficulties. A support team member will assist you shortly.", [], []
+
+@app.route('/handle-ticket', methods=['POST'])
+def handle_ticket():
+    """
+    Main endpoint for handling support tickets
+    This processes the ticket like a real support agent
+    """
+    if not standalone_llm:
+        return jsonify({
+            "error": "AI agent not initialized. Set GROQ_API_KEY in .env"
+        }), 400
+    
+    data = request.json
+    ticket_text = data.get('ticket_text', '')
+    
+    if not ticket_text:
+        return jsonify({"error": "No ticket text provided"}), 400
+    
+    try:
+        print(f"\n{'='*80}")
+        print(f"🎫 NEW TICKET RECEIVED")
+        print(f"{'='*80}\n")
+        
+        # Step 1: Extract ticket information
+        print("📋 Step 1: Extracting ticket information...")
+        ticket_info = extract_ticket_info(ticket_text)
+        
+        # Step 2: Analyze and determine priority
+        print("🎯 Step 2: Analyzing priority level...")
+        priority_level, reasoning, indicators = analyze_ticket_priority(ticket_text)
+        priority_info = PRIORITY_LEVELS[priority_level]
+        
+        print(f"   Priority: P{priority_level} - {priority_info['name']}")
+        print(f"   Reasoning: {reasoning}")
+        
+        # Step 3: Generate acknowledgment
+        print("✉️ Step 3: Generating acknowledgment...")
+        acknowledgment = generate_acknowledgment(ticket_info, priority_level, reasoning)
+        
+        # Step 4: Generate support response
+        print("💬 Step 4: Generating support response...")
+        support_response, sources, search_methods = generate_support_response(
+            ticket_text, 
+            ticket_info, 
+            priority_level
+        )
+        
+        print(f"✅ Ticket processed successfully\n{'='*80}\n")
+        
+        # Return complete agent response
+        return jsonify({
+            "success": True,
+            "ticket_info": ticket_info,
+            "priority": {
+                "level": priority_level,
+                "name": priority_info['name'],
+                "sla_response": priority_info['response_time'],
+                "sla_resolution": priority_info['sla'],
+                "reasoning": reasoning,
+                "urgency_indicators": indicators
+            },
+            "acknowledgment": acknowledgment,
+            "support_response": support_response,
+            "sources": sources,
+            "search_methods_used": search_methods,
+            "timestamp": datetime.now().isoformat()
+        })
+    
+    except Exception as e:
+        print(f"\n❌ Error processing ticket: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            "error": str(e),
+            "message": "Error processing ticket"
+        }), 500
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    """Original chat endpoint (kept for backward compatibility)"""
+    if not standalone_llm:
+        return jsonify({
+            "error": "LLM not initialized. Set GROQ_API_KEY in .env"
+        }), 400
+    
+    data = request.json
+    question = data.get('question', '')
+    
+    if not question:
+        return jsonify({"error": "No question provided"}), 400
+    
+    try:
+        sources = []
+        answer = ""
+        search_methods_used = []
+        
+        if is_dvsum_related(question):
+            context_parts = []
+            
+            if smart_searcher and smart_searcher.articles:
+                try:
+                    keyword_context = smart_searcher.search_and_get_context(
+                        question, 
+                        max_articles=2
+                    )
+                    
+                    if keyword_context:
+                        context_parts.append(("Keyword Search", keyword_context))
+                        search_methods_used.append("Keyword Search")
+                        urls = re.findall(r'URL: (https?://[^\s]+)', keyword_context)
+                        sources.extend(urls)
+                except Exception as e:
+                    print(f"⚠️ Keyword search failed: {e}")
+            
+            if vector_store:
+                try:
+                    docs = vector_store.similarity_search(question, k=2)
+                    
+                    if docs:
+                        semantic_context = "\n\nSEMANTIC SEARCH RESULTS:\n\n"
+                        for i, doc in enumerate(docs, 1):
+                            semantic_context += f"Result {i}:\n{doc.page_content[:1500]}\n\n"
+                        
+                        context_parts.append(("Semantic Search", semantic_context))
+                        search_methods_used.append("Semantic Search")
+                except Exception as e:
+                    print(f"⚠️ Semantic search failed: {e}")
+            
+            if context_parts:
+                combined_context = ""
+                for method, context in context_parts:
+                    combined_context += f"\n{'='*80}\n"
+                    combined_context += f"FROM {method.upper()}:\n"
+                    combined_context += f"{'='*80}\n"
+                    combined_context += context + "\n"
+                
+                enhanced_prompt = f"""You are an expert DVSum technical support assistant.
+
+I've searched the knowledge base using multiple methods and found this information:
+
+{combined_context}
+
+User Question: {question}
+
+Using the information above, provide a clear, detailed, step-by-step answer. Combine insights from all sources. Reference specific articles when relevant.
+
+Answer:"""
+                
+                response = standalone_llm.invoke(enhanced_prompt)
+                answer = response.content
+                
+                if not sources:
+                    sources = ["DVSum Knowledge Base"]
+        
+        if not answer:
+            if qa_chain:
+                result = qa_chain({"query": question})
+                answer = result['result']
+                sources = [doc.page_content[:200] + "..." for doc in result['source_documents']]
+                search_methods_used.append("QA Chain")
+            else:
+                general_prompt = f"""You are an expert technical support assistant specializing in DVSum, AWS, DevOps, and IT Support.
+
+Question: {question}
+
+Provide a clear, accurate, helpful answer with step-by-step instructions when relevant.
+
+Answer:"""
+                
+                response = standalone_llm.invoke(general_prompt)
+                answer = response.content
+                sources = ["General AI Knowledge"]
+                search_methods_used.append("General Knowledge")
+        
+        return jsonify({
+            "answer": answer,
+            "sources": sources,
+            "search_methods_used": search_methods_used,
+            "total_methods": len(search_methods_used)
+        })
+    
+    except Exception as e:
+        print(f"\n❌ Error: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            "error": str(e),
+            "message": "Error processing request"
+        }), 500
+
+@app.route('/health', methods=['GET'])
+def health():
+    """Health check with detailed status"""
+    article_count = len(smart_searcher.articles) if smart_searcher else 0
+    
+    return jsonify({
+        "status": "healthy",
+        "agent_mode": "support_ticket_handler",
+        "llm": "initialized" if standalone_llm else "not initialized",
+        "search_methods": {
+            "keyword_search": {
+                "enabled": bool(smart_searcher and smart_searcher.articles),
+                "articles_count": article_count
+            },
+            "semantic_search": {
+                "enabled": bool(vector_store),
+                "database_exists": os.path.exists("./chroma_db")
+            }
+        },
+        "capabilities": [
+            "Ticket acknowledgment",
+            "Priority assessment",
+            "Intelligent response generation",
+            "Knowledge base search",
+            "SLA tracking"
+        ]
+    })
+
+if __name__ == '__main__':
+    print("\n" + "="*80)
+    print("🎫 AI SUPPORT AGENT - Ticket Handler Mode")
+    print("="*80)
+    print("Features:")
+    print("  • Automatic ticket acknowledgment")
+    print("  • AI-powered priority assessment (P1-P4)")
+    print("  • Intelligent response generation")
+    print("  • Knowledge base search")
+    print("  • SLA tracking")
+    print("="*80 + "\n")
+    
+    initialize_qa_system()
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+    
