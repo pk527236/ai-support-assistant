@@ -1,0 +1,130 @@
+Title: Foundational DQ - Custom Query
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25211951751060-Foundational-DQ-Custom-Query
+================================================================================
+
+In this Article:
+Overview
+Why is it Important?
+How to Configure the Custom Query Rule
+Step 1: Log in to DvSum
+Step 2: Access the Data Quality Tab
+Step 3: Add a New Rule
+Step 4: Configure the Custom Query
+Step 5: Validate & Execute
+Overview
+The
+Custom Query Rule
+allows users to create and execute
+custom SQL queries
+for advanced data validation, analysis, and reporting. It provides flexibility to define unique data quality checks beyond predefined rules, enabling users to tailor queries to their specific needs.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+Why is it Important?
+The
+Custom Query Rule
+is essential for:
+Complex Data Validations
+– Ensuring data integrity using custom conditions.
+Advanced Data Analytics
+– Running complex aggregations and transformations.
+Tailored Reporting
+– Extracting and monitoring specific insights from data.
+For example, users can create a query to:
+Identify duplicate customer records by checking for repeated Customer_IDs.
+Verify if order totals match invoice amounts across multiple tables.
+Detect missing transactions in a financial dataset by checking sequential order numbers.
+How to Configure the Custom Query Rule
+Step 1: Log in to DvSum
+Navigate to the
+Dictionaries
+>
+Database Tables
+tab.
+Select the relevant
+Data Source
+and
+Table Name
+.
+Step 2: Access the Data Quality Tab
+Select the
+Table Name
+.
+Click on the
+Data Quality
+tab.
+Choose
+Available Rules
+.
+Step 3: Add a New Rule
+Click the
+⊕ Add Rule
+button.
+Select the
+Foundational DQ
+category.
+From the list of options, choose
+Custom Query
+.
+Step 4: Configure the Custom Query
+In the Rule Wizard’s
+Basic Input
+section, provide:
+Rule Description
+– A clear description of the rule’s purpose.
+Custom Query
+– The SQL query you want to execute.
+Example SQL Query:
+SELECT Customer_ID, COUNT(*)
+FROM Orders
+GROUP BY Customer_ID
+HAVING COUNT(*) > 1;
+This query checks for duplicate
+Customer_IDs
+in the
+Orders
+table.
+Using Stored Procedures (for Oracle Data Sources Only)
+When creating a
+Custom Query rule
+for an
+Oracle data source
+, you can optionally enable the
+Stored Procedure
+checkbox.
+This allows the rule to execute a database stored procedure instead of a regular SQL
+SELECT
+query.
+Stored Procedure Overview
+When the
+Stored Procedure
+option is enabled, the Data Quality rule will execute a stored procedure that returns its result as a
+REFCURSOR
+.
+This means the procedure must output a result set (similar to a query output) that DvSum can read and use for Data Quality checks.
+How it Works
+Select the
+Stored Procedure
+checkbox under
+Basic Input
+.
+Enter the procedure name and its parameters in the
+Custom Query
+field.
+Example:
+PROC_NAME(param1, param2, ..., resultparam
+OUT
+SYS_REFCURSOR);
+The platform executes this procedure on the connected Oracle database.
+The result returned via the
+SYS_REFCURSOR
+will be used as the dataset for the rule.
+Note:
+The Stored Procedure option is available
+only for Oracle data sources
+. For other data sources, use a standard SQL query instead.
+Step 5: Validate & Execute
+After saving the rule, review its definition.
+Click
+Run
+to execute and test the rule.
+View the results and refine the query if needed.

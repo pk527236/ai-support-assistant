@@ -1,0 +1,481 @@
+Title: Guide on using Address Validation API
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360056932812-Guide-on-using-Address-Validation-API
+================================================================================
+
+Overview
+This document is a guide on how to use Dvsum Address Validation API. Dvsum Address Validation API helps the users to validate their address data thus getting a clean and more meaningful and understandable address.
+In this document, we will learn the following things:
+Dvsum Address Validation API endpoint: The REST endpoint to access the amazing Address Validation functionality
+The HTTP method to ping this endpoint.
+Request Format: The format in which the data is to be sent to the API.
+Response Format: The format in which the API will return the validated results.
+Error Codes: If some error occurs, error codes help to know what kind of error it is.
+URL
+https://apis.dvsum.com/address-validation
+Method
+The request type is
+POST
+.
+Authentication Header
+Request header should contain the following header.
+x-api-key: <api-key-value>
+Request Payload
+The address data needs to be sent to API in the request body of the POST request. Following is the structure of how the request body is to be created.
+{
+"addresses": [
+{
+"address_line1": "",
+"city": "",
+"zip_code": "",
+"country": "",
+"company_name": "",
+"address_line2": "",
+"address_line3": "",
+"state": "",
+"other_address_lines": ""
+}
+],
+"case_format": "",
+"zip_code_format": ""
+}
+Now, let us dig deep into each of these fields.
+“addresses”
+(mandatory)
+contains the address data that is to be validated. It can contain the following fields.
+“address_line1”
+mainly contains the data of the street i.e., street number and street name. However, it can also contain the data that one is supposed to enter in “address_line2” and “address_line3”.
+“city”
+contains name of the city.
+“zip_code”
+contains zip code. It can be added either in US format or non-US format.
+“country”
+preferably contains abbreviated name of the country; however, full name can also be provided but in that case matched status will be
+For example,
+if user wants to enter United States, he/she should enter
+US
+rather than the full name.
+“address_line2” (optional)
+contains the data of Suite/Apartment/Building.
+“address_line3” (optional)
+contains c/o information and attention.
+“state” (optional)
+preferably contains abbreviated name of the state or province, however, full name can also be provided but in that case matched status will be
+For example, if user wants to enter New York, he/she should enter
+NY
+rather than the full name.
+“case_format” (optional)
+represents the case format in which the results are to be returned. It can have any of these three values,
+“UPR”
+: Converts the results in upper case.
+“LWR”
+: Converts the results in lower case.
+case_format is an
+optional
+field. Hence, if not provided, its default value will apply which will return results in
+InitCap
+format. For example, the street address “4000 KRESGE WAY REC DOCK” will be converted to “4000 Kresge Way Rec Dock”. Here, you can see that the first letter of each word is in uppercase and the rest are in lowercase.
+For
+OK
+result API is doing case sensitive check which means input address is exactly same as matched one then it is considering as ok. Any case change or standardization (Road to Rd) consider as Standardize.
+“zip_code_format” (optional)
+represents the Zip code format in which the results are to be returned.
+For US, zip code format can have any of these two values,
+“FULL”
+: Returns complete zip code which contains 5 initial letters and 4 additional letters in the following format “xxxxx-xxxx”.
+“INIT”
+: Returns only the initial 5 letters of the zip code.
+For non-US, zip code format might not be provided. API will validate it and might add a whitespace. For example, L5T2N7 will get converted to L5T 2N7. In this case, matched status will be standardized.
+zip_code_format is an optional field. Hence, if not provided “
+FULL
+” will be used as its value.
+Note:
+All the field names are to be provided in lower case.
+Out of these fields, it is mandatory to provide “address_line1”, “country” and either “city” or “zip_code”.
+Response Format
+The validated address is returned by the API in the form of JSON. Its format is as follows.
+{
+"results": [
+{
+"matched_address_line1": "",
+"matched_address_line2": "",
+"extra_information": "",
+"matched_city": "",
+"matched_state": "",
+"matched_zip_code": "",
+"matched_country": "",
+"matched_complete_address": "",
+"matched_location_type": "",
+"matched_status": "",
+"matched_status_name": "",
+"longitude_coordinates": "",
+"latitude_coordinates": "",
+"street_number": "",
+"street_name": "",
+"zip_code": "",
+"zip_code_suffix": "",
+"input_complete_address": "",
+"partial_match": "",
+"matched_address_types": []
+}
+]
+}
+Let us, dig into each of these fields.
+“results”
+will have a list of matched addresses. Address contains the following fields
+“matched_address_line1”
+contains the validated data of the street i.e., street number and street name
+“matched_address_line2”
+contains the validated data of Suite/Apartment/Building.
+“extra_information”
+contains extra address data, which is usually not part of standard address data, if input address contains any c/o information (phone number, person name etc.).
+“matched_city”
+contains validated name of the city.
+“matched_state”
+contains abbreviated name of the validated state or province.
+Here, it will still contain abbreviated name even if full name of state or province was provided in the input address. And hence, match status in this case will be Standardized.
+“matched_zip_code”
+contains the validated zip code.
+For
+US
+If
+“FULL”
+was provided as zip code format in the input address, full zip code will be provided in the following format 40207-4605.
+If
+“INIT”
+was provided as zip code format in the input address, only initial 5 letters of zip code will be provided. (only 40207 in this case)
+For
+non-US
+a zip code will either be provided as it is.
+or with an added whitespace will be provided. For example, L5T2N7 will get converted to L5T 2N7. In this case, matched status will be standardized.
+“matched_country”
+contains abbreviated name of the validated country.
+Here, it will still contain abbreviated name even if full name of the country was provided in the input address. And hence, match status in this case will be Standardized.
+“matched_complete_address”
+contains the complete validated address. It is basically comma separated concatenation of all the above explained matched fields. There is no comma in between
+“matched_address_line1”, “matched_address_line2”
+and
+“matched_state”, “matched_zip_code”
+“matched_location_type”
+stores additional data about the specified location. The following values are currently supported:
+"ROOFTOP"
+indicates that the returned result is a precise geocode for which we have location information accurate down to street address precision.
+"RANGE_INTERPOLATED"
+indicates that the returned result reflects an approximation (usually on a road) interpolated between two precise points (such as intersections). Interpolated results are generally returned when rooftop geocodes are unavailable for a street address.
+"GEOMETRIC_CENTER"
+indicates that the returned result is the geometric center of a result such as a polyline (for example, a street) or polygon (region).
+"APPROXIMATE"
+indicates that the returned result is approximate.
+“matched_status_name”
+contains the complete name of the matched status. It can contain one of these values:
+Incomplete
+OK
+Standardized
+Enrich
+No match
+Each of these statuses is explained next.
+“matched_status”
+contains the status of the matched address in abbreviated format. it may contain the following values based on intelligence:
+INC, OK, SD, ER, NM
+INC (Incomplete)
+i
+ndicates that the provided address data is not complete and is returned if any of the below conditions is fulfilled:
+address_line1 is empty.
+country is empty.
+city and zip_code both are empty.
+OK
+i
+s returned if following conditions are fulfilled:
+matched_location_type is “
+ROOFTOP
+”.
+matched_address_line1 exists.
+matched_city exists.
+matched_zip_code exists.
+matched_country exists.
+Input address and validated address are exactly same without any case difference or if
+"
+case_format"
+is
+"DEF"
+then input address and validated address will be compared as case insensitive.
+SD (Standardized)
+i
+s returned if following conditions are fulfilled:
+matched_location_type is "
+ROOFTOP"
+.
+matched_address_line1 exists.
+matched_city exists.
+matched_zip_code exists.
+matched_country exists.
+There is only
+ZIP Code
+deference between provided address and validated address (example: 63122-6604, 63122 or 63122, 63122-6604). If
+"
+zip_code_format"
+value is
+"INIT"
+then it will compare the first 5 characters only.
+There is
+abbreviated form
+found in the validated address (example: Henry Street, Henry St).
+ER (Enrich)
+i
+s returned if following conditions are fulfilled:
+matched_location_type is “
+ROOFTOP
+”.
+matched_address_line1 exists.
+matched_city or matched_zip_code exists.
+matched_country exists.
+Validated address is a bit changed from provided address (example: Henry Road, Henry St).
+There is only
+ZIP Code
+deference between provided address, validated address (example: 63121, 63122).
+NM (No match)
+is returned if none of the above status is returned.
+“longitude_coordinates”
+contains the longitude coordinate of the provided location.
+“latitude_coordinate”
+contains the latitude coordinate of the provided location.
+“street_name”
+contains the name of the validate street.
+“street_number”
+contains the number of the validated street.
+“zip_code”
+contains the initial 5 letters of the validated zip code. For example, if 40207-4605 was provided as a zip code, then
+“zip_code”,
+will contain only 40207.
+“zip_code_suffix”
+contains the last 4 letters of the validated zip code. For example, if 40207-4605 was provided as a zip code, then
+“zip_code_suffix”,
+will contain only 4605.
+“input_complete_address”
+contains complete address that was provided to the API. It is basically comma separated concatenation of all the input fields There is no comma in between
+"address_line1”, "address_line2", "address_line3", "other_address_lines"
+and
+"state”, "zip_code"
+“matched_address_types”
+array indicates the type of the returned result. This array contains a set of zero or more tags identifying the type of feature returned in the result. For example, a geocode of "Chicago" returns "locality" which indicates that "Chicago" is a city.
+The following types are supported and returned in the matched_address_type  arrays:
+street_address
+indicates a precise street address.
+route
+indicates a named route (such as "US 101").
+intersection
+indicates a major intersection, usually of two major roads.
+political
+indicates a political entity. Usually, this type indicates a polygon of some civil administration.
+country
+indicates the national political entity and is typically the highest order type.
+administrative_area_level_1
+indicates a first-order civil entity below the country level. Within the United States, these administrative levels are states. Not all nations exhibit these administrative levels. In most cases, administrative_area_level_1 short name will closely match ISO 3166-2 subdivisions and other widely circulated lists; however, this is not guaranteed as our geocoding results are based on a variety of signals and location data.
+administrative_area_level_2
+indicates a second-order civil entity below the country level. Within the United States, these administrative levels are counties. Not all nations exhibit these administrative levels.
+administrative_area_level_3
+indicates a third-order civil entity below the country level. This type indicates a minor civil division. Not all nations exhibit these administrative levels.
+administrative_area_level_4
+indicates a fourth-order civil entity below the country level. This type indicates a minor civil division. Not all nations exhibit these administrative levels.
+administrative_area_level_5
+indicates a fifth-order civil entity below the country level. This type indicates a minor civil division. Not all nations exhibit these administrative levels.
+colloquial_area
+indicates a commonly used alternative name for the entity.
+locality
+indicates an incorporated city or town political entity.
+sublocality
+indicates a first-order civil entity below a locality. For some locations may receive one of the additional types: sublocality_level_1 to sublocality_level_5. Each sublocality level is a civil entity. Larger numbers indicate a smaller geographic area.
+neighborhood
+indicates a named neighborhood
+premise
+indicates a named location, usually a building or collection of buildings with a common name
+subpremise
+indicates a first-order entity below a named location, usually a singular building within a collection of buildings with a common name
+postal_code
+indicates a postal code as used to address postal mail within the country.
+natural_feature
+indicates a prominent natural feature.
+airport
+indicates an airport.
+park
+indicates a named park.
+point_of_interest
+indicates a named point of interest. Typically, these "POI"s are prominent local entities that do not easily fit in another category, such as "Empire State Building" or "Eiffel Tower".
+In addition to the above, address components may include the types below.
+floor
+indicates the floor of a building address.
+establishment
+typically indicates a place that has not yet been categorized.
+landmark
+indicates a nearby place that is used as a reference, to aid navigation.
+point_of_interest
+indicates a named point of interest.
+parking indicates
+a parking lot or parking structure.
+post_box
+indicates a specific postal box.
+postal_town
+indicates a grouping of geographic areas, such as locality and sublocality, used for mailing addresses in some countries.
+room indicates
+the room of a building address.
+street_number
+indicates the precise street number.
+bus_station, train_station and transit_station indicate the location of a bus, train or public transit stop.
+An empty list of types indicates there are no known types for a particular address component, for example, Lieu-dit in France.
+“partial_match”
+indicates that the geocoder did not return an exact match for the original request, though it was able to match part of the requested address. You may wish to examine the original request for misspellings and/or an incomplete address.
+Partial matches most often occur for street addresses that do not exist within the locality you pass in the request. Partial matches may also be returned when a request matches two or more locations in the same locality
+Response Codes
+Following are the response codes that will help user know what kind of response is returned by the API.
+Code
+Description
+200
+{
+"results": []
+}
+It indicates successful processing of request. The results will have a list of matched addresses.
+400
+{
+"message": "Invalid request. Missing the
+'addresses' parameter.",
+"status": 400,
+"error": "Bad Request"
+}
+It indicates a parameter is missing from the request body.
+parameter that will cause this issue is "addresses".
+403
+{
+"message": "API key is missing or invalid in request header.",
+"status": 403,
+"error": "Forbidden"
+}
+It indicates that API key was missing or invalid in the request header.
+406
+{
+"message": "Expected input format is JSON.",
+"status": 406,
+"error": "Invalid input format"
+}
+It indicates the request body format is not correct i.e., backend is expecting json and client is sending request in some other format.
+500
+{
+"message": "Error while processing request.",
+"status": 500,
+"error": "Internal server error"
+}
+It indicates that something went wrong on server.
+504
+{
+"message": "The server didn’t respond in time.",
+"status": 504,
+"error": "Timeout"
+}
+It indicates that the request did not finish in time and request got timed-out.
+API Request, Response Examples
+Example 1
+Let see an example where the address data is added separately in address line 1,2 and 3.
+Request Body
+{
+"addresses": [
+{
+"address_line1": "4000 KRESGE WAY",
+"address_line2": "REC DOCK 1",
+"address_line3": "TAG 0001238279",
+"city": "LOUISVILLE",
+"state": "KY",
+"zip_code": "40219",
+"country": "US",
+"company_name": "BAPTIST HEALTH LOUISVILLE"
+}
+],
+"case_format": "",
+"zip_code_format": ""
+}
+Response Body
+{
+"results": [
+{
+"matched_city": "Louisville",
+"matched_status": "ER",
+"extra_information": "REC DOCK 1, TAG 0001238279",
+"matched_location_type": "ROOFTOP",
+"input_complete_address": "4000 KRESGE WAY REC DOCK 1 TAG 0001238279, LOUISVILLE, KY 40219, US",
+"matched_zip_code": "40207-4605",
+"matched_state": "KY",
+"matched_status_name": "Enrich",
+"street_name": "Kresge Way",
+"zip_code": "40207",
+"longitude_coordinates": "-85.6395549",
+"matched_complete_address": "4000 Kresge Way, Louisville, KY 40207-4605, US",
+"matched_address_line2": null,
+"zip_code_suffix": "4605",
+"partial_match": true,
+"matched_country": "US",
+"street_number": "4000",
+"latitude_coordinates": "38.2375702",
+"matched_address_type": [
+"street_address"
+],
+"matched_address_line1": "4000 Kresge Way",
+}
+]
+}
+Example 2
+Let see an example where the address data is added only in address line 1.
+Request Body
+{
+"addresses": [
+{
+"address_line1": "4000 KRESGE WAY REC DOCK 1 TAG 0001238279",
+"city": "LOUISVILLE",
+"state": "KY",
+"zip_code": "40219",
+"country": "US",
+"company_name": "BAPTIST HEALTH LOUISVILLE"
+}
+],
+"case_format": "",
+"zip_code_format": ""
+}
+Response Body
+{
+"results": [
+{
+"matched_city": "Louisville",
+"matched_status": "ER",
+"extra_information": "REC DOCK 1, TAG 0001238279",
+"matched_location_type": "ROOFTOP",
+"input_complete_address": "4000 KRESGE WAY REC DOCK 1 TAG 0001238279, LOUISVILLE, KY 40219, US",
+"matched_zip_code": "40207-4605",
+"matched_state": "KY",
+"matched_status_name": "Enrich",
+"street_name": "Kresge Way",
+"zip_code": "40207",
+"longitude_coordinates": "-85.6395549",
+"matched_complete_address": "4000 Kresge Way, Louisville, KY 40207-4605, US",
+"matched_address_line2": null,
+"zip_code_suffix": "4605",
+"partial_match": true,
+"matched_country": "US",
+"street_number": "4000",
+"latitude_coordinates": "38.2375702",
+"matched_address_type": [
+"street_address"
+],
+"matched_address_line1": "4000 Kresge Way",
+}
+]
+}
+Here, we can see that even if data was only added in address line 1, we were still able to get the expected validated address from the API and non-address related information is added in “
+extra-information
+” property.
+API Versioning
+1) All new changes to API will be published as new API Version. API consumer will be able to use both i.e. latest and previous versions of Address validation API using same API key. Currently only one version is available i.e.
+https://apis.dvsum.com/address-validation
+2) API consumer will have existing and new versions available for testing on Prod environment
+3) Every new version will be published with version number in URI i.e
+https://apis.dvsum.com/address-validation/v1
+https://apis.dvsum.com/address-validation/v2
+Address Validation Rule
+This is a
+link
+to Address Validation rules article.

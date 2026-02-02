@@ -1,0 +1,7 @@
+Title: How to reassign responsibilities of a user upon deletion?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115001891934-How-to-reassign-responsibilities-of-a-user-upon-deletion
+================================================================================
+
+Once a user is added by an administrator, he can only be soft deleted. i.e. the status of the user will change to “Deleted” and upon deletion, all of his responsibilities will be assigned to another user.
+When you Delete a User; An administrator can reassign his responsibilities to another user, admin or owner of DvSum account
+When you Delete an Administrator; An administrator, his responsibilities are reassigned to another administrator or owner of DvSum account.

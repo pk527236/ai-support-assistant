@@ -1,0 +1,71 @@
+Title: Data Quality Overview
+URL: https://dvsum.zendesk.com/hc/en-us/articles/23520582795924-Data-Quality-Overview
+================================================================================
+
+In this article:
+Edit Table
+Column Sequence
+Rules
+Introduction
+Data quality refers to the accuracy, completeness, consistency, and reliability of data within an organization. High-quality data ensures better decision-making, compliance, and operational efficiency. The Data Quality tab in DvSum contains all the settings related to rules. Users can access the Recommended & Available Rules created for the table opened and create new rules. This article provides an overview of all the major options available in the Data Quality tab.
+Edit Table
+Edit the table details by clicking on the
+Gear Icon
+button
+The following fields can be edited:
+Load Profile
+All Data
+: Select this load profile if data is fully refreshed regularly.
+Incremental Data
+: Select this if data is normally loaded incrementally (appended).
+Metric Time
+: If the load profile is set to incremental, then select from the Data and Timestamp fields in the table. This field will be used in relevant DQ rules, such as calculating daily load volumes.
+Exception Record Limit
+Users can define a threshold for how many exceptions a rule can generate. For example, if the user does not want more than 500 exceptions for any rule created on the table, they can set this limit accordingly.
+Filter Condition
+The
+Rich Filter Condition
+allows users to specify specific conditions to apply to columns before executing rules. Users can add a
+Filter Condition
+or a
+Custom Expression
+. Multiple conditions and condition groups can be set as needed.
+On the Rich Filters, users can add multiple conditions and condition groups according to the requirement
+Note: Condition group joins various conditions (the ones in the silver box)
+Column Sequence
+The sequence of the columns can be opened from the
+Gear icon
+of settings and the user can change the sequence of the columns. This change of sequence will be observed once the rules are executed.
+Rules
+Available Rules
+Create new rules and review existing rules.
+Select an existing rule to run it online or offline. For details, refer to the article
+Run Online/Offline.
+Mass Update:
+The Mass update option allows the users to set the:
+Workflow Status (Acknowledge or Resolve)
+Priority (High, Medium, Normal)
+Tags:
+Users can add or remove the tags from the Rules. Once any rule or rules are selected the option is visible above:
+More Actions:
+Add to Job -
+update the existing schedules or add a new schedule.
+Remove from Job -
+This option allows the user to remove any existing schedule of the rule(s)
+Clone rule
+- This option allows the user to clone the current rule
+Delete rule
+- This option allows the user to Remove the rule permanently
+Rules - Recommended rules
+Recommended Rules
+These are the rules that are recommended based on the profiling of the source's tables
+If the User wants to add a recommended rule they can simply click on the
+ADD
+button
+The following rule types are
+Recommended
+:
+Blank
+Value Range
+Count
+Metric

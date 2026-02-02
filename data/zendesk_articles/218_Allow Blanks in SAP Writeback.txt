@@ -1,0 +1,47 @@
+Title: Allow Blanks in SAP Writeback
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360051535313-Allow-Blanks-in-SAP-Writeback
+================================================================================
+
+This enhancement in the DvSum application enables the write-back of blank values to the source data. Let's proceed with the following steps to comprehend how this functionality operates.
+Users need to ensure that two checks are applied:
+Rule Level
+Table level
+Note:
+Please note that this configuration will be applicable to all rules except
+BLANKS RULE.
+Rule Level Check
+Step 1 :
+Value Range Rule
+Lets consider an example of VR rule in which
+first the rule definition will be checked for blanks and then table level configurations will be checked.
+For the rest of
+rules,
+only table level configurations will be checked to allow blanks.
+1. Go to the "Manage Rules" tab in the DvSum application.
+2. Search for any VR (Value Range) rule and click on the rule to open the rule detail page.
+3. Once on the rule detail page, navigate to the "Definition" tab.
+4. Click the "Edit" button.
+5. Under the "Specify Range value" section, find the "Include Blanks" checkbox.
+6. Check the "Include Blanks" box.
+7. Ensure that the "Valid" option is selected for values.
+8. Click the "Save" button to apply the changes.
+By following these steps, you can configure the VR rule to include blanks and ensure the "Valid" option is selected for values.
+Note:
+If "Include Blanks" is not checked and "Valid" option is selected above, still it won't allow to write back for blank values.
+Step 2 :
+Now click Analysis tab and see on which table the exceptions are showing up as shown below;
+Table Level Check
+Step 3 :
+Go to Profiling section, select source, table name and click the Select button. Once the record is displayed, select it and click Show details option as shown below;
+Step 4 :
+Once the details page is displayed, select Field Configuration tab. In this tab, "Allow Blanks" column is added. Now, search for the table name and verify Allow blanks option is checked for instance; in this case it was COUNTRY, re-run the rule as shown below;
+Step 5 :
+Once the rule is re-run, go back to rule detail page and click Cleanse button. On Cleanse detail page, note the Remaining Exception count shown above, click on Edit option for any field, remove the value, leave it blank and apply the change as shown below;
+Step 6 :
+As soon as you apply the change, observe that it allows the blank value and Remaining Exception count also gets reduced. Save it and Commit the change. as shown below;
+Step 7 :
+After change is committed, the field color turns Green which confirms that the write back was successful as shown below;
+Scenario 1 :
+When Rule level check is enabled but Table level check is disabled, in this case the Blank won't be write back-able and user will be notified at Cleanse detail page as shown below;
+Scenario 2 :
+When Table level check is enabled but Rule level check is disabled, in this case the Blank won't be write back-able and user will be notified at Cleanse detail page as shown below;

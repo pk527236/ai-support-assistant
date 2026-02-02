@@ -1,0 +1,359 @@
+Title: Configure Amazon S3 permissions: Use Existing Resources (Limited Permissions)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/37053578369684-Configure-Amazon-S3-permissions-Use-Existing-Resources-Limited-Permissions
+================================================================================
+
+In This Article:
+Overview
+Prerequisites
+Create an AWS IAM User
+Assign Custom Inline Policy
+Connect Your S3 Data Source in DvSum
+Overview:
+This guide walks you through configuring Amazon S3 as a data source in DvSum. It is intended for users who already have their S3 buckets created and populated and prefer to manage their AWS resources directly with limited IAM permissions.
+If you'd rather have DvSum manage the setup using AWS Glue (including crawlers and databases), please refer to
+Configure S3 Data Source in DvSum (Elevated Permissions Required)
+.
+1. Prerequisites
+Ensure the following before proceeding:
+You have access to an AWS account with appropriate permissions.
+Your Amazon S3 buckets are already created and populated with data.
+You are familiar with AWS IAM policies and can assign roles or managed policies.
+2. Create an AWS IAM User
+Create a new IAM user in your AWS account that DvSum will use to connect to S3.
+3. Assign Custom Inline Policy
+To fine-tune access, you can use a JSON policy like the following example. This ensures only the required buckets and services are accessible:
+Note:
+Please Ensure all comments are removed from the final policy JSON before deployment
+{
+"
+Version
+"
+:
+"
+2012-10-17
+"
+,
+"
+Statement
+"
+: [
+{
+"
+Sid
+"
+:
+"
+AthenaQueryExecution
+"
+,
+"
+Effect
+"
+:
+"
+Allow
+"
+,
+"
+Action
+"
+: [
+"
+athena:StartQueryExecution
+"
+,
+"
+athena:GetQueryExecution
+"
+,
+"
+athena:GetQueryResults
+"
+,
+"
+athena:StopQueryExecution
+"
+,
+"
+athena:GetWorkGroup
+"
+,
+"
+athena:ListDataCatalogs
+"
+],
+"
+Resource
+"
+:
+"
+*
+"
+/*
+--  Please Ensure all comments are removed from the final policy JSON                       before deployment ----
+Note:
+- To restrict Athena to a specific WorkGroup:
+Use Resource ARN like:
+"Resource": "arn:aws:athena:<REGION>:<YOUR-AWS-ACCOUNT-                                  ID>:workgroup/<YOUR-WORKGROUP-NAME>"
+- Example:
+"Resource": "arn:aws:athena:us-west-2:123123123123:workgroup/dvsum-                      workgroup"
+*/
+},
+{
+"
+Sid
+"
+:
+"
+GlueCatalogAndCrawlerAccess
+"
+,
+"
+Effect
+"
+:
+"
+Allow
+"
+,
+"
+Action
+"
+: [
+"
+glue:GetDatabase
+"
+,
+"
+glue:GetDatabases
+"
+,
+"
+glue:GetTable
+"
+,
+"
+glue:GetTables
+"
+,
+"
+glue:UpdateTable
+"
+,
+"
+glue:GetPartition
+"
+,
+"
+glue:GetPartitions
+"
+,
+"
+glue:GetCatalogImportStatus
+"
+],
+"
+Resource
+"
+:
+"
+*
+"
+/*
+---- Please Ensure all comments are removed from the final policy JSON                      before deployment ---
+Note: (remove these comments in actual policy JSON)
+- To restrict Glue access to specific Catalog/Databases/Tables:
+Glue Catalog ARN:
+"Resource":
+"arn:aws:glue:<region>:<account-id>:catalog"
+Glue Database ARN:
+"Resource":
+"arn:aws:glue:<region>:<account-id>:database/<database-                      name>"
+Glue Table ARN:
+"Resource":
+"arn:aws:glue:<region>:<account-id>:table/<database-                         name>"
+*/
+},
+{
+"
+Sid
+"
+:
+"
+S3DataSourceBucketsAccess
+"
+,
+"
+Effect
+"
+:
+"
+Allow
+"
+,
+"
+Action
+"
+: [
+"
+s3:GetObject
+"
+,
+"
+s3:ListBucket
+"
+,
+"
+s3:GetBucketLocation
+"
+],
+"
+Resource
+"
+: [
+/*
+Important:
+This policy limits access to specific S3 buckets only.
+As a result, only AWS Glue databases that catalog data stored in                      these allowed S3 buckets can be queried successfully. Make sure that                   any Glue Data Catalog resources (databases and tables) you use                          correspond to these permitted S3 buckets.
+*/
+"
+arn:aws:s3:::<YOUR-DATA-SOURCE-BUCKET-1>
+"
+,
+"
+ARN:AWS:S3:::<YOUR-DATA-SOURCE-BUCKET-1>/*
+"
+,
+"
+arn:aws:s3:::<YOUR-DATA-SOURCE-BUCKET-2>
+"
+,
+"
+arn:aws:s3:::<YOUR-DATA-SOURCE-BUCKET-2>/*
+"
+// Add more data buckets as needed
+]
+},
+{
+"
+Sid
+"
+:
+"
+AllowGetUserSelf
+"
+,
+"
+Effect
+"
+:
+"
+Allow
+"
+,
+"
+Action
+"
+:
+"
+iam:ListAttachedUserPolicies
+"
+,
+"
+Resource
+"
+:
+"
+arn:aws:iam::<YOUR-AWS-ACCOUNT-ID>:user/<YOUR-IAM-USER-NAME>
+"
+},
+{
+"
+Sid
+"
+:
+"
+S3AthenaQueryResultBucketAccess
+"
+,
+"
+Effect
+"
+:
+"
+Allow
+"
+,
+"
+Action
+"
+: [
+"
+s3:GetObject
+"
+,
+"
+s3:PutObject
+"
+,
+"
+s3:ListBucket
+"
+,
+"
+s3:GetBucketLocation
+"
+],
+"
+Resource
+"
+: [
+"
+arn:aws:s3:::<YOUR-ATHENA-STAGING-BUCKET>
+"
+,
+"
+arn:aws:s3:::<YOUR-ATHENA-STAGING-BUCKET>/*
+"
+]
+}
+]
+}
+Important:
+Please make sure to update the following placeholders in the policy JSON before deploying it:
+<REGION>
+: The AWS region where your resources are located (e.g., us-west-2).
+<YOUR-AWS-ACCOUNT-ID>
+: Your AWS account ID.
+<YOUR-WORKGROUP-NAME>
+: The name of your Athena workgroup.
+<YOUR-GLUEDB-NAME>
+: The name of your Glue database. It will be used for scanning S3 data sources.
+<YOUR-DATA-SOURCE-BUCKET-1>
+,
+<YOUR-DATA-SOURCE-BUCKET-2>
+: These are the names of your S3 data source buckets.
+It’s important to include the buckets associated with GlueDB in order to grant access to them. You may add more buckets as needed.
+<YOUR-IAM-USER-NAME>
+: The name of the IAM user for whom you want to allow self-service access.
+<YOUR-ATHENA-STAGING-BUCKET>
+: The name of your S3 bucket for Athena query results.
+Note: Ensure that all comments are removed from the final policy JSON before deployment.
+4. Connect Your S3 Data Source in DvSum
+After successfully creating the IAM user with the necessary permissions, follow these steps within DvSum:
+Navigate to Add Source:
+Go to the "Sources" section in the DvSum application and click on "Add Source."
+Select Amazon S3:
+Choose "Amazon S3" as the source type.
+Enter Credentials:
+Provide the "Access Key" and "Secret Key" associated with the IAM user you created.
+Verify Authentication:
+Click the "Check Authentication" button to ensure DvSum can successfully connect to your AWS environment using the provided credentials.
+Specify Glue Database and S3 Bucket(s):
+In the designated field for "Glue Database" enter the name of the AWS Glue database you wish to connect to.
+In the designated field for "S3 Staging Bucket" enter the name of the S3 bucket(s) containing used for athena metadata storage.
+Save Configuration:
+Click the "Save" button to finalize the Amazon S3 data source connection within DvSum.
+For step-by-step instructions and screenshots of this process, refer to
+this guide
+.

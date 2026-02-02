@@ -1,0 +1,73 @@
+Title: How CADDI Agents Interpret Questions and Follow-Up Requests
+URL: https://dvsum.zendesk.com/hc/en-us/articles/45239604841108-How-CADDI-Agents-Interpret-Questions-and-Follow-Up-Requests
+================================================================================
+
+Table of Contents
+Overview
+Types of Questions Supported
+Intent Logic and Processing Chains
+Analysis Chain Flow
+QA Chain Flow
+Action Chain Flow
+Data Elements Extracted from Questions
+Action Execution and Agentic Tools
+Supported Actions
+Overview
+CADDI agents are designed to understand different types of user questions and respond appropriately based on intent. Depending on how a question is phrased, the agent may analyze customer data, answer a general question, or perform a system action.
+This article explains the types of questions supported, how intent is evaluated, and when each processing chain is used.
+Types of Questions Supported
+CADDI agents support the following types of user questions.
+Customer-specific questions that include a unique identifier (e.g. customer ID).
+General or follow-up questions related to a domain or previous conversation.
+Requests to perform actions such as resetting a modem or creating a Jira ticket.
+The agent determines how to handle each question by evaluating intent flags.
+Intent Logic and Processing Chains
+Intent logic is defined within the agent configuration and controls how incoming questions are routed. Based on the detected intent, the agent selects one of three processing chains.
+Analysis Chain Flow
+The analysis chain is used for customer-specific data analysis.
+When this chain is used
+This chain is selected when the question contains a unique identifier. which are values. The question may also consist only of the unique identifier.
+Rules
+If no unique identifier is detected, this chain must not be used. This chain focuses on analyzing customer data across connected systems and does not perform actions.
+Example inputs
+Analyze
+<unique identifier>
+What issue is being faced by
+<unique identifier>
+QA Chain Flow
+The QA chain is used for general questions and follow-up queries.
+When this chain is used
+This chain is selected when no unique identifier is present, no action is requested, and the question is informational or refers to previous conversation context.
+Example inputs
+What does HFC mean in the telecom context?
+Can you identify the issue affecting customer
+<unique identifier>
+and suggest appropriate actions?
+Action Chain Flow
+The action chain is used when a user explicitly asks the agent to perform an action.
+When this chain is used
+This chain is selected when the user requests execution of a task that involves a real-world operation or a system update. If the request is a follow-up to a previous interaction, the agent internally rephrases the question to ensure the action is executed correctly.
+When an action is triggered, the agent executes one action at a time and verifies the outcome before proceeding. If additional steps are required, the agent confirms the result and asks the user how they would like to continue.
+Example actions
+Create a Jira ticket.
+Reset modem.
+Check modem status.
+Update CRM database.
+Data Elements Extracted from Questions
+To process requests correctly, the agent extracts specific data elements from user questions.
+Required data elements
+A unique identifier represents an identifier for a telecom customer.
+The agent can extract a minimum of one data element and multiple data elements as needed, based on the user’s question.
+Example
+For questions that require specific analysis, a unique identifier must be included in the request. This identifier allows the agent to identify the correct entity and retrieve the relevant data. Without it, the agent responds at a general level.
+Action Execution and Agentic Tools
+Actions performed by the agent are enabled through
+Agentic Tools
+.
+These tools define what actions the agent can perform and how those actions interact with external systems such as APIs and databases.
+Agentic Tools are built on predefined connections and commands. Connections define how the agent securely communicates with external systems, while commands define the specific actions that can be executed, such as rebooting a modem, checking modem status, updating customer records, or creating support tickets.
+Each agentic tool includes details such as the tool name, purpose, required inputs, connector type, and execution method. Tools may interact with systems through API-based integrations or database operations, depending on the nature of the action.
+Actions are executed only when explicitly requested by the user and follow controlled execution and verification logic to ensure safe and predictable behavior.
+Supported Actions
+The agent supports multiple predefined actions, including resetting a modem, checking modem status, creating Jira tickets, and updating CRM databases.
+Each action is executed only when explicitly requested and follows strict execution and verification rules.

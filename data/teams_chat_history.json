@@ -1,0 +1,12 @@
+[
+  {
+    "sender": "Customer",
+    "timestamp": "2024-01-15",
+    "content": "I cannot access the dashboard"
+  },
+  {
+    "sender": "Support Agent",
+    "timestamp": "2024-01-15",
+    "content": "Please clear your browser cache and try again"
+  }
+]

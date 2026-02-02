@@ -1,0 +1,39 @@
+Title: Chart Settings in CADDI
+URL: https://dvsum.zendesk.com/hc/en-us/articles/18506870411284-Chart-Settings-in-CADDI
+================================================================================
+
+In this Article:
+Charts in CADDI
+Charts Settings
+Human-readable format
+Attributes & Dates section
+Metric Fields section
+Charts in CADDI
+Presenting data in charts or graphical forms enhances understanding and analysis. Visual representations simplify complex information, allowing users to grasp trends, patterns, and outliers quickly. This visual approach fosters more efficient decision-making and enables deeper insights from the data. In CADDI we show data results in the form of charts so that users can have more valuable insights of the data.
+Within CADDI, three distinct chart types are available: Bar charts, Line charts, and Tile charts. When working with data results that include a Datetime column, the Line chart will be the default visualization, providing insights into temporal trends. Conversely, when the dataset lacks a Datetime column, the Bar chart will be automatically generated, aiding in the visualization of categorical comparisons. The Tile chart, a specialized representation, will exclusively manifest when the data output consists of a singular row and column intersection. Refer to the images below for a visual representation of each chart type.
+Line chart
+Bar chart
+Tile chart
+Charts Settings
+Both Line and Bar charts feature customizable settings that empower users to conduct more comprehensive data analyses. To access these settings, simply click on the designated icon located on the charts, as depicted in the image below. Upon clicking, the chart settings panel will seamlessly appear on the right-hand side of the grid, offering users a convenient and intuitive way to fine-tune their analytical experience.
+Chart settings panel will appear as shown below.
+On the settings panel, X-axis and Y-axis fields appear which show which attribute is drawn on X-axis and which Metric fields are drawn on Y-axis. Remember that X-axis will have only one attribute whereas Y-axis can have up to 2 metric fields as there can be Y1 and Y2-axis.
+If the attribute that is there on the X-axis is clicked, the data on the X-axis will get sorted in ascending order. If it is clicked for the second time, data will get sorted in descending order as shown below.
+Click on the X-axis field.
+Data will be sorted in ascending order on the x-axis and on the drawn chart as shown below:
+If that attribute field is clicked again, data be sorted in descending order on the x-axis and on chart:
+Now talking about the
+Y-Axis field
+on chart settings. There will be 2 metric fields for Y-Axis. One will be on the Y1 axis and the other one will be on the Y2 axis. So on the
+Y-Axis field
+on chart settings, if both the checkboxes are checked then both the fields will be drawn on the Y2 axis. And if both the checkboxes are unchecked, then both the fields will be drawn on the Y1 axis. If only one of the metric field's checkboxes is checked then that field will be drawn on Y2 whereas the one whose checkbox is not checked will be drawn on the Y1 axis.
+Human-readable format
+A toggle labeled "Human-readable format" is present. When enabled, it indicating that significant values within both the grid and chart will be presented in a user-friendly manner. This entails rendering values such as 10,000,000 as 10M and 24,000 as 24K for enhanced readability. Should users wish to revert to unformatted values for precise examination, they can conveniently deactivate this feature by toggling it off.
+Attributes & Dates section
+This section will have all the attributes and dates that can be drawn on X-axis. It will contain the string, date, and number type attributes. Users can click on any of the attributes and select it. Since there can only be one attribute on X-axis so if any of the attribute is selected from this section, then it will be drawn on the chart's X-axis.
+Metric Fields section
+This section will be disabled in case 2 metrics are already selected. In order to select some metric from this section, a maximum of one metric field should be pre-selected. Once it is enabled then user can select any of the metrics and it will be drawn on Y1-axis.
+If 2 metric fields are selected then all the fields will be disabled as shown below:
+So in order to select some metric field, first remove one or both fields from the Y-axis section:
+Then it will get enabled and the user will be able to select any of it:
+Once changes are made in the chart from settings and the user seeks to revert the chart to its original default configuration, the "Reset to default" button can be employed. By clicking this button, the chart will be reset to its initial state, restoring the original settings.

@@ -1,0 +1,167 @@
+Title: Azure SQL & Azure Synapse Analytics User Setup and Query Store Configuration for Metadata Extraction
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41243166846740-Azure-SQL-Azure-Synapse-Analytics-User-Setup-and-Query-Store-Configuration-for-Metadata-Extraction
+================================================================================
+
+In this Article:
+Overview
+Prerequisites
+Section 1: Query Store Configuration
+Section 2: User Creation and Permission Setup
+Section 3: Permission Requirements Matrix
+Section 4: Complete Setup Script
+Section 5: Alternative Contained User Setup
+Section 6: Validation and Testing
+Section 7: Troubleshooting Guide
+Section 8: Security Best Practices
+Section 9: Maintenance Recommendations
+Conclusion
+Overview
+This comprehensive guide provides step-by-step instructions for:
+Creating an Azure SQL Database user with required permissions.
+Enabling and configuring Query Store for lineage data collection.
+Validating the setup for metadata extraction queries.
+Note:
+For steps to configure Azure SQL or Azure Synapse Analytics as a source, refer to
+Configure Azure SQL or Azure Synapse Analytics
+Prerequisites
+Azure SQL Database with administrative access
+SQL Server Management Studio SSMS) version 16 or later,
+Administrative privileges on the target database
+Section 1 Query Store Configuration
+-> Understanding Query Store in Azure SQL Database
+Query Store is automatically enabled by default in Azure SQL Database, but may need configuration adjustments for optimal metadata collection.
+Note:
+Query Store cannot be disabled in Azure SQL Database, Single Database, and Elastic Pool.
+The Default configuration is optimized for continuous data collection
+Minimum permission required: VIEW DATABASE STATE for reading, ALTER DATABASE for configuration
+-> Enable Query Store Using SQL Server Management Studio
+Steps:
+Connect to your Azure SQL Database using SSMS
+In Object Explorer, right-click the target database
+Select
+Properties
+Navigate to the
+Query Store
+page
+In the
+Operation Mode Requested)
+box, select
+Read Write
+Configure additional settings if needed:
+Data Flush Interval Minutes)
+: 15 (default: 15
+Statistics Collection Interval Minutes
+: 60 (default: 60
+Max Size MB
+: 1000 (default for new databases)
+Query Store Capture Mode
+: Auto (recommended)
+Click
+OK
+to apply changes
+-> Enable Query Store Using T SQL Commands
+For Azure SQL Database:
+For Azure Synapse Analytics:
+-> Verify Query Store Configuration
+Check Query Store Status:
+Validation Test Query:
+Section 2 User Creation and Permission Setup
+-> Create Server Login Master Database)
+Connect to the
+master
+database as administrator:
+-> Create Database User
+Connect to your target database:
+-> Grant Essential Permissions
+Apply the minimum required permissions for metadata extraction:
+Section 3 Permission Requirements Matrix
+Query Component
+Required Permission
+Purpose
+INFORMATION_SCHEMA.TABLES
+db_datareader
+Table metadata extraction
+INFORMATION_SCHEMA.COLUMNS
+db_datareader
+Column metadata extraction
+INFORMATION_SCHEMA.CONSTRAINTS
+db_datareader
+Constraint metadata extraction
+sys.extended_properties
+VIEW DEFINITION
+Extended propertie MS_Description)
+sys.query_store_* views
+VIEW DATABASE STATE
+Query history for lineage
+sys.sql_modules
+VIEW DEFINITION
+View and procedure definitions
+sys.objects
+db_datareader
+Object metadata
+sys.schemas
+db_datareader
+Schema information
+Section 4 Complete Setup Script
+Section 5 Alternative Contained User Setup
+-> For enhanced security, use contained database users:
+Section 6 Validation and Testing
+-> Test Metadata Access
+Execute these validation queries with the new user:
+-> Permission Verification Query
+Section 7 Troubleshooting Guide
+-> Common Issues and Solutions
+Issue
+Symptoms
+Solution
+Query Store not collecting data
+Empty results from query store views
+Verify OPERATION_MODE is READ_WRITE
+Extended properties return NULL
+Missing descriptions in metadata
+Ensure VIEW DEFINITION permission granted
+INFORMATION_SCHEMA access denied
+Permission errors on schema views
+Confirm db_datareader role membership
+Login authentication fails
+Cannot connect with new user
+Verify login exists in master database
+-> Query Store Troubleshooting
+Check Query Store Health:
+Clear Query Store (if needed):
+Section 8 Security Best Practices
+-> Principle of Least Privilege
+The configuration provides:
+Read-only access
+to metadata and system catalogs
+No data modification
+capabilities
+No schema changes
+allowed
+Limited to metadata visibility
+only
+-> Password Security
+Use strong passwords with complexity
+Requirements: Consider password expiration
+policies for production, implement regular password rotation
+-> Monitoring and Auditing
+Monitor login attempts and failures
+Audit permission changes
+Review Query Store usage patterns
+Section 9 Maintenance Recommendations
+-> Regular Monitoring
+Check Query Store storage usage monthly
+Monitor permission assignments quarterly
+Review user access patterns regularly
+-> Performance Optimization
+Adjust Query Store retention policies based on needs
+Monitor Query Store's impact on database performance.
+Consider cleanup schedules for large databases
+Conclusion
+This documentation provides a comprehensive setup for extracting Azure SQL Database metadata, including proper Query Store configuration and user permissions. The setup follows security best practices while ensuring all necessary permissions for comprehensive metadata and lineage collection.
+Key Points:
+Query Store is essential for lineage data collection
+Minimum permissions follow the least-privilege principle
+Regular validation ensures continued functionality
+The troubleshooting guide addresses common issues
+If you need additional support, please refer to Microsoft documentation or contact your database administrator.

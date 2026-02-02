@@ -1,0 +1,20 @@
+Title: On Premise Gateway (SAWS) Advanced Settings (Configuration properties file)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360015361094-On-Premise-Gateway-SAWS-Advanced-Settings-Configuration-properties-file
+================================================================================
+
+Following the basic gateway setup, additional features are provided to enhance the experience for Dvsum users. You can conveniently adjust the settings through the gateway configuration file. This file is located within the webservice folder.
+Note: Read here if you are not sure
+how to install SAWS and run as a Service
+The configuration file allows gateway on your machine to communicate with DvSum application.
+SAWS Error Identification
+The flag "enable.log.sync" is false by default. If you set it to true, the activity logs of SAWS will be uploaded on S3 bucket which makes it easier for the DvSum team to monitor SAWS logs in case of errors during rule/thread execution.
+It is to be noted that your data remain private. We will not have access to your data but only the SAWS logs.
+Scheduled SAWS Reboot
+If you are concerned that SAWS process might be consuming a lot of memory, you can refresh/restart it to release un-used resources to ensure smooth running of SAWS.
+For this purpose, configuration file has rebootTime flag. Here you can give time in 24 hour format i.e. 18:45.
+Everyday at the specified time, SAWS will reboot and flush the memory.
+Port
+By Default, SAWS runs on port 8183. If you want to run it on some other port, you can simply change it from here and save file.
+SAWS Auto-Restart
+If for any rare reason SAWS crashes, it will restart on its own within 5 minutes. You may need to add SAWS exception in your browser. Otherwise the
+SAWS cloud will appear red.

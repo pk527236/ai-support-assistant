@@ -1,0 +1,242 @@
+Title: Exception Storage Integration for Rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/39857375831956-Exception-Storage-Integration-for-Rules
+================================================================================
+
+In this Article
+Overview
+1. Creating an Integration
+1.1 Access Integration Settings
+1.2 Configure the Integration
+2. DDL Script Generation & Execution
+3. Test Connection and Validation Steps
+3.1 Schema Match Failures
+3.2 Write-Back Access Errors
+4. Log All Rule Executions (Optional)
+4.1 Configuration Option: "Log All Rule Executions"
+4.2 What Happens When Enabled?
+5. Enabling Exception Storage on Rules
+5.1 Navigate to Rule Configuration
+5.2 Enable Exception Storage in the Workflow Section
+6. Running Rules with Exception Storage
+6.1 Run Rule → Online Execution
+6.2 Run Rule → Offline Execution
+6.3 Gateway Compatibility Scenarios
+7. Unsupported Integration Types
+7.1 Unsupported Databases
+7.2 Unsupported Rule Types
+Overview
+After a DQ rule is run, the exception records are stored in encrypted files local to the DvSum gateway when an on-premises gateway is used. The records are stored in an encrypted S3 bucket by default when the cloud gateway is used. In both cases the records are visible to users within the DvSum GUI and via API.
+Exception Storage Integration allows exception records to be stored in external database tables. This enables easier traceability, auditability, and integration with reporting systems or downstream analytics.
+1. Creating an Integration
+1.1 Access Integration Settings
+Navigate to:
+Administration → Account → Integrations (Tab)
+1.2 Configure the Integration
+Select the Data Source Type
+Choose a supported connection (currently limited to databases).
+Note:
+The Integrations tab is designed to support various types of external connections. As of now, it only supports
+Databases
+.
+Specify the Target Table Name
+This is where rule execution results will be stored.
+2. DDL Script Generation & Execution
+Once the source is configured, the system auto-generates a
+DDL script
+containing predefined columns (e.g., execution ID, rule ID, rule name, rule type, rule description, etc.). These fields are required for writing execution results to the target table.
+Dynamic Table Name:
+If you change the target table name, the table name in the DDL script will auto-update.
+Test Connection:
+If the user clicks on
+Test Connection
+before executing the script in the database, the table will not exist or may not be accessible. As a result, schema validation will be skipped, and the write-back operation will not be performed.
+Copy and Execute the DDL Script
+After the DDL is generated,
+copy it
+using the
+“Copy Code”
+button or from the dialog window.
+Execute the script in the
+same target database
+selected during integration setup. This creates the required table structure with predefined columns (e.g., execution ID, rule ID, rule name, rule type, etc.)
+3. Test Connection and Validation Steps
+After executing the DDL script in the selected database, return to the Integration setup and click
+Test Connection
+. The system performs the following three validation checks:
+Table Existence:
+The table must exist in the selected database.
+Schema Match:
+The table structure must match the expected schema (all required columns must be present).
+Write-Back Access:
+The system must be able to insert and delete a test record to verify permissions.
+3.1 Schema Match Failures
+If the table already exists but wasn’t created using the system-generated DDL script, it may lack one or more required columns.
+The
+Test Connection
+may fail during the schema validation step.
+Click
+“Show Error Details”
+to view the list of missing or mismatched columns.
+3.2 Write-Back Access Errors
+Scenario 1: Missing Insert Permission
+Even if the table structure is correct, the system will show:
+“Write-back access is not allowed – insert permission test failed”
+if the database user does not have insert rights.
+During validation, the platform attempts to insert dummy JSON data into the external table and immediately deletes it to confirm access.
+Note:
+This happens because, during Test Connection, the system tries to insert dummy JSON data into the external table.
+After the insertion, it deletes the dummy data. This helps validate whether write-back access is allowed.
+In this case, the insert test fails due to missing permissions.
+Scenario 2: Missing Delete Permission
+If insert permissions are present but delete permissions are missing, you can see:
+“Write-back access is not allowed – delete permission test failed”
+4. Log All Rule Executions (Optional)
+This option determines whether you want to store execution results
+only when exceptions are found
+, or
+for every run,
+even when no exceptions are triggered.
+4.1 Configuration Option: "Log All Rule Executions"
+During integration setup, you can see a checkbox labelled
+“Log all rule executions”
+.
+Enabled:
+Every rule execution is logged in the storage table, regardless of whether exceptions were found.
+Disabled (default):
+Only executions that generate exceptions are logged.
+4.2 What Happens When Enabled?
+On enabling this setting and clicking
+Save
+, all future executions of rules linked to this integration will be logged.
+Each run will insert a record in the target table, even when the result is
+healthy
+(i.e., no exceptions).
+Now store exceptions externally in the specified table.
+Best practice: Enable this option if organization requires
+full execution history
+for reporting or compliance purposes.
+5. Enabling Exception Storage on Rules
+To store exception data from rule executions into the configured external storage, Exception Storage must be explicitly enabled at the
+rule level
+.
+5.1 Navigate to Rule Configuration
+Go to the
+Dictionaries
+dropdown
+,
+Click on
+Database Tables
+.
+Select the desired table.
+Open the
+Data Quality
+tab and choose the rule you want to configure.
+Click
+Edit
+on the rule.
+5.2 Enable Exception Storage in the Workflow Section
+In the rule edit screen, scroll to the
+Workflow
+section.
+Locate the
+Exception Configuration
+tab.
+Enable the
+Exception Storage
+toggle.
+From the dropdown, select one or more configured integrations where exceptions should be stored.
+Click
+Save
+.
+Note:
+User can configure
+multiple integrations
+for a single rule if needed.
+Clicking on an
+integration
+name will redirect to the full
+Integration configuration page
+, allowing to review or modify its setup.
+6. Running Rules with Exception Storage
+Once Exception Storage is configured and enabled on a rule, exceptions can be logged to the external table during both
+Run Online
+and
+Run Offline
+executions. The mechanism of storing differs slightly based on how the rule is run.
+6.1 Run Rule → Online Execution
+When a rule is run manually via
+Run Online
+, a
+Configuration Preferences
+dialog appears with the following options:
+Include All Exceptions
+– Check this option to include all exceptions during the rule execution.
+Add Exceptions to Storage
+– Check this box if you want the exceptions to be stored in the external tables when the rule is run.
+After execution:
+A
+success message
+appears confirming that exceptions were loaded into the configured table.
+The same message also appears in the rule’s
+Activity section
+as a system comment.
+The user can confirm this by reviewing the corresponding table in their external database.
+Note:
+To convert the raw exception data into a valid JSON format, users can run the following SQL query on Microsoft SQL server.
+USE [your_database_name];
+
+SELECT
+ execution_id,
+ exception_data AS RawExceptionData,
+ TRY_CAST(exception_data AS NVARCHAR(MAX)) AS ExceptionData_Text,
+ JSON_QUERY(TRY_CAST(exception_data AS NVARCHAR(MAX))) AS FormattedJson
+FROM
+ [your_schema_name].[your_table_name]
+WHERE
+ execution_id = [your_execution_id];
+6.2 Run Rule → Offline Execution
+When a rule runs via
+Run Offline
+(through workflows or schedules), exception storage happens automatically based on the rule's configuration; no manual input is required.
+Notification Email Outcome:
+After execution, a notification email is sent to the rule owner and relevant users. The
+Workflow Action
+section shows one of the following:
+If exceptions were stored successfully:
+“Exceptions have been loaded to storage location.”
+If no integration is configured on the rule:
+“Not Configured.”
+6.3 Gateway Compatibility Scenarios
+When the rule and the integration are hosted on different gateway types (On-Prem vs. Cloud), the system behavior varies:
+Rule Location
+Integration Location
+System Behavior
+On-Prem
+Cloud
+Warning:
+"Selected integration uses a different gateway. This integration requires exception data to exit your network temporarily before being stored."
+Cloud
+On-Prem
+Info:
+"Selected integration uses a different gateway type." (Not blocking)
+Note: These messages help clarify when exception data might leave your internal network, allowing teams to address any compliance or security implication
+7. Unsupported Integration Types
+7.1 Unsupported Databases
+The following integration targets are
+not supported
+:
+Azure Data Lake Storage (ADLS)
+Power BI
+MongoDB
+Amazon S3
+(Rules can read from S3, but cannot write exceptions to S3 as external storage)
+7.2 Unsupported Rule Types
+As of now, the following rule types are
+not supported
+for Exception Storage:
+Freshness Rules
+Metric Rules
+Count Rules
+Unique Value Rules
+These rules are not yet compatible with Exception Storage because they do not produce row-level exceptions that can be stored in external systems.
+All other rule types that generate exception samples are supported.

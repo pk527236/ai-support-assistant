@@ -1,0 +1,46 @@
+Title: Co-Pilot in Data Intelligence
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25996549175828-Co-Pilot-in-Data-Intelligence
+================================================================================
+
+In This Article:
+DvSum configuration
+1. Add Source
+2. Configure New Chatbot
+3. Analyzing Customer Data from Train Bot
+How Chat History Works with Copilot
+This article describes the steps needed to configure Rest API as a source in DvSum Data Intelligence (DI) to use CADDI Chatbots.
+DvSum configuration:
+1. Add Source
+To create a data source, navigate to Administration → Data Sources → ⊕ Add Source.
+Select Rest API.
+Give the source a name, and save it.
+2. Configure New Chatbot
+Click on "New Chatbot" which will redirect the user to the new chatbot detail page.
+From the Definition tab click on the "Download sample file" button to download the sample file. Configure the workflow JSON according to the requirements and upload the file.
+There will be a default prompt already being set but the user can also update the prompt of the bot accordingly. The prompt directly impacts the quality of the results.
+Once the workflow JSON file is uploaded and the prompt is updated, save the chatbot.
+3. Analyzing Customer data from the Train bot
+Navigate to the
+Train bot
+tab and type a question containing the customer ID.
+When the question is executed, Co-Pilot displays a
+progress indicator
+showing the following four steps
+Understanding your question
+– Co-Pilot interprets the query, identifies parameters, and validates inputs.
+Selecting relevant tool
+– The most appropriate analysis tool is automatically chosen based on the question type and detected parameters.
+Fetching data
+– Relevant records or data sets are retrieved for processing.
+Analyzing data
+– The data is examined to extract key insights and generate a summarized result.
+Once all four steps are completed,
+insights are displayed automatically
+, giving you a clear summary of findings and any key observations derived from the data.
+The results display key facts, observations, and recommendations derived from the data. The prompt set from the Definition tab influences these results.
+Insights from the data would show up in different grids that can be analyzed.
+How Chat History Works with Copilot:
+Users can ask a variety of questions related to telecom troubleshooting beyond analyzing customer IDs. Copilot utilizes a Q&A chain specifically designed for telecom troubleshooting queries. Users can also ask follow-up questions to receive recommendations or additional troubleshooting assistance for specific customer IDs.
+Mult-Language Support in Copilot:
+Copilot supports multiple languages. This functionality enables users to ask questions and receive answers and explanations in their preferred language, enhancing the platform's accessibility and usability for a diverse global user base.
+The questions shown below were asked in Spanish, and the results and analysis also appear in Spanish.

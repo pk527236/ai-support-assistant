@@ -1,0 +1,8 @@
+Title: Advanced Analytics - Integrating Power BI reports into DvSum
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360021231094-Advanced-Analytics-Integrating-Power-BI-reports-into-DvSum
+================================================================================
+
+We can create interactive reports using Power BI webapp tool and integrate them in DvSum for data visualization.
+On Dashboards > Advanced Analytics tab, all reports will be visible. Upon clicking, it will open the detailed report with widgets. You can apply filters to the widgets and since they are all dependent, the data of all widgets will be refreshed according to the selected filter.
+For each widget you will have a few more options like sort, have a spotlight on a certain widget.
+You can also export data on your machine as an excel/csv file.

@@ -1,0 +1,18 @@
+Title: DQ SAWS Update (For Owner Account)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000764854-DQ-SAWS-Update-For-Owner-Account
+================================================================================
+
+Whenever there is a new version available for SAWS, a pop up will appear informing you about it after you log on to DvSum. You will also see a notification on your SAWS cloud icon.
+If you decide to upgrade right away by clicking on "Upgrade Now", it will take you to the Administration >> Manage Account >> SAWS tab.
+The "Upgrade" button is
+enabled
+for the SAWS that is running and the communication key matches with the api token in the configuration file.
+The "Upgrade" button is
+disabled
+for the SAWS that is not currently running.
+If your SAWS is busy in running a job, it will not be able to upgrade right away but don't worry. We have got it covered. The application will show "Upgrade Pending" status and the SAWS will upgrade itself automatically once the SAWS is free.
+After the successful download of the latest version, you will see a blue tick and the version will be updated. If your already have the latest version installed, you will not see the "Upgrade" button. (like for the "Remote ca ws" in the image below)
+Note:
+1. Please be patient while the SAWS upgrades. It takes around 1-2 minutes.
+2. . SAWS upgrade notification appears only when SAWS is running and showing green cloud
+3. SAWS upgrade from UI is supported by SAWS version 1.1.0 and above. If you have older version of SAWS running, you will manually have to download SAWS from Administration > Manage Account > SAWS tab > Download.

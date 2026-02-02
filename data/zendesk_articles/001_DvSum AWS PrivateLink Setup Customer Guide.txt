@@ -1,0 +1,379 @@
+Title: DvSum AWS PrivateLink Setup (Customer Guide)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/43220623721876-DvSum-AWS-PrivateLink-Setup-Customer-Guide
+================================================================================
+
+In this Article:
+Overview
+Service Architecture
+Information Required from Customer
+Information Provided by DvSum
+Prerequisites
+Step-by-Step Setup Instructions
+Step 1: Create VPC Endpoint for REST APIs (apis.dvsum.ai)
+Step 2: Create VPC Endpoint for WebSocket (socket-api.dvsum.ai)
+Step 3: Create VPC Endpoint for S3 (s3-storage.dvsum.ai)
+Step 4: Notify DvSum for Endpoint Acceptance
+Step 5: Security Group Configuration
+Step 6: DNS and Connectivity Validation
+Custom DNS Configuration
+Advanced Troubleshooting
+Overview
+This document provides comprehensive setup guidance for securely connecting to DvSum SaaS services using AWS PrivateLink. It enables private network access to REST APIs, WebSocket services, and S3 storage using the AWS network. All communication remains inside the AWS private backbone, improving security, reliability, and compliance for enterprise environments. The document also details required customer information, DvSum-provided configurations, step-by-step setup instructions, and validation procedures to establish AWS PrivateLink connectivity successfully.
+Service Architecture
+DvSum provides
+three separate VPC Endpoint Services
+for comprehensive private access:
+Service
+Domain
+Purpose
+Protocol
+Port
+Endpoint Service
+REST APIs
+apis.dvsum.ai
+Standard API communication
+HTTPS
+443
+Dedicated Service
+WebSocket
+socket-api.dvsum.ai
+Real-time WebSocket communication
+HTTPS
+443
+Dedicated Service
+S3
+s3-storage.dvsum.ai
+S3 Pre-signed URLs Handling
+HTTPS
+443
+Dedicated Service
+Important
+: Each service requires its own VPC Interface Endpoint in your VPC
+Information Required from Customer
+To enable PrivateLink connectivity, please provide DvSum with:
+1. Customer Account Information
+Parameter
+Description
+AWS Account ID
+Your 12-digit AWS account number
+Primary AWS Region
+The AWS region where your VPC resides
+VPC ID
+The VPC where interface endpoints will be created
+2. Network Configuration
+Parameter
+Description
+VPC CIDR Blocks
+Used for security group configuration and network monitoring
+Subnet IDs
+Subnets where you plan to create interface endpoints (recommend private subnets)
+Availability Zones
+AZs to use for endpoint deployment (recommend all for high availability)
+3. Service Level Requirements
+Expected bandwidth
+: Helps DvSum provision appropriate infrastructure capacity
+Information Provided by DvSum
+Before proceeding with setup, DvSum will provide you with the following:
+1. VPC Endpoint Service Names
+Service
+Example Service Name
+REST API Service
+com.amazonaws.vpce.us-east-1.vpce-svc-yyyyyyyyy
+WebSocket Service
+com.amazonaws.vpce.us-east-1.vpce-svc-zzzzzzzzz
+S3 Service
+com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxx
+2. Health Check Testing Endpoints
+Service
+URL
+REST API
+https://apis.dvsum.ai/health-check
+WebSocket
+https://socket-api.dvsum.ai/health-check
+S3
+https://s3-storage.dvsum.ai/health-check
+Prerequisites
+Before starting the setup, ensure you have:
+AWS Access Requirements
+AWS Console access with permissions for:
+VPC endpoint creation and management
+Security group configuration
+Route 53 private hosted zone management (if needed)
+EC2 instance access (for testing)
+Network Requirements
+A VPC with private subnets in multiple Availability Zones
+Existing applications or test environment to validate connectivity
+Security groups configured to allow outbound HTTPS (port 443)
+Step-by-Step Setup Instructions
+Step 1: Create VPC Endpoint for REST APIs (apis.dvsum.ai)
+In the AWS Management Console, go to
+VPC → Endpoints → Create Endpoint.
+Under
+Service Category Type
+, select: “
+Endpoint services that use NLBs and GWLBs
+.”
+In
+Service Name
+, paste the
+REST API service name
+provided by DvSum and click
+Verify service
+. It should get successfully verified.
+Under
+Network settings:
+Choose your VPC.
+Select at least
+two private subnets
+across different AZs for high availability.
+Security Group
+: Create or select the security group with the following Inbound and Outbound rules:
+Inbound Rules:
+Type
+Protocol
+Port
+Source
+HTTPS
+TCP
+443
+Security Group ID of the machine or VPC CIDR
+Outbound Rules:
+Keep all outbound traffic allowed by default
+Type
+Protocol
+Port Range
+Destination
+All Traffic
+All
+All
+0.0.0.0/0
+Click
+Create Endpoint
+.
+After endpoint is created, its status will be
+Pending Acceptance
+, at this point, customers need to inform DvSum to accept the connection request.
+Once DvSum accepts the connection request, endpoint status will change to
+Available.
+As the connection is in Available state, select the endpoint and from
+Actions,
+click on
+Modify private DNS name
+Under Modify private DNS name settings, select:
+Enable private DNS names
+and click on Save changes
+Step 2: Create VPC Endpoint for WebSocket (socket-api.dvsum.ai)
+In the AWS Management Console, go to
+VPC → Endpoints → Create Endpoint.
+Under
+Service Category Type
+, select: “
+Endpoint services that use NLBs and GWLBs
+.”
+In
+Service Name
+, paste the
+Socket service name
+provided by DvSum and click
+Verify service
+. It should get successfully verified.
+Under
+Network settings:
+Choose your VPC.
+Select at least
+two private subnets
+across different AZs for high availability.\
+Security Group
+: Create or select the security group with the following Inbound and Outbound rules:
+Inbound Rules:
+Type
+Protocol
+Port
+Source
+HTTPS
+TCP
+443
+Security Group ID of the machine or VPC CIDR
+Outbound Rules:
+Keep all outbound traffic allowed as by default
+Type
+Protocol
+Port Range
+Destination
+All Traffic
+All
+All
+0.0.0.0/0
+Click
+Create Endpoint
+.
+After endpoint is created, its status will be
+Pending Acceptance
+, at this point, customers need to inform DvSum to accept the connection request.
+Once DvSum accepts the connection request, endpoint status will change to
+Available.
+As the connection is in Available state, select the endpoint and from
+Actions,
+click on
+Modify private DNS name
+Under Modify private DNS name settings, select:
+Enable private DNS names
+and click on Save changes
+Step 3: Create VPC Endpoint for S3 (s3-storage.dvsum.ai)
+In the AWS Management Console, go to
+VPC → Endpoints → Create Endpoint.
+Under
+Service Category Type
+, select: “
+Endpoint services that use NLBs and GWLBs
+.”
+In
+Service Name
+, paste the
+Socket service name
+provided by DvSum and click
+Verify service
+. It should get successfully verified.
+Under
+Network settings:
+Choose your VPC.
+Select at least
+two private subnets
+across different AZs for high availability.
+Security Group
+: Create or select the security group with the following Inbound and Outbound rules:
+Inbound Rules:
+Type
+Protocol
+Port
+Source
+HTTPS
+TCP
+443
+Security Group ID of the machine or VPC CIDR
+Outbound Rules:
+Keep all outbound traffic allowed as by default
+Type
+Protocol
+Port Range
+Destination
+All Traffic
+All
+All
+0.0.0.0/0
+Click
+Create Endpoint
+.
+After endpoint is created, its status will be
+Pending Acceptance
+, at this point, customers need to inform DvSum to accept the connection request.
+Once DvSum accepts the connection request, endpoint status will change to
+Available.
+As the connection is in Available state, select the endpoint and from
+Actions,
+click on
+Modify private DNS name
+Under Modify private DNS name settings, select:
+Enable private DNS names
+and click on Save changes
+Step 4: Notify DvSum for Endpoint Acceptance
+Once all endpoints are created, their initial status will appear as
+“Pending acceptance.”
+DvSum must approve these requests before they become active.
+Contact your DvSum representative and notify them that the VPC endpoints for the REST API, S3 and WebSocket services have been created in your AWS Account.
+After DvSum accepts the requests, the endpoint status will change to
+“Available.”
+Step 5: Security Group Configuration
+Configure your security groups to permit traffic between your applications and the new VPC endpoints.
+Machine Security Group (Outbound Rules):
+Keep all outbound traffic allowed as by default
+Type
+Protocol
+Port Range
+Destination
+All Traffic
+All
+All
+0.0.0.0/0
+VPC Endpoint Security Group:
+Inbound Rules:
+Type
+Protocol
+Port
+Source
+HTTPS
+TCP
+443
+Security Group ID of the machine or VPC CIDR
+Outbound Rules:
+Keep all outbound traffic allowed as by default
+Type
+Protocol
+Port Range
+Destination
+All Traffic
+All
+All
+0.0.0.0/0
+Step 6: DNS and Connectivity Validation
+Perform these tests from an EC2 instance inside your configured VPC.
+1. DNS Resolution Test:
+nslookup apis.dvsum.ai
+nslookup socket-api.dvsum.ai
+nslookup s3-storage.dvsum.ai
+Expected Result:
+Both domains should resolve to the private IP addresses of the interface endpoints within your VPC's CIDR range.
+2. REST API and S3 Connectivity Test:
+curl -v https://apis.dvsum.ai/health-check
+curl -v https://s3-storage.dvsum.ai/health-check
+Expected Result:
+A JSON response: {"status": "ok"}.
+3. WebSocket Connectivity Test:
+openssl s_client -connect socket-api.dvsum.ai:443
+Expected Result:
+A successful TLS handshake, displaying the certificate chain and a "
+CONNECTED
+" message without errors.
+Custom DNS Configuration
+Note:
+This step is to be followed only if
+Private DNS is not enabled
+on VPC Endpoints.
+The following are the steps to configure DNS settings for the correct routing of traffic through three VPC endpoints via Private Link.
+Step 1: Create Private Hosted Zone
+In the AWS Management Console
+, Go to Route 53 → Hosted Zones
+Create Private Hosted Zone
+:
+Domain name
+: dvsum.ai
+Type
+: Private hosted zone
+VPC
+: Associate with your application VPC
+Step 2: Add DNS Records
+Add A-records pointing to your endpoint private IPs:
+Record Name
+Target
+apis.dvsum.ai
+Private IPs of REST API VPC Interface Endpoint
+socket-api.dvsum.ai
+Private IPs of WebSocket VPC Interface Endpoint
+s3-storage.dvsum.ai
+Private IPs of S3 VPC Interface Endpoint
+Advanced Troubleshooting
+Network Connectivity Test
+# Test from EC2 instance in your VPC  
+telnet apis.dvsum.ai 443    
+telnet socket-api.dvsum.ai 443 
+telnet s3-storage.dvsum.ai 443
+VPC Flow Logs Analysis
+Enable VPC Flow Logs to monitor traffic patterns:
+Monitor accepted vs. rejected connections
+Identify security group misconfigurations
+Track bandwidth utilization
+DNS Resolution Debugging
+# Check DNS resolution chain  
+dig apis.dvsum.ai  
+dig socket-api.dvsum.ai 
+dig s3-storage.dvsum.ai

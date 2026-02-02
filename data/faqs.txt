@@ -1,0 +1,11 @@
+Q: How do I reset my password?
+A: Go to Settings → Account → Reset Password. Click "Forgot Password" and follow the email instructions.
+
+Q: What are the system requirements?
+A: Minimum requirements: 4GB RAM, 10GB disk space, Ubuntu 18.04 or higher.
+
+Q: How do I contact support?
+A: Email support@company.com or call 1-800-SUPPORT.
+
+
+#https://dvsum.zendesk.com/hc/en-us

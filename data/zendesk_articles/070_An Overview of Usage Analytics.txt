@@ -1,0 +1,174 @@
+Title: An Overview of Usage Analytics
+URL: https://dvsum.zendesk.com/hc/en-us/articles/8596413680020-An-Overview-of-Usage-Analytics
+================================================================================
+
+In this Article
+Overview
+Usage Dashboard Sections
+Catalog Inventory
+Data Catalog
+Analytics Catalog
+Business Glossary
+Tags
+Users
+Overview
+Usage analytics refers to the use of interactive visualizations and metrics displayed on a dashboard to monitor and analyze data
+Usage Analytics can be accessed from
+Administration Tab -> Usage
+Analytics.
+Usage Dashboard Sections
+Usage Dashboard consists of multiple sections:
+The catalog inventory section shows the data count of items.
+Other sections are the Data Catalog, Analytics Catalog, Business Glossary, Tags, and Users which show data in the form of tables with summary pages.
+Catalog Inventory
+The catalog inventory section shows the data count of the following items:
+Sources
+Datasets
+Fields
+Domains
+Categories
+Entities
+Tagset
+Tags
+User Groups
+Users
+The dashboard shows this information on runtime if the count is updated for any items. It will be reflected in the Catalog inventory as well.
+Below the Catalog inventory section, there is a clickable navigation button that shows data of a clicked button.
+For example: Click on the Data Catalog button, section will show data from the Data Dictionary in the form of tables with summary pages.
+1. Data Catalog
+This section shows information about sources, Datasets, and fields.
+1.1
+Data Sources
+Usability
+It shows the average usability score of sources, which includes Datasets and columns.
+Usability score of source out of 10.
+Quality
+It shows the average quality of sources, including Datasets and columns.
+But the Quality score will be calculated for Fields only. The quality score shows as a percentage.
+1.2
+Datasets
+Count
+It shows the total count of all Datasets in the source.
+Usability
+It shows the average usability score of Datasets in the source.
+Usability score of Dataset out of 10.
+1.3
+Fields
+Count
+It shows total count of all Fields in the source.
+Usability
+It shows the average Meta score of Fields in the source.
+Usability score of Fields out of 10.
+Quality
+It shows the average Data Quality score of Fields in the source.
+The quality score shows as a percentage.
+Curation Tracking
+The curation Tracking section shows the results of all sources from the Data Dictionary Table.
+Every Source row in the below Data dictionary section is clickable, when a user clicks on any source row, detailed information will be shown in the curation tracking section for the selected source.
+The curation tracking section shows information as Count & percentage for Datasets, fields & All items ( Combined count of Datasets and fields).
+Description
+It shows how many Datasets & fields have descriptions available.
+Ownership
+It shows Data owners/System owners are assigned to how many Datasets.
+Note
+: Ownership is not applicable to Fields.
+Linked To Entity
+It shows Functional area is linked to how many Datasets & fields.
+Profiling
+It shows the Profiling count for Fields.
+Note
+: Profiling is not applicable to Datasets.
+2. Analytics Catalog
+This section shows information about sources, Datasets, and fields from Analytics Dictionary.
+1.1
+Data Sources
+Usability
+It shows the average usability score of sources, which includes Datasets and columns.
+Usability score of source out of 10.
+1.2
+Datasets
+Count
+It shows the total count of all Datasets in the source.
+Usability
+It shows the average usability score of Datasets in the source.
+Usability score of Dataset out of 10.
+1.3   Reports
+Count
+It shows the total count of all Reports in the source.
+Usability
+It shows the average usability score of Reports in the source.
+Usability score of Dataset out of 10.
+1.4
+Metrics
+Count
+It shows total count of all Metrics in the source.
+Usability
+It shows the average Meta score of Metrics in the source.
+Usability score of Fields out of 10.
+Curation Tracking
+The curation Tracking section shows the results of all sources from the Analytics Dictionary.
+Every Source row in the below Analytics Catalog section is clickable, when a user clicks on any source row, detailed information will be shown in the curation tracking section for the selected source.
+The curation tracking section shows information as Description, Lineage and Duplicates.
+3. Business Glossary
+This section shows information about Entities:
+Domain
+The domain Column shows a list of all domains.
+Categories
+It shows the count of categories linked to the Domain
+Entities
+It shows the count of entities linked to the category and out of total entities how many entities are linked.
+Count of Linked Data Assets
+It shows the total count of linked Data assets for Entities
+Top Entities
+The top entities section shows the top 5 entities of all domains that are linked to Data dictionary items. Every Domain row in the above Glossary section is clickable, when the user clicks on any domain, detailed information of the top 5 entities will be shown against the selected domain.
+This table shows:
+Entity
+The Entity column shows names of entities.
+Description
+This column shows a description of entities.
+Linked Data dictionary Items
+It shows the count of Entities linked to Data dictionary items.
+Sample
+This column shows  1 or 2  columns linked-to the entity.
+4.Tags
+This section shows information about Tagset:
+Tagset
+This column shows the list of all tags
+Tags
+This column shows the count of tags available in the respective tagset and the Percentage shows how many tags are used in Dataset / Fields/ Terms
+Tagged Assets
+It shows the total count of used tags in Datasets/fields/terms
+Top Tags
+The top Tags section shows the top 5 most linked tags of all the tags. Every Tagset row in the above Tags section is clickable, when the user clicks on any tagset, detailed information of the top 5 entities will be shown against the selected domain.
+This table shows:
+Tags
+This column shows the top tags
+Linked Count
+This column shows the count of tags that are linked to Dataset / Fields/ Terms
+Sample
+This column shows  1 or 2  Datasets/ Terms/ Entity linked to Tags.
+5. Users
+Catalog Usage:
+This section shows information about the user and their activities:
+Users
+The first column shows the list of users with badges assigned on the basis of activities:
+i)  Master Badge
+ii) Star Badge
+iii) Explorer Badge
+Activity
+This column shows the total count of activity for the user with streak count.
+Notes
+This column shows the number of searches the user has performed, Contribution made by users, and streak count.
+Search activity includes performing the search, create a governance view, opening a ref page & open a governance view.
+Contribution activity includes Making a suggestion for Datasets/ terms, Endorsing and publishing a Dataset/term.
+Streak contains the number of consecutive days the user is active on the application.
+Steward Activity
+This section shows information about steward user and their activities:
+Users
+The first column shows the list of steward users with their roles.
+Assigned Assets
+This column shows the count of assigned assets to the respective steward user
+Usability Score
+This column shows the usability score of assets  assigned to steward user
+Seward Activity
+It shows a count of activities (searches & contributions) performed by the steward with a streak.

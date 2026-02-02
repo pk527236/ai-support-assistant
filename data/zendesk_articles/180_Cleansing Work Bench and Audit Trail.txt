@@ -1,0 +1,8 @@
+Title: Cleansing Work Bench and Audit Trail
+URL: https://dvsum.zendesk.com/hc/en-us/articles/219786788-Cleansing-Work-Bench-and-Audit-Trail
+================================================================================
+
+Issue:
+If I run a rule and immediately click on Cleanse to open workbench. I notice that the Write-back shows as disabled, even though I have it enabled. Additionally, my old cleansing audit trail shows up. If I want for a few seconds after running the rule and open it, I don't see the above issues. Why?
+Reason:
+The exception cleansing information experiences a brief delay in loading after the completion of rule execution due to the asynchronous generation of Cleansing data following audit execution. Typically, when the rule is run in the background, users are notified of rule completion, and upon logging in to resolve, the exception data is already loaded.

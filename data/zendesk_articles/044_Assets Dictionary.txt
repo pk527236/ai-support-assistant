@@ -1,0 +1,217 @@
+Title: Assets Dictionary
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35793716144532-Assets-Dictionary
+================================================================================
+
+In This Article
+Overview
+Accessing the Assets Dictionary
+Adding an Asset
+Downloading Assets from the Asset Dictionary
+Mass Update
+Steps to Perform Mass Update
+Managing Tags in Assets Dictionary
+Adding Tags
+Removing Tags
+Deleting Assets in Assets Dictionary
+Importing Assets in the Assets Dictionary
+Expanded Asset Coverage
+Viewing and Navigating Assets
+Asset Detail Pages
+Relationships Section in the Overview Tab
+Overview
+The Assets Dictionary in the DvSum DI Application provides a centralized and structured view of all assets within the system, enhancing discoverability, governance, and consistency. By standardizing asset management across various categories, including databases, schemas, reports, and models. It ensures seamless integration with workflows while giving users greater control over their data.
+Accessing the Assets Dictionary
+On the left-side menu of the DvSum application, click on
+Assets Dictionary
+to navigate to its detailed page.
+This page displays the consolidated list of all the assets in the DvSum application.
+Adding an Asset
+The Add Asset feature in the Assets Dictionary allow users to add the custom Assets to the system.
+Steps to Add a Custom Asset
+Navigate to the Assets Dictionary
+From the left-side navigation menu, click on
+Assets Dictionary
+.
+Click on “Add Asset”
+In the
+All-Assets
+section, click the green
+Add Asset
+button at the top right.
+A form will open where you can enter details for the new asset. Only custom or user-defined assets can be added manually using the Add Asset option.
+Click
+Add
+to save.
+After adding a new asset, you’ll be directed to the
+Asset Detail Page
+, where you can view and manage all the metadata associated with the asset.
+The configurations made on the
+Asset Type Detail Page
+—such as
+Custom Attributes
+,
+Tags
+, and
+Relationships
+—are automatically applied to the asset. From here, you can:
+Edit or update custom attributes
+(e.g., URLs, rich text fields)
+Add additional relationships
+to link the asset with other entities
+Delete existing relationships
+if they are no longer relevant
+Assign or update ownership
+via the
+Managed By
+section (e.g., Data Owner, Data Steward)
+Add or modify tags
+like Data Classification, Certification, or Dataset Quality
+Include additional information
+such as descriptions, data domains, and other contextual metadata
+Search Asset from Asset Dictionary
+You can also search governance assets directly using the
+search icon
+in the
+Governance View
+and across listing pages.
+This provides seamless access to governed terms, policies, and related metadata without switching contexts, improving discoverability and navigation.
+Downloading Assets from the Asset Dictionary
+DvSum enables users to export data from the Asset Dictionary into an Excel file. This allows you to store, analyze, or share data offline as needed.
+Click
+Download
+.
+An Excel file containing the asset data will be generated and automatically downloaded.
+Mass Update:
+The
+Mass Update
+feature in the
+Assets Dictionary
+allows users to update multiple asset records simultaneously.
+Steps to Perform Mass Update:
+Select the assets you want to update.
+Click on
+Mass Update
+from the top menu.
+In the
+Mass Update
+pop-up, choose a field to update from the
+Field
+dropdown. Available options include:
+Status
+Data Domain
+Select the appropriate value for the chosen field.
+Click
+Apply
+to confirm the changes or
+cancel
+to discard them.
+Managing Tags in Assets Dictionary
+Adding Tags
+Select the assets to which you want to add tags.
+Click on the
+Tags
+dropdown and select
+Add Tags
+.
+In the
+Add Tags
+dialog, select the desired tag(s) from the dropdown.
+(Optional) Check the
+Overwrite Tags
+option if you want to replace existing tags.
+Click
+Add
+to apply the tags.
+Removing Tags
+Select the assets from which you want to remove tags.
+Click on the
+Tags
+dropdown and select
+Remove Tags
+.
+In the
+Remove Tags
+dialog, select the tag(s) to be removed.
+Click
+Remove
+to finalize the changes.
+Deleting Assets in Assets Dictionary
+Select the assets you want to delete.
+Click on
+Delete Asset(s)
+.
+A confirmation dialog will appear stating:
+"This action will remove the asset(s). This action cannot be undone. Are you sure?"
+Click
+Delete
+to proceed or
+Cancel
+to abort the action.
+Note:
+Asset deletion is irreversible. Verify your selection carefully before proceeding. Only Deprecated assets can be deleted.
+Importing Assets in the Assets Dictionary
+When selecting a specific asset in the Assets Dictionary, users will also see an
+Import
+option. This allows users to bring in updated or additional asset information directly from supported sources.
+Navigate to the asset you want to update.
+Click on the
+Import
+option from the top menu.
+Follow the prompts to upload or sync data.
+Note:
+The Import feature functions the same way as described in the Data Import article.
+For more information on using the Data Import feature, refer
+Data Import
+article.
+Expanded Asset Coverage
+The Assets Dictionary now includes detail pages for additional asset types beyond tables, columns, reports, and models. The newly supported assets include:
+Databases
+Schemas
+Business Intelligence (BI) sources
+Source fields
+ETL programs
+Each of these asset types now has a dedicated detail page, providing structured information for better governance and traceability.
+Creating and Managing Views
+The
+Asset Dictionary
+also supports the creation of
+custom views
+, allowing users to filter and organize datasets based on their preferences. These views can be accessed from the dropdown menu at the top of the asset list, which includes both system-generated and user-created views.
+Selecting a view updates the display to show only the relevant assets and opens a
+governance-focused view
+for the selected asset type. From here, users can perform key actions such as:
+Downloading or importing datasets
+Saving and sharing views
+Filtering by criteria like "Recently Refreshed" or "Assigned to Me"
+This functionality enhances user productivity by enabling focused asset management and streamlined governance workflows.
+Viewing and Navigating Assets
+The Assets Dictionary consolidates all assets into a single view, allowing users to:
+Search for specific assets easily
+Click on any of the Names to display the detail page
+Access detail pages for a comprehensive view of asset properties
+Assets Detail Pages
+Each asset type features a standardized detail page, which includes an
+Overview
+tab displaying key properties such as:
+Description
+– A brief summary of the asset
+Data Domains
+– Classification of the asset based on its data context
+Governance Metadata
+– Information related to data ownership, compliance, and usage
+Additional Info
+– Supplementary details related to the asset
+Similar Assets
+– Suggestions of assets with shared characteristics
+Relationships
+– Links to related assets within the system
+Relationships Section in the Overview Tab
+The
+Relationships
+section provides a structured view of how an asset is connected to other assets within the system. It displays all associated assets, helping users understand dependencies and data flow.
+Note:
+The domain assigned to an asset is automatically inherited by all its dependent assets.
+More information on
+[How to Link Terms to Columns]
+and
+[How to Manage Relationships between Assets]

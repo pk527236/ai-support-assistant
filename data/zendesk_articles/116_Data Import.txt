@@ -1,0 +1,225 @@
+Title: Data Import
+URL: https://dvsum.zendesk.com/hc/en-us/articles/11197801100820-Data-Import
+================================================================================
+
+In this Article:
+Overview
+Steps to Data Import
+Step 1: Starting the Import
+Step 2: Preparing the Import File
+Note on Subdomain Handling
+Additional Notes for Sample File
+Note on Status
+Supported Statuses
+Important Notes
+Image: Existing Import Status Table Example
+Example: Summary Report for Invalid Status
+Example: Email Notification of Import Failure
+Importing/Updating Values for Custom Attributes
+Step 2.1: Download and Reuse Data for Import
+Step 3: Field Mapping
+Step 4: Import Completion
+Step 5: Import Summary Email
+Step 6: Post-Import Actions (Domain-Specific)
+Overview
+The Data Import option is available to users with Admin role and to users with Edit access. While the Administration menu option is visible only to Admins, Editors. Users without Editor privileges cannot import.
+Whether you're working with system asset types (e.g., Glossary Terms, Data Dictionary, Analytics Dictionary, Fields & Lineage) or custom asset types, the Data Import functionality enables efficient population of the platform using structured Excel files.
+Admins and Editors can import up to 50,000 records at a time using
+.xls
+,
+.xlsx
+, or
+.csv
+file formats. This capability significantly reduces manual effort and accelerates the onboarding and management of metadata assets.
+Let’s explore how the Data Import process works in detail.
+Steps to Data import
+Important:
+Ensure that the Domain and Sub-domain are created in the application before starting the import process. The import will use these as a reference when uploading data.
+Step 1: Starting the Import
+You can start an import in two ways:
+1. From the Administration menu – Go to Administration → Data Import, select the Asset Type from the dropdown, and click Next.
+2. Directly from an asset view – Open the listing page for the asset you want to import (for example, Glossary Terms) and click the Import button at the top right. This method works for any supported asset type.
+Step 2: Preparing the Import File
+To begin, download the sample file and fill in the data as per the instructions.
+Important:
+Field Dictionary Imports
+:
+The Entity field must now include both the
+Data Domain
+and
+Subdomain
+in the format:
+DD.SD.EntityName
+For example:
+Default.Default.US_PASSPORT
+.
+This structure ensures each entity is uniquely identified during the import.
+More information on above, refer to
+this article
+.
+Note on Subdomain Handling
+The Field Dictionary import template does not include a separate Subdomain column. Subdomain is not a required field in the Field Dictionary and is automatically inherited. A separate Subdomain column is available only in the Business Glossary import, where it is mandatory.
+Additional Notes for Sample File:
+Tags
+:
+The
+Tags
+column in the sample file allows multiple tags to be added using the format
+{Tagset Name}={Tag}
+. Multiple tags can be separated by a comma. For example:
+Data Classification=Public, Custom Tags=PKR
+.
+Data Steward and Data Owner
+:
+These fields in the sample file must contain valid email addresses of users already added in the DvSum tool.
+For Glossary Terms file imports only
+The
+Term Type
+column must contain one of the
+eight predefined term types
+.
+The applicability of
+Business Rules
+—such as Category Data Rule, Pattern Rule, Regex Pattern Rule, Value Range Rule, and Manual—depends on the selected
+Term Type
+.
+If the Term Type is Numerical
+:
+Only
+Value Range Rule
+and
+Manual
+are applicable.
+For
+Value Range Rule
+, use the format:
+{Min Value} - {Max Value}
+Example
+:
+1 - 20
+If the Term Type is Categorical Attribute
+:
+Use
+Category Data Rule
+in the format:
+{Categories.Value 1}={Categories.Description}, {Categories.Value 2}={Categories.Description}
+If the Term Type is Computed Measure
+:
+The
+Term Formula
+must be provided in the same file.
+Once the file is filled correctly,
+upload the sample file
+through the Data Import screen.
+By default, the
+"Update Existing Records"
+option is enabled for
+Data Dictionary
+imports, allowing you to update existing records during the import process.
+Note on Status
+If you include a
+Status
+column in your import file, the import process validates the value to ensure it is recognized by the platform.
+Status Values Recognized and Processed During Import
+If you include a
+Status
+column in your import file, note the following:
+The following Status values are
+recognized and processed
+during Data Import:
+Published
+Draft
+Modified
+When these supported values appear in the import file:
+The import
+does not fail due to Status validation
+The Status value is
+accepted and processed
+according to the domain’s configuration (workflow or non-workflow)
+If your file includes
+unsupported or invalid status values
+, such as:
+Deleted
+New
+Suggested
+Default
+Any custom status
+Then:
+The import will
+fail for those records
+The import view will
+not accept those rows
+The summary report will display the remark:
+Status has Invalid data
+This validation helps ensure only valid and supported Status values are processed during import.
+Important Notes
+You
+do not need to include
+a Status column in the import template. The system will assign the correct status automatically.
+If included, the Status column should only contain values recognized by the platform. Any other value will cause the row to fail validation.
+Image: Existing Import Status Table Example
+Caption: Import view showing records with different status outcomes.
+Example: Summary Report for Invalid Status
+Caption: Summary report showing failed record due to unsupported Status value ("Deleted") with remark "Status has Invalid data".
+Example: Email Notification of Import Failure
+Caption: Email notification from DvSum indicating that the import failed due to invalid data.
+Importing/Updating values for Custom Attributes
+The Data Import process also supports importing values for custom attributes. Any custom attributes applied to an asset type should be added as a column in the downloadable import templates.
+Move the required custom attribute column from
+Available
+to
+Assigned
+so that it appears in the view, allowing users to download the template and populate values for those attributes.
+To import custom attribute values:
+Download the import template for the asset type.
+Locate the custom attribute columns (these are added dynamically based on the attributes applied to that asset).
+Enter the values in the respective custom attribute columns.
+Upload the completed template through the Data Import tool.
+Example:
+If a custom attribute called “Credit Card Number” is applied to your assets, the template will include a “Credit Card Number” column. Filling in this column with values that match the defined format (e.g., 16-digit numbers like
+1234-5678-9012-3456
+) will assign the values to the correct assets once the import is processed.
+After entering the values, follow the same steps to import.
+Note:
+Values that do not match the required format (defined when creating the custom attribute) will not be accepted.
+For more details on creating and managing custom attributes, refer
+Creating and Managing Custom Attributes.
+Excel (.xlsx) File Requirements
+When importing data using an Excel (
+.xlsx
+) file, ensure the file is clean before uploading.
+The Excel file must contain
+only one worksheet
+.
+Any formatting applied to rows beyond the actual data records must be removed.
+Rows that appear empty but contain formatting are treated as records during import.
+Note:
+Failure to meet these requirements may result in additional or incorrect records being imported.
+Step 2.1: Download and Reuse Data for Import
+Users can also download data from the listing page and import the downloaded file using Data import:
+Step 3: Field Mapping
+Fields from the uploaded file will get mapped with Field in dvsum. Mapped Tab will show all fields which are mapped. Once All Required Fields are mapped. Users can Click on
+Import
+button and start import
+If a field is unmapped, the user can map it individually by selecting the appropriate option from the dropdown available in the Fields section under the DvSum column. Similarly, to remove a single field, the user can click the remove icon provided for that field.
+For bulk actions, the user can utilize the
+Reset Field Mapping
+and
+Apply Auto Mapping
+buttons.
+Step 4: Import Completion
+A success screen will be shown to the user when the file is imported successfully.
+I'm Done
+Button will redirect the user to the Data import step1.
+Go to Assets Dictionary
+button will redirect the user to the Assets dictionary listing page with respective Asset Type.
+Step 5: Import Summary Email
+After 3-5 minutes the user will receive an email with a complete summary of imported Data. Users can also download the summary of uploaded data using the Download button.
+Step 6: Post-Import Actions (Domain-Specific)
+After completing the import,
+records are not automatically published
+.
+Please follow these additional steps to publish your records. The post-import steps vary depending on whether your domain has a workflow enabled or not.
+Post-Import Actions – Workflow-Enabled Domains
+Post-Import Actions – Non-Workflow Domains
+Please refer to the relevant guide to complete your import process appropriately.

@@ -1,0 +1,72 @@
+Title: How to Apply Filters in Governance Views
+URL: https://dvsum.zendesk.com/hc/en-us/articles/40953420948884-How-to-Apply-Filters-in-Governance-Views
+================================================================================
+
+In this Article:
+Equals
+Does Not Equal
+Includes
+Excludes
+Is Empty
+Not Empty
+Wildcard Match
+Note
+DvSum enables users to apply different filter conditions while creating or customizing views in the Data Dictionary, Field Dictionary, Analytics Dictionary, and Business Glossary.
+For detailed steps on creating Governance Views, refer to the
+How to Create Governance Views article
+. Once a view is created, filters can be applied using the specify criteria as described below.
+Equals
+What it does:
+Returns rows where the column value exactly matches the specified value.
+Example:
+Source Name = Databricks → only rows where Source Name is "Adventure Works."
+Does Not Equal
+What it does:
+Returns rows where the column value is not equal to the specified value.
+Example:
+Source Name ≠ Databricks → excludes rows where Source Name is "Adventure Works."
+Includes
+When using the
+Includes
+filter under
+Specify Criteria
+, the behavior varies depending on the selected field:
+For Table Name:
+When “Table Name” is selected, users need to
+type a keyword
+to search for available values from the database.
+A message appears below the field saying:
+“Type to search for values from database. You can select up to 100 values only.”
+This means users must start typing to fetch matching table names, and they can
+select a maximum of 100 values
+.
+For Other Fields:
+For other filter fields (e.g., Columns, Tags, Source, etc.), the list of available values will automatically appear
+when you click on the text box
+, without the need to type a keyword.
+Excludes
+What it does:
+Returns rows where the column does not contain the specified value.
+Example:
+Status excludes "Published" → omits rows where the Status field contains "Published."
+Is Empty
+What it does:
+Returns rows where the column has no value (blank/null).
+Example:
+Glossary Term is empty → fetches rows with no glossary term assigned.
+Not Empty
+What it does:
+Returns rows where the column contains any value (not blank/null).
+Example:
+Glossary Term not empty → fetches rows that have a glossary term assigned.
+Wildcard Match
+What it does:
+Allows partial or pattern-based matching using wildcards (* or % depending on syntax).
+Example:
+Table Name wildcard match "order" → matches names like "order," "order history," or "vw order."
+If * or % is used in the filter with *
+"Add
+"**, it will fetch all rows that start with
+"Add."
+Note:
+Users can add multiple criteria within a single view.

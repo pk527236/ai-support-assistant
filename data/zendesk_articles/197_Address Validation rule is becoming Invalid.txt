@@ -1,0 +1,8 @@
+Title: Address Validation rule is becoming Invalid
+URL: https://dvsum.zendesk.com/hc/en-us/articles/222595948-Address-Validation-rule-is-becoming-Invalid
+================================================================================
+
+Problem: When you run the address validation rule, it shows as invalid. The comments say, unknown error, contact administrator.
+Common Reasons:
+1. Incorrect configuration: Go to Configure tab of the table by clicking on configuration in the Rules Scorecard or from Profiling --> Show Details. Click to Edit and Save again so the system  checks the configuration. If there are any errors, it would prompt for the same
+2. Web Service not able to write changes to staging table. (Administrator) go to Web Service log (dvsum\webservice\SAWS.log) and look for any errors in processing the request.

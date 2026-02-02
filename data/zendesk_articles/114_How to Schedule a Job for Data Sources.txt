@@ -1,0 +1,72 @@
+Title: How to Schedule a Job for Data Sources
+URL: https://dvsum.zendesk.com/hc/en-us/articles/18727787422228-How-to-Schedule-a-Job-for-Data-Sources
+================================================================================
+
+In this Article:
+Overview
+Scheduling a Scan Job
+Configure Scheduler Settings
+Scan Frequency Options
+Daily Scans
+Weekly Scans
+Monthly Scans
+End Conditions
+Scan Summary
+Video Tutorial
+Overview:
+Job schedulers automate and streamline the execution of tasks within web applications, ensuring timely and efficient processing of background jobs, thus enhancing overall system performance and user experience. In the Dvsum Data Catalog application, the scheduler plays a pivotal role in automating the data source scanning process. By setting predefined schedules, the scheduler ensures that scans occur without manual intervention, maintaining data accuracy and relevance. This automation optimizes resource utilization by enabling scans during off-peak hours, enhancing overall system efficiency. The automated scans also provide timely insights into data changes, allowing prompt identification of trends or anomalies.
+Within the Data Catalog application, users are presented with two methods to initiate a scan. The first involves an immediate on-demand scan achieved by clicking the "Scan now" button on the data source's Scan History page.
+The second option grants users the ability to schedule scans using a scheduler, a process that we will explore in more detail below.
+Scheduling a Scan Job:
+Navigate to the Data Source general settings from the detail page. There, the user will see the Scanning Information section which has the scheduling details. By default, it is set to empty as shown below.
+Configure Scheduler Settings:
+Navigate to Data Sources > Any Source > Settings > General
+In order to configure scheduler settings, open the edit mode by clicking the "
+Edit
+" button. Within this mode, users will find and be able to adjust the desired scheduler settings as shown below.
+Scan Frequency Options
+First of all, the user has to set the Scan Frequency. Click on the Scan Frequency field dropdown and it will show the following options:
+One Time:
+This will create and execute just one job on a selected date and time.
+Daily:
+This will result in the creation and execution of jobs on a daily basis at a chosen time.
+Weekly:
+This will create and execute jobs on a weekly basis at a chosen day, date, and time.
+Monthly:
+This will create and execute jobs on a monthly basis at a chosen date, and time.
+Now from the "
+Starts On
+" field, select the Date and Time at which job(s) will be executed.
+Daily Scans:
+Once the Daily scan frequency is set and the user selects the date and time of the frequency of the scan, the user can also set the day frequency at which job(s) will be scheduled and executed from the days dropdown as shown below.
+By default, it is set as 1, which means jobs will be executed daily at the selected time. If the user selects it to 2 then jobs will be executed after every 2 days. If I start the scheduling on Monday and set the day frequency to 2, then jobs will be executed on Monday, Wednesday, Friday, and so on every second day.
+In addition to this, users have the option to repeat the task multiple times within a single day. To enable this feature, users need to click on the checkbox labeled "Repeat tasks every." This action triggers additional text fields to appear, prompting the user to input the frequency in minutes and the total duration in hours for the task repetition. For instance, if a user enters 20 minutes for 1 hour and schedules it for 9:00 PM, a new task will be executed every 20 minutes. This means the initial task will start at 9:00 PM, followed by subsequent tasks at 9:20 PM, 9:40 PM, and concluding at 10:00 PM for the day.
+Weekly Scans:
+Once the Weekly scan frequency is set and the user selects the date and time of the frequency of the scan, the user can also set the days on which that scan will be repeated. Days checkboxes will appear in the "
+Repeat on
+" field and whichever days the user selects, a new scan will be executed on those days at the desired time.
+Monthly Scans:
+Once the Monthly scan frequency is set and the user selects the date and time of the frequency of the scan, the user can also choose to select the repetition of the scan. Once the Monthly scan option is selected, the "
+Repeat by
+" field will populate which will have two options "
+Day of the month
+" and "
+Day of the week
+". If "
+Day of the month
+" is selected, then a new job will be scheduled and executed on the selected date and time of every month.
+End Conditions:
+Now closing out the scheduling settings, select the end date/time of the scheduler from the "
+Ends
+" field. It has three options in the form of radio buttons which have the following purpose:
+Never:
+This means that the jobs will always be running on the desired date and time which is set and it will never stop.
+After:
+This means that after certain occurrences, jobs will stop getting auto-created and executed. The user has to enter a certain number of occurrences.
+On:
+This means that on a particular date that the user has selected, jobs will stop getting auto-created and executed.
+Scan Summary:
+Once all the settings are done, the Scan Summary will appear at the bottom as shown below. Save the General settings to start the execution of the scheduler.
+Video Tutorial:
+Watch this quick video tutorial of how to s
+chedule a Job for Data Sources:

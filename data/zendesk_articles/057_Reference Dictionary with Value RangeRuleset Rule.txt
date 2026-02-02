@@ -1,0 +1,36 @@
+Title: Reference Dictionary with Value Range/Ruleset Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/28703505711636-Reference-Dictionary-with-Value-Range-Ruleset-Rule
+================================================================================
+
+In this Article
+Overview
+Detailed Steps
+Ruleset Rule
+Overview
+Reference dictionaries can be added to value range and ruleset rules. This allows you to map the columns defined in the reference dictionary to the columns in your dataset, ensuring that data is validated according to the data defined in the reference dictionary. For more information, please see this detailed article on
+reference dictionary
+.
+Detailed Steps:
+Step 1:
+Log in to DvSum, navigate to the Dictionary dropdown, select the Database Tables tab, and then choose the relevant data source and table name.
+Step 2:
+Select the table name then select the Data Quality tab and choose Available Rules.
+Step 3:
+Select the "⊕ Add Rule" button, then choose the "Foundational DQ" category. From the list of options, click on "Value Range".
+Step 4:
+Basic Input
+In the Rule Wizard's Basic Input section, Select "Ref Dictionary" from dropdown in Comparison type.
+Step 5:
+Select the Dictionary and add relevant source fields.
+Also, we can cancel the fields and map the fields only we want to.
+Step 6:
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.
+Ruleset Rule
+Step 1:
+Select the "⊕ Add Rule" button, then choose the "Foundational DQ" category. From the list of options, click on "Ruleset".
+Step 2:
+In the Rule Wizard's Basic Input section, Select "Ref Dictionary" from dropdown in Value range check.
+NOTE:
+Reference dictionaries with any defined hierarchical levels will not be shown here.
+Step 3:
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.

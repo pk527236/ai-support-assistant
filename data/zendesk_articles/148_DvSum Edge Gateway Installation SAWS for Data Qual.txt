@@ -1,0 +1,200 @@
+Title: DvSum Edge Gateway Installation (SAWS) for Data Quality
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360021928854-DvSum-Edge-Gateway-Installation-SAWS-for-Data-Quality
+================================================================================
+
+Overview
+This document describes the installation process for the DvSum Edge Gateway. It includes everything needed for installation, such as required middleware and instructions for deploying the Gateway/Connector on your machine.
+Note: Gateway, Connector, SAWS (Stand-Alone Web Service) and webservice are used interchangeably referring to the DvSum Edge Gateway.
+System Requirements
+Operating System
+Windows XP, 7 - 10 or Windows Server 2008, 2012 and above.
+Disk Space
+1 GB (free)
+Memory
+4 GB
+Browser
+Google Chrome, Mozilla Firefox, Microsoft Edge, Apple Safari
+Downloads
+DvSum Data Quality Gateway Windows Installer
+Network Configuration
+If DvSum Edge Gateway is to be installed on a server where outside access is restricted by a firewall, you must white-list the following addresses so the gateway can communicate with the DvSum SaaS web application.
+prod.dvsum.com port 443
+email-smtp.us-west-2.amazonaws.com
+Open port for gateway communication
+Port 8183 (default port)
+Network Diagram
+Install System Prerequisites
+Check and install Java Runtime (JRE)
+1. On your machine, go to
+Start
+>
+Run
+> type "cmd" > "
+Run as Administrator
+"
+2. Type "java -version" and hit enter. This will indicate what version of Java (if any) is installed.
+3. If Java is not installed, please download and install required version of Java.
+For other sources, download and Install
+Java 8
+Note: You may be asked to create an oracle.com account to download Java.
+Install Microsoft Access database Engine 2010
+(For EXCEL only)
+1. Go to
+www.microsoft.com
+and search "
+Microsoft Access database engine 2010 Redistributable"
+If 64 bit Java is installed on system make sure to install 64 bit Microsoft Access Database Engine 2010
+If 32 bit java is installed on system make sure to install 32 bit Microsoft Access Database Engine 2010
+For more details,
+How to Configure EXCEL/CSV?
+Install Python
+Find the
+Python 3.7 installation
+files.
+Download the relevant installer from the Files section (e.g. for Windows 64 bit, install Windows x86-64 executable installer)
+Run the installer.
+Select the checkbox "Add Python 3.7 to PATH"
+Click on "customize installation"
+Click next, confirm that "Install for all users" is checked.
+The options pre-selected on this step may be left unchanged. Click "Install".
+This will install Python on your system.
+Confirm installations
+Confirm that Java and Python are working well.
+java -version
+python --version
+Install additional required Python libraries
+To install python libraries, go to command prompt (
+Start
+→
+Run
+→ type "cmd" →
+Run as administrator
+)
+Type (or paste):
+pip install pandas XlsxWriter xlrd Flask beautifulsoup4 "SQLAlchemy<2.0"
+This will install required Python libraries on your system.
+For more details, read
+Step-by-step Installation of Python
+Install DvSum Edge Gateway
+Download SAWS from DvSum
+Log onto
+https://prod.dvsum.com
+Go to
+Administration
+→
+Manage Account
+→
+SAWS tab
+Next to the heading "Stand-alone web service information" click "Download". This will download "webservice.zip".
+Unzip webservice.zip.
+Optionally move the folder to a more convenient location.
+This folder will be the webservice root directory.
+On a machine dedicated to the DvSum Edge Gateway, this will typically be c:\dvsum\webservice or something similar.
+Add SAWS to DvSum account
+Go to
+https://prod.dvsum.com
+Go to
+Administration
+→
+Manage
+Account
+→
+SAWS tab
+Click "⊕Add" to register a new Edge Gateway.
+Name: any descriptive name
+Host Name: enter either the hostname or the IP address where the Edge Gateway will run
+Port: 8183 by default
+Help: If installing the Edge Gateway on your own laptop/computer, enter the Host Name as 127.0.0.1
+Update configuration.properties file with api.token
+Go to
+Administration
+→
+Manage
+Account
+→
+SAWS tab
+Copy the communication key.
+Open configuration.properties in a text editor. You'll find this file in folder created earlier. For example: c:\dvsum\webservice\configuration.properties
+Paste your communication key into configuration.properties as the value for api.token:
+api.token=KnM15U6GsAcQtbXJMtQV51SRciAG8Het
+Save configuration.properties.
+For more details, read
+Add and Install SAWS as a service
+Install DvSum Edge Gateway as a service
+Go to downloaded webservice root directory.
+For example: c:\dvsum\webservice
+Right click "saws_service_install.bat" run as administrator.
+This will install the windows service "DVSUM SAWS" along with some closely related services.
+Verify DvSum SAWS is running by
+Start
+→ type
+Services
+→ open Services → scroll to "DVSUM SAWS" in the services list.
+Client machine IP white-listing
+In order to establish the communication channel between the DvSum Edge Gateway (SAWS) that you just installed and the DvSum SaaS Web Application, the end-user public IP must be white-listed in the DvSum Web Application.
+Go to
+Administration
+→
+Manage Account
+→
+Application Security
+→ IP Address  White List
+Enter the public IP address of the end-user machine. Click Add.
+Add SAWS exception to your browser
+Go to
+https://prod.dvsum.com
+Look at the SAWS icon on top right corner.
+If the SAWS cloud icon is green, SAWS is successfully installed and running.
+If the SAWS cloud icon is red, click on it.
+This will open a window prompting you to add an browser exception for SAWS.
+Click "Advanced".
+Click "Proceed to [hostname or IP address] (unsafe)". You are connecting to the SAWS instance that you just installed. It is fully secure.
+For more details, see
+Why do I need to Add exception?
+Now the SAWS cloud icon will turn green, and the SAWS installation is complete.
+Copy SAP DLLS to c:/windows/system32
+1. Go to webservice
+root
+directory > click on
+Sap Dependencies
+folder >
+SAP JARS AND DLLS
+For 32-bit operating system, click on SAP 32bit jars and dll folder. Copy 32-bit sapjco3.dll and paste in c:\windows or c:\windows\system32
+For 64-bit operating system, click on SAP 64bit jars and dll folder. Copy 64-bit sapjco3.dll and paste in c:\windows or c:\windows\system32
+2. make sure folder address where dll has been pasted is added to system path variable i.e
+right click on (
+my computer icon
+or
+Computer
+or
+this PC icon
+) >
+Properties
+>
+Advanced System Settings
+>
+Environment Variables
+> find 'path' in System Variables.
+If c:\windows and c:\windows\system32 is added in path leave as it is otherwise add following String in the beginning of path c:\windows;c:\windows\system32;
+Here is a quick video on How to Install DVSUM Edge Gateway:
+DvSum Edge Gateway Logs
+The DvSum Edge Gateway maintains logs on the machine where it is running. This log file records all actions performed by SAWS. In case of an error, this log can facilitate troubleshooting to pinpoint the root cause of the issue.
+The logs are found in the logs sub-folder. For example: c:\dvsum\webservice\logs
+The server is configured to rotate logs daily. Rotated log files follow this naming convention: SAWS_2023-05-15.log.
+The undated file,
+SAWS.log
+, is the latest.
+SAWS Maintenance and Advanced settings
+After the basic SAWS setup, some advanced configuration options are available. You can easily manipulate the settings from SAWS configuration file.
+For details, read
+SAWS Advanced Settings (Configuration.properties file)
+SAWS Upgrade
+When a newer version of SAWS is available on DvSum, you will see the notification for upgrade. It will update SAWS in one click.
+For details, read
+SAWS Update.
+Other Articles Related to DvSum Edge Gateway (SAWS)
+How does SAWS work?
+Why is SAWS showing red cloud even though it is installed successfully?
+Can I add multiple SAWS?
+How to Schedule Jobs?
+What are SAWS Alert notification controls?

@@ -1,0 +1,45 @@
+Title: Run Online & Run Offline
+URL: https://dvsum.zendesk.com/hc/en-us/articles/27004996852500-Run-Online-Run-Offline
+================================================================================
+
+In this Article
+Overview
+Details
+Table Profiling
+Rule Execution
+Overview
+Users can execute many different tasks in DvSum Data Catalog (DC). Testing a rule might take just a few seconds. But some rules could take several minutes or even longer. Therefore DC offers the ability to "
+Run Online
+" and "
+Run Offline
+" to give users the flexibility to run jobs as required.
+Executing a rule synchronously and waiting to see the results is often the most efficient way to test a new rule. Executing a long-running job in the background and reviewing the results later is sometimes preferred.
+Details
+The option to "
+Execute Now
+" or "
+Run Offline"
+applies in several places.
+Database Tables
+DQ Rules
+Table detail page
+Rule detail page
+The options are complementary and give developers the flexibility to work as they prefer.
+Run
+Online
+- Will immediately execute the action. Note that if the user navigates to another page while the task is executing, then the task will be aborted.
+Run Offline
+- Will schedule the action to run soon. Typically the task will begin execution within a few seconds. The job will be visible in the "
+Jobs"
+tab.
+Table Profiling
+Table profiling can be executed from multiple places.
+Go to the
+Dictionary
+dropdown and select the
+Database Tables
+tab.
+Rule Execution
+DQ Rules:
+Rule Detail Page:
+Note: Only the first 300 exceptions are displayed in the Grid on the Data tab. if needs to view more exceptions, must enable the “Include all Exceptions” checkbox in the Run Online dropdown before running the rule.

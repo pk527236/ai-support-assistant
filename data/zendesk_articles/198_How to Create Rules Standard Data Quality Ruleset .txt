@@ -1,0 +1,32 @@
+Title: How to Create Rules (Standard, Data Quality Ruleset, Business Rules DAE)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/202846784-How-to-Create-Rules-Standard-Data-Quality-Ruleset-Business-Rules-DAE
+================================================================================
+
+Rules are created and added to Audits to be run together with other rules.
+Rules can also be run individually. They can be scheduled or run ad-hoc.
+Rules in DvSum can be created from a number of different locations within the tool. They can also be added from the Rules Library, or if you have existing rules for your data they can also be uploaded to DvSum.
+When a rule is created it is assigned a unique ID. The ID will have a form like "DQ-000167". DvSum generates a page at a url in the form https://prod.dvsum.com/rules/{rule_id} which includes the Rule Definition, Summary, Exceptions from the latest Audit run, and trends.
+Standard Rule Creation
+The majority of rules are created through the Rules Wizards provided within the tool. From the left navigation pane, access Audit → Manage Rules, and click "⊕ Add Rule".
+Completing Rules Wizards
+For each of the Rules wizards, information is completed within the following sections. Depending on the type of Rule, options will differ. If the Rule is applicable to a single data source, Reference Inputs will not apply. Doc-matching rules will also require different information.
+For some rule types, under Basic Inputs, the Variance Check check-box indicates this is a rule that will compare results of the current run to the results of a previous run, and you will be asked to provide a Variance Threshold or %.
+Data Quality Rulesets
+Creating Rules from within Profiling → Data Quality
+When in Profiling, by clicking the Data Quality tab, you have the ability to create Rules and Rulesets for the data you are reviewing.
+You must first click “Enable Ruleset,” complete the required information, and click “Save” before defining the specific checks.
+Rules created from the Data Quality tab within Profiling are limited to Completeness and Value Range checks. For example, by selecting the “Blanks Check” check box, the system automatically creates a rule to identify blank or NULL values.
+You also have the opportunity to establish Filter conditions, to ignore the special scenarios where a blank might be an acceptable value.
+Within the same Ruleset, or as a standalone Rule, you can also define Value Range Checks. These can be defined based on a Min/Max Threshold, or based on values from a Picklist defined either within the Field or in a reusable Reference Dictionary.
+Your specified configuration is automatically saved as a rule which can be viewed and edited under Audit → Manage Rules.
+Data Analysis Exceptions (DAEs)
+Creating Rules from within Profiling → Data Analysis
+More complex data rules can be created from within Profiling, under the Data Analysis tab. When exploring data through the filtering analysis, you may identify combinations of data that you want to define as Exceptions or that you want to create a query for to review the record details.
+For example if the combination is invalid and should not exist, a Rule can be created from this view. As seen below, for a Product/Item Category of Accessories (Accy) sourced from Asia, a user may know that the Plan Level (planning category or priority) should not be "4." You can create a rule by clicking "Add Business Rule", entering a Description, and clicking Create. A Rule template (or shell) is created, which you may then edit as desired.
+Clicking Create takes you Audit → Manage Rules with the Rule template created. From here you can Edit, add detail, Action Items, Create a Workflow, etc. before finalizing the rule.
+You may also simply choose to click, "Add Rule" which takes you to the Rule Editor. Here you will need to recreate the filtering conditions for the Rule you want to create and click "Add Rule" which notates the condition under the "Exceptions Rule List".
+Here you can specify whether the conditions are valid or invalid. If valid, the rule will be displayed under "Valid Rule List". It will consider the condition as valid and bring all other records as exceptions. If invalid, the rule will bring only those records as exception which meet the condition. This can be selected from top right corner.
+When creating rules from this view, you are able to create multiple filtering conditions, within the selected Attributes, and also add them as Rules. This creates a compound rule that returns all qualifying exceptions or records within the query, and allows you to view them together. At the bottom, there is Cleanse Column list. Here you can check the columns which you want to make cleanse-able and unchecked any column which serves only as a filter.
+In the cleanse workbench, the filtered columns with be selected by default and only the cleansable columns will be visible to be fixed.
+Alternatively, DAE rules can also be created from Audit → Manage Rules tab as well.
+Select "⊕ Add Rule" → "Business Context" → "DATA ANALYSIS EXCEPTIONS".

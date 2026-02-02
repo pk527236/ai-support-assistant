@@ -1,0 +1,50 @@
+Title: How to talk to your data
+URL: https://dvsum.zendesk.com/hc/en-us/articles/15168396488852-How-to-talk-to-your-data
+================================================================================
+
+In this Article:
+Data Analysis and Artificial Intelligence
+How Chat History Works with CADDI
+Multi-Language Support in CADDI
+Data Analysis and Artificial Intelligence
+Artificial Intelligence (AI) plays a crucial role in data analysis by providing a simple interface to extract insights from large and complex data sets. With its ability to process natural language quickly, AI helps people make better-informed decisions, identify patterns and trends, and uncover hidden insights that might otherwise go unnoticed. In DvSum users have the ability to talk to their data using
+C
+onversational
+A
+I for
+D
+ata-
+D
+riven
+I
+nsights (CADDI). DvSum CADDI makes it effortless to interact with your data, understand it, and extract reliable insights.
+Note:
+For more details on CADDI chat refre "
+CADDI Chat (Talk to your Data)
+" article.
+How to talk to the data in DvSum Data Intelligence
+Before we start chatting with data, first we need to create a topic and share it with some users. Here I have a chat topic shown below which I have shared with the user. Go to the chat topic detail page and follow the steps below to see how we can share the topic with some other users.
+After sharing the chat topic, click on "Talk to Your Data" from the left navigation. This will open the Conversational page in a new tab.
+In the Conversational tab, all the analyses shared with users will appear as topics. Select the desired topic to begin the conversation.
+Once the topic is selected, an About section of that chat will appear on the new chat which will contain details of the topic i.e. that chat topic is created for which dataset, who are the owners of that dataset, etc.
+Click on the "Sample Data" button and it will show the sample data of that data set.
+From the sample data user can have some basic insights of what data is about and how it looks like. Users can select different columns and apply filters to check the results.
+Once sample data is explored generically, now users can move forward by asking different questions to have more to-the-point insights into the data. In the current example I have selected the Order History table so I will try asking questions to explore data further as shown below.
+Here is the result:
+The result shown above shows a line chart of the insights for which the question was asked. It shows the insights in graphical form of all the orders that were placed recently in the current month. In order to see the results in the form of a grid then click on the "Toggle View" button as shown below and it will also show a grid view of the results.
+The type of chart depends on what query is generated from the question and what results are fetched. If datetime column and metric count in results is greater than or equal to 1 then the line chart will show up as shown in the case above. Whereas if datetime column count is 0 and the attribute and the metric count are greater than or equal to 1 then the Bar chart will show up as shown in the example below.
+Whereas if results just show one row and column then the Tile chart will show up as shown below.
+Users can also change the topic within the chat. Click on the topics button and it will show up all the topics. Select any and it will show its About section.
+How Chat History Works with CADDI
+CADDI supports chat history as well, allowing the system to use context from previous questions to provide more accurate and relevant responses to follow-up questions. The system first determines whether a question is a follow-up or a standalone query. If it is identified as a follow-up, it utilizes previous context to provide a more accurate and relevant response, similar to how other advanced agents, such as ChatGPT, operate. The example below illustrates how the system maintains the context of previously asked questions.
+Firstly, the following question was asked: '
+How many members are from the state of California?
+', and it showed the results.
+After that, a follow-up question was asked: '
+Show me how many of them have diabetes and are in their 30s
+.'
+The second follow-up question didn’t include any specific information about members from California, yet it still identified members from that state. This is because the system used the context from the first question, which mentioned California
+Multi-Language Support in CADDI
+CADDI also supports multiple languages, allowing users to query and receive insights in their preferred language. This feature enhances the platform’s accessibility and usability for a diverse global audience.
+Languages supported by CADDI include, but are not limited to, German, Spanish, Chinese, French, Portuguese, Japanese, Russian, Italian, and Korean, among others.
+For example, if the query is submitted in Spanish, both the response and explanation are provided in the same language.

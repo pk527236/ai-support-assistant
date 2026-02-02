@@ -1,0 +1,73 @@
+Title: How to create a Workflow with excel file as input ?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360033768933-How-to-create-a-Workflow-with-excel-file-as-input
+================================================================================
+
+Follow along the steps to use Excel file as an input in a Workflow;
+1. Create a target Folder
+From Administration > Manage Account > Folder tab, create a folder. Provide the path of the folder where you want to upload excel file.
+2. Upload file to folder
+From File upload on left navigation, select the folder you created. Upload the unprocessed excel file in this folder. This is how an unprocessed file will look like.
+Once uploaded to target folder, DvSum will run pre-processing on the file and apply basic cleansing.
+Basic cleansing includes removing blank rows, replacing white spaces within a column name with underscore e.g. First Column will be changed to First_Column. Special characters from column name are removed. Also, the duplicate columns are dropped. Below is the image how the file looks like after basic cleansing.
+Pre-processing file is created against the uploaded excel source in target folder. To do so, go to the target folder and there will be a new folder called "ExcelPreProcessProps".
+Open the folder to access the preprocess.properties file. It a note-pad file with the same name as the excel source file with "_preProcess" appended at the end.
+3. Custom Cleansing with Pre-process.properties file
+In some cases, the default cleansing is not enough. Sometimes a user needs to tell DvSum to skip rows which do not contain actual data. Or specify the format for number columns where the data automatically truncates the values up to required decimal precision. For that purpose, a properties file associated with every uploaded file is available for user to edit.
+As an example, lets change the data type of one column to "str". A particular use case when your data source has numeric field values but you want DvSum to read it as string. For example, in the case below where you want the field value "0000000000000000043" to be read as it is and not as "43", you would have to mention the data type "str" in pre-process file. DvSum source requires to explicitly mention the dataType in such case.
+For DvSum to read "Article_ID" as string and not as number, open pre-process propertiles file and set the dataType as "str". Save the pre-process properties files.
+For more details, please read
+EXCEL Pre-process properties
+4. Upload file again to apply latest preprocess.properties
+Once you have saved the changes in preprocess properties file, you will be required to upload the file again (same as step 2). This will apply the latest changes to the file.
+This will clean and format the excel source the way it is required. Now it is ready to be configured in DvSum.
+5. Add Excel in Memory Source
+From Administration > Manage Sources > Add Source.
+Provide a name and select the source type as Excel in Memory. You would be required to provide File System Path (root folder path where the excel file is placed)
+Save to add this source in DvSum.
+6. Configure Source
+Click on "Configure" button on the bottom left corner. It will show you all the tabs/sheets of your excel source. Select a tab and select the option "My Data has Headers". This will show you the name of the columns. Select the columns you want to configure in DvSum.
+Note: The columns that you specified as "str" in pre process.properties file are to be explicitly set as "String" from configure page.
+When you click on "Add", those columns will show the status as "Cataloged". Click on Finish.
+7. Profile Source
+From Profile > Profiling page, select the source and table - Run profiler. Once completed, go to "Show Details" to view the data which will now be appearing according to the pre-process properties.
+8. Create Rules
+From Profiling, you can create MDC ruleset and DAE rules. You can also create any other rules like Value Range, Blanks check, Orphan Records or Integrity check rules on your excel source.
+Execute the rules to extract exception records. The idea is to use these rules in a workflow and cleanse these there.
+9. Create a Workflow
+From Workflows > Manage Workflows, Create a workflow.
+Once you Save the workflow, you will land on Workflow Designer page. Complete the Workflow by adding Step widgets and making their end to end connection.
+Now in order to add tasks to a step, go to detail page of that step and click on "Add Task"
+9.1 File Upload Task
+Provide a name to task and choose type as File Upload Task. In the section File Upload Details, select the same folder that you created in Step 1 (where the file was uploaded). Also, make sure you have checked "Upload any file" and "Apply pre-processing" options.
+9.2. Validation Task
+Provide a name to task and choose type as "Validation Task". In the section Rule List, select the rules created on the configured excel source. You can also select them by filtering rules by source name or Rule group. Also, make sure you have enabled "Allow dynamic file selection" check in order to run rules against the dynamic file.
+If you want the task to be Mandatory, enable Mandatory checkbox.
+The mandatory step in rule validation can sometimes cause hard-stop in workflow execution. In some cases, it may be acceptable to have exceptions for rule and a user may want to be able to over-ride the failed and mark the validation step as complete by first getting them "Approved"
+Enable "Select Approver" and select from the group of users or a single user for this role.
+Note
+: Approvers can be appointed only for mandatory Validation Tasks.
+10. Publish workflow
+Once you have defined the tasks within the steps of workflow, go back to the Workflow Designer window and click on "Publish" button. This will change the status of workflow from Draft to Published.
+11. Execute Workflow
+From New Workflow Request on the top right corner, create an execution for this workflow.
+Provide the required details and click on Initiate.
+12. Upload dynamic file from workflow
+Once the execution starts, the step owner will be notified about progress. He/She will then complete the tasks and submit them. User is required to upload a dynamic file, execute validation rules against the uploaded file and cleanse the exceptions.
+12.1 File Upload task
+From the task detail page, Click on Upload file and select the file to be uploaded.
+Upon clicking Save, DvSum will apply the pre-process properties to file and cleanse it. Now you can execute the validation rules on it.
+12.2 Validation Rules Task
+From the task detail page, Click on Execute. This will show you a dialogue to select a data source against which the rules are to be executed. The file uploaded in previous step will be automatically selected.
+If the execution of rules passes, then you mark the step as complete. If it fails, you will have the option to cleanse the exceptions or assign step to "Approver"
+13. Fix exceptions and assign Step to Approver
+Click on the Validation rule task to see the Rules. You can go to the rule detail page and fix the required exceptions.
+If there are still exceptions left and you want to be able to over-ride these exceptions and move to the next step of Workflow, assign the step to "Approver" to take a decision whether the exceptions fixed are acceptable or not.
+The Approver can approve the changes and the step can now be marked as complete.
+The execution will go back to the Step Owner to submit and move to next step of workflow.
+Other Related Articles
+How can I add new fields in a Excel upload Template?
+Data Management Workflow Alerts
+Workflow Digest Emails
+How to appoint an Approver for Validation Task in a workflow?
+Who are Watchers and how to add them in a workflow?
+What are the types of tasks that can be created in a process step of a workflow?

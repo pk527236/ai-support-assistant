@@ -1,0 +1,133 @@
+Title: SAP Writeback - Overview
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360045900614-SAP-Writeback-Overview
+================================================================================
+
+User will be able to perform write-back for SAP source using DvSum application. On opening cleanse workbench for the rules configured with SAP source, resolving the exception and performing commit, data will be written back to SAP source.
+SAP User Based Credentials
+DvSum application allows users to cleanse the datasets and write back directly on the source database. SAP database is a new addition as a source in DvSum application. For allowing user to write back on SAP source, the user needs to configure the SAP user credentials in DvSum Application. DvSum application will use those credentials for connecting to the source and enabling user to perform different actions on the source data.
+There is a section in user profile page where user can setup the sap credentials for sources which have user-based write-back enabled. User will select the source and add the username and password for that source. User can also use Test connection button to test the connection with sap source with entered credentials.
+For enabling, user will have to enable user based writeback in writeback parameters.
+When a user enters the credentials, these will be saved. Only one credentials can be added for one sap source for each user.
+Authorization needs to be provided for a user to be able to do writeback. He should have access to to ZDVSUM* functional module in SAP.
+SAP Writeback Configuration Setup
+User will now be able to Writeback Data into SAP Application System using Database Source (Ex: SAP MD) by doing certain configuration in DvSum Application at Source Level and Table Level. To know how to setup the configuration one by one, let us get started step by step.
+Source Level Configuration:
+Step 1:
+To link an existing source connection to SAP, user should navigate to 'Administration' > 'Manage Sources' > select the source to be linked to SAP and click on 'Edit Source'
+Step 2:
+On Clicking 'Edit Source' (Other than SAP), user will be able to see the following page.
+In the 'Source Write back Mapping' section, Select the SAP Source to which Data should be Writeback. 'Write back On parameter' must be selected as "Linked SAP source" in order for write-back to be performed on SAP source.
+After selecting the “Linked SAP Source” and “Writeback On”, Save the Details by clicking on Save button.
+Note:  'Write back On' parameter selected as "Original Source", DvSum will write back to Original source.
+Table Level Configuration:
+There can be multiple scenarios for setting the Table level configurations and do the writeback
+Scenario A: Reading from SAP and writing to SAP
+Step 1:
+In Order to Writeback to SAP Table using SAP Source, First Verify the Record Identifiers are set for the SAP Table by Navigating to Profiling > Selected SAP Table > More Actions > Edit Configuration as shown below
+Step 2:
+In Order to Writeback to SAP Table using DB Source, First Verify the Record Identifiers are set for the SAP Table by Navigating to Profiling > Selected SAP Table > More Actions > Edit Configuration as shown below
+Now Verify the Record Identifier’s in the below location. If the Record Identifier’s are not set, Please set them here and Save.
+Step 3:
+Starting from creating a rule, Value Range rule type in this case, go to Manage Rules, click on Add Rule button, hover on Business Context from drop down options and lastly click on Value Range
+as shown in image below
+:
+After the running the rule, now we can see the Cleanse button and Writeback Fields marked with colour.
+Step 4:
+Now, click on Cleanse Button, Modify the Data as shown below.
+Step 5:
+Once the Save is done. Click on “Commit” button to writeback data into SAP Table.
+As soon as commit is pressed, user can see Job(s) are scheduled to perform the operation.
+Wait for the Jobs to complete by Navigating to Scheduler Page.
+Step 6:
+Verify the changes on the Rule Page by refreshing the page, once the Job(s) are completed.
+Scenario B: Reading from MSSQL Database and writing to SAP
+Step 1:
+Now, navigate to Profile > Profiling page. Select the DB Source Table (Ex: SAP_MD QA , DBO>MARADBO.TVARTICLEPURCHASING_GROUP) as shown below for which User wants to create a rule and do the writeback.
+Step 2:
+Verify the Record Identifiers are same as the SAP Table. If not, please select the record Identifiers for DB Source Table and click Next.
+Make sure the key identifier is set against Source Identifier and the column which we want to use for cleansing purposes, enable writeback must be checked for it in Column Mapping section as shown in the image below. After setting the configuration, press Save.
+Note: Please make sure to set the Key identifier for the Target SAP source as well like we set for the above data source
+Step 3:
+Starting from creating a rule, Value Range rule type in this case, go to Manage Rules, click on Add Rule button, hover on Business Context from drop down options and lastly click on Value Range
+as shown in image below
+:
+Step 4:
+After the running the rule, now we can see the Cleanse button and Writeback Fields marked with colour.
+Step 5:
+Now, click on Cleanse Button, Modify the Data as shown below. You will also be able too see the target source in the cleanse workbench where writeback would happen
+Step 6:
+Once the Save is done. Click on “Commit” button to writeback data into SAP Table.
+As soon as commit is pressed, user can see Job(s) are scheduled to perform the operation.
+Wait for the Jobs to complete by Navigating to Scheduler Page.
+Step 7:
+Verify the changes on the Rule Page by refreshing the page, once the Job(s) are completed.
+Scenario C: Reading from MSSQL Database and writing to SAP using Custom Query Rule
+Step 1:
+In Order to Writeback to SAP Table using DB Source via Custom Query rule, first verify the Record Identifiers are set for the SAP Table by Navigating to Profiling > Selected SAP Table > More Actions > Edit Configuration as shown below
+Now Verify the Record Identifier’s in the below location. If the Record Identifier’s are not set, please set them here and Save.
+Step 2:
+Now, navigate to the DB Source Table (Ex: DBO.TVARTICLEPURCHASING_GROUP) as shown below for which User wants to create a rule and do the writeback to SAP Table (Ex: MARC).
+Step 3:
+Verify the Record Identifiers are same as the SAP Table. If not, please select the record Identifiers for DB Source Table (Ex: DBO.TVARTICLEPURCHASING_GROUP)
+Step 4:
+Select the SAP Table (Ex: MARC) To which user needs to writeback using DB source Table (Ex: DBO.TVARTICLEPURCHASING_GROUP) as shown below, and Click on “Next”
+Step 5:
+If the field names are same, they will be mapped automatically. If not, user will have to manually map the Key Identifier columns and Write-back columns of DB Table and SAP Table by using below screen.
+Performing the mapping for the Fields as shown the below screens. Here you can choose the fields you want to perform writeback on by selecting the Enable Write-back as checked for the respective fields
+Once the mapping is completed for the Required/All columns that are used in the rule, Save the mapping by clicking on “Save” button.
+Addition configuration for Custom Query
+Step 6:
+Starting from creating a custom query rule, go to Manage Rules, click on Add Rule button, select Process Quality from drop down options and lastly click on Custom Query
+as shown in image below
+:
+Step 7:
+User will be redirected to Add Rule detail page. In Basic Input section, under Custom Query box you will see the
+Enable Write-back
+check box
+as shown in image below:
+Provide all the details for the Rule and Enable Write-back by clicking on the check box. Save the rule by clicking on “Save” button.
+Step 8:
+Run the Rule First, then to setup the Writeback Configuration Fields.
+After running the rule, User will see the rule as below.
+Step 9:
+Setup the Record identifiers mapping by navigating to “Writeback Configuration” tab as shown below and click on “Next”
+Step 10:
+Setup the mapping for remaining columns as shown below.
+Click on check box under “Enable Write-back” column for the columns where we need to writeback the data
+.
+After Enabling Writeback, User can verify the configuration where the field is going to writeback if SAP configuration is available.
+Click on “Save” to save the configuration as shown below
+Step 11:
+Re-Run the Rule after Saving to see the Editable Fields and Cleanse Button.
+After the running the rule, now we can see the Cleanse button and Writeback Fields marked with colour.
+Step 12:
+Now, click on Cleanse Button, Modify the Data as shown below.
+After Modifying, Save the data. Here, user can see the Writeback is going to Perform on SAP Table (MARC)
+Step 13:
+Once the Save is done. Click on “Commit” button to writeback data into SAP Table.
+As soon as commit is pressed, user can see Job(s) are scheduled to perform the operation.
+Wait for the Jobs to complete by Navigating to Scheduler Page.
+Step 14:
+Verify the changes on the Rule Page by refreshing the page, Once the Job(s) are completed.
+How the Commit Works
+On setting up the configurations are set based on any of the above mentioned four scenarios, user will run the rule and see the pink colour for exceptions. User will click on Cleanse button and make the changes. While making changes, there is an ability where you can group the fields like the one mentioned below
+On saving the changes and pressing commit, it will create a job. User will have to wait for the job to get completed. On job completion, user will receive the email template like below
+If user wants to see the status of ongoing job, user can navigate to Review > Scheduler section to view the current status of the job.
+Control Options
+User can run the mass update in multiple batches. In order to configure batches, go to Manage Sources and define Batch Size.
+Batch Size Variable
+There is another variable called Writeback Batch Size that will limit the number of records that can be included in a single Batch Job at any given time.  Currently, in SAP QA1, this is set to 1,000.  Thus, if the data teams were to submit a job to cleanse the 75,000 records mentioned above, the DVSum system would create 75 executable jobs under that Batch Job, each with 1,000 changes.
+the DvSum process to commit the jobs for changing in SAP, the 75 jobs would be placed in DvSum’s job queue with 1 job marked with the status ‘Scheduled’ and 74 jobs marked with the status ‘Stand by’.  The job in status ‘Scheduled’ will wait until the scheduled time to begin and then will switch to status ‘Running’ until the time that SAP returns after the completion of that work process.
+Upon receiving the return from SAP, DvSum will mark that job with the status ‘Completed’ and will mark the next job with the status ‘Scheduled’ with a start time set for the next change in minute. This process will continue until all 75 jobs have been sequentially executed until completion or until one of the following events occurs:
+DvSum user places the Job on
+hold
+– This action in DvSum will place all jobs
+not currently in execution within SAP
+to the status ‘On Hold’ and will prevent DvSum from sending the remaining jobs to SAP for execution until such a time as the DvSum user releases the jobs to continue their execution.  This action will not stop the job currently being executed by the SAP System, but it will prevent any subsequent jobs from being sent.
+DvSum user deletes the Job in Running
+– This action in DvSum should place the current job to the status ‘Completed (Aborted)’, and all subsequent Stand by jobs for this batch will be put on ‘On Hold’ job status.
+SAP Basis user cancels the work process
+– This action should terminate the current work process in SAP, and set the status of running job to errored and any subsequent jobs scheduled for that Batch should be changed to status ‘On Hold’ until such a time that the SAP Basis team allows the continuation of Batch Job processing.
+When the status of all the subsequent jobs get completed, user will go to the respective rule details page and refresh it.
+If the colour of the submitted exceptions is green, this means the writeback happened successfully.
+If the colour of the submitted exceptions gets orange, this means the writeback operation got failed. To know the possible error, click on cleanse button and hover exclamation mark in Change History section. It will tell you the possible reason of failure and analyse with your SAP team to resolve the error.

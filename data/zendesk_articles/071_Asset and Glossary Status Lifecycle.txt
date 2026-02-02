@@ -1,0 +1,94 @@
+Title: Asset and Glossary Status Lifecycle
+URL: https://dvsum.zendesk.com/hc/en-us/articles/43341691915668-Asset-and-Glossary-Status-Lifecycle
+================================================================================
+
+In this Article
+Overview
+Asset Statuses
+Glossary Statuses
+Overview
+This article explains the purpose, definition, and lifecycle flow of each status used in the
+Asset Dictionary
+,
+Data Dictionary
+,
+Field Dictionary
+,
+Rules
+, and the
+Business Glossary
+.
+Asset Statuses
+Applicable to: Assets, Tables, Columns, and Rules.
+New
+The
+New
+status indicates that an asset has been scanned and detected for the very first time. It is assigned automatically during the initial scan when the asset enters the system. No review or action is required from data stewards or owners at this stage, and the asset is visible to all users.
+Purpose:
+To clearly identify assets that are newly introduced into the system and have not yet been compared against any previous scan.
+Default
+The
+Default
+status indicates that an asset has remained unchanged since the previous scan.
+From the second scan onward, if the scanner finds the same asset with no metadata differences, the status automatically becomes
+Default
+without steward or owner intervention, and visibility remains open to all users.
+Purpose:
+To show that the asset has been validated by at least one re-scan and is in a consistent, unchanged state compared to its previously scanned version.
+Note:
+If an asset disappears or its schema changes during the second scan, it moves directly from
+New → Deleted
+, not Default.
+Modified
+The
+Modified
+status indicates that the asset’s metadata has been updated by the user compared to the previous version, such as when descriptions, domains, or business metadata are updated. The status will change from
+New/Default
+to
+Modified
+when the user manually updates any metadata and saves the asset without publishing it.
+These assets remain visible to all users but indicate that internal updates have been made and are pending review or publication.
+Published
+The
+Published
+status means that the asset has been fully reviewed, validated, and approved. This status is set manually by a user after completing validation.
+Workflow behavior:
+If the asset belongs to a
+workflow-enabled domain
+, the transition from
+Modified → Published
+requires approval from the assigned data steward or data owner.
+If the asset does
+not
+belong to a workflow-enabled domain, it can be published directly without approval.
+Deleted
+The
+Deleted
+status  is assigned automatically when the asset is no longer detected in the source system, such as when a table is dropped or a column is removed or when schema is changed in the source.
+No steward or owner involvement is needed as this status will be automatically updated after the scan, and deleted items remain visible to all users.
+Note:
+Users cannot manually change an active asset’s status to Deleted. Deleted assets remain in the system for audit and historical reference.
+Please refer to this article for more details on how to mark an asset as deleted:
+How to delete asse
+ts
+Glossary Statuses
+These are the other statuses applicable specifically to Glossary Terms.
+Note:
+When creating Views for Glossary Terms, the
+Default
+option in filters refers to the
+Draft
+status.
+Draft
+The term is created but not yet reviewed or approved; it may still be undergoing edits.
+Modified
+Indicates that the term’s metadata has been updated from its previously published state and requires review before re-publishing.
+Published
+The term has been reviewed, approved, and validated.
+For more details on approving and publishing the Glossary Trems, refer to the article:
+Approving Glossary Terms
+.
+Note:
+A status will appear in the filter only if it has been applied to at least one asset. For example, if the
+Draft
+status is not applied to any asset, it will not be shown in the filter when the user clicks on the funnel.

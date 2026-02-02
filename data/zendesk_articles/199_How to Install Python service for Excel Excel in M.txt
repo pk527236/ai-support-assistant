@@ -1,0 +1,36 @@
+Title: How to Install Python service for Excel, Excel in Memory Source?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360021118474-How-to-Install-Python-service-for-Excel-Excel-in-Memory-Source
+================================================================================
+
+Note: This is a part of
+SAWS installation
+. If your SAWS is already running, uninstall it and follow the steps below
+To download and install python with its libraries, please make sure you follow all the steps below.
+****************Python Installation****************
+1
+Go to https://www.python.org/downloads/release/python-370/
+2
+From "Files" section, install the executable file according to your operating system. (e.g. for windows 64 bit, install Windows x86-64 executable installer)
+3
+Right click and run as administrator the exe file.
+4
+Select the checkbox "Add Python 3.7 to PATH"
+5
+Click on "customize installation"
+6
+Select check box "Install for all users"
+7
+Click on Browse and select driectory accessible to all users i.e "C:/Program Files/Python" for python installation and Click on install
+This will install Python on your system.
+****************Python Libraries****************
+1. To install python libraries, go to command prompt (Type "Cmd" on run, make sure to run cmd as administrator)
+2. Type pip install pandas, press Enter.
+3. Type pip install XlsxWriter, press Enter.
+4. Type pip install xlrd, press Enter.
+5. Type pip install Flask, press Enter.
+6. Type pip install SQLAlchemy, press Enter.
+This will install required Python libraries on your system.
+Now go to SAWS folder on your machine and click on
+saws_service_install
+. Run it as an administrator. This will install webservice and you will be able to see DvSum Python Service running in your machine along with SAWS.
+Note: This python service is required to avail features like excel preprocessing and for Excel in memory source.

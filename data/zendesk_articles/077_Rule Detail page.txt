@@ -1,0 +1,220 @@
+Title: Rule Detail page
+URL: https://dvsum.zendesk.com/hc/en-us/articles/26973748320532-Rule-Detail-page
+================================================================================
+
+In this Article:
+Overview
+Initial State of a Newly Created Rule
+Key Functionalities Overview
+Scheduling Status
+Alert Status
+Healthy
+Alerting
+Run Result
+Passed
+Failed
+Run Options (Online & Offline)
+Edit Functionality
+Overview
+Scope
+Threshold Configuration
+Workflow
+Workflow Actions
+Tabs on Rule Detail Page
+Data Tab
+History Tab
+Chart View
+Grid View
+Instructions Tab
+Column Sequence Tab
+Overview:
+Many features are added on the Rule detail page like offline and online execution capabilities, providing users with greater flexibility. The alert status of each rule is displayed as either "Healthy" or "Alerting" based on specified thresholds. Users can now easily edit rule definitions, descriptions, priorities, and scope, including window types and lookback days. Data aggregation into buckets enables detailed data quality checks. Various threshold types allow tracking and alerting based on exceptions. Rule notifications, action statuses, and scheduling options have been enhanced for improved rule management. The history tab provides execution charts and grids for comprehensive performance analysis. Overall, all these features enhance rule customization, monitoring, and analysis which will be explained in this article.
+Initial State of a Newly Created Rule:
+Before moving to functionalities let's go through when any rule is created. The "Data" tab and "History"
+tab is disabled initially when the rule is created.
+Here on the "Run Rule", the user can either run the rule online or offline. For more information regarding
+Run Online & Run Offline, please visit the article "
+Run Online/Run Offline
+". Once the Rule is run, the "Data"
+tab (if there are exceptions) & History tab gets enabled:
+Now we will go through the major functionalities that have been implemented in the User Interface are
+highlighted in the screenshot below for a quick review.
+Key Functionalities:
+The Rule Detail page has a significant number of features Let's explore these enhancements in detail:
+Not Scheduled
+A notification at the top of the page is shown which indicates whether the rule is scheduled. If the rule is not scheduled it will not run automatically.
+Alert status
+Alert status for the rule will be shown as
+Healthy
+- if the metric value is within specified threshold limits, then the alert status will be Healthy
+Alerting
+- If the metric value is not within specified threshold limits, then the status will be Alerting
+Run Result
+Passed
+-
+If the metric value has zero exceptions then the run result will be passed and the alert status will be healthy.
+Failed
+-
+If the metric value is not within the defined threshold then the run result will fail and the alert status will be alerting applicable to Unique values, Freshness, Metric, and Count rule.
+Run:
+Online & Offline rules can be run directly from the Rule detail page
+For Details please check the article
+Run Online/Offline
+Edit Functionality:
+This button will allow the user to update the following:
+Overview
+Rule Description
+: Users can update the description for the rule
+Priority
+: Users can update the priority for the rule
+Open Rule Definition:
+Users can directly open the rule definition page from here
+Attributes
+Users can add any tags to the rule
+Scope
+Metric Time
+If the metric time field is selected on the table level. Selected field names will be inherited from the rule as well
+Otherwise, the user can also select/update the metric time field at the rule level as well
+Users can set the window type: - Used to define what is the scope of data to be selected.
+All Data - By Default all the rules will window type as All data, which will consider all the data in the table during the  execution of the rule
+Data Max Time - In the case of incremental data, we can choose this option to run validation only on newly added data based on the timestamp available on the table
+Clock Time -  In the case of incremental data, we can choose this option to run validation only on newly added data based on the current timestamp available on the table
+Example:
+There is a rule scheduled to run on 2024-01-06 at 11:00:00. This rule is applied to the "UPDATE_DT" column. Please review the sample data below, which produces different outputs based on the selected window type:
+Users can set the
+Lookback days
+for Data max time & Clock time
+Users can optionally aggregate data into
+Buckets
+and DQ checks will be performed on each bucket.
+No bucket
+1 Day
+1 Hour
+Users can select available
+Slicer
+options
+Threshold
+For the Metric type, we can choose whether we want to track and alert based on the number of exceptions or percentage of exceptions.
+No Threshold
+- Metric will not alert.
+Constant
+- Metric will be compared against constant thresholds.
+Users can set the Upper bound and Lower Bound
+Relative
+- Percentage change (increase or decrease) in metric compared to the previous bucket or execution. For DQ exception checks, the decrease will not alert.
+Users can set the percentage for the relative threshold type
+Adaptive
+- Thresholds auto-adjust based on observations using outlier detection techniques. It uses the Interquartile range technique to detect if the metric is an outlier.
+Users can choose the threshold bounds from the 3 available options:
+Upper and Lower
+Upper
+Lower
+Workflow
+Assign a Rule to a User
+Assign the rule to a specific user for ownership and accountability.
+Add/Update the Schedule for a Rule
+Select or create a scheduled job to automate rule execution.
+Exception Configuration
+(New)
+Attach Exception File
+: Includes exception details in the notification email.
+Enable Exception Tracking
+: Allows tracking of new and existing exceptions across runs.
+For a detailed explanation of Exception Configuration and how it impacts the Data tab, refer to the article:
+Configuring Exception Settings for Rules in DvSum.
+Work Flow Actions:
+Before moving to Workflow Actions, we need to add a Data Quality workflow enabled  Data domain to our table. On the "Data Domain" tab create a new domain or use an already existing one:
+The "Data Quality Workflow" checkbox should be enabled on creating the new Data Domain:
+Now on the "Overview" tab on the Table detail page, the above Data domain needs to be added:
+Once we have added the Data Quality workflow Data Domain to our table we can then add any scheduled job from the drop-down
+Workflow actions are going to appear at the top right
+Actions dropdown will contain In Progress and Resolve
+When the user marks the rule as In Progress, the status will be changed to "In Progress".
+When the user resolves the rule, a Pop-up will be displayed with the Reason Code and Description
+Workflow status is changed to resolved
+One thing to note here is that the "Actions" button and its options on the top right show if the Rule has met the following conditions:
+The rule must have exceptions
+The rule must be executed
+The Table on which the Rule is created must have the Data domain added for which the Data Quality workflow is enabled
+The scheduler must be attached to the Rule
+Just so you know, workflow actions will also show when ticketing is enabled on the rule. For more details on Ticketing, please take a look at the article
+JIRA Integration on DQ Rules.
+The workflow status is Activity bar. Clicking on the comments icon opens the detailed activities.
+On the Activity bar, clicking on the comments icon will open the detailed activities.
+Tabs on Rule Detail Page:
+On the Lower Section of the Rule detail page, the user will be able to see only the 3 tabs by default:
+Users can click on
+Show More
+to view the other tabs available:
+After clicking on the
+Show More
+tab, the user will see the following tabs and if the user wants to hide them they simply need to click on
+Hide Others
+Data Tab:
+Data View
+The "Data" tab is available after the rule is executed, regardless of whether exceptions are generated. By default, exceptions are highlighted in
+red
+for the column(s) where the rule is applied. All exceptions, along with the corresponding data in the table, are displayed.
+Users can filter the exceptions using the drop-down menu with the following options:
+Current:
+Displays exceptions from the most recent execution.
+30 Days:
+Shows exceptions from the past 30 days.
+90 Days:
+Shows exceptions from the past 90 days.
+All:
+Displays the metric value for all available data, up to a maximum of the last 120 days (selectable via the drop-down).
+Note: Only the first 300 exceptions are displayed in the Grid on the Data tab. if needs to view more exceptions, must enable the “Include all Exceptions” checkbox in the Run Online dropdown before running the rule.
+One thing is to be noted here that the "Data" tab will be shown for the following rules only:
+Data Format
+Blanks
+Value Range
+Uniqueness
+Ruleset
+Custom Query
+Orphan Keys
+Orphan Records
+Compare Schema
+Compare Metric
+Note:
+The Data tab supports column-level filtering and allows copying specific rows or column values directly from the exception grid for easier analysis.
+Pivot View
+.
+The
+Data
+tab provides a detailed, interactive view of rule execution results, with a focus on exception data through the
+Pivot View
+.
+The Pivot View in Data Quality Rules enables users to analyze exceptions by grouping and aggregating records directly within the application, helping identify patterns and derive insights.
+For more information, refer to the sub-article
+“
+Pivot View Configuration in Data Quality Rules.
+”
+History:
+The history tab will show the execution history for the rule in the form of a chart
+The History tab has 2 different views which are:
+Chart View
+-
+In this view, the data is shown to the user in the form of a chart
+When the slicer is selected, the data in the History Chart will get distributed based on the Slicer's Field
+Grid View -
+In this view, the same data is shown to the user in a tabular form
+Users can view execution history for:
+Current
+: It will show the metric value for the current execution
+30 Days
+: It will show metric value for 30 days
+90 Days:
+It will show the metric value for 90 days
+All:
+Displays the metric value for all available data, up to a maximum of the last 120 days.
+Instructions:
+Users can add any instructions.
+Column Sequence:
+On the "Column Sequence" tab, the users can set 3 different sequences that can be applied to the Rule:
+Suggested Sequence
+Table Specific Sequence
+Rule Specific Sequence
+For more details on Column Sequence, there is a separate article written for "
+Column Sequence
+".

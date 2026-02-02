@@ -1,0 +1,42 @@
+Title: Data Security Admin
+URL: https://dvsum.zendesk.com/hc/en-us/articles/21781811462676-Data-Security-Admin
+================================================================================
+
+Overview
+In an era where data privacy and security are paramount, the need to fortify sensitive information within applications is more critical than ever. This article explores the imperative task of enhancing data security and privacy within the DvSum application.
+Let's start looking into this.
+Add Data Security Admin
+Owner Account can add Data security admin from Administration -> Manage Account -> User Security.
+Only Data security admins will have access to Hide/ Unhide Data Catalog and apply masking on columns.
+Note:
+The user must have Admin permission to the Data Catalog at the Role level.
+Now login with the Data Security Admin account, and you will see the Hide/unhide menu for the Data Catalog Grid.
+Hide/ Unhide Table & Columns:
+Table Dictionary:
+Users can mark any table as hidden. The hidden tables won't show at:
+Data Catalog - Table Dictionary
+Profiling Listing page
+Profiling Page search field
+Elastic Search
+On the Rules Creation form
+Exported Excel File
+To view hidden Tables select the checkbox
+Show Hidden Tables
+, all hidden tables in the grid will be shown.
+Users can unhide the Table, by selecting the row and clicking on the unhide menu
+Column Dictionary:
+When a column is marked as hidden, The hidden column won't show at:
+Data Catalog - Column Dictionary
+Table Profiling Detail Page - Profiling Tab
+Table Profiling Detail Page - Data Quality Tab
+Table Profiling Detail Page - Field Configuration Tab
+Table Detail Page - Field Tab
+Table Detail Page - Sample Data
+On the Rules Creation form
+Rule Detail Page - Data Tab
+Rule Detail Page - Definition Tab
+Exported Excel File
+To view hidden Columns select the checkbox
+Show Hidden Columns
+, all hidden Columns in the grid will be shown.
+Users can unhide the column, by selecting the row and clicking on the unhide menu.

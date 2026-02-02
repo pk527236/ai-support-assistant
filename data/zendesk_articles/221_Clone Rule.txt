@@ -1,0 +1,37 @@
+Title: Clone Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360050083754-Clone-Rule
+================================================================================
+
+In the past, the functionality of cloning rules did not exist, requiring users to manually create rules each time. However, users can now easily duplicate existing rules with minor adjustments and assign them to other users. This eliminates the need for manual rule creation, saving time and allowing users to create rules quickly using the new clone functionality. For more information on this feature, follow the steps outlined below.
+Cloning From Manage Rules Page
+Single Rule Cloning
+Steps 1 :
+Navigate to the "Manage Rules" section and choose a specific rule. Click on "More Actions" at the top, then select "Clone Rule" from the drop-down menu, as illustrated below:
+Step 2 :
+Upon selecting "Clone Rule," the user will be taken to the Clone Rule detail page. At the top, there will be a prefix and all the clone properties, which will be inherited by default. Users have the flexibility to unselect any property as desired. The cloned rule will have a target source, initially set to the same as the current source by default. However, users can modify it to any other source of their choice, as depicted below:
+Step 3 :
+Now, let's assume the user chooses a different target source for this rule and clicks the "Clone" button, as demonstrated below:
+Step 4:
+After cloning the rule, the user will be taken to the Clone Summary detail page. In the grid below, you will find the Rule ID, the new ID for the cloned rule (which remains blank in case of failed cloning), the default source of the rule, the source on which the rule has been cloned, the status indicating whether the cloning was successful or failed, any remarks in case of unsuccessful cloning, and finally, a description. In the top right corner, there is a "Download Summary" button to download a report of this screen, as illustrated below:
+Multiple Rules Cloning From Different Sources
+Step 5:
+If the user selects multiple rules belonging to different sources, the same step 1 will be executed. Upon redirecting to the clone detail page, you will observe the prefix, all clone properties, and below that, a target sources section. In the case of multiple rule sources, there will be both "From Source" and "To Source" options. By default, the "To Source" will be the same as the "From Source," but users can modify it later, as depicted below:
+Step 6:
+On the Clone Summary detail page, you will be able to see the number of rules that encountered errors and those that were successfully cloned, as illustrated below:
+Multiple Rules With Same Source
+Step 7:
+Choose rules that belong to the same source. Opt for the "Clone Rule" option, as demonstrated below:
+You'll encounter a familiar screen as before, but this time, as the rules belong to the same source, there's only one target source displayed. Users can modify the target source if necessary. Simply click the "Clone" button, as indicated below:
+Upon successful cloning, you will observe that the two rules have been duplicated, and their details will be displayed as shown below:
+Note:
+A rule that has been cloned can be treated independently from the original (parent) rule on which the cloning was performed. This implies that any configurations made in the cloned rule will not affect the parent rule.
+Cloning From Rule Detail Page
+Step 8:
+Choose any rule and navigate to its detail page, where you will find a "Clone Rule" button on the top right side, as illustrated below:
+Step 9:
+After clicking the "Clone" button, you will be directed to the clone detail page. In this specific flow, the information remains consistent, with the addition of displaying the target table on which the rule was created. Users have the option to modify both the target source and target table as needed.
+Step 10:
+If the user selects a different target table to clone the rule and there's an issue with that target table, the user will receive a notification before the cloning process. For example, if there are data type mismatches between the source and target tables or if there is a structural mismatch, the user will be informed about these errors in advance. Various types of errors may be communicated to the user beforehand, as illustrated below:
+S
+tep 11:
+After cloning the rule, the user will be redirected to the rule detail page of the rule on which the cloning was performed. Additionally, a prominent glitter message/ confirmation message will be displayed at the top, indicating the new cloned rule ID. Clicking on the ID will open the detail page in a new tab, as depicted below:

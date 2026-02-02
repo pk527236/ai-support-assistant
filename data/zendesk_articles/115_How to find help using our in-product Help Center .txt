@@ -1,0 +1,16 @@
+Title: How to find help using our in-product Help Center in Dvsum App
+URL: https://dvsum.zendesk.com/hc/en-us/articles/11525283492500-How-to-find-help-using-our-in-product-Help-Center-in-Dvsum-App
+================================================================================
+
+In this Article:
+Overview
+How to Interact with Message Support
+How to Give Feedback to Different Guides
+Overview:
+Learning about DvSum has always been easy. But we have made onboarding on the Dvsum Data Intelligence app a lot easier and simpler. Users can find help quickly using our in-product help center.
+Clicking on "Help" within Dvsum App (at the top-right-hand corner) will give you access to interactive guides. There are some detailed guides from adding a new source and scanning it, to searching tables, columns, models & reports, and more. Guides are in the form of Quick Tips, Tutorials, Videos, and Support Documentation (like the article that you're reading right now). All these bits of help can be reached directly within the application by searching a keyword inside the Help center as shown above.
+How to interact with Message Support?
+In order to interact with Dvsum Message Support, open the application and click on the HELP menu in the upper right-hand corner of the page. Then select "Message support" from the Additional Resources section. Use the Message support widget that pops up to tell us how we can help. Say "HI", submit your name & email, and our intake tool will attempt to find a self-service answer from our Help Center to assist you.
+How to give feedback to different guides?
+Dvsum support values your user experience and feedback. In order to give feedback on any of the Quick tips or videos, click on it. A modal will open which will guide you. If the guidance was helpful then select the "Yes, thanks" button and submit it. Otherwise, if you have any suggestions or concerns regarding the guidance, click on the "Not really" button, type your feedback in the comment box and submit it.
+In case of giving feedback on a tutorial, select the tutorial and follow all the step-by-step guides. At the end when the tutorial finishes, a feedback section will appear from there you can follow the same steps as shown above to give feedback.

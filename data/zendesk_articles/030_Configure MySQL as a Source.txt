@@ -1,0 +1,118 @@
+Title: Configure MySQL as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10636157522708-Configure-MySQL-as-a-Source
+================================================================================
+
+In this Article
+Overview
+Prerequisites
+Adding MySQL as a Source in DvSum
+Step 1: Install and Set Up MySQL Locally
+Step 2: Add MySQL as a Data Source in DvSum
+Step 3: Configure Connection Settings
+Step 4: Select a Database Schema
+Step 5: Save and Scan the Source
+Video tutorial
+Overview
+This article explains how to configure MySQL as a data source in DvSum for data cataloging and profiling. The steps apply to both DvSum Data Insights (DI) and DvSum Data Quality (DQ), with only minor variations depending on the platform.
+Prerequisites
+Before setting up MySQL as a source in DvSum, ensure the following:
+Required Access & Configuration:
+A running MySQL database (on-premises, cloud, or managed service like AWS RDS, Azure Database for MySQL)
+General Query Log enabled (for tracking data lineage and usage patterns). See
+Enabling General Query Log for Data Sources
+for details.
+Adding MySQL as a Source in DvSum
+Step 1: Install and Set Up MySQL Locally
+Install MySQL and MySQL Workbench on the machine where SAWS (Self-Hosted Agent Web Service) is running.
+Ensure MySQL Workbench is configured properly.
+Installation Guide
+Step 2: Add MySQL as a Data Source in DvSum
+Open
+DvSum DI
+.
+Navigate to
+Data Sources
+> Click
+Add Source
+.
+Select
+MySQL
+as the data source.
+4. Enter a
+Source Name
+and click
+Save
+.
+Step 3: Configure Connection Settings
+You will be redirected to the
+Connection Settings
+page.
+Enable
+On-premise Web Service
+and select the SAWS instance.
+Enter the following details:
+Host
+: MySQL server address
+Port
+: Default is 3306
+DB Login
+: MySQL username
+Password
+: MySQL password
+Click
+Authenticate
+.
+Note:
+MySQL Workbench and SAWS must be on the same machine; otherwise, authentication will fail.
+Note:
+By Default the SAWS type will be cloud. For more information regarding Cloud SAWS, click
+here
+Step 4: Select a Database Schema
+After successful authentication, a
+Database Selection
+field will appear.
+Choose the schema to be scanned (single selection only).
+Step 5: Save and Scan the Source
+Scroll up and click
+Done
+.
+Click
+Save
+to finalize the MySQL source setup.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Go to
+Scan History
+and click
+Scan Now
+.
+Once the scan completes, click on the
+Scan Name
+to view the
+Scan Summary
+.
+On the Scan Summary page, it will show all the insights of the scan i.e how many new tables and columns are fetched in this scan from the database that we selected earlier.
+To have more insights into the tables' details:
+Click on
+"Data Dictionary"
+from the sidebar.
+The
+Table Listing
+view will appear.
+Click on the
+"Recently Refreshed"
+tab.
+This tab displays all the tables retrieved in the most recent scan.
+Click on any
+table name
+to view more details about that table on the
+detail page
+.
+Authentication Failed
+Ensure correct username and password.
+By following these steps, you can successfully integrate MySQL as a data source in DvSum and leverage its data insights and quality features.
+video tutorial:
+Watch this quick
+video tutorial
+of how to add and configure an Oracle source into DvSum app.

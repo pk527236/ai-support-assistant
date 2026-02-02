@@ -1,0 +1,30 @@
+Title: Configure Excel/CSV files?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115000641314-Configure-Excel-CSV-files
+================================================================================
+
+Prerequisites:
+Java version 7
+You can configure Excel files after creating a new Source on DvSum app. But before that can be done, you have to make sure that you have “Access Database Engine” Drivers installed wherever SAWS is running (local/cloud). If you don’t, following error message will appear when trying to configure Excel/CSV file.
+Follow the steps below if you require ADE drivers installed on your system
+Step 1:
+Go to
+www.microsoft.com
+and download Microsoft Access Database Engine exe file.
+Step 2:
+Install Access Database Engine
+Step 3:
+Search Windows for ODBC Data Source Administrator and Click on “Drivers” tab to see if the Access and Excel drivers are installed.
+Now go to DvSum Web Application and follow the steps below to configure Excel/CSV files
+Step 1:
+Go to Manage Sources >> Add Source
+Step 2:
+Fill out the mandatory fields with Source Type as Excel or CSV
+Step 3:
+Enter the File System Path. It can be local or Cloud file system location. If your files are on Cloud, please ask your administrator to provide you the path.
+Step 4:
+Click on “Save” to add the source
+Step 5:
+Edit the source you just added
+Step 6:
+Click on the “Configure” button appearing on the bottom left corner.
+Now you can Configure the columns of the Excel sheet.

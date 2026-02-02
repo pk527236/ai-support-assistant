@@ -1,0 +1,30 @@
+Title: Cross-System DQ - Compare Metric Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25404439140372-Cross-System-DQ-Compare-Metric-Rule
+================================================================================
+
+In this Article
+Introduction
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Step 2: Select Table & Available Rules
+Step 3: Add a New Rule (Cross-System DQ → Compare Metric)
+Step 4: Basic Input Setup
+Step 5: Validate & Run the Rule
+Introduction
+The "Compare Metric" rule involves assessing aggregated quantities or metrics from two distinct data sources to verify their consistency and detect any differences or discrepancies.
+It denotes the process of examining aggregated quantities or metrics from two separate data sources to ensure alignment and identify any discrepancies or differences.
+For instance, one might compare the total shipment volume for the last three months recorded in the Enterprise Resource Planning (ERP) system with the aggregated shipment volume data stored in the data warehouse. This comparison aims to validate that both sources provide consistent information regarding shipment volumes and to pinpoint any discrepancies between them.
+In summary, the Compare Metric rule helps ensure data accuracy and reliability by examining combined metrics from various sources.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+Detailed Steps:
+Step 1: Access Data Dictionary
+Log in to DvSum, proceed to the Data Dictionary tab, and select the relevant Data source and Table Name.
+Step 2: Select Table & Available Rules
+Select the table name then select the Data Quality tab and choose Available Rules.
+Step 3: Add a New Rule (Cross-System DQ → Compare Metric)
+Select the "⊕ Add Rule" button, then choose the "Cross-System DQ" category. From the list of options, click on "COMPARE METRIC"
+Step 4: Basic Input Setup
+In the Rule Wizard's Basic Input section, you need to fill in the Rule Description, Metric Type, Column Name and Reference source, reference table and column name corresponding to the table in which you want to compare for the metric.
+Step 5: Validate & Run the Rule
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.

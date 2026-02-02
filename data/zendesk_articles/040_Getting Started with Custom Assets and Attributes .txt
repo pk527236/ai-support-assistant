@@ -1,0 +1,10 @@
+Title: Getting Started with Custom Assets and Attributes in DvSum DI
+URL: https://dvsum.zendesk.com/hc/en-us/articles/38888864440340-Getting-Started-with-Custom-Assets-and-Attributes-in-DvSum-DI
+================================================================================
+
+This article provides quick access to documentation related to custom asset and attribute configuration in the DvSum DI Application. Use the links below to navigate to the full articles.
+Creating and Managing Custom Asset Types
+Learn how to define custom asset types, configure relationships, and enrich assets within the application.
+Defining and Configuring Custom Attributes
+Understand how to create, configure, and control visibility of custom attributes across asset types.
+These resources will help you tailor the metadata experience to your organization’s governance and data management needs.

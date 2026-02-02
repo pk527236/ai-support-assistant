@@ -1,0 +1,17 @@
+Title: History Trend Widget – Dashboards
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360045131774-History-Trend-Widget-Dashboards
+================================================================================
+
+On “Add Widget” form, while selecting Rules History as a category, you will be able to select a template for Run Result or Readiness Score.
+Based on your selection, you will be able to view the Trend History Report for a ValGroup.
+You may then create a view where you can specify a criteria for a particular ValGroup.
+Note: You can only create a view where selected ValGroup contains no more than 10 rules, else you will be notified to select a ValGroup having rules not more than 10.
+On saving a view, you will be navigated to Dashboard page where you can view the widget.
+On clicking the widget, you will be navigated to a new tab where you would see the Report for the selected ValGroup
+You will be seeing 3 different charts
+Average of RunResult by RunDate - This will be a graphical representation of Run Result count (avg.) for all rules in the selected ValGroup. The time-series on the x-axis of the chart is on weekly basis. The count on y-axis is the Run Result count (avg.)
+Average of RunResult by RunDate and RuleID - This will be a graphical representation of Run Result count (avg.) for each rule in the selected ValGroup.
+RunDate - This will be the list that contains the following details for each rule in the ValGroup.
+** Run Date
+** Run Result
+** Val Group

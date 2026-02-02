@@ -1,0 +1,65 @@
+Title: Foundational Data Quality - Uniqueness Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35889122920468-Foundational-Data-Quality-Uniqueness-Rule
+================================================================================
+
+In this Article:
+Overview
+Steps to Configure the Uniqueness Rule
+Step 1: Access Data Dictionary
+Step 2: Select Data Quality Rules
+Step 3: Add a New Rule
+Step 4: Configure Basic Inputs
+Step 5: Validate and Execute the Rule
+Overview
+The "UNIQUENESS" rule ensures that values within a specific data element are unique across the dataset. This rule is crucial for maintaining data integrity by detecting and preventing duplicate entries.
+For instance, if a customer table contains duplicate records for the same customer, the Uniqueness rule will identify these duplicates and display the duplicate keys along with their count. This helps users pinpoint and resolve data duplication issues efficiently.
+For more details about the rule’s scope, threshold, notifications, and other configurations, refer to the
+Rule Detail page.
+Steps to Configure the Uniqueness Rule
+Step 1: Access Data Dictionary
+Log in to
+DvSum
+.
+Go to the
+Dictionary
+dropdown and select the
+Database Tables
+tab.
+Choose the relevant
+Data Source
+and
+Table Name
+.
+Step 2: Select Data Quality Rules
+Click on the
+Data Quality
+tab.
+Choose
+Available Rules
+.
+Step 3: Add a New Rule
+Click on the
+⊕ Add Rule
+button.
+Select the
+Foundational DQ
+category.
+From the available options, choose
+UNIQUENESS
+.
+Step 4: Configure Basic Inputs
+In the
+Rule Wizard’s Basic Input
+section:
+Enter the
+Rule Description
+.
+Select the
+Column Name
+for which uniqueness needs to be validated.
+Step 5: Validate and Execute the Rule
+Save the rule configuration.
+Click
+Run
+to execute the rule.
+Review the results to identify and address any duplicate records.

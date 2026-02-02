@@ -1,0 +1,29 @@
+Title: Features of Value Range Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360006916294-Features-of-Value-Range-Rule
+================================================================================
+
+Value Range is one of the most widely used rule to cleanse the data. It helps you to identify the exceptions by specifying valid range or giving a list of invalid records. Range can be a continuous range between min and max or could be a set of specific values. Specific values can be selected from the field's own profile or as a reference dictionary.
+Let's look into the detail of this rule. First you select your Data source, table and field. Now you can select the kind of values as valid or invalid.
+Valid/Invalid Range
+From the second drop down you can specify whether the range is for Valid values or invalid. If you select "Valid", the rule execution will show any value that is
+outside
+the range as an exception. If you select "Invalid", the rule execution will show any value is
+within
+the stated range as an exception.
+Single Value
+As the name suggests, for a single value there is a single threshold. From the list of operators, you can define the threshold on a column name.
+Considering an example, where we want to create a VR rule on "Ending_Date" which should be greater than equal to the "Starting_Date". Specifying this as "Valid" range, this rule will show the records where Ending_Date is less than Starting_Date as exceptions.
+The same case can be started the other way where a user can create a rule on "Ending_Date" and provide threshold as less than the "Starting_Date" to define "Invalid" records. Both the use cases will return same exceptions.
+Range Value
+For the Range values, you need to provide the minimum and maximum threshold.
+Here you have 3 options. You can provide an absolute value, like 10 or you can use Reference column of the table. Threshold Max would be less than equal to the column Title. You can also opt for a custom expression.
+Field Dictionary
+Field dictionary
+provides you with a list of values in the selected column which makes it easier to pick out the records you want as valid or invalid. Lets say we select as 2001-02 as invalid. This rule execution will bring records with Starting_Date as 2001-02 as exception in result.
+Reference Dictionary
+For reference dictionary with Valid values, the rule execution will bring the records with values that don't exist in dictionary as exceptions in result. For the Field "is_current' any value other than the ref dictionary will be exceptions.
+Note: You can create your own Reference Dictionary from Profile tab or you can see
+How to create and use Reference Dictionary
+Include Blanks
+Another small yet powerful check you can integrate with this rule is "Include Blanks". As an example below, a user can specify "Valid Range" of values and check-mark the Include Blanks. This mean the blank fields in the column "is_current" will not be shown as exceptions in rule result.
+For the same case, if "Invalid" is selected, blank fields in the column "is_current" will be shown as exceptions along with any value within the range 10-20.

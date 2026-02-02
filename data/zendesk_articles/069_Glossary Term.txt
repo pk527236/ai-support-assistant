@@ -1,0 +1,120 @@
+Title: Glossary Term
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35943193733396-Glossary-Term
+================================================================================
+
+In this Article:
+Introduction
+Accessing the Glossary Term
+Adding Terms in Glossary Term
+Key Feature: Auto-Update of Linked Columns
+Introduction:
+Glossary Term is a structured repository of business terms and definitions used to ensure consistent terminology across data assets. It supports data governance by enabling categorization, improved data searchability. This guide outlines the step-by-step process to add and manage terms efficiently.
+Accessing the Glossary Term
+Log in to DvSum.
+Navigate to the Glossary Term tab.
+Adding terms in Glossary Term
+Adding single term
+Refer to the article
+Adding New Term
+for detailed steps for adding new term in the Glossary term.
+Adding multiple terms
+Steps to Bulk Upload Terms:
+Click on the
+"Download"
+option.
+An
+Excel sheet
+containing all existing terms and their details will be downloaded.
+Open the Excel sheet and
+add multiple new terms
+along with their details.
+Save the updated Excel sheet.
+Click on the
+"Import"
+option.
+For more information on importing, refer
+How to import files
+.
+Key Feature of Glossary Terms
+One of the powerful features of the
+Glossary terms
+in
+DvSum
+is its ability to automatically update linked columns when a change is made to a term.
+How It Works:
+If a
+term
+in the Business Glossary is linked to multiple
+tables and columns
+in different databases, any changes made to that term are
+automatically reflected
+across all linked columns.
+For Example:
+Edit the term
+"First Name"
+in the
+Glossary Terms
+.
+Modify relevant details such as definition.
+If a tag is
+added
+,
+removed
+, or
+modified
+on the term, all linked columns will immediately reflect the change.
+Click
+"Save"
+to apply the changes.
+Result:
+The update is
+automatically reflected
+in all linked columns.
+No manual updates are required in individual columns.
+Before:
+The term
+"First Name"
+has no tags assigned except "Sensitive tag".
+A tag
+"Test"
+is added to the term
+"First Name"
+in the Glossary Terms.
+After:
+All columns linked to the term
+"First Name"
+now show the
+"Test"
+tag automatically along with the existing tag.
+This eliminates the need to manually update individual columns, ensuring
+consistency and accuracy
+.
+Auto Linking: Based on Name + Data Type
+DvSum supports
+auto-linking of glossary terms to dataset columns
+based on:
+Term Name
+matching the
+column name
+Matching data type
+This means that if a column name and data type match an existing term in the Glossary terms,
+linking happens automatically
+, reducing the need for manual mapping.
+For example, a glossary term "Customer ID" of type
+String
+will auto-link to columns named "Customer ID" with type
+String
+in datasets.
+Before and After Example
+Before:
+Glossary term "First Name" has only the "Sensitive tag"
+Several columns are linked to this term but do not have the "Test" tag
+Action:
+The "Test" tag is added to the glossary term "First Name"
+After:
+All columns linked to "First Name" automatically inherit the "Test" tag
+No changes were needed at the column level
+This automated propagation maintains alignment across metadata and ensures ongoing data quality.
+Linking Terms to Columns
+To manually or programmatically link glossary terms to columns, refer to the article:
+How to link glossary Terms

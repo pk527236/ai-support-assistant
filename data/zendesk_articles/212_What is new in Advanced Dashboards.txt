@@ -1,0 +1,16 @@
+Title: What is new in Advanced Dashboards?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000018374-What-is-new-in-Advanced-Dashboards
+================================================================================
+
+DvSum Advanced Dashboards
+are made up of tables, charts and lists used to view, analyze and track the overall activity on DvSum application.
+These easy-to-read customized Dashboards help you to organize and present the information the way it is required.
+Unlike the basic data quality dashboard, now you can create a dashboard of your own, share it with others or clone someone else’s dashboard and edit it accordingly.
+You can add multiple widgets to a single dashboard or create multiple dashboards. You can also add the widgets for
+Data Management
+Workflows
+and
+Business Glossary
+to your advanced dashboard.
+Here is what the old dashboard looks like:
+This is our revamped Dashboard:

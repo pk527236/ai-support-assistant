@@ -1,0 +1,100 @@
+Title: Configure Salesforce as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/19345773418388-Configure-Salesforce-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Step-by-Step Configuration
+Configure a Connected App in Salesforce
+Configure Permission Sets in Salesforce
+Adding Salesforce as a Data Source in DvSum
+Step 1: Add a New Source
+Step 2: Configure Connection Settings
+Step 3: Save the Configuration
+Running a Data Scan
+Step 1: Start a Scan
+Step 2: Review Scan Results
+Overview
+Integrating Salesforce with DvSum allows users to analyze CRM data, generate reports, and ensure data governance. This guide outlines the steps to configure Salesforce as a source in DvSum.
+Step-by-Step Configuration
+1. Configure a Connected App in Salesforce
+Open the browser, navigate to
+salesforce.com
+, and log in.
+Navigate to Setup → Apps → AppManager to create an app.
+Tip:
+Use the Quick Find box.
+In the Connected Apps section, click "New Connected App".
+Enter a name to be displayed to users when they log in to grant permissions to your app, along with a contact email address.
+Enable
+OAuth Settings
+, and enter the relevant value in the
+Callback URL
+box:
+For Data Intelligence:
+https://apis.dvsum.ai/data-sources/sources/salesforce/saveVerifierCode
+Select the scope of permissions that your app should request from the user. Save the changes and Continue to the next screen.
+Click your app name to open a page with information about your app. Note the OAuth client credentials. These properties are needed to add Salesforce as a source in DvSum DQ:
+Consumer Key
+Consumer Secret
+2. Configure Permission Sets in Salesforce
+To connect to Salesforce, the user must have the necessary permissions to call Salesforce APIs. This is achieved by configuring the appropriate properties within the relevant Permission Set.
+The Permission Set can be accessed through one of the following paths (the interface layout may vary depending on whether Lightning Experience or Classic view is used, but the navigation remains the same):
+ADMINISTRATION → Users → Permission Sets → <permission_set>
+ADMINISTRATION → Users → Users → <user> → Permission Set Assignments → <permission_set>
+Once there, enable
+System Permissions → API Enabled
+to grant access to any Salesforce.com API.
+Once the Connected App and Permission Set are configured, you can proceed with setting up DvSum.
+Adding Salesforce as a Data Source in DvSum
+Step 1:
+Add a New Source
+Navigate to the Data Sources tab.
+Click Add Source.
+Select Salesforce as the source type.
+Provide a Source Name and click Save.
+Step 2: Configure Connection Settings
+Open the newly created source.
+Enable On-Premise Web Service.
+Select the appropriate SAWS (if applicable).
+(Optional) Enable Sandbox Mode and enter the sandbox URL.
+Enter the Client ID and Client Secret from the Salesforce Connected App.
+Click Authenticate.
+Log in to Salesforce when prompted.
+Note
+: By Default the SAWS type will be cloud. For more information regarding Cloud SAWS, click
+here
+Step 3: Save the Configuration
+Once authenticated, return to the source settings page.
+Click Done (top-right corner).
+Click Save.
+Note
+: By Default the SAWS type will be cloud. For more information regarding Cloud SAWS, click
+here
+Step 3:
+Once the Authenticate button is clicked, it will redirect to a new tab and open the Salesforce login page. Login to the salesforce account. Once the login step is complete, it will redirect back to the source detail page and there user will see that the source is authenticated successfully.
+Step 4:
+After the credentials are authenticated, we need to save the source. For that, scroll up to the top. From the top right corner click on the “Done” button.
+After that click the “Save” button. The source will get saved successfully.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Running a Data Scan
+Step 1: Start a Scan
+Navigate to Scan History.
+Click Scan Now.
+A job will be created to fetch data from Salesforce.
+After the scan completion, click on Scan Name and it will open the Scan Summary page of this scan.
+Step 2: Review Scan Results
+Once the scan completes, click on the Scan Name.
+The Scan Summary page will display:
+New tables and columns were fetched.
+Data insights.
+After the scan completion, click on Scan Name and it will open the Scan Summary page of this scan.
+To explore table details, g
+o to the
+Dictionaries
+dropdown and select the
+Data Dictionary
+→ Recently Refreshed.
+Click on any table name to view details.

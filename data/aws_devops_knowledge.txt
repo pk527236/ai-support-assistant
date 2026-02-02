@@ -1,0 +1,256 @@
+=== AWS SERVICES GUIDE ===
+
+EC2 (Elastic Compute Cloud)
+- Virtual servers in the cloud
+- Instance types: t2.micro (free tier), t3.medium, m5.large, etc.
+- Common issues: Instance not starting, SSH connection failures, high CPU usage
+- Solution for SSH issues: Check security group allows port 22, verify key pair permissions (chmod 400)
+
+S3 (Simple Storage Service)
+- Object storage service
+- Use cases: Static website hosting, backup, data lakes
+- Common issues: Access denied errors, slow uploads, bucket policy errors
+- Solution: Check bucket policy, IAM permissions, and CORS settings
+
+RDS (Relational Database Service)
+- Managed database service
+- Supports: MySQL, PostgreSQL, Oracle, SQL Server
+- Common issues: Connection timeout, storage full, performance degradation
+- Solution: Check security groups, increase storage, optimize queries
+
+Lambda
+- Serverless compute service
+- Pricing: First 1M requests free per month
+- Common issues: Timeout errors, memory limits, cold starts
+- Solution: Increase timeout/memory, use provisioned concurrency
+
+CloudFront
+- Content Delivery Network (CDN)
+- Use for: Static assets, video streaming, API acceleration
+- Common issues: Cache not updating, SSL certificate errors
+- Solution: Invalidate cache, check certificate in ACM
+
+IAM (Identity and Access Management)
+- Manage users, groups, roles, and permissions
+- Best practices: Use MFA, principle of least privilege, rotate credentials
+- Common issues: Access denied, policy syntax errors
+- Solution: Use IAM policy simulator, check policy attachments
+
+VPC (Virtual Private Cloud)
+- Isolated network in AWS
+- Components: Subnets, route tables, internet gateway, NAT gateway
+- Common issues: No internet access, subnet routing problems
+- Solution: Check route tables, internet gateway attachment, NAT gateway
+
+=== DEVOPS PRACTICES ===
+
+CI/CD Pipeline
+Definition: Continuous Integration and Continuous Deployment
+Tools: Jenkins, GitLab CI, GitHub Actions, CircleCI
+
+CI/CD Best Practices:
+1. Automate testing at every stage
+2. Use version control for everything (Infrastructure as Code)
+3. Implement automated rollbacks
+4. Monitor deployments
+5. Use feature flags
+
+Docker
+- Containerization platform
+- Basic commands:
+  docker build -t myapp .
+  docker run -p 8080:80 myapp
+  docker ps (list containers)
+  docker logs <container-id>
+  docker exec -it <container-id> /bin/bash
+
+Common Docker issues:
+- Container keeps restarting: Check logs with docker logs
+- Port already in use: Use docker ps to find conflicting container
+- Image build fails: Check Dockerfile syntax, base image availability
+
+Kubernetes (K8s)
+- Container orchestration platform
+- Key concepts: Pods, Services, Deployments, ConfigMaps, Secrets
+- Basic commands:
+  kubectl get pods
+  kubectl describe pod <pod-name>
+  kubectl logs <pod-name>
+  kubectl apply -f deployment.yaml
+  kubectl scale deployment myapp --replicas=5
+
+Common K8s issues:
+- Pod in CrashLoopBackOff: Check logs, liveness/readiness probes
+- ImagePullBackOff: Verify image name, registry credentials
+- Service not accessible: Check service type, selectors
+
+Git Best Practices
+- Use feature branches
+- Write meaningful commit messages
+- Use pull requests for code review
+- Keep commits small and focused
+- Never commit secrets or credentials
+
+Branching strategy:
+- main/master: Production code
+- develop: Integration branch
+- feature/*: New features
+- hotfix/*: Production fixes
+
+Terraform (Infrastructure as Code)
+- Define infrastructure in code
+- Basic commands:
+  terraform init
+  terraform plan
+  terraform apply
+  terraform destroy
+
+Common Terraform issues:
+- State lock errors: Check for existing locks, use -lock=false carefully
+- Resource already exists: Import existing resource or remove from state
+- Provider version conflicts: Specify versions in terraform block
+
+Monitoring and Logging
+Tools: CloudWatch, Prometheus, Grafana, ELK Stack
+
+Key metrics to monitor:
+- CPU and memory usage
+- Disk I/O
+- Network traffic
+- Application errors
+- Response times
+
+=== TROUBLESHOOTING GUIDE ===
+
+SSH Connection Issues
+Problem: Cannot connect to EC2 instance
+Solutions:
+1. Check security group allows port 22 from your IP
+2. Verify key pair permissions: chmod 400 keyfile.pem
+3. Use correct username (ec2-user for Amazon Linux, ubuntu for Ubuntu)
+4. Check if instance is running
+5. Verify VPC and subnet configuration
+
+High CPU Usage
+Problem: Server experiencing high CPU
+Solutions:
+1. Check top/htop for resource-intensive processes
+2. Review application logs for errors
+3. Scale vertically (larger instance) or horizontally (more instances)
+4. Optimize database queries
+5. Implement caching (Redis, Memcached)
+
+Website Down
+Problem: Website not responding
+Checklist:
+1. Check if server is running
+2. Verify DNS settings
+3. Check web server logs (nginx/apache)
+4. Verify security group rules
+5. Check load balancer health checks
+6. Review recent deployments
+
+Database Connection Errors
+Problem: Application cannot connect to database
+Solutions:
+1. Verify database is running
+2. Check security group allows traffic from application
+3. Verify connection string (host, port, credentials)
+4. Check database user permissions
+5. Review database error logs
+
+Slow Application Performance
+Problem: Application responding slowly
+Investigation steps:
+1. Check server resources (CPU, memory, disk)
+2. Review application logs for errors
+3. Analyze database query performance
+4. Check network latency
+5. Review recent code changes
+6. Monitor third-party API calls
+
+=== AWS CLI COMMANDS ===
+
+EC2 Commands:
+aws ec2 describe-instances
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+aws ec2 describe-security-groups
+
+S3 Commands:
+aws s3 ls
+aws s3 cp file.txt s3://bucket-name/
+aws s3 sync ./local-folder s3://bucket-name/
+aws s3 rm s3://bucket-name/file.txt
+
+CloudWatch Commands:
+aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name CPUUtilization
+aws logs tail /aws/lambda/function-name --follow
+
+Lambda Commands:
+aws lambda list-functions
+aws lambda invoke --function-name my-function output.json
+aws lambda update-function-code --function-name my-function --zip-file fileb://function.zip
+
+=== SECURITY BEST PRACTICES ===
+
+1. Enable MFA on all accounts
+2. Use IAM roles instead of access keys
+3. Encrypt data at rest and in transit
+4. Implement least privilege access
+5. Regularly rotate credentials
+6. Enable CloudTrail for audit logging
+7. Use AWS Security Hub for compliance
+8. Implement network segmentation
+9. Regular security assessments
+10. Keep systems patched and updated
+
+=== COST OPTIMIZATION ===
+
+1. Use Reserved Instances for predictable workloads
+2. Implement auto-scaling
+3. Delete unused resources (EBS volumes, snapshots)
+4. Use S3 lifecycle policies
+5. Right-size instances
+6. Use Spot Instances for non-critical workloads
+7. Enable Cost Explorer and set budgets
+8. Use AWS Trusted Advisor recommendations
+
+=== DISASTER RECOVERY ===
+
+Backup Strategy:
+- Automated daily backups
+- Cross-region replication for critical data
+- Test restore procedures regularly
+- Document recovery procedures
+
+RTO (Recovery Time Objective): How quickly can you recover?
+RPO (Recovery Point Objective): How much data loss is acceptable?
+
+Common DR patterns:
+1. Backup and Restore (cheapest, slowest)
+2. Pilot Light (minimal resources running)
+3. Warm Standby (scaled-down version running)
+4. Multi-Site Active-Active (most expensive, fastest)
+
+=== COMMON ERROR MESSAGES ===
+
+"Permission denied (publickey)"
+- SSH key not found or wrong permissions
+- Solution: chmod 400 key.pem, use correct key file
+
+"Connection timed out"
+- Security group blocking connection
+- Solution: Add inbound rule for required port
+
+"Access Denied"
+- IAM permissions issue
+- Solution: Check IAM policies, use policy simulator
+
+"Resource limit exceeded"
+- AWS service limit reached
+- Solution: Request limit increase in Service Quotas
+
+"Internal Server Error"
+- Application error
+- Solution: Check application logs, review recent deployments

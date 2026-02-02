@@ -1,0 +1,29 @@
+Title: How do you select the right chart based on your data?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000024413-How-do-you-select-the-right-chart-based-on-your-data
+================================================================================
+
+First, identify the purpose of the chart. When you understand why you need to create a chart and with what information, you’ll be able to select the best chart type to make it more readable. There are several chart types available to you while creating a widget.
+If you want to compare things, you may choose a
+bar chart
+,
+line chart
+or
+list
+.
+If you want relationship analysis,
+table
+is the best option.
+If you want to show distribution, you may go with a
+column chart
+.
+If you want to show composition,
+stacked column
+or
+bar charts
+are preferred.
+If you want to show trends over time, a
+line chart
+is a great option.
+if you want to represent parts of a whole, a
+donut chart
+would work well.

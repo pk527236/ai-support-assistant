@@ -1,0 +1,62 @@
+Title: Foundational DQ - Blanks Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25210423692564-Foundational-DQ-Blanks-Rule
+================================================================================
+
+In this Article
+Introduction
+How to Configure the Rule
+Step 1: Access Data Quality Rules
+Step 2: Create a New Rule
+Step 3: Define the Rule Parameters
+Step 4: Save & Run the Rule
+Introduction
+The "BLANKS" rule addresses the availability and completeness of data within a dataset. It focuses on identifying whether there are any missing values present. This rule is particularly important for ensuring data integrity and accuracy.
+For example, let's consider a dataset containing customer information, including ship-to addresses. The BLANKS rule might be applied to check if there are any records where the address field is empty or missing in the customer ship-to information. By enforcing this rule, one can ensure that all necessary data fields are populated, thus maintaining the quality and reliability of the dataset.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+How to Configure the Rule
+Step 1: Access Data Quality Ruless
+Log in to DvSum and
+Navigate to
+Dictionaries
+→
+Database Tables.
+Select the relevant
+Data Source
+and
+Table Name
+.
+Data Quality
+→ Choose
+Available Rules
+.
+Step 2: Create a New Rule
+Click
+"
+⊕
+Add Rule"
+.
+Select the
+"Foundational DQ"
+category.
+Choose
+"BLANKS"
+.
+Step 3: Define the Rule Parameters
+Select the
+Table and Column
+where blank values should be restricted.
+Fill in the Rule Description, and Column name.
+If user selects:
+Treat Empty Strings as Blanks:
+Any field that contains an empty string ("") will be considered as a blank value.
+Treat Null Values as Blanks
+: Database-level NULL values will be treated the same as blank/missing values.
+Note:
+To know more about the Null and Empty values for Blank Rule, refer the article
+Null and Empty Values.
+Step 4: Save & Run the Rule
+Click
+"Save Rule"
+.
+Click "Run" to execute and test the rule.

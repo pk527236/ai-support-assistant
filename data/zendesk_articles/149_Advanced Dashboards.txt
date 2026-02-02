@@ -1,0 +1,25 @@
+Title: Advanced Dashboards
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360052125833-Advanced-Dashboards
+================================================================================
+
+Dashboard Main Page:
+When a user has a default Dashboard, then upon landing on main dashboard page, the default dashboard will be shown.
+Note:
+When a user creates an account for first time, by default, Advanced dashboard option will be enabled in user profile
+If a user has more than 1 default dashboard then the first default dashboard will be selected and displayed
+User can switch the dashboard from the list of shared default dashboards
+When a user switches the dashboard, this newly selected dashboard will be set as default dashboard of the user.
+User Groups in Share Dashboard
+Now, in sharing feature of Dashboard, you will be able to add "User Groups/Users" as well as shown below;
+User Groups in Create/Edit Dashboard
+User will be able to share a dashboard with user groups and specific users as well from here. For admins/owners, when creating/editing dashboard, a checkbox will be shown to mark the dashboard as default as shown below:
+Note:
+Only admin/owner user will be able to make a dashboard as default
+There can be no more than one default dashboard for one user group
+Add New User:
+If a new user is added from manage user and some group(s) are assigned to the user then the default dashboard(s) of groups will be assigned as default dashboard of the user.
+If the user is not a part of any group then no default dashboard will be set.
+Add New User in User Groups:
+When a new user is made part of the group, the default dashboard(s) of groups will be assigned as default dashboard of the user
+Email and Bell Icon Notification On Sharing Dashboard
+Upon sharing a dashboard, user(s) will be notified via Email as well as by bell icon notification as shown below;

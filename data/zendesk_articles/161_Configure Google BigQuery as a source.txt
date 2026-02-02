@@ -1,0 +1,53 @@
+Title: Configure Google BigQuery as a source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/4403282434324-Configure-Google-BigQuery-as-a-source
+================================================================================
+
+We continue to roll-out connectors to support bi-directional connection with Google Bigquery, where user can catalog, audit rules and the cleanse data without need for any external data pipelines. User will be able to add Google Bigquery as a source in DvSum and make customer's data insightful by Cataloging, Profiling , Executing rules and cleansing it.
+Note:
+To add Google bigquery as a source following are the required conditions to be fulfilled.
+a) SAWS version should be 2.4.0 and above
+b) Google bigquery as a source type should be enabled (explained below)
+Step 1:  Enabling Google bigquery Source in DvSum
+1
+Open the Dvsum application, select Administration and click on Manage sources option,  Click on Add Source and Select Google bigquery source. Following error messages will be displayed if the Google bigquery source is not enabled for users 'Owner' and 'Admin'.
+Note:
+Only owner is authorized to add the source.
+Owner
+:
+Admin
+:
+1.2
+Owner will click the Manage account link and gets re-directed to this page from where the source can be enabled. On other hand, Admin will request the owner to get the source enabled for the account. Click the Saws tab, select the saws and click
+Enable
+source
+button;
+1.3
+From the list of available sources, select Google bigquery and click
+Upgrade
+button as shown below;
+1.4
+On returning back in SAWS tab, it will take some time to process and after that Google bigquery Icon will appear in enabled sources column which means that source got successfully enabled as shown below
+Scenario 1 : SAWS Error
+On upgrading if there's any issue with SAWS then an error message will be displayed "Please check if your SAWS is working correctly".
+Scenario 2:  Pending State
+On upgrading if there's any job(s) running then it will go in pending state.
+Step 2 : Adding Google bigquery source in DvSum tool
+2.1
+Open the Dvsum application, select Administration and click on Manage sources option,  Click on Add Source and Select Google bigquery source as shown below;
+2.2
+Once landed on source detail page, you will be required to provide following info to add Google bigquery as a source;
+Choose and upload JSON file in
+Service account key file
+It will fetch
+Project ID
+Based on that
+Data set
+options will be populated in the drop down option
+Note
+: In order to set up service account, please follow this
+link
+:
+2.3
+After that Success message will be displayed and now click the save button;
+2.4
+Now Snowflake is added as a source and user will be able to Catalog it, profile it, Execute Rules and cleanse it.

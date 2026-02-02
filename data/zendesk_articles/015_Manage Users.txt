@@ -1,0 +1,72 @@
+Title: Manage Users
+URL: https://dvsum.zendesk.com/hc/en-us/articles/203082210-Manage-Users
+================================================================================
+
+In this Article
+Overview
+Adding New Users
+Steps to Add a New User
+Editing and Deactivating Users
+Overview
+DvSum provides administrators and owners with a robust set of features for adding and managing users. The
+Users
+page displays a list of existing users along with key details, including
+Email, User Group, Status, Modified By, Modified On, Expiration Date,
+and
+Last Login.
+This guide is designed for administrators responsible for managing user access and permissions in DvSum.
+Adding New Users
+When adding a new user, administrators can define the
+Start Date
+and
+Expiration Date
+for their account. These settings cannot be modified by the user:
+The
+Start Date
+determines when the user gains access to the application.
+The
+Expiration Date
+restricts access after the specified date unless an administrator extends it.
+By default, the
+Start Date
+is set to the current date, and the
+Expiration Date
+is set one year later. Both fields can be edited by an administrator.
+Steps to Add a New User
+Navigate to
+Administration > User Management > Users
+.
+Click
+Add User
+.
+Enter the user's
+Email
+and assign a
+User Group
+.
+Set the
+Start Date
+and
+Expiration Date
+.
+Click
+Save
+to complete the process.
+Note:
+By default, the "Start Date" is set to the current date, and the "Expiration Date" is set to one year later. Both of these fields are editable.
+Editing and Deactivating Users
+User access is restricted to the period between their designated
+Start Date
+and
+Expiration Date
+. Administrators can manage user access through the
+Actions
+menu, which offers the following options:
+Deactivate/Activate Users
+– Temporarily disable or restore a user’s access.
+Delete Users
+– Permanently removes a user, updating their status to
+Deleted
+.
+Reactivating a Deleted User
+– If a deleted user is reactivated, they are treated as a newly added user and must be reconfigured accordingly.

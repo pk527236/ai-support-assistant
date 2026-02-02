@@ -1,0 +1,134 @@
+Title: Creating and Managing Custom Attributes
+URL: https://dvsum.zendesk.com/hc/en-us/articles/38568362581908-Creating-and-Managing-Custom-Attributes
+================================================================================
+
+In This Article
+Overview
+Accessing Custom Attributes
+Adding Custom Attributes
+Attribute Detail Page
+Updating Custom Attribute Values via import
+Attribute Configuration Options
+Input Patterns for Validation
+Attribute Visibility Control
+Overview
+The DvSum DI Application now supports
+Custom Attributes
+, allowing users to tailor the asset metadata to their organization’s specific needs. Previously, asset attributes were limited to a predefined set of fields. With this enhancement, users can define and manage their own attributes, improving flexibility, governance, and contextual relevance across all asset types.
+Custom Attributes can be created for various asset categories such as databases, schemas, reports, models, and more. These attributes appear alongside standard fields in the asset detail pages and can be used to enrich asset metadata, support workflows, and enhance discoverability.
+Accessing Custom Attributes
+To manage Custom Attributes in the DvSum DI Application:
+Navigate to the
+Administration
+from the left-side menu
+Click on
+Asset Management -> Custom Attributes
+.
+This page displays a list of all defined attributes with details such as:
+Attribute Label
+Type (e.g., Date, Checkbox, URL, Pick List)
+Apply To Asset Types
+Usage Count
+Modified By
+Modified On
+Enabled (On/Off)
+Adding Custom Attributes
+To add a new Custom Attribute:
+On the
+Custom Attributes
+page, click the green
+Add
+button at the top right.
+A pop-up window titled
+Add Attribute
+will appear.
+Fill in the following fields:
+Type
+(Required)
+– Choose from the dropdown list:
+Checkbox
+Date
+Date Time
+Number
+Pick List
+Rich Text
+Mark Down
+Single Line Text
+Upload
+URL
+Label
+(Required)
+– Enter a name for the attribute.
+Description
+(Optional)
+– Add any notes or context for the attribute.
+Click
+Add
+to save the attribute or
+Cancel
+to discard.
+Custom Attributes are
+reusable
+and can be applied across
+multiple asset types
+, enabling consistent metadata enrichment and governance.
+Attribute Detail Page
+After the attribute is added, a detail page is displayed to complete the setup. This page is divided into two sections:
+Basic Configuration
+This section displays the core details of the attribute, including type, label, and description. An option is available to enable a tooltip, which will appear on asset detail pages to provide additional context.
+Attribute Configuration
+This section allows further customization of the attribute. Configuration options include validation rules, default values, mandatory status, and multi-value support. A checklist is provided to specify which asset types the attribute should apply to, ensuring relevance and consistency across the catalog.
+The
+Show Tooltip
+checkbox enables a tooltip to be displayed on asset detail pages. When hovered, the attribute’s description will appear as a tooltip, providing users with quick contextual information without needing to open the full attribute details.
+Attribute Configuration Options
+The Attribute Configuration screen includes several checkboxes that define how the custom attribute behaves across assets:
+Mandatory
+When enabled, this setting ensures that a value must be provided for the attribute. It enforces data completeness by preventing asset creation or updates without a valid entry.
+Allow Multiple Values
+This option allows the attribute to accept more than one value. It is useful for cases where an asset may be associated with multiple tags, categories, or other multi-select metadata.
+Fine-Grained Control (Apply To Asset Types)
+Enabling this checkbox allows attribute behavior—such as mandatory status and default values—to be customized per asset type. This overrides global settings and provides more granular governance across different asset categories.
+Updating Custom Attribute Values via import
+Custom attribute values can be added or updated for the assets to which the attributes are applied. To update custom attribute values in bulk, first add the custom attribute column to a custom view for the relevant asset type and then download that view. The downloaded Excel template will automatically include all custom attributes applied to the assets.
+Note:
+Data Import feature can be used to add or update values for custom attributes, the custom attributes themselves cannot be imported.
+For more information on using the Data Import feature, refer
+Data Import
+article.
+Input Patterns for Validation
+For attribute types such as
+URL
+,
+Number
+, and
+Date
+, input patterns can be defined to enforce structured data entry. The
+Attribute Validation
+section provides a dropdown with predefined patterns, and also includes an option to create a custom pattern.
+Clicking on
+Create a Custom Pattern
+opens a configuration form where a new pattern can be defined using regular expressions. The form includes fields for pattern name, regex, description, and sample values to illustrate expected input formats.
+Note
+:
+The regular expressions used in custom attribute validation follow the
+ECMAScript (JavaScript) regex standard
+, which is natively supported by modern browsers. This allows you to use familiar JavaScript-style regex patterns for creating flexible and intuitive validations.
+This flexibility allows organizations to tailor validation rules to match specific formatting requirements and ensure consistent data quality across assets.
+Attribute Visibility Control
+The
+Custom Attributes
+page includes options to manage attribute visibility and lifecycle. Attributes can be toggled between
+Active
+and
+Inactive
+using the
+Attribute Visibility
+dropdown. This allows administrators to control which attributes are available for use without permanently deleting them.
+Visibility can be managed in multiple ways:
+Mass Update
+– Multiple attributes can be selected and updated in bulk using the visibility dropdown.
+Single Attribute Toggle
+– Individual attributes can be activated or deactivated directly from the listing.
+Within Attribute Detail Page
+– Visibility settings can also be adjusted from within the attribute’s configuration screen.

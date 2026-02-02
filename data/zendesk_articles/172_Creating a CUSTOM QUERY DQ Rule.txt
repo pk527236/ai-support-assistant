@@ -1,0 +1,41 @@
+Title: Creating a CUSTOM QUERY DQ Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/15714519528980-Creating-a-CUSTOM-QUERY-DQ-Rule
+================================================================================
+
+Custom Query Summary
+The "CUSTOM QUERY" Rule Type is a powerful feature that empowers users to apply custom logic using a SQL query. This query should be a SELECT statement designed to identify invalid records.
+Details
+Preparation
+Outside of DvSum, users must create a SQL query to find invalid records. For instance, in a data model where STUDENTS can have multiple STUDENT_ADDRESSES, the query should identify cases where students have more than one address marked as primary (IS_PRIMARY set to true).
+/* query identifying students with too many primary addresses */
+select s.STUDENT_ID, GIVEN_NAME, FAMILY_NAME
+from
+DEMO_DB.EDUCATION.STUDENTS s
+left outer join DEMO_DB.EDUCATION.STUDENT_ADDRESS sa on ( sa.STUDENT_ID = s.STUDENT_ID )
+group by
+s.STUDENT_ID, GIVEN_NAME, FAMILY_NAME
+having
+sum(case when sa.IS_PRIMARY then 1 else 0 end) > 1
+Steps
+Create the rule
+Audit → Manage Rules → ⊕Add Rule → Process Quality → CUSTOM QUERY
+Define the details
+Define the Rule Description.
+Select the relevant Data Source and Table Name.
+Paste in the Custom Query.
+Set the Threshold Min and Max to 0.
+Save.
+In some advance cases you may use other thresholds. When the rule is intended to find all records in error, use zeros.
+Run the rule
+Initially, the summary information will be mostly empty.
+Click "►Run" in the top right corner.
+After running the rule once, the summary information will contain more details.
+View the errors
+If your query found any errors, then these errors will be visible on the Analysis tab.
+The fields available in Exceptions Deep Dive are determined by the fields returned in your query.
+Next steps
+Your CUSTOM QUERY Data Quality rule should now be working. Common next steps include:
+Enable writeback
+in the rule to allow data stewards to fix error records.
+Set Rule Groups for this rule.
+Schedule the rule to run regularly.

@@ -1,0 +1,9 @@
+Title: Dashboard templates and blank widgets
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000024353-Dashboard-templates-and-blank-widgets
+================================================================================
+
+Template Widgets
+Template Widgets are dashboard charts pre-designed to show the meaningful information that you can otherwise view by going through the DvSum application. There is a button "Add Widget" on dashboard which shows a list of template widgets you can select from.
+For example, when you add a template Rule widget “Rule Count by Source and Status”, it populates the input fields related to the widget with the preferred Chart type better suited to display the information. All you need to do is provide the Data Source so the widget can fetch the data.
+Blank Widget
+Blank widget is the most powerful widget because it allows you to create a widget from scratch with any information and any chart.

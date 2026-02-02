@@ -1,0 +1,17 @@
+Title: How do you select the right Catalog View?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115005116933-How-do-you-select-the-right-Catalog-View
+================================================================================
+
+You can determine the information you need in a view and then create one of the following DvSum Catalog views:
+Scope View
+RDBMS View
+SAP View
+Here is the detail of all three:
+Scope View:
+This view enables you to specify a logical scope of data relevant to you. You choose an existing data catalog object, set filtering criteria, and arrange fields in a layout that suits your preferences. It's a versatile view applicable to all types of data sources.
+RDBMS View:
+This view enables you to define a SQL-based view for joining and filtering multiple objects in a Relational Database (e.g., Oracle, SQL Server). It functions similarly to creating a database view, but without the obligation to do so. Subsequently, you can interact with this view in the same way you would with any table.
+SAP View:
+This view is designed for SAP-ECC and SAP-ISR data sources, allowing you to join various objects within SAP for data profiling and analysis.
+Read more on
+Joining tables to create Blend View

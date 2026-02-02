@@ -1,0 +1,6 @@
+Title: SAP Connector Installation and Configuration Guide
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360043550373-SAP-Connector-Installation-and-Configuration-Guide
+================================================================================
+
+For making connections to SAP ECC, DvSum provides an RFC-enabled BAPI that is optimized to handle data query type of requests utilized in DvSum.
+The attachments contains the Transport Files and the installation instructions.

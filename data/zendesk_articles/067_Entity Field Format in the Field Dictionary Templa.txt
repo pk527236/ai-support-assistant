@@ -1,0 +1,41 @@
+Title: Entity Field Format in the Field Dictionary Template
+URL: https://dvsum.zendesk.com/hc/en-us/articles/36407279883156-Entity-Field-Format-in-the-Field-Dictionary-Template
+================================================================================
+
+In this Article
+Overview
+Entity Field Format
+Field Dictionary Download
+Field Dictionary Import
+Overview
+When working with the Field Dictionary in DvSum—either downloading or importing—you may notice that the
+Entity
+field contains dot-separated text. This format provides the full path of the entity, including its associated domain and subdomain.
+Note:
+The Entity field represents a glossary term in DvSum. While it also displays the full hierarchy including domain and subdomain (<DataDomain>.<SubDomain>.<EntityName>), its primary purpose is to map the field or column to the corresponding glossary term.
+Entity Field Format
+The
+Entity
+field uses the following structure:
+<DataDomain>.<SubDomain>.<EntityName>
+Example
+Default.Default.US_PASSPORT
+This structure ensures clarity when identifying entities that may exist under different domains or subdomains.
+Field Dictionary Download
+When downloading the Field Dictionary:
+The
+Entity
+column will display the full hierarchy as described above.
+The
+Data Domain
+column reflects the domain assigned to the column itself, which may be different from the domain shown in the Entity field.
+Field Dictionary Import
+When importing the Field Dictionary:
+The
+Entity
+field must follow the format:
+<DataDomain>.<SubDomain>.<EntityName>
+This format is also reflected in the
+sample file
+that can be downloaded from the import screen. Use it as a reference when preparing your import.
+Ensure any edits made to the Entity field maintain the correct format to avoid errors during import.

@@ -1,0 +1,10 @@
+Title: Execute/run Scheduled Jobs
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115000205853-Execute-run-Scheduled-Jobs
+================================================================================
+
+The jobs that are scheduled using DvSum Web Application are executed by SAWS. It continuously interrogates the web application using the API token to check the readiness or state of the scheduled jobs that are to be executed.
+There are two prerequisites for running the scheduled jobs.
+API token needs to be added in the configuration file when SAWS is downloaded on a system. You can ask your administrator to provide you the API key. (If required, please refer to
+How to install and Configure SAWS file
+)
+Your IP address needs to be white listed as DvSum Application blocks connections from remote locations.

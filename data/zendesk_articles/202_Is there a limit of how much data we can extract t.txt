@@ -1,0 +1,8 @@
+Title: Is there a limit of how much data we can extract to a file on azure blob/S3 bucket or to folder?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360018196733-Is-there-a-limit-of-how-much-data-we-can-extract-to-a-file-on-azure-blob-S3-bucket-or-to-folder
+================================================================================
+
+You can control the data extraction limit on Azure blob or s3 by specifying the number of records to be uploaded.
+This is the storage level option provided on Cloud storage tab. From Administration > Manage Account > Cloud storage > Add/edit
+The Export Limit field is optional. If a user does not specify a value, by default 75,000 records will be uploaded. Valid range for this is 1 to at max 10 million records.
+Note: If there are more exceptions than the limit, exception count will show on rule detail page but at the max 10M exception file will be uploaded to Azure/s3.

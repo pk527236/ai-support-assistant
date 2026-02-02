@@ -1,0 +1,21 @@
+Title: Edge Gateway (SAWS) not accessible
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360001182373-Edge-Gateway-SAWS-not-accessible
+================================================================================
+
+Overview
+The DvSum Edge Gateway (SAWS) always runs over HTTPS. It sometimes uses a self-signed certificate. In cases where it uses a self-signed certificate, you need to add an exception to allow the browser to communicate with the web service.
+Troubleshooting
+Client not white-listed
+Symptom: Warning Icon
+Only browser clients with a white-listed IP address are able to access the Edge Gateway Servers (SAWS). If your IP address is not white-listed, you will see this warning icon icon:
+Solution:
+Add your IP address to the White List
+.
+Edge Gateway (SAWS) not accessible
+Symptom: Red Cloud Icon
+The DvSum application running on prod.dvsum.com uses a valid, secure, trusted certificate. But the gateway server in use is using a self-signed certificate. This means that communication passing between the browser and the gateway server is still encrypted, but the certificate is not trusted by any certificate authority. The situation is indicated visually with the red cloud icon:
+You may register an exception with your browser to allow this connection.
+To do so, click on the Cloud icon. It will open the list of edge gateway servers (most customers use only a single server). Click on the web-service with the red cloud icon. It will open the web-service page which will warn you of connection not being private. Click on “Show me advanced options” → “Proceed to <<IP Address>>”.  This is an internal company connection, and it is fully secure.
+Once you click “Continue” or “Proceed”, the next page should display the SAWS Management Console as shown below. This means that your browser can now connect to the web service over a secure connection. You do not need to login to DvSum SAWS Console. Simply close this page to return to the DvSum application.
+In the DvSum Data Quality application, the web service icons will turn green now:
+You can execute data quality functions on your data sources.

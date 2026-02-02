@@ -1,0 +1,29 @@
+Title: Use Rule Groups as tags for better management of Rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115000728633-Use-Rule-Groups-as-tags-for-better-management-of-Rules
+================================================================================
+
+What are Rule Groups?
+Rule Groups are
+tags
+that allow you to organize your rules into categories. (They were formerly known as "Val Groups", so you'll see this terminology in some documentation.) You can apply a Rule Group tag in order to categorize DvSum Rules. Rule groups are like folders, but unlike folders you can apply more than one Rule Group tag to a single rule. Likewise, a rule can belong to multiple Rule Groups.
+Using Rule Groups
+For instance, the user "Dani DataSteward" wants to group together a few rules she created. She can create a Rule Group called "Dani DataSteward Rules". She can then filter the "Analyze Rules" grid by Rule Group. This gives her the flexibility to tag rules that were not created by her as part of this Rule Group.
+Additionally, under Review → Batch Execution an administrator can execute multiple rules tagged with a specified set of Rule Groups very easily.
+Creating Rule Groups
+While creating a rule
+A user can add Rule Groups from the "Add Rule" wizard when creating a new rule. As the user starts typing in the field "Rule Group", the list of existing Rule Groups appears. If the desired rule group does not already exist, then
+hit Enter to create the new Rule Group
+. (Note that the screenshot below shows the historic
+label
+"Val Group" rather than the current label "Rule Group".)
+While editing a rule
+You can also add New Rule Groups from rule detail page. Edit the rule summary information. The Rule Group drop down displays the list of existing rule groups. To create a new one, simply type the name and press Enter.
+While performing a Mass Update
+On the pages "Manage Rules" and "Analyze Rules", you have the option to perform a Mass Update. Under the field "Rule Group", you can select from the existing list or type to create a new rule group.
+Remove Rules from a Rule Group
+While editing a rule summary it's possible to remove any currently assigned rule groups.
+Additionally, on the pages "Manage Rules" and "Analyze Rules" you may select rules and click on More Actions → Mass Update. This interface provide the ability to remove (or add) rule groups.
+You have the following options regarding Rule Groups:
+Add following Rule Groups
+Replace existing Rule Groups with following
+Remove following Rule Groups (pictured above)

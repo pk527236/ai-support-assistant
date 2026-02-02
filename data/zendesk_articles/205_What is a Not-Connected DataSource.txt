@@ -1,0 +1,11 @@
+Title: What is a "Not-Connected DataSource"?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360002610433-What-is-a-Not-Connected-DataSource
+================================================================================
+
+Not-connected sources are the ones which are not connected to the DvSum Web-service for the purposes of cataloging, profiling, executing rules or cleansing data.
+If you want to create a blueprint of a source or may require to create lineage, you can select this option. This means you would manually add the tables and the columns of your source.
+Once you have added the Not-Connected Source, you can go to Profile tab >> Profiling and select your source to define the tables manually. Only for a not-connected source you will see the "Add Table" button.
+When you add the table, it starts appearing in the tables drop down.
+Select this table and go to "show details" where you can define the columns manually.
+You can give name to your columns and select their data-type
+This completes the blueprint of your Database.

@@ -1,0 +1,25 @@
+Title: Why don't I see all users in list of owners in glossary?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360002074473-Why-don-t-I-see-all-users-in-list-of-owners-in-glossary
+================================================================================
+
+DvSum Owners can practice fine-grain or global access control over the categories of Business Glossary. This means only those users which have given access to a particular category will be able to
+view
+or
+edit
+the terms belonging to those category.
+For example, if
+Alice
+manages (edit rights) the Category
+Income. Bob
+carries out some tasks over this category and he has edit rights for this category as well. However,
+John
+can only read (view rights) the terms defined under
+Income.
+If
+Term1
+is defined under
+Income
+. This means only Alice and Bob can be assigned the role of Term Owner or Term Steward. Bob can view the detail page of the terms but he wont be able to make any edit changes.
+Note: You can learn more about
+What is Fine-Grain and Global Glossary Access Control?
+here.

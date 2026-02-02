@@ -1,0 +1,32 @@
+Title: How to use Certification and Quality Tagset?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/8946385941140-How-to-use-Certification-and-Quality-Tagset
+================================================================================
+
+In this article:
+Overview
+Require Note When Applying Tag
+Make Tags Prominent
+Certification Tagset
+Dataset Quality Tagset
+Overview
+Certification and Dataset quality tags have been introduced for Datasets. By default, users are unable to alter these tags, and the checkboxes for 'Require Note When Applying Tag' and 'Make Tags Prominent' come pre-selected. The Certification tag is indicated by the green color, and the Data Quality Tag is represented by the red color. Tags for both tagsets have been pre-configured.
+Require Note When Applying Tag:
+Choosing this option means users must include a Tag note when adding a tag, and adding a tag without a note is not allowed.
+Make Tags Prominent:
+When this option is chosen, tags will appear at the top of the page alongside Dataset/Term/Field names, highlighted in the specified color (Red, Green, Blue). The default color for the new tagset is Blue, but users can customize the tag color based on their preferences.
+Certification Tagset:
+The certification tagset has only one tag:
+Certified
+On the Dataset detail page, Certify Button shows when the button is clicked, the user will be directed to the Classification section, and Certified Tag will also get selected automatically with a single click.
+NOTE
+:
+Users can also select a Classified tag from the classification section.
+Enabling "Require Note" prompts a text box for the Certified Tag note when clicking Apply. After entering the note, publishing the Dataset results in the certified tag displaying alongside the Dataset name on the listing reference page.
+Dataset Quality Tagset:
+Dataset Quality Tagset has the following tags:
+Deprecated
+Under Maintenance
+Warning
+Edit the classification section and any tag from available tags in Data Quality tags. As Require Note is enabled, click on Apply button a text box will appear to enter the note for Under Maintenance Tag.
+Save the changes and publish the Dataset after adding the note. The Under Maintenance tag will be shown with the Dataset name and listing ref page
+Watch this quick video tutorial on how to use Certification and Quality Tagset:

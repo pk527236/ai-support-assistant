@@ -1,0 +1,10 @@
+Title: Data Format Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360013705873-Data-Format-Rule
+================================================================================
+
+The Data Format rule is useful for examining the data types, length, and patterns of input data, as well as determining whether a numerical field is a whole number, an integer, or a decimal.
+For instance, a basic test helps find irregular records in an Excel dataset when a specific column doesn't match the required data format. In Data Format, you can set the data type (String or Number), character length (minimum and maximum column width), numeric precision (for decimals), and specify if white spaces are allowed.
+This rule is accessible both independently in Manage Rules and as part of the Rule Set, which includes criteria like blanks, value range, and data format rules.
+This rule created on column SIZE_DIM will bring exception records where field values are less than 5 or greater than 15 characters.
+Likewise, for numeric fields, you have the flexibility to select the data type as decimal, whole numbers, or integers.
+For the "WEIGHT" column, values with a decimal precision greater than 1 will be treated as exceptions. Similar to other exception rules, you have the option to cleanse and write-back fixes to the Excel source.

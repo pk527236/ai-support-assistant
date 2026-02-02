@@ -1,0 +1,138 @@
+Title: Configure Oracle as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10583264674836-Configure-Oracle-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Prerequisites
+Step by Step configuration
+Add Source
+Configure Connection
+Method 1: Connect Using DvSum Web Service
+Method 2: Connect Using DvSum Edge Gateway
+Save the Connection
+Scan the data source
+Browsing the Database Columns
+Lineage Support for Oracle
+Query History in Oracle
+Additional Resources
+Overview
+This article describes the steps needed to configure Oracle as a source in DvSum Data Intelligence (DI). The same steps apply to configure a source in DvSum Data Quality (DQ Legacy) with only a slight variation.
+Prerequisites
+Oracle configuration
+User
+: Create a user to be used in DvSum, or identify an existing user.
+Table permissions
+: Grant read-only access to the user for schemas and tables that you would like to catalog and profile.
+System table permissions:
+Grant read-only access to the user for the following system tables:
+V$SQL
+DBA_USERS
+ALL_USERS
+ALL_OBJECTS
+ALL_TABLES
+ALL_SYNONYMS
+ALL_TAB_COMMENTS
+ALL_EXTERNAL_TABLES
+ALL_TAB_COLS
+ALL_COL_COMMENTS
+ALL_CONSTRAINTS
+ALL_CONS_COLUMNS
+In order to grant access the below statement can be used:
+GRANT SELECT ON [TABLE_NAME] TO [USER]
+Oracle GRANT documentation
+Step by Step configuration
+1. Add Source
+To create a data source, navigate to Administration → Data Sources → ⊕Add Source.
+Select Oracle.
+Give the source a name, and save it.
+2. Configure Connection
+Once the source is saved, you will be redirected to the connection settings page.
+Method 1: Connect Using DvSum Web Service
+Whitelist the DvSum application by IP address as indicated.
+Enter the required connection details:
+Host
+Port
+SID or Service Name
+Database Login
+Database Password
+Click
+Authenticate
+to verify the connection.
+Method 2: Connect Using DvSum Edge Gateway
+If your Oracle database is behind a firewall,
+install a DvSum Edge Gateway
+to enable a secure connection.
+Learn more about the differences in
+DvSum Web Service vs On-Premises Edge Gateway
+.
+Once authenticated, the
+Database section
+will appear.
+Select the schemas to catalog.
+3. Save the Connection
+After entering credentials and selecting schemas, scroll to the top of the page.
+Click
+Done
+in the top-right corner.
+Click
+Save
+to finalize the connection setup.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+4. Scan the data source
+Navigate to the
+Scan History
+page.
+Click
+Scan Now
+to initiate a scan.
+Once the scan is complete, the status will update to
+Completed
+.
+Click on the
+Scan Name (e.g., SCN-000286)
+to view the scan summary.
+The
+Scan Summary Page
+provides insights into the scan, including:
+The number of new tables and columns fetched.
+Your Oracle connection is now fully configured and functional.
+Browsing the Database Columns
+After a successful scan, explore the discovered tables and columns:
+Go to the Dictionaries dropdown and select the
+Database Columns
+tab.
+Click on the
+Recently Refreshed
+tab to see the latest scanned tables.
+Click on a table name to view detailed metadata.
+Lineage Support for Oracle
+DvSum supports lineage extraction for Oracle sources using query history and stored procedure or package code analysis.
+To enable this:
+Ensure the Oracle user has
+read-only access
+to the
+ALL_SOURCE
+view to allow access to stored procedure or package definitions.
+All relevant schemas containing the procedure or package code must be included in the source configuration.
+For detailed instructions on how to set this up, refer to the article:
+Lineage in DvSum
+Query History in Oracle
+Query history is enabled by default for Oracle, so no additional configuration is required. DvSum automatically scans query history for lineage analysis.
+To verify that query history is being captured, you can run the following SQL query:
+SELECT v.*
+FROM v$sql v
+LEFT JOIN all_users du ON v.PARSING_USER_ID = du.user_id
+WHERE command_type IN (1, 2, 6, 7, 189)
+AND ROWNUM < 10;
+Note
+: This query returns recent DML operations using Oracle's
+v$sql
+view and can be used to confirm that query history is available to DvSum.
+Additional Resources
+Read more about
+DvSum Web Service vs On-Premises Gateway
+Read more about
+Gateway Installation

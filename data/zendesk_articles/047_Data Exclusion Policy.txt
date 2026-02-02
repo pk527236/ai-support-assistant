@@ -1,0 +1,78 @@
+Title: Data Exclusion Policy
+URL: https://dvsum.zendesk.com/hc/en-us/articles/39824964543764-Data-Exclusion-Policy
+================================================================================
+
+In this Article:
+Overview
+Accessing and Applying the Data Exclusion Policy
+Managing Exclusion Policies
+Visual Examples: How Exclusion Affects Views
+Data Dictionary – Column View
+Data Quality (DQ) Dictionary – Profiling Tab View
+Restricting the Data View by Data Domain
+Restricting the Data View by Source
+Restricting the Data View by Databases
+Overview
+The Data Exclusion Policy feature empowers administrators to control data visibility based on user roles. This policy ensures that sensitive table data is hidden from users who should not have access to it. Once access to a table is revoked, associated column data and rule-level exception data are also automatically restricted.
+This functionality helps safeguard sensitive data and streamlines the user experience by ensuring that each user role only interacts with data they are permitted to view.
+Accessing and Applying the Data Exclusion Policy
+To configure a new Data Exclusion Policy:
+Navigate to:
+Administration → Account → User Security
+Scroll to the
+Sample Data Exclusion Policy
+section.
+Click
+Add Exclusion Policy
+.
+Fill in the Required Information:
+Policy Name:
+Specify a unique and identifiable name for the policy.
+Role:
+Select the role to which this policy will apply.
+Users can then configure criteria by selecting specific columns. Multiple condition types are available, allowing flexible and targeted policy setup based on the selected column values.
+Note:
+The data will be hidden only for users assigned to the role(s) selected while creating the policy.
+Users with all other roles will continue to view the data without any restriction.
+Managing Exclusion Policies
+Administrators can manage existing exclusion policies through the following actions:
+Bulk Actions
+Select multiple policies to update visibility settings or delete them in one go.
+Edit/Delete
+Click the
+ellipsis (⋯)
+next to a policy to make changes or remove it.
+Activate/Deactivate
+Use the
+toggle switch
+to enable or disable a policy without permanently deleting it.
+Visual Examples: How Exclusion Affects Views
+1. Data Dictionary – Column View
+Before Adding the Role in the Exclusion Policy:
+All users can view every column and its metadata in the Grid View. Showing all the metadata inside the Column.
+After Adding the Role in the Exclusion Policy:
+Column data will be completely hidden from users assigned to restricted roles.
+If you select the Dictionary view and click on any column name to view the
+Column Reference
+page, the visual distribution will no longer be visible. Instead, a message will be displayed stating that the information is restricted due to the applied policy.
+2. Data Quality (DQ) Dictionary – Profiling Tab View
+Before Adding the Role in the Exclusion Policy:
+On the
+Rules Detail
+page, Exception data from all rules are visible to the users.
+After Adding the Role in the Exclusion Policy:
+All the exception data of the rules will be hidden from users with restricted roles.
+Important:
+Even if a user is part of a role covered by the exclusion policy, they can still access exception data for rules they own.
+Example:
+In this case, the user
+Amulya
+belongs to a role restricted by the exclusion policy. However, because she is the owner of the rule, she retains access to its exception data.
+The rule that Amulya owns:
+The rule that Amulya does not own:
+3. Restricting the data view by Data Domain.
+When a criteria condition is applied to a Data Domain to limit view access, all datasets within that domain will have their column-level details hidden in the Data tab, restricting users from viewing individual columns.
+4. Restricting the data view by Source
+Source-level restrictions limit access to column details in the Data tab. This control applies uniformly across all datasets linked to that source, supporting consistent data governance and preventing unauthorized access to sensitive information.
+5. Restricting the data view by Databases:
+When a criteria condition is applied to a database, profiling and exception details are restricted across all related databases as per the exclusion policy. This cascading restriction plays a key role in maintaining data governance and security.

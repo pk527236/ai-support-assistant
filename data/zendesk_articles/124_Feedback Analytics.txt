@@ -1,0 +1,75 @@
+Title: Feedback Analytics
+URL: https://dvsum.zendesk.com/hc/en-us/articles/28138720331796-Feedback-Analytics
+================================================================================
+
+In this Article:
+Overview
+Analytics Tab Views
+Review Feedback
+Activities
+Status
+Overview
+Feedback Analytics is designed to manage and understand user feedback easier and more efficiently. All user feedback is displayed in one organized table, making it easy to see everything in one place.
+Analytics Tab Views
+The Analytics tab in the agents offers two distinct views:
+Chats Analytics
+and
+Feedback Analytics
+. By clicking on
+Feedback Analytics
+, the system will display all questions that have received feedback in chats.
+Here is what to expect from Feedback Analytics:
+In
+Feedback Analytics
+, the top section includes a "View" selector that allows toggling between different views. By default, there is an
+All Feedback Analytics view
+, but users can create new views based on their preferences.
+Below this, a comprehensive feedback table displays all the questions that have received feedback in chats.
+To begin with, there are four tiles named as follows:
+All Feedback:
+It displays all the feedback
+Approved:
+It filters all the questions with Approved Feedback
+Rejected:
+It filters all questions with Rejected Feedback
+To Review:
+It displays all questions with the status set to New.
+Following that, there are columns:
+Question:
+It displays the question text
+Response:
+It displays the generated query
+User:
+It displays user name who asked the question
+Chat Name:
+It displays the chat name in which the question is asked
+Feedback Time:
+It displays the time when the feedback was given
+Feedback:
+It displays the feedback on the question: Accepted or Rejected
+Status:
+It displays the current status of the question
+Feedback Category:
+It displays the category selected at the time of feedback
+Feedback Text:
+It displays the feedback text if provided
+Review feedback
+Clicking on any question within the table opens the
+"Review Feedback"
+modal, providing more details about the individual feedback items. This modal is divided into two panels:
+The left panel displays a list of all questions within the current view, enabling users to navigate quickly between different feedback items.
+The right panel offers information about the selected question:
+Feedback Type
+: Displays the type of feedback, with the full text available on hover.
+Current Status
+: Displays the current status of the feedback.
+Chat and User Name
+: Provides context by displaying the chat where the feedback was given and identifying the user who submitted it.
+Question and Results
+: Displays the specific question and the feedback results.
+Activities
+The activities icon displays a view of all actions taken regarding the feedback, including status updates and added comments. This ensures that users have a comprehensive history of interactions.
+The activities icon is also accessible in the feedback listing table.
+Status
+The Update status dropdown allows users to update the feedback status directly from the modal.
+Additionally, there is a mass update option that allows bulk status changes across multiple feedback items.

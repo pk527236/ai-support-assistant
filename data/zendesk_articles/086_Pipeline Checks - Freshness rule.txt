@@ -1,0 +1,33 @@
+Title: Pipeline Checks - Freshness rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25246892783380-Pipeline-Checks-Freshness-rule
+================================================================================
+
+In this Article:
+Introduction
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Step 2: Select Table & Available Rules
+Step 3: Configure Settings Reference
+Step 4: Add a New Rule (Pipeline Checks → Freshness)
+Step 5: Basic Input Setup
+Step 6: Validate & Run the Rule
+Introduction
+The "Freshness" rule is a type of Pipeline Check that ensures the timeliness and reliability of data within data processing workflows. It verifies data quantities, assesses data quality and performance, and monitors if data is present or updated within a specified time frame.
+In simple terms, the Freshness Check monitors whether data is available or updated within a certain timeframe. For instance, in a weather forecasting app, if data was initially fetched at "2023-09-30 08:00:00" and the next execution timestamp is "2023-09-30 14:30:00," resulting in a time difference of 6 hours, but the defined threshold is 3 hours, then the Freshness Check would alert because the difference exceeds the defined threshold.
+This rule enhances the flow, quality, and efficiency of data processing by ensuring that data remains current and relevant, thus improving the reliability of the overall system.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+How to Configure the Rule:
+Step 1: Access Data Dictionary
+Log in to DvSum, proceed to the Data Dictionary tab under the Dictionaries, and select the relevant Data source and Table Name.
+Step 2: Select Table & Available Rules
+Select the table name then select the Data Quality tab and choose Available Rules.
+Step 3: Configure Settings Reference (Load Profile & Metric Time)
+Open the Settings Reference page and enter the Load Profile & Metric Time
+Note: The Load Profile should be set to Incremental Data
+Step 4: Add a New Rule (Pipeline Checks → Freshness)
+Select the "⊕ Add Rule" button, then choose the "Pipeline Checks" category. From the list of options, click on "Freshness"
+Step 5: Basic Input Setup
+In the Rule Wizard's Basic Input section, you need to fill in the Rule Description and Threshold Hours corresponding to the table in which you want to search that data is not present or updated by a certain time.
+Step 6: Validate & Run the Rule
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.

@@ -1,0 +1,101 @@
+Title: Configure Azure SQL & Azure Synapse Analytics
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10636132296852-Configure-Azure-SQL-Azure-Synapse-Analytics
+================================================================================
+
+In this Article:
+Overview
+Prerequisite: Enable Query History via Query Store
+Step-by-Step Configuration
+Step 1: Adding a Databricks Source in DvSum
+Step 2: Configure Source
+Step 3: Scan Data Source
+Step 4: Review Data Dictionary
+Video Tutorial
+Additional Resources
+Overview:
+This article outlines the process of configuring Azure SQL or Azure Synapse Analytics as a data source in DvSum, enabling integration for data cataloging and profiling. The steps provided apply to both DvSum Data Insights (DI) and DvSum Data Quality (DQ), with only minor variations based on the specific platform.
+Prerequisite: Enable Query History via Query Store
+Before proceeding, ensure that
+Query Store
+is enabled on your Azure SQL Database or Azure Synapse Analytics instance. Query Store captures query history, which is required for lineage tracking and usage insights in DvSum. For detailed steps, refer to the article
+Enabling Query History for Data Sources.
+For step-by-step instructions on creating users, configuring Query Store, and setting up required permissions, refer to
+Azure SQL & Azure Synapse Analytics User Setup and Query Store Configuration for Metadata Extraction
+You can follow the steps mentioned below to configure and authenticate a Azure SQL or Azure Synapse Analytics source:
+Step by Step Configuration
+Step 1: Adding a Databricks Source in DvSum
+Navigate to
+Administration → Data Sources
+in DvSum.
+Click
+"⊕ Add Source"
+to open the wizard.
+Select the appropriate
+Data Source Type
+.
+Enter a
+name
+for the data source.
+Click
+Save
+.
+2. Configure Source
+The
+Connection
+tab opens automatically after saving.
+Alternatively, navigate to:
+Administration → Data Sources → Settings → Connection
+.
+Click
+Edit
+and configure the connection details:
+Server Name
+Database Name
+Authentication
+Click
+Authenticate
+to test the connection.
+After authentication, select a
+database
+and optionally, specific
+schemas
+.
+Click
+Done
+and
+Save
+to complete the process.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+3. Scan Data Source
+Navigate to
+Administration → Data Sources → Scan History
+.
+Click
+"Scan Now"
+to perform an initial scan.
+The scan will progress from
+Scheduled → Running → Completed
+.
+After completion, click the
+Scan Name
+to open the
+Scan Summary
+.
+Review the scan insights
+4. Review Data Dictionary
+Navigate to
+Data Dictionary
+in the DvSum menu.
+Click on the
+"Recently Refreshed"
+tab to find recently scanned tables.
+Click on the table name for detailed information.
+Video tutorial:
+Watch this quick video tutorial on how to add and configure an Azure Data Source into DvSum app.
+Additional Resources
+Read more about
+DvSum Web Service (Cloud SAWS)
+Read more about
+DvSum Edge Gateway (On-Premises SAWS)

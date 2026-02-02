@@ -1,0 +1,15 @@
+Title: How can I send Scheduler job emails to other users?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360021367293-How-can-I-send-Scheduler-job-emails-to-other-users
+================================================================================
+
+When a job is scheduled, sometimes it is required to send email alerts containing summary of rule execution to multiple users. These users may or may not exist in DvSum.
+Schedule a rule, you will see the option to send the email to Internal Recipients, Groups or External Recipients. This option is available for On demand scheduling, schedule for later and Generate Script.
+Internal Recipients
+- Users signed up on DvSum application
+Recipient Groups
+- Group of DvSum users from Administration > Manage Groups page
+External Recipients
+- Users not signed up on DvSum but added as external users from Administration > Manage Users > External tab
+For detailed help, read our article on
+How to add External Users as Recipients?
+Note: Email is addressed to the person who creates the schedule and a carbon-copy is sent to all other users. This way it is easy for recipients to communicate on the same email thread.

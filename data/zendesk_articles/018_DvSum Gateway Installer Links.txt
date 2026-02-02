@@ -1,0 +1,83 @@
+Title: DvSum Gateway Installer Links
+URL: https://dvsum.zendesk.com/hc/en-us/articles/29756078237460-DvSum-Gateway-Installer-Links
+================================================================================
+
+In this Article
+DI Platform Download Links
+DQM Platform Download Links
+DI Platform Download Links
+Latest Version (v. 2.2.0):
+DvSum Data Intelligence Gateway Windows Installer
+DvSum Data Intelligence Gateway Linux Installer
+Older Versions:
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.8)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.8)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.7)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.7)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.6)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.6)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.5)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.5)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.4)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.4)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.3)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.3)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.2)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.2)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.1)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.1)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.1.0)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.1.0)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.7)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.0.7)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.6)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.0.6)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.5)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.0.5)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.4)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.0.4)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.3)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.0.3)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.2)
+DvSum Data Intelligence Gateway Windows Installer(v. 2.0.2)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.1)
+DvSum Data Intelligence Gateway Windows Installer (v. 2.0.1)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.0)
+DvSum Data Intelligence Gateway Windows Installer (v. 2.0.0)
+DvSum Data Intelligence Gateway Linux Installer(v. 2.0.0)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.8)
+DvSum Data Intelligence Gateway Linux Installer(v. 1.3.8)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.7)
+DvSum Data Intelligence Gateway Linux Installer(v. 1.3.7)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.6)
+DvSum Data Intelligence Gateway Linux Installer(v. 1.3.6)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.5)
+DvSum Data Intelligence Gateway Linux Installer(v. 1.3.5)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.4)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.3.4)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.3)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.3.3)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.2)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.3.2)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.1)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.3.1)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.3.0)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.3.0)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.2.9)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.2.9)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.2.8)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.2.8)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.2.7)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.2.7)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.2.6)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.2.6)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.2.5)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.2.5)
+DvSum Data Intelligence Gateway Windows Installer (v. 1.2.4)
+DvSum Data Intelligence Gateway Linux Installer (v. 1.2.4)
+DQM Platform Download Links
+Latest Version (v. 3.2.3):
+DvSum Data Quality Gateway Installer
+Older Versions:
+DvSum Data Quality Gateway Installer (v. 3.2.2)
+DvSum Data Quality Gateway Installer (v. 3.2.1)

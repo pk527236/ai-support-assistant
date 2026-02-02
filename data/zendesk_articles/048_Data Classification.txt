@@ -1,0 +1,204 @@
+Title: Data Classification
+URL: https://dvsum.zendesk.com/hc/en-us/articles/39292360682900-Data-Classification
+================================================================================
+
+In This Article
+Overview
+Tagset
+Applying Classification Tags
+Roles and Permissions: Data Security Admin vs General Users
+Linking Columns to Tags
+Tag Behavior
+Customization
+Data Masking in Rule Execution & Export
+Overview
+Data Classification is a foundational capability in DvSum, enabling organizations to manage data sensitivity and enforce privacy policies. Classification tags can trigger privacy actions such as masking and column hiding, all of which are configurable by Data Security Admins.
+This article explains how data classification tags are created, applied, and managed within DvSum. It covers who can assign or modify tags, how roles affect permissions, and how classification levels drive masking and other privacy-related actions.
+Tagset
+Classification tags are centrally managed in DvSum by administrative users. These tags are customizable and typically include:
+Public
+Internal
+Sensitive
+Restricted
+Accessing the Tagsets:
+Navigate to
+Administration.
+Go to
+Asset Management.
+Click on
+Tags.
+Select the
+Data Classification
+tagset.
+Within the Data Classification tagset, users have the ability to create new tags. By default, these tags are assigned a low severity level and cannot be linked to columns or terms that carry a higher sensitivity classification (e.g., Sensitive or Restricted).
+These classification tags can be applied to both
+columns
+and
+terms
+.
+Applying Classification Tags
+For Columns (Field Dictionary)
+Navigate to the
+Dictionaries >
+Database Columns.
+Select the desired column(s).
+Open the
+More Actions
+dropdown.
+Click on
+Data Classification
+.
+For Terms (Business Glossary)
+Go to the
+Dictionaries >
+Glossary Terms.
+Select the desired term(s).
+Open the
+More Actions
+dropdown.
+Click on
+Data Classification
+.
+Roles and Permissions: Data Security Admin vs General Users
+Data Security Admin
+Full access to assign, elevate, or downgrade the sensitivity of classification tags.
+Can configure masking, hiding, and other privacy actions for each tag.
+General Users
+Can increase the sensitivity level of a tag (e.g., from
+Internal
+to
+Sensitive
+).
+Cannot downgrade the classification level.
+If they attempt to lower the sensitivity, a warning message is displayed, as shown in the screenshot below.
+Upgrade and Downgrade Rules
+Data Security Admin
+Can
+upgrade
+classification tags in all scenarios.
+Can
+downgrade a column
+only if
+all linked terms have equal or lower severity
+.
+For example: If a column is tagged as Sensitive, and all its linked terms are Internal, the column can be downgraded to Internal.
+Can
+downgrade a term
+only if
+all linked columns have equal or lower severity
+.
+For example: If a term is tagged as Restricted, and all its linked columns are Internal, the term can be downgraded to Internal.
+General Users
+Can
+upgrade
+classification levels freely.
+Cannot
+downgrade
+classification tags under any condition.
+If the severity remains the same (e.g., Sensitive to Sensitive), they are
+not allowed to reassign
+the tag
+Linking Columns to Tags
+Users can associate columns with terms that have the same or
+lower
+severity level.
+Example:
+If a column is classified as
+Sensitive
+or
+Public
+, and a term is marked as
+Sensitive
+, the column can be linked to that term.
+Note:
+If a user tries to link a column to a term with
+higher
+severity, DvSum will display a warning message.
+Severity-Based Linking Rules
+The ability to link columns and terms depends on their classification severity:
+From a Term
+:
+A user can link a column only if the
+column’s severity is equal to or less than
+the term’s severity.
+From a Column
+:
+A user can link a term only if the
+term’s severity is equal to or greater than
+the column’s severity.
+This keeps the logic aligned with the data model and avoids inappropriate tag associations.
+Tag Behavior:
+Each classification tag in DvSum can be configured to trigger specific privacy-related actions. These behaviors are determined by the
+severity level
+of the tag and are enforced consistently throughout the platform.
+Default Tag Behaviors:
+Internal / Public
+: Columns are marked as default; no masking is applied.
+Sensitive
+: Data is masked as "XXX" throughout the application.
+Restricted
+: Columns are both hidden and masked as "XXX" throughout the application. This behavior can be modified by a Data Security Admin.
+Each classification tag can be configured to perform specific privacy actions, such as:
+Masking
+: Replacing sensitive data with masked values like "XXX".
+Hiding
+: Making columns invisible to users without appropriate access.
+Default Behavior When Tag or Access Is Not Specified
+In cases where classification or access settings are not explicitly provided:
+If
+no classification tag is assigned
+, the column or term
+defaults to Public
+.
+If
+“Masked”
+access is set, the behavior will follow that of the
+Sensitive
+tag.
+If
+“No Access”
+is set, the behavior will follow that of the
+Restricted
+tag.
+Default Configuration Examples:
+Restricted
+: Columns are masked and hidden across the application.
+Sensitive
+: Columns are masked, and a sensitivity icon appears next to the column name.
+Customization:
+Data Classification Tagset
+The “Classification” tagset is a system-defined tagset created by default in DvSum to enforce data privacy and masking policies.
+Default Configuration:
+Exists by default in the system.
+Applies to assets such as columns, tables, and glossary terms.
+Supports one or multiple classifications per asset, depending on the
+“Only Single Value Allowed”
+setting.
+Default tags: Public, Internal, Sensitive, Restricted.
+Note:
+This customization can only be performed by users with Data Security Admin privileges.
+What Can Be Modified (by Data Security Admin):
+Users can tailor the tagset to match their organization’s sensitivity framework. They can:
+Rename tags (e.g., change “Sensitive” to “Confidential”)
+Change the associated asset types (e.g., apply to Columns, Tables, Terms)
+Add new tags (new tags are created with low severity by default)
+Adjust the
+“Only Single Value Allowed”
+setting:
+Check
+it if only one classification tag should be assigned per asset.
+Uncheck
+it to allow multiple classification tags per asset.
+What Cannot Be Modified:
+Tagset Type is Fixed:
+This tagset’s type is always set to "Classification" and cannot be changed to another type.
+Data Masking in Rule Execution & Export
+When a column is marked as
+Sensitive
+, it is masked as "XXX" throughout the UI.
+The same masking applies during
+rule execution
+.
+If the rule runs on a table containing masked columns, the resulting
+exported Excel file
+will also display masked values for those columns.

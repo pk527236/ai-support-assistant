@@ -1,0 +1,83 @@
+Title: Differentiating Empty & Nulls Strings
+URL: https://dvsum.zendesk.com/hc/en-us/articles/36505019344532-Differentiating-Empty-Nulls-Strings
+================================================================================
+
+In this Article
+Overview
+Understanding the concept of Empty Strings
+Understanding the concept of Nulls
+Additional Resources
+Overview
+In databases,
+empty
+and
+null
+values may look similar but have different meanings. An
+empty
+value means an empty string (
+''
+) is stored in a column, especially in string-type fields. Understanding this difference is crucial, as the concept is used in
+Blanks
+and
+Value Range Rule
+checks. A
+null
+means no value has been stored—you'll see it
+NULL
+explicitly written in the database.
+1. Understanding the concept of Empty Strings
+Before jumping into the application, let's try to understand the concept directly from the database. Here, we have a column named
+"capital"
+, and we can see that empty strings are stored in it—these are empty values:
+Now, if we check the same column in the application, we can see that the
+"capital"
+column has some empty values.
+If we apply the
+Blanks Rule
+with the
+"Empty"
+checkbox selected, 4 exceptions are expected. Navigate to the
+Blanks Rule
+and apply this check.
+Note:
+Selecting at least one of the checkboxes is necessary to save the Blanks Rule.
+After saving and running the rule, the number of exceptions will be
+4
+, which is the expected result.
+This same check for
+empty strings
+can also be used in the
+Value Range Rule
+, and the concept remains the same as explained above.
+2. Understanding the concept of Nulls
+Now, let’s consider the same
+"capital"
+column. In the database, we can see entries where it
+[NULL]
+is mentioned—these are the
+null
+values.
+From the profiling information in the application, we can see that the
+"capital"
+column also has some null values.
+If we apply the
+Blanks Rule
+with the
+"Null"
+checkbox selected, the expected number of exceptions will be
+284
+.
+As shown earlier, the same check is available in the
+Value Range Rule
+, and the concept is identical. In the
+Ruleset Rule
+, both
+Blanks
+and
+Value Range
+checks are available, and the logic remains the same.
+Additional Resources
+To better understand the context of this article, it’s essential to be familiar with the following rules, as they are used when applying blank and null checks:
+Foundational DQ - Blanks Rule
+Foundational DQ - Value Range Rule
+Foundational DQ - Ruleset Rule

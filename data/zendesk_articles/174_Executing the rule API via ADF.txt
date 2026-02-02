@@ -1,0 +1,29 @@
+Title: Executing the rule API via ADF
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10311781361556-Executing-the-rule-API-via-ADF
+================================================================================
+
+Rules in dvsum can be executed using the azure data factory. To run a rule or set of rules through a script, you can generate a script for those rules using the Schedule Rule Menu.
+The script takes the form of
+https://<saws
+address>:<saws_port>/runJob?jobId=<jobid>
+Users can generate the script for the rule and use the script URL to execute the rule. Let's get started step by step:
+Step 1:
+Open the Dvsum application, go to Audit >> Manage Rules >> select any existing rule >> click More action >> select Schedule Rule as shown below:
+Step 1.1:
+Dynamic Source Script Generation
+Go to Generate Script tab and click on the button at the bottom to generate the script as shown below;
+Step 1.2:
+A job is created against the rule. Now go to the main scheduler page, search the rule, and a newly created job will be visible with a description and status as “stand by”.
+Step 2:
+Go to Azure Data Factory and paste the copied URL in api call. Click on Debug button to start the execution.
+Step 2.1:
+Once the execution is completed. it will print the remarks in API call output same as shown on the rule detail page in Dvsum.
+On the Scheduler page, the job status changes to "Completed".
+The return_code always contains 3 values
+0  -> PASS if a rule has 0 exceptions or exceptions are less than the lower bound of the threshold
+-1 -> WARN if the rule has exceptions but exceptions are greater than the lower bound but less than the upper bound
+-2 -> FAIL if the rule has exceptions greater than the upper bound limit.
+The return_remark contains text that will provide the name of the rule and additional information that you typically see in the system remark field on the Rule Detail page.
+Related Articles:
+Databricks as a Source
+Integrating Rules into batch workflow

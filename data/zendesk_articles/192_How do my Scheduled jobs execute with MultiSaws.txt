@@ -1,0 +1,16 @@
+Title: How do my Scheduled jobs execute with MultiSaws?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000018334-How-do-my-Scheduled-jobs-execute-with-MultiSaws
+================================================================================
+
+If you have scheduled a job where
+Profiling tables
+or
+Rules
+are associated with multiple SAWS, the scheduler will split this job into separate jobs. Each of these jobs execute independent of the other with the SAWS they are mapped to.
+For e.g. if a job has 4 Rules to run.  2 Rules are associated with two SAWS S1 and the other with S2.
+The scheduler will give this job a name and split them into two. Let’s say the Job name is JBS – 00951. It will split into JB – 00951 001 and JB – 00951 002.
+JB – 00951 001 is mapped to Saws S1
+JB – 00951 002 is mapped to Saws S2
+This way even if S2 is not up and running, JB – 00951 001 will have no impact and it will still be executed.
+Similarly for profiling of two tables associated with two SAWS, the job breaks up into two.
+The job JBS-000971001 and JBS-000971002 are executed independent of each other.

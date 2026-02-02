@@ -1,0 +1,74 @@
+Title: Configure Salesforce as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360049829631-Configure-Salesforce-as-a-Source
+================================================================================
+
+Overview
+DvSum Data Quality (DQ) supports a bi-directional connection with Salesforce, where a user can catalog data assets, author data quality rules, and even cleanse data without need for any external data pipelines.
+Detailed Steps
+Salesforce configuration
+1. Connected App configuration
+Open browser, navigate to salesforce.com, and log in.
+https://login.salesforce.com/
+Navigate to Setup → Apps → AppManager to create an app.
+Tip: use the Quick Find box.
+In the Connected Apps section, click "New Connected App".
+Enter a name to be displayed to users when they log in to grant permissions to your app, along with a contact email address.
+Enable OAuth Settings, and enter the relevant value in the Callback URL box:
+For Data Quality:
+https://prod.dvsum.com/cdata/saveVerifierCode
+For Data Catalog:
+https://apis.dvsum.ai/data-sources/sources/salesforce/saveVerifierCode
+Select the scope of permissions that your app should request from the user. Save the changes and Continue to the next screen.
+Click your app name to open a page with information about your app. Note the OAuth client credentials. These properties are needed to add Salesforce as a source in DvSum DQ:
+Consumer Key
+Consumer Secret
+2. Permission Set configuration
+The user connecting to Salesforce must have the ability to call Salesforce APIs. This is done by setting the relevant properties for the relevant Permission Set.
+Access the relevant Permission Set via either of these 2 paths (the GUI layout will differ depending on whether Lightning Force or Classic view is active, but the logical path remains identical):
+ADMINSTRATION → Users → Permission Sets → <permission_set>
+or
+ADMINSTRATION → Users → Users → <user> → Permission Set Assignments → <permission_set>
+From here you need to activate System Permissions → API Enabled (Access any Salesforce.com API.)
+With the Connected App and Permission Set configured, then you're ready to configure DvSum.
+DvSum Configuration
+Create connection in DvSum
+Open
+DvSum DQ
+. Navigate to Administration → Manage Sources → ⊕Add Source. Select Salesforce.
+Paste the copied values:
+Consumer
+Key
+→ Client ID
+Consumer
+Secret
+→
+Client
+Secret
+Then Authenticate.
+While authenticating, following message will be displayed.
+You will be re-directed to Salesforce. Provide user credentials and log in.
+Depending on your Salesforce configuration, a verification code will typically be sent to you via email. Paste the code here and verify.
+Now, click "Allow". This will allow the DvSum application to access Salesforce data.
+It will trigger authentication of DvSum's connection to Salesforce.
+A success message should be displayed. Then click "Save".
+Your Salesforce connection is now fully configured and functional.
+Details when using a Salesforce Sandbox
+Be sure to enable the checkbox
+Use Sandbox
+as shown in the screenshot below.
+Once you have enabled that, you must enter the
+Sandbox Login URL
+. then enter the
+Client ID
+and the
+Client Secret
+.
+Then
+Authenticate
+the connection. You will be redirected to the Salesforce Sandbox login page and will need to follow these steps:
+Enter Login credentials.
+Enter the Verification code received on the registered email address.
+Allow Access.
+After the
+Authentication
+is done, you can Test the connection to confirm that the source has been added successfully.

@@ -1,0 +1,14 @@
+Title: Why is Data Analysis tab not showing for the profiled table?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360022912733-Why-is-Data-Analysis-tab-not-showing-for-the-profiled-table
+================================================================================
+
+Sometimes when you profile a table of your data source, Data Analysis tab does not appear in table detail page. For Data Analysis tab to be enabled, there must be at least 2 fields marked as attributes.
+Step 1 -
+From
+Profiling page  > Show details of table you cannot see Data Analysis tab
+Step 2 -
+From Field Configuration tab, mark at least 2 fields as attributes.
+Step 3 -
+Go to previous page and profile the table again.
+Step 4 -
+Go to Show details and now Data Analysis tab will be enabled.

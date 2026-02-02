@@ -1,0 +1,220 @@
+Title: Table Detail Page
+URL: https://dvsum.zendesk.com/hc/en-us/articles/42041709770772-Table-Detail-Page
+================================================================================
+
+In this Article
+Overview
+Accessing the Table Detail Page
+Overview Tab
+Definition Section
+Asset-Specific Details
+Managed By
+Tags
+Custom Attributes
+Data Quality Tabs
+Usability Score
+Lineage
+Relationships
+Additional Info
+Actions Available
+Edit
+Delete Asset
+4. Data Tab
+1. Profiling Info
+2. Column Summary
+3. Column View
+5. Data Model
+6. Data Quality
+Overview
+The Table Detail Page provides a comprehensive view of a data table and its associated metadata, relationships, and quality metrics. It helps users understand the table’s context, ownership, and attributes.
+1. Accessing the Table Detail Page
+Navigate to
+Dictionaries
+>
+Database Tables.
+Click on the
+Table Name
+to open the Table Detail Page.
+2.Overview Tab
+The
+Overview
+tab summarizes key information about the selected table, including general metadata, relationships, and custom attributes.
+1.Definition Section
+This section provides a high-level description of the table, explaining its purpose and contents.
+Description:
+A brief summary of what the table contains or represents.
+Data Domain:
+The subject area the table belongs to (e.g., Finance, HR, Education).
+Relationships:
+How the table connects to other entities, such as:
+Belongs To Database Schema
+– identifies the schema or database.
+Contains Database Columns
+– shows the number of columns in the table.
+Validated By Data Quality Rules
+– lists any rules linked to the table.
+2. Asset-Specific Details
+Displays system-generated metadata about the table.
+Record Count:
+Number of records in the table.
+Last Scanned On:
+The last time the table was profiled or scanned.
+Last Updated On:
+When metadata was last updated.
+3. Managed By
+Shows ownership and stewardship information.
+Data Owner:
+Individual or team accountable for the dataset.
+System Owner:
+Person or application responsible for technical maintenance.
+Data Steward:
+Responsible for governance, quality, and documentation.
+Audit Trail:
+Records of when and by whom the table was created or updated. By clicking on the three dots on audit trail shows the activities done on that table.
+4. Tags
+Tags categorize and enhance discoverability of the table. Tags can be used for search, filtering, and reporting.
+Data Classification:
+e.g., Confidential, Public.
+Certification Tag:
+Indicates whether the dataset has been validated.
+Custom Tags:
+User-defined labels for grouping or filtering.
+Data Quality Tags:
+Highlight data quality aspects or issues.
+Note: For more information on Tags, refer the article
+How to create Tag
+.
+5. Custom Attributes
+Displays organization-specific metadata fields that enrich the table definition.
+Examples include:
+Authentication Type:
+Specifies the access mechanism.
+Validation Check:
+Boolean or validation field.
+Numeric or Text Attributes:
+Custom fields like credit card numbers or notes.
+Custom attributes vary based on organizational configuration.
+For more information on the custom attribute, refer the article
+Creating and Managing Custom Attribute
+.
+6. Data Quality Tabs
+Clicking the arrow mark will redirect to the Data Quality page and provides insights into profiling results, rule validations, and quality metrics.
+For more details on the DQ rules, refer the article
+Rule Detail Page
+.
+7. Usability Score
+Clicking on the eye icon in the overview page, user can see the details of the usability score of the table. The
+Usability Score
+reflects the completeness and quality of metadata. A higher score indicates that more details—like definitions, tags, and ownership—are filled in.
+For more information on understanding and setting up the usability score refer to the article
+Usability Score
+.
+8. Lineage
+Lineage
+refers to the traceability of data through various stages in its lifecycle. It describes how data moves, transforms, and is used throughout an organization or system. Essentially, data lineage provides a "map" of the data's journey, showing where it originates, how it is processed, and where it is ultimately consumed.
+For more information on lineage, refer to the article
+Lineage in DvSum
+.
+9. Relationships
+Relationships describe how different assets are connected to each other. In a well-structured data asset management system, relationships help link tables, datasets, and data elements to ensure data is organized logically and can be traced back to its origin.
+For more information on adding relationship to asset, refer to the article
+How to Manage Relationships Between Assets
+.
+10. Additional Info
+The Additional Info tab allows users to add, edit, or remove supplementary information related to a table. It provides a text editor with formatting options (such as font style, size, color, and numbering) to include detailed notes or context as needed. Once the information is entered, users can save it as an item, modify or delete it, and choose to publish or discard the changes. Published additional information becomes part of the table’s details.
+For more information on Additional info tab, refer to the article "
+Rich Text Additional Information
+"
+3.Actions Available
+Edit:
+Update table metadata, description, or tags.
+When we click the
+Edit
+button on the Overview page, it switches to editable mode, allowing the user to modify all the metadata information of the table mentioned above.
+Clicking on the pencil icon allows the user to edit the required metadata.
+The user then needs to click the
+checkmark
+, select
+Done
+, and finally click the
+Publish
+button to save and apply the changes.
+Delete Asset:
+Tables marked as
+Deleted
+will have the option to be permanently removed from the system.
+4. Data Tab
+The
+Data Tab
+provides a detailed view of the dataset's content, allowing users to examine individual records and column-level statistics.
+Note: For more information on the Run Profiling, refer to the article
+Run Online & Run Offline
+.3.
+1. Profiling Info
+The
+Profiling Info
+section provides essential metadata about the dataset, helping users understand the scope and last interactions with the data:
+Record Count
+: Displays the total number of records in the dataset. This helps assess the size of the data and understand its scope.
+Last Scanned On
+: Shows the last time the dataset was scanned or updated. This is crucial for determining the freshness of the data.
+Last Updated On
+: Indicates when the data was last modified or updated, helping track data changes over time.
+2. Column Summary
+The
+Column Summary
+section provides an overview of the table’s structure, including key details about each column:
+Total Columns
+: The total number of columns in the dataset.
+Granularity
+: Specifies the level of detail at which the data is recorded. For instance, granularity could be at the level of individual transactions, customer records, or events.
+Attributes
+: Lists the attributes in the dataset that are key to understanding the dataset's structure. For example, a numerical attribute like 'Weight' or a categorical one like 'Action'.
+Measures
+: This would include any calculated or aggregated values in the dataset, such as totals or averages.
+Time Series
+: If the dataset includes time-based data (such as timestamps or dates), this section would highlight that, enabling users to track trends over time.
+3. Column View
+The
+Column View
+provides detailed insights into each column in the dataset, allowing users to visualize the distribution and patterns within the data.
+In column view there are two types of view,
+Grid view
+Dictionary view
+Grid View:
+The
+Grid View
+provides a visual representation of the record counts across columns, as shown below.
+Dictionary view:
+The Dictionary View provides the list of columns in the table.
+Users can edit the columns in the
+Dictionary View
+. After making the necessary changes, click
+Save
+to apply and update the data.
+Users can use the
+Filter
+option in the
+Dictionary View
+to easily access the required columns.
+5. Data Model
+An
+Entity Relationship (ER) Diagram
+visually represents how datasets and their columns are connected within the system. It helps users understand data relationships and gain a clearer view of the overall data structure.
+For detailed information the Entity Relationship (ER) Diagram, refer to the article
+Entity Relationship Diagram - ERD
+.
+6. Data Quality
+The
+Data Quality
+tab in DvSum manages all rule-related settings, allowing users to view recommended and available rules or create new ones to ensure accurate, complete, and reliable data.
+The
+Data Quality
+tab in the Database Tables contains the following sections:
+Statistics
+: Displays key metrics such as DQ Score, total rules, rules with alerts, total exceptions, total records scanned, and last rule execution status.
+Rules
+: Lists all data quality rules applied to the column, including details such as rule ID, description, run status, alert status, and exception count.
+Note: To learn more about the Rules section in Data Quality tab, refer the article
+Data Quality Overview
+.

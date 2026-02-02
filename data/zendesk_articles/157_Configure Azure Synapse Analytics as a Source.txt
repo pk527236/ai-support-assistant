@@ -1,0 +1,79 @@
+Title: Configure Azure Synapse Analytics as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/12893404920980-Configure-Azure-Synapse-Analytics-as-a-Source
+================================================================================
+
+A data source refers to a specific location or system where data is stored and can be accessed. It can be a database, a file, an application, or any other entity that holds information. Data sources can be internal, such as a company's database, or external, such as a government website. The data from these sources can then be used to support decision-making, analyze trends, and perform other tasks.
+Adding Azure Synapse Analytics as a Data Source:
+To add a data source, you have to navigate to the “
+Administration
+” tab on the left panel.
+After clicking on the “
+Manage Sources
+” tab, you will see “
+Add Source
+” on the window as shown below in the screenshot:
+Once you have clicked on
+Add Source,
+you will see all the supported sources by DvSum, you have to select “
+Azure Synapse Analytics
+”
+After selecting “
+Azure Synapse Analytics
+”, you will be redirected to the configuration window where you have to enter the following details step by step as shown in the screenshot:
+Step 1
+: Enter Host
+Step 2
+: Enter Port
+Step 3
+: Enter Instance Name
+Step 4
+: Enter DB Login
+Step 5
+: Enter DB Password
+Step 6
+: Click on Authenticate
+After entering the details, you need to click on “
+Authenticate”
+. On Authentication, it should now prompt for adding the “
+Database
+”. After selecting the Database, the last step to successfully add the source is to Test the Connection. As shown in the screenshot below, you have to click on “
+Test Connection
+”.
+Now that you have successfully added Azure Synapse Analytics as a source, it is time to Run the Cataloging. In the screenshot below you will see in the
+Green
+box – “
+Run Cataloging
+”, it will take a few minutes to complete the cataloging of the source that you have added. You will also get a notification in the
+Blue
+box with the arrow on the top right corner after the cataloging is completed.
+In order to view the cataloged source, you will have to go to the
+Data Catalog
+tab and select
+“Table Dictionary”
+as shown in the
+Red
+box.
+After the Cataloging is completed and you have received the notification, you can view the catalog in the Table Dictionary tab. In the screenshot below you can see the cataloged source details. It is now time for
+Profiling
+. In order to do that, you have to navigate to the
+Profile
+tab on the left panel and select “
+Profiling”
+as shown in the
+Green
+box.
+In the Profiling tab, you have to select the source and the table name respectively that you want to run the Profiler on. As shown in the screenshot below, you have to click on “
+Run Profiler
+” in the
+Green
+box. It will take a few minutes to run the profiler, once completed you will receive a notification in the notification bar on the top right corner.
+If you want to view the catalog, you can click on the table name or “
+View Catalog
+” as shown in the
+Red
+box.
+Congratulations, you have successfully:
+Added Azure Synapse Analytics as a source.
+Run the Cataloging.
+Run the Profiler
+Finally, this is how your Catalog will look like:

@@ -1,0 +1,243 @@
+Title: Configure Snowflake as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10627532986004-Configure-Snowflake-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Setting Up Snowflake for DvSum Integration
+User and Role Configuration for Metadata Access
+Lineage Access Configuration
+Steps to Configure Snowflake as a Source
+Step 1: Add Snowflake as a Source
+Step 2: Configure Connection Settings
+Step 3: Select Database & Schema
+Step 4: Save the Source Configuration
+Step 5: Run a Scan
+Review Data Dictionary
+Video Tutorial
+Overview
+This article outlines the process of configuring Snowflake as a data source in DvSum, enabling integration for data cataloging and profiling. The steps provided apply to both DvSum Data Insights (DI) and DvSum Data Quality (DQ), with only minor variations based on the specific platform.
+Setting Up Snowflake for DvSum Integration
+Before configuring Snowflake in DvSum, a dedicated user and role must be created with the appropriate privileges for metadata access. Additionally, specific account-level grants are required to enable access to
+query history
+and
+data lineage
+information.
+Before proceeding with the source configuration in DvSum, follow the steps below to set up Snowflake with the required user, role, and privileges.
+User and Role Configuration for Metadata Access
+1. Metadata Access Configuration
+To enable cataloging and profiling in DvSum, a Snowflake user must have access to metadata such as tables and columns. How this access is granted may vary depending on internal Snowflake policies.
+The script below is a
+sample only
+and can be adapted as needed. It’s not required to run this script as-is — the key requirement is that the user should be able to execute the following test queries successfully.
+Test Queries – Required Metadata Access
+These queries can be used to confirm that the user has sufficient access to metadata:
+-- * Tables metadata (replace <DATABASE_NAME>)
+SELECT * FROM <DATABASE_NAME>.INFORMATION_SCHEMA.TABLES ORDER BY created DESC;
+
+-- * Columns metadata (replace <DATABASE_NAME>)
+SELECT * FROM <DATABASE_NAME>.INFORMATION_SCHEMA.COLUMNS ORDER BY table_name, ordinal_position;
+Sample Script – User and Role Creation
+If a suitable user and role are not already available, the following script can be used as a reference to create them with minimal, controlled access. This is one possible approach — feel free to adapt or implement based on your organization’s standards.
+Before executing the script, update the placeholders (
+<USERNAME>
+,
+<PASSWORD>
+,
+<ROLE_NAME>
+,
+<WAREHOUSE>
+, etc.) with appropriate values for your Snowflake environment.
+-- =====================================================
+-- Snowflake Script: Create User
+-- Purpose: Create user with minimal privileges for metadata access
+-- =====================================================
+
+-- Configuration placeholders - Update these values
+-- SET username = '<USERNAME>';
+-- SET password = '<PASSWORD>'; 
+-- SET role_name = '<ROLE_NAME>';
+-- SET warehouse = '<WAREHOUSE>';
+
+-- =====================================================
+-- SECTION 1: USER CREATION
+-- =====================================================
+-- * Create user with secure defaults
+CREATE USER <USERNAME>
+PASSWORD = '<PASSWORD>'
+DEFAULT_ROLE = '<ROLE_NAME>'
+DEFAULT_WAREHOUSE = '<WAREHOUSE>'
+COMMENT = 'User for reading metadata and query history';
+
+-- =====================================================
+-- SECTION 2: ROLE CREATION AND ASSIGNMENT
+-- =====================================================
+-- * Create custom role with minimal privileges
+CREATE ROLE <ROLE_NAME>
+COMMENT = 'Role for accessing metadata and query history with minimal privileges';
+
+-- * Assign role to user
+GRANT ROLE <ROLE_NAME> TO USER <USERNAME>;
+
+-- =====================================================
+-- SECTION 3: WAREHOUSE ACCESS
+-- =====================================================
+-- * Grant warehouse usage for metadata queries
+GRANT USAGE ON WAREHOUSE <WAREHOUSE> TO ROLE <ROLE_NAME>;
+
+-- =====================================================
+-- SECTION 4: DATABASE AND SCHEMA ACCESS
+-- =====================================================
+-- * Grant USAGE on all databases for INFORMATION_SCHEMA access
+GRANT USAGE ON ALL DATABASES IN ACCOUNT TO ROLE <ROLE_NAME>;
+GRANT USAGE ON ALL SCHEMAS IN ACCOUNT TO ROLE <ROLE_NAME>;
+
+-- * Grant USAGE on future databases and schemas
+GRANT USAGE ON FUTURE DATABASES IN ACCOUNT TO ROLE <ROLE_NAME>;
+GRANT USAGE ON FUTURE SCHEMAS IN ACCOUNT TO ROLE <ROLE_NAME>;
+
+-- * Tables metadata (replace <DATABASE_NAME>)
+/*
+SELECT * FROM <DATABASE_NAME>.INFORMATION_SCHEMA.TABLES ORDER BY created DESC;
+*/
+
+-- * Columns metadata (replace <DATABASE_NAME>)
+/*
+SELECT * FROM <DATABASE_NAME>.INFORMATION_SCHEMA.COLUMNS ORDER BY table_name, ordinal_position;
+*/
+2. Lineage Access Configuration
+To enable query history and lineage extraction in DvSum, the user must have access to Snowflake’s
+ACCOUNT_USAGE
+views and the appropriate privileges.
+As with the previous section, the
+goal
+is for the user to be able to successfully run the test queries below. If that works, lineage-related access is correctly configured. The grants script provided afterward is a
+reference
+, not a requirement to follow exactly.
+Test Queries – Required for Lineage Extraction
+-- * Query history (all users, last 30 days)
+SELECT *
+FROM snowflake.account_usage.query_history
+WHERE start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())
+ORDER BY start_time DESC;
+
+-- * Views metadata
+SELECT * FROM snowflake.account_usage.views WHERE deleted IS NULL;
+
+-- * Functions metadata
+SELECT * FROM snowflake.account_usage.functions WHERE deleted IS NULL;
+
+-- * Stored procedures metadata
+SELECT * FROM snowflake.account_usage.procedures WHERE deleted IS NULL;
+Sample Grants Script – Lineage Access
+The following script is intended as a reference to help grant the minimum required privileges for enabling query history and lineage features in DvSum.
+If your existing setup already supports the test queries mentioned earlier, you may skip this step.
+Otherwise, use this script as a baseline and adapt it to align with your internal roles, naming conventions, and security policies.
+-- * Switch to ACCOUNTADMIN for account-level privileges
+USE ROLE ACCOUNTADMIN;
+
+-- ===========================================================
+-- SECTION 5: ACCOUNT-LEVEL PRIVILEGES FOR LINEAGE METADATA
+-- ===========================================================
+-- * Grant MONITOR privilege for query history access across all users
+GRANT MONITOR ON ACCOUNT TO ROLE <ROLE_NAME>;
+
+-- * Grant access to SNOWFLAKE.ACCOUNT_USAGE views
+GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE <ROLE_NAME>;
+
+-- =====================================================
+-- SECTION 6: VERIFICATION QUERIES
+-- =====================================================
+-- * Query history (all users, last 30 days)
+SELECT *
+FROM snowflake.account_usage.query_history 
+WHERE start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())
+ORDER BY start_time DESC;
+
+-- * Views metadata 
+SELECT * FROM snowflake.account_usage.views WHERE deleted IS NULL;
+
+-- * Functions metadata
+SELECT * FROM snowflake.account_usage.functions WHERE deleted IS NULL;
+
+-- * Stored procedures metadata
+SELECT * FROM snowflake.account_usage.procedures WHERE deleted IS NULL;
+Steps to Configure Snowflake as a Source
+Step 1: Add Snowflake as a Source
+Go to the Administration dropdown and select the
+Data Sources
+tab.
+Click the
+Add Source
+button.
+In the modal that appears:
+Select
+Snowflake
+as the data source.
+Provide a meaningful
+Source Name
+.
+Click
+Save
+.
+Step 2: Configure Connection Settings
+After saving, you will be redirected to the
+Connection Settings
+page.
+Enable the checkbox for
+On-premise Web Service
+(if applicable).
+Select the
+SAWS
+(Secure Agent Web Service) that is set up and currently running.
+Enter the required connection details:
+URL
+Warehouse
+Database Login
+Password
+Click
+Authenticate
+to validate the connection.
+Note
+: By Default the SAWS type will be cloud. For more information regarding Cloud SAWS, click
+here
+Step 3: Select Database & Schema
+Once authenticated, the
+Database Selection
+section appears.
+Choose the database you need to scan (only one database can be selected).
+Choose one of the following options:
+Scan
+all schemas
+(leave the schema checkbox unchecked).
+Scan
+specific schemas
+(check the schema checkbox and select schemas from the list).
+Once it is checked then the list of available schemas will be displayed. User can select single or multiple schemas from the Available Schemas list and move them to the Selected Schemas tab on the right.
+Step 4: Save the Source Configuration
+Scroll to the top of the page.
+Click the Done button in the top-right corner.
+Click Save to complete the setup.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Step 5: Run a Scan
+Navigate to the
+Scan History
+page.
+Click the
+Scan Now
+button.
+A job will be created, and once the status shows
+Completed
+, the scan will be successful.
+After the scan completion, click on Scan Name and it will open the Scan Summary page of this scan.
+On the Scan Summary page, it will show all the insights of the scan i.e how many new tables and columns are fetched in this scan from the schemas we selected earlier.
+Review Database Tables
+Navigate to the Dictionary tab from the sidebar.
+Click on the Recently Refreshed tab.
+This tab displays all tables fetched in the most recent scan.
+Click on the table name to access more detailed metadata and structure information.
+By following these steps, you can successfully integrate Snowflake as a source in DvSum, enabling advanced data profiling and cataloging capabilities.
+Video tutorial:
+Watch this quick video tutorial of how to add and configure an Snowflake source into DvSum app.

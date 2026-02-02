@@ -1,0 +1,13 @@
+Title: What do I see on Advanced Dashboard based on user roles?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000017313-What-do-I-see-on-Advanced-Dashboard-based-on-user-roles
+================================================================================
+
+Dashboard gives you quick access to frequently used info.
+On a
+User level
+, dashboard widgets help you see your involvement in the action items of DvSum application without going to individual functionality sections. For e.g. you can create a dashboard with a Rule Widget showing “Rule Count” by “Rule Status” in the form of a list. This shows all Rules created by you with their status: Pass, Fail or Exceptions.
+On an
+Admin/Owner level
+, it is easier to track all user activity over the DvSum application on a single interface. Admins can filter out the data for a single user or view it for everyone using
+Data for:
+filter. (Shown below)

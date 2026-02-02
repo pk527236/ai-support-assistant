@@ -1,0 +1,58 @@
+Title: Visualizing Agent Questions on Dashboard
+URL: https://dvsum.zendesk.com/hc/en-us/articles/43031984347924-Visualizing-Agent-Questions-on-Dashboard
+================================================================================
+
+In this Article:
+Overview
+Capturing API-based Properties & Parameters
+Automatic Reflection on the Dashboard
+Widget Creation & Customization
+Overview
+This feature introduces a dynamic integration between
+agent questions
+and the
+dashboard
+. When a user interacts with an AI agent through an API and provides
+custom properties and parameters
+, those parameters are automatically exposed on the dashboard for further analysis. This enables users to visualize and monitor agent interactions using customizable widgets, filters, and charts all based on the dynamically generated fields.
+Capturing API-based Properties & Parameters
+When a user asks a question through the API (for example):
+“Analyze customer IDs 12345658 for FTTH”
+The request may include additional
+properties
+and
+parameters
+such as location, market code etc.
+Automatic Reflection on the Dashboard
+Automatic Reflection on the Dashboard
+The captured parameters are dynamically displayed in the
+Agent Question Analytics
+of the dashboard.
+Whenever a user adds new properties or parameters through an API query, these are instantly reflected as additional columns in the dashboard dataset.
+For example, after the query above, the following columns might appear automatically:
+Customer ID, Location, Market Code, etc.
+Note:
+Anything that is sent as a
+key–value pair under the “properties” attribute
+in the API request will automatically be captured and shown on the dashboard as a separate field.
+This means every new key introduced in the API payload appears as its own column in the dataset — no manual configuration or schema update is needed.
+All parameters or properties captured from the API automatically appear under the
+Additional Attributes
+section when creating or editing a widget.
+This ensures that all newly introduced fields are readily available for selection and analysis.
+Example view:
+The below image shows how these dynamically generated fields appear within the
+Agent Question Analytics
+widget.
+Example 2:
+This chart shows how many records exist for each market code.
+Widget Creation & Customization
+Users can then navigate to the Dashboard and create a Widget of type
+“Agent Question Analytics.”
+If you’re not familiar with creating a widget, see the detailed guide here:
+Dashboard and Widgets
+Within this widget:
+Users can apply slicers (filters) on any of the dynamic parameters such as location, market code, or service type.
+Users can select chart types (e.g., bar, pie, line, table) to visualize data according to their needs.
+All the dynamically created columns from the API (e.g., location, market code, tool ID) will be available for data slicing and analysis.
+This allows flexible visualization of agent query data with no need for predefined schema updates.

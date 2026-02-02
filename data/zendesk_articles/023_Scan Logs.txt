@@ -1,0 +1,43 @@
+Title: Scan Logs
+URL: https://dvsum.zendesk.com/hc/en-us/articles/21582531523348-Scan-Logs
+================================================================================
+
+In this Article:
+Introduction
+Authentication & Test Connection Logs
+Particular Scan Job Logs
+Reading Logs on Scan Job Page
+Cancelling the Scan
+Aborting the Scan
+Scheduled Scan Jobs
+Introduction
+Scanning is a very important part of the DvSum Application. It is bringing the Data from the Database to our application.
+During the scan, a lot of things are going on in the back-end like how DvSum Webservice is connected to the Database and how tables are profiled one by one in our application. Most of the part is Technical but there are some areas where normal users can find useful insights by checking the logs that are being generated when the data is coming in our application.
+We will further explore how users can abort the ongoing scans.
+1- Authentication & Test Connection Logs
+When the credentials of any data source are authenticated, the database and schemas are selected, and "Test Connection" is passed then there are some basic logs that are generated like the connection is established with the database and the schemas in it. The generated logs can be seen in the "Logs" tab.
+All the logs related to the Source can be found in this tab and they are generated in the below cases:
+Credentials are authenticated & Test Connection is passed
+Tables are being scanned
+Questions asked on Agent
+For more information about adding a Data source here is the article
+Adding Snowflake as Data Source.
+The Logs are being continuously generated at the back-end so in order to fetch the latest logs user will be required to click on the "Refresh" button icon. The search bar can also be used for searching particular words in the Logs.
+2- Particular Scan Job Logs
+When a scan is started, a Scan job is created for that particular scan in the "Scan History" tab.
+On the Scan job page, only the logs that are related to the scanning of the tables are present. This can be more useful instead of looking for the whole source-related logs.
+Let us cover some flow how scans can be started, and cancelled, and how logs can be viewed. Since the Scans are of different types so for more information regarding different scans here is the article
+Cataloging & Profiling Data Sources.
+2.1- Reading Logs on Scan Job Page
+As soon as a scan is started, logs are generated on the scan job page. The Logs may not just appear as soon as the scan is started and they might take 3-5 minutes to start. As the logs are continuously being generated they need to be refreshed to bring the latest logs.
+Since the tables are being profiled during the scan so users can check the status that how many tables have been profiled. This can be done easily by looking at the logs or users can use the search bar to check that how many tables have been fetched into the application.
+Once all the tables are profiled then the scan will be completed and the status will be changed from running to completed. When the scan is completed users can still see all the logs that were generated.
+2.2- Cancelling the Scan
+When a scan is started, before going to the running state, for a few seconds it goes scheduled. In this state, if any Scan Job page is opened and the user cancels the scan then that particular Scan job will be cancelled.
+Once all the tables are profiled then the scan will be completed and the status will be changed from running to completed and the users can still see all the logs that were generated.
+2.3- Aborting the Scan
+When a scan is started it goes to the running state and it starts the catalog execution and tables are profiled one by one. During this state, if the running scan is cancelled then it will be aborted.
+On the UI there will be an "Abort Scan" button visible and when it is clicked, the scan job will be aborted.
+Please note that if a scan is running and some tables are refreshed/ profiled and the scan is now aborted, the tables which were already fetched into the application will not be affected.
+3- Scheduled Scan Jobs
+Users have the option of running scheduled scans in which the scan will start running at a particular time mentioned by the user in the settings of the source. The logs generated in scheduled scans are the same as the on-demand scans.

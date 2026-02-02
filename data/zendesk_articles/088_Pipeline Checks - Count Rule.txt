@@ -1,0 +1,69 @@
+Title: Pipeline Checks - Count Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25246624213396-Pipeline-Checks-Count-Rule
+================================================================================
+
+In this article:
+Introduction
+How to Configure the COUNT Rule
+Step 1: Log in to DvSum
+Step 2: Access the Data Quality Tab
+Step 3: Add a New Rule
+Step 4: Basic Input Configuration
+Step 5: Validate & Execute
+Introduction
+The
+COUNT
+rule is a type of Pipeline Check designed to ensure the accuracy and efficiency of data pipelines. It verifies data quantities, assesses data quality and performance, and monitors data timeliness within data processing workflows.
+In essence, the
+COUNT
+rule checks whether the number of records falls within the expected range. For example, in an open order extract, the COUNT rule would verify if the count of sales orders is between
+800,000 and 1 million records
+.
+This rule enhances data flow, quality, and efficiency by ensuring that the expected number of records is processed, maintaining consistency and reliability in data pipelines.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+How to Configure the COUNT Rule
+Step 1: Log in to DvSum
+Navigate to the
+Dictionaries
+>
+Data Dictionary
+tab.
+Select the relevant
+Data Source
+and
+Table Name
+.
+Step 2: Access the Data Quality Tab
+Select the
+Table Name
+.
+Click on the
+Data Quality
+tab.
+Choose
+Available Rules
+.
+Step 3: Add a New Rule
+Click the
+⊕ Add Rule
+button.
+Select the
+Pipeline Checks
+category.
+From the list of options, choose
+COUNT
+.
+Step 4: Basic Input Configuration
+In the Rule Wizard’s
+Basic Input
+section, fill in the following details:
+Rule Description
+: Provide a meaningful name for the rule.
+Threshold Count
+: Define the expected range for the number of records.
+Step 5: Validate & Execute
+After saving the rule, review its definition.
+Click
+Run
+to execute and test the rule.

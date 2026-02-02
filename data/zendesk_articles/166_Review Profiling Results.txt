@@ -1,0 +1,8 @@
+Title: Review Profiling Results
+URL: https://dvsum.zendesk.com/hc/en-us/articles/202846854-Review-Profiling-Results
+================================================================================
+
+You can access Data Profiling from Left Navigation, and then selecting the Source and Tables you want to view, of simply selecting a View from your history that is automatically displayed. Profiling information is also available when reviewing nodes in the Data Exploration section.
+The initial Table detail is a good view to identify basic data exceptions such as Blanks, or Values that may be out of the expected or desired range. As outlined above, Rules can be created within Profiling by clicking on the Data Quality and Data Analysis tabs.
+Selecting the specific Column Name displays the distribution of the data to enable further analysis.
+Selecting the specific Column Name displays the distribution of the data to enable further analysis.

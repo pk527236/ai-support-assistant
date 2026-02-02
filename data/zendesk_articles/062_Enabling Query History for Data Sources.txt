@@ -1,0 +1,433 @@
+Title: Enabling Query History for Data Sources
+URL: https://dvsum.zendesk.com/hc/en-us/articles/33861396141076-Enabling-Query-History-for-Data-Sources
+================================================================================
+
+In This Article
+1. Enable Query History on Databricks
+2. Enable Query History in SQL Server, Azure SQL, Azure Synapse
+3. Enable Query History in PostgreSQL
+4. Enable Query History in Snowflake
+5. Enable Query History in MySQL
+6. Enable Query History in Netezza
+7. Query History in Oracle
+Introduction
+Query history plays a vital role in data lineage formation within applications. By capturing the details of query execution it allows for precise tracking of how data flows and evolves. This article provides a detailed guide to enabling query history across major data platforms such as Databricks, SQL Server, Azure SQL, Azure Synapse, PostgreSQL, and Snowflake. It also touches on additional considerations for databases where query history is enabled by default, such as Oracle and Netezza.
+Whether working with on-premises databases or cloud-based solutions, this guide will help you configure query history to ensure seamless lineage formation and support effective data analysis and governance.
+1. Enable Query History on Databricks
+To activate
+Query History
+in Databricks for lineage tracking, follow these essential steps:
+Authenticate
+using one of the supported methods:
+Personal Access Token (PAT)
+OAuth Client Credentials (Client ID & Secret)
+Assign necessary permissions
+at multiple levels:
+Catalog
+Cluster
+SQL Warehouse
+(Optional)
+Verify access
+by executing a validation query or making an API call to confirm that historical query data is being captured successfully.
+Choose an Authentication Method
+You can authenticate using either a
+Personal Access Token
+or
+Client Secret credentials
+for the service principal.
+Personal Access Token
+Open your workspace’s
+Admin Settings
+(click your username in the top bar > Admin Settings).
+Go to the
+Advanced
+tab.
+Under
+Access Control
+:
+Enable
+Personal Access Token
+.
+Click on
+Permission Settings
+.
+Search for your user.
+Assign the
+"Can Use"
+permission.
+Click
+Add
+.
+Once enabled, run the Lineage scans on the Databricks source to begin bringing in Lineage data into the application.
+Client Secret Credentials (Alternative to Personal Access Token)
+If using Client Secret credentials, ensure the following permissions are in place:
+Navigate to
+Admin Settings > Access Control
+.
+Assign the following minimum required permissions:
+Workspace permissions
+: Can Use
+Catalog access
+: Required permissions at the catalog level (see next section).
+Compute access
+: Can Attach To for the cluster or SQL Warehouse permissions.
+2. Enable Catalog access for Users
+Log into your Databricks workspace.
+Click on the
+Catalog
+tab in the left menu.
+Select the
+catalog
+configured for Lineage.
+Open the
+Permissions
+tab.
+Click
+Grant
+.
+Search for your
+user or service principal
+.
+Grant the necessary privileges; at a minimum, SELECT and READ_METADATA are required.
+Click
+Grant
+.
+Enable cluster access for the User
+To configure the
+Compute
+cluster permissions:
+Navigate to the
+Permissions
+section.
+Select the relevant
+user
+or
+service principal.
+Set the permission to
+Can Attach To
+.
+To configure the SQL Warehouse permissions:
+Navigate to the Permissions
+Assign the permission level Can Use
+Grant Access to
+system.access
+Schema for Lineage Queries
+Databricks now provides access to fine-grained query history and user actions via the
+system.access
+schema.
+This schema is required to access detailed historical logs used for lineage tracking.
+Steps:
+Navigate to
+the Catalog Explorer in your Databricks workspace.
+Expand the
+system
+catalog and select the
+access
+schema.
+Click the
+Permissions
+tab.
+Grant your user or service principal the following
+minimum permissions
+:
+SELECT
+Use_Schema
+Example SQL (if using Unity Catalog SQL):
+GRANT
+SELECT
+, Use_Schema
+ON
+SCHEMA system.access
+TO
+`your
+-
+user
+-
+or
+-
+service
+-
+principal`;
+This enables your application or service principal to query audit tables like
+query_history
+,
+query_text
+, and
+query_execution
+.
+Databricks Validation Check: Did it work?
+You can test access by calling the query history endpoint using
+curl
+:
+curl --location
+'https://<DATABRICKS_HOST>/api/2.0/sql/history/queries'
+\
+--header
+'Authorization: Bearer <PAT/ OAUTH token>'
+Replace
+<DATABRICKS_HOST>
+with your workspace URL and
+<PAT/ OAUTH token>
+with your personal access or OAuth token.
+2. Enable Query History in SQL Server, A
+zure SQL, Azure Synapse
+Use the
+Query Store
+.
+The Query Store is enabled by default for new Azure SQL Database and Azure SQL Managed Instance databases.
+Query Store is not enabled by default for SQL Server 2016 (13.x), SQL Server 2017 (14.x), SQL Server 2019 (15.x). It is enabled by default in the
+READ_WRITE
+mode for new databases starting with SQL Server 2022 (16.x). To enable features to better track performance history, troubleshoot query plan related issues, and enable new capabilities in SQL Server 2022 (16.x), we recommend enabling Query Store on all databases.
+Query Store is not enabled by default for new Azure Synapse Analytics databases.
+Enabling the Query Store can be done in multiple ways.
+Enable Query Store using the Query Store page in SQL Server Management Studio
+In Object Explorer, right-click a database, and then select
+Properties
+.
+Note: Requires version 16 or later of Management Studio
+In the
+Database Properties
+dialog box, select the
+Query Store
+page.
+In the
+Operation Mode (Requested)
+box, select
+Read Write
+.
+Enable Query Store using Transact-SQL statements
+Use the
+ALTER DATABASE
+statement to enable the query store for a given database. For example:
+ALTER DATABASE <Your Database name>
+SET QUERY_STORE (QUERY_CAPTURE_MODE = ALL);
+In Azure Synapse Analytics, enable the Query Store without additional options, for example:
+ALTER DATABASE <database_name>
+SET QUERY_STORE = ON;
+SQL Server, Azure SQL, Azure Synapse Validation Check: Did it work?
+After completing the above steps, verify that query logging is properly enabled by running the following SQL query:
+SELECT TOP 100 qsr.*
+FROM sys.query_store_query qsr
+LEFT JOIN sys.query_store_query_text qsrt
+ON qsr.query_text_id = qsrt.query_text_id
+LEFT JOIN sys.query_context_settings qcs
+ON qcs.context_settings_id = qsr.context_settings_id
+LEFT JOIN sys.schemas s
+ON s.schema_id = qcs.default_schema_id;
+3. Enable Query History in PostgreSQL
+To enable query history in PostgreSQL, you can modify the configuration file (postgresql.conf) and use SQL statements for more fine-grained control.
+Modify postgresql.conf
+You need superuser privileges to edit this file.
+You can locate
+postgresql.conf
+in your PostgreSQL data directory.
+Common locations include:
+/etc/postgresql/<version>/main
+(Linux)
+C:\Program Files\PostgreSQL\<version>\data
+(Windows)
+Edit
+postgresql.conf
+Set
+logging_collector
+to '
+on
+'
+Set
+log_statement
+to 'all' to track SQL queries. For reference, these are the valid values:
+none
+(default): Log no statements.
+ddl
+: Log data definition language (DDL) statements like CREATE, ALTER, and DROP.
+mod
+: Log moderate-level statements, including DDL and most of the data manipulation language (DML) statements.
+all
+: Log all statements, including SELECT, INSERT, UPDATE, DELETE, and more.
+Use SQL Statements for Fine-Grained Control
+If you want to enable or disable query history for specific databases or sessions, you can use SQL statements. This can be especially useful for debugging or auditing purposes. You can change logging settings on a per-session or per-database basis using the following SQL commands:
+To enable query history for the current session only:
+SET log_statement = 'all';
+To enable query logging for a specific database (replace your_database with the actual database name):
+ALTER DATABASE your_database SET log_statement = 'all';
+To disable query logging for a specific database:
+ALTER DATABASE your_database SET log_statement = 'none';
+These SQL statements will take effect immediately for the current session or database.
+Remember to be cautious with query history in production environments, as it can generate large log files and potentially impact performance. Always monitor your log files and adjust the log level as needed to balance the need for more information and the need for better performance.
+PostgreSQL Validation Check: Did it work?
+After completing the above steps, verify that query logging is properly enabled by running the following SQL query:
+S
+ELECT
+pst.
+*
+FROM
+pg_stat_statements pst
+LEFT
+JOIN
+pg_database pd
+ON
+pst.dbid
+=
+pd."oid"
+LEFT
+JOIN
+pg_catalog.pg_user pu
+ON
+pu.usesysid
+=
+pst.userid
+LIMIT
+10
+;
+This query will return the recent queries logged in PostgreSQL. If it returns results, query logging is successfully enabled.
+4. Enable Query History in Snowflake
+Query history is always enabled in Snowflake. So the only task required is to make sure that the relevant user has access to the history.
+The configured user should have access to SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+By default, the SNOWFLAKE database is visible to all users; however, access to schemas in this database can be granted by a user with the ACCOUNTADMIN role using either of the following approaches:
+Grant IMPORTED PRIVILEGES on the SNOWFLAKE database.
+USE ROLE ACCOUNTADMIN;
+GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE SYSADMIN;
+GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE customrole1;
+For more information regarding snowflake, this article
+Account Usage in Snowflake
+can be referred
+Snowflake Validation Check: Did it work?
+After completing the above steps, verify that query logging is properly enabled by running the following SQL query:
+SELECT
+QUERY_ID,
+QUERY_TEXT,
+DATABASE_NAME,
+SCHEMA_NAME,
+QUERY_TYPE,
+USER_NAME,
+EXECUTION_STATUS,
+START_TIME,
+END_TIME,
+TOTAL_ELAPSED_TIME,
+SESSION_ID
+FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+WHERE START_TIME > (CURRENT_TIMESTAMP - INTERVAL '30 DAY')
+LIMIT 10;
+5. Enable Query History in MySQL
+MySQL does not provide a built-in query history like some other databases, but query history can be tracked using the following methods:
+Using the
+MySQL General Query Log
+The General Query Log records all queries executed on the server.
+Steps to Enable:
+Enable the general log:
+SET
+GLOBAL
+general_log
+=
+'ON'
+;
+SET
+GLOBAL
+log_output
+=
+'TABLE'
+;
+-- or 'FILE'
+If using the
+TABLE
+option, view the logs:
+SELECT
+*
+FROM
+mysql.general_log;
+If using the
+FILE
+option, check the log file location:
+SHOW
+VARIABLES
+LIKE
+'general_log_file'
+;
+Considerations:
+Enabling the General Query Log may impact performance.
+Logs should be cleared regularly to avoid storage issues.
+Using the
+MySQL Performance Schema
+The Performance Schema tracks recent queries with performance-related details.
+Steps:
+Enable the
+performance_schema
+in the MySQL configuration file (
+my.cnf
+or
+my.ini
+):
+[mysqld]
+performance_schema
+=
+ON
+Restart the MySQL server.
+Query the
+events_statements_history
+table for recent queries:
+SELECT
+*
+FROM
+performance_schema.events_statements_history;
+For a summary of all queries:
+SELECT
+DIGEST_TEXT, COUNT_STAR
+FROM
+performance_schema.events_statements_summary_by_digest
+ORDER
+BY
+COUNT_STAR
+DESC
+;
+Additional Notes on Performance Schema Query History:
+Default Behavior:
+The
+events_statements_history
+table stores only a limited number of entries, depending on the
+performance_schema
+configuration.
+Check the current size limit:
+SHOW
+VARIABLES
+LIKE
+'performance_schema_events_statements_history_size'
+;
+Increasing History Size:
+To retain more query history, adjust the
+events_statements_history_size
+parameter:
+Edit the
+my.cnf
+or
+my.ini
+file:
+[mysqld]
+performance_schema_events_statements_history_size
+=
+10000
+Restart MySQL to apply changes.
+Alternatively, change the size dynamically for the current session:
+SET
+GLOBAL
+performance_schema_events_statements_history_size
+=
+10000
+;
+After increasing the history size, more queries will be stored in
+events_statements_history
+.
+MySQL Validation Check: Did it work?
+After completing the above steps, verify that query logging is properly enabled by running the following SQL query:
+SELECT ess.*
+FROM performance_schema.events_statements_summary_by_digest ess
+LEFT JOIN performance_schema.events_statements_history esh
+ON ess.DIGEST = esh.DIGEST
+LIMIT 10;
+6. Enable Query History in Netezza
+In Netezza, query history can be accessed using the
+HISTDB.HISTDBOWNER.NZ_QUERY_HISTORY
+table, which is part of the History Database (HISTDB). This advanced feature provides detailed historical information about queries, sessions, and system activity.
+7. Query History in Oracle
+For Oracle-specific lineage and query history setup, refer to
+Configure Oracle as a Source
+.

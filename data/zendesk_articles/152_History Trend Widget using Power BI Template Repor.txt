@@ -1,0 +1,36 @@
+Title: History Trend Widget using Power BI Template Reports
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360049313234-History-Trend-Widget-using-Power-BI-Template-Reports
+================================================================================
+
+History Trend Widget - Dashboards
+One of the requests from our clients, which added great value to the existing functionality for Dashboards, is to be able to see the Trend History Report by selecting the slicer 'ValGroup' as well. Previously, you were only able to see trend history widget report only on the basis of Rule ID as a slicer.
+Now, we will have 3 different power bi template reports against each template widget. They will be different based on the slicer selection. The differentiation will be according to these slicers
+Rule Id
+Val Group
+Val Group and Rule Id
+1.1 Rule Id
+On Add Widget form, while selecting Rules History as a category, you will be able to select a template for Run Result or Readiness Score.
+Based on your selection as a slicer, as in this case it is 'Rule ID', you will be able to view the Trend History Report.
+You may then create a view where you can specify a criteria for a particular ValGroup. On saving a view, you will be navigated to Dashboard page where you can view the widget.
+On clicking the widget, you will be navigated to a new tab where you would see the Report.
+You will be seeing 2 different charts
+- Average of RunResult by RunDate -
+This will be the graphical representation of Run Result count (avg.) for all rules in the selected ValGroup. The time-series on the x-axis of the chart is on weekly basis. The count on y-axis is the Run Result count (avg.)
+- RunDate -
+This will be the list type that contains the following for each rule in the ValGroup.
+- Rule ID
+- Run Date
+- Run Result
+- Val Group
+1.2 Val Group
+On Add Widget form, while selecting Rules History as a category, you will be able to select a template for Run Result or Readiness Score.
+Based on your selection as a slicer, as in this case it is 'Val Group', you will be able to view the Trend History Report.
+On clicking the widget, you will be navigated to a new tab where you would see the Report.
+1.3 Val Group and Rule Id
+On Add Widget form, while selecting Rules History as a category, you will be able to select a template for Run Result or Readiness Score.
+Based on your selection as a slicer, as in this case it is 'Val Group, Rule ID Both', you will be able to view the Trend History Report.
+On clicking the widget, you will be navigated to a new tab where you would see the Report.
+2. Color Persistence - Dashboards
+Dashboard widgets, moving forward, will have same color across all widgets for specific data. Also, the color would persist across different widgets i.e if green color is assigned to ‘Passed’ run status, then it should be same across all the widgets.
+2. Data Analysis (DAE) Rules - Creation From Manage Rules Tab
+We have now given the flexibility to create DAE rule from Audit -> Manage Rules tab as well. Previously, they could only be created from Profiling -> Show Details -> Data Analysis

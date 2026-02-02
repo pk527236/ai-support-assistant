@@ -1,0 +1,106 @@
+Title: Approving Glossary Terms
+URL: https://dvsum.zendesk.com/hc/en-us/articles/15536676968724-Approving-Glossary-Terms
+================================================================================
+
+In this Article
+Overview
+Prerequisites
+Adding a New Term
+Approving multiple Terms using Mass Update
+Workflow for Assets
+Approver Review
+Approving multiple Assets using Mass Update
+Video Tutorial
+Overview
+Glossary Terms can be created and edited in DvSum Data Catalog using an approval workflow. Approval workflows are configured for each data sub-domain. When an approval workflow is configured, then Data Stewards are able to propose new terms and suggest edits to existing terms. Approvers are then able to approve or reject the updates.
+Prerequisites
+1. An administrator must enable data governance.
+Administration → Account → Module Settings → Governance
+2. Data domains and sub-domains should already be defined. The approval workflows will be defined for a data sub-domain.
+Let's check the step-by-step guide on how this functionality works. So, first of all, we will be adding the data domain, sub-domain, and then finally the term.
+For detailed information on adding data domain and sub-domain refer article
+"Data Domains & Data Sub-Domains"
+Adding a New Term
+From the left navigation bar select
+Dictionaries >Glossary
+Terms
+which will navigate to the terms listing page. From the listing click on the "Add Asset" button.
+From the Add Term modal, select the same sub-domain that we created above. Enter the Name, Title, and Description, and select the Term Type. Click on the Save button and the term will be saved redirecting the user to the term detail page.
+On the term detail page, it can be seen that this newly created term is in the draft status. The term will only get published once it is submitted for approval and gets approved.
+Note:
+The terms in the Draft state will not appear in enterprise search results. Only Published terms will appear in enterprise search.
+At the top of the Term detail page, the workflow stages will appear. Currently, it will be in the first stage as Steward would need to make some changes.
+Now below is the Steward's view which they can edit in this term. The below image shows that the Steward has changed the definition.
+To edit a term, click on the "Edit" button. Click on the pencil icon for whichever section needs to be edited. Once changes are made to the particular field, click on the circular check mark button on the same section and then the Done button.
+Once the Steward edits the term, then the "
+Submit for Approval
+" button needs to be clicked which will send the term for approval to the approver.
+Once the Steward submits the term for approval, the workflow will move to the second stage which will show the pending approval status along with the approver's name as shown below
+Now next step is for Approver who needs to review the changes made by the Steward. The below image shows the approver's screen.
+Click on the "
+Compare Changes
+" button to review the changes that have been made. All the fields will appear and the edited ones will show up as highlighted.
+If the approver wants to reject the changes, then the "
+Reject
+" button can be clicked. It will ask the user to add a reason for rejection as a comment. The changes will get rejected.
+To approve the changes, the user needs to click on the "
+Approve
+" button, and the changes that were made by the Steward will be approved and the term will get Published.
+Approving multiple Terms using Mass Update
+Other than that, Approver can approve multiple terms as well at once from the Mass update. Go to the Business glossary listing again and there will be a tab "Assigned to me" which will show all the terms that are assigned to the logged-in approver.
+From the "Assigned to me" tab select some term and click on mass update.
+From the Mass Update modal click on the status field and select "
+Approve
+" and apply. This will approve all the selected terms. That's how the approver can approve multiple terms at once.
+How to check the Activities history of the term?
+On the term detail page "
+Managed by
+" section, there will be a chat icon. Click on that and it will show all the history of activities that have been performed on the term. Comments can also be added to the term activity.
+Workflow for Assets
+For any asset associated with a workflow-enabled data domain, if the Data Steward makes changes to the asset, the
+Submit for Approval
+button must be clicked. This action sends the asset to the designated approver for validation and approve.
+After the Steward submits the asset for approval, the workflow status is displayed at the top of the asset detail page, indicating
+Pending Approval
+along with the approver’s name, as shown below..
+Approver Review
+The next step is for the Approver to review the changes made by the Steward. The image below shows the Approver’s view.
+Click the
+Compare Changes
+button to review the modifications. All fields will be displayed, with any edited fields highlighted for easy identification.
+To reject the changes, the Approver can click the
+Reject
+button. A prompt will appear to provide a reason for the rejection as a comment, and the changes will then be declined.
+To approve the changes, click the
+Approve
+button. The modifications made by the Steward will be approved, and the asset will be published.
+Approving multiple Assets using Mass Update
+The Approver can also approve multiple assets at once using the
+Mass Update
+feature. On the asset listing page, the
+Assigned to Me
+tab displays all assets assigned to the logged-in Approver.
+From the
+Assigned to Me
+tab, select the desired assets and click
+Mass Update
+.
+In the
+Mass Update
+modal, click the
+Status
+field, select
+Approve
+, and then click
+Apply
+. This action will approve all the selected assets, allowing the Approver to process multiple assets at once.
+Video Tutorial
+Watch this
+Tutorial
+to understand the Glossary Security Flow in which the following points are discussed:
+1. Enable Workflow for Sub-Domain
+2. Add New Term and Submit for Approval
+3. Approve the Term
+4. Edit the Term and submit for Approval again
+5. Compare changes and Approve the term
+6. Approve multiple terms

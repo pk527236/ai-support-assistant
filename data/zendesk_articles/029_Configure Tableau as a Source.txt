@@ -1,0 +1,125 @@
+Title: Configure Tableau as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10713006510868-Configure-Tableau-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Prerequisites
+Step-by-Step Configuration
+Step 1: Prepare Your Tableau Account
+Step 2: Add Tableau as a Source in DvSum
+Step 3: Configure the Connection Settings
+Step 4: Save the Tableau Source
+Step 5: Scan the Tableau Source
+Step 6: Analyzing Tableau Reports and Datasets
+Viewing Reports from Tableau Scan
+Viewing Data Sets from the Tableau Scan
+Video Tutorial
+Overview:
+Tableau is a leading data visualization tool used for data analysis and business intelligence. We use Tableau as a data source in our DvSum Data Intelligence app. By adding and scanning the tableau source in our app, customer’s reports and tableau data sources will be fetched into our app to make the data more insightful to analyze. Let’s get started with Tableau. Now let’s get started with adding Tableau as a data source.
+Prerequisites:
+Before configuring Tableau as a data source, ensure you have:
+Access to a
+Tableau Server
+or
+Tableau Online
+account.
+Required connection details:
+Server URL
+Site ID
+Authentication method
+(Access Token)
+Necessary API access and permissions for retrieving Tableau data.
+User role with adequate permissions to access and fetch Tableau workbooks and datasets.
+Step-by-Step Configuration
+Step 1: Prepare Your Tableau Account
+Log in to your
+Tableau
+account.
+Ensure that some
+datasets and workbooks
+are available in your Tableau account.
+Create new
+workbooks
+connected to the existing datasets.
+Ensure that sheets are created within these workbooks.
+The screenshot below shows multiple datasets and workbooks in the Tableau account:
+Step 2: Add Tableau as a Source in DvSum
+In the DvSum application, navigate to the Data Sources tab.
+Click on the Add Source button.
+Select Tableau from the list of available sources.
+Provide a Source Name and click Save.
+Step 3: Configure the Connection Settings
+After creating the Tableau source, you will be redirected to the Connection Settings page.
+In the Credentials section, enter the following details:
+Server URL
+Site Name
+Access Token Name
+Access Token Value
+Click on Authenticate to verify the credentials.
+Step 4: Save the Tableau Source
+Once authentication is successful, scroll to the top of the page.
+Click on the Done button in the top-right corner.
+Click on Save to finalize the configuration.
+After that click the “Save” button. The source will get saved successfully.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Step 5: Scan the Tableau Source
+Navigate to the
+Scan History
+page.
+Click the
+Scan Now
+button.
+A scan job will be created.
+Once the job status is
+Completed
+, the Tableau source scan will be successful.
+Click on the
+Scan Name
+to open the
+Scan Summary
+page.
+The
+Scan Summary
+page displays insights, including the number of
+datasets and workbooks fetched
+.
+Step 6: Analyzing Tableau Reports and Datasets
+Click on the Analytics
+Dictionary
+from the left navigation tab.
+In the
+Recently Refreshed
+tab, view the fetched
+Reports
+and
+Data Sets
+.
+Reports from Tableau scan:
+From the listing select some recently scanned Report and the user will be redirected to the detail page of the Report. The screenshot below shows how the Reports detail page looks like.
+On the detail page, a description of the report is fetched from the Tableau report. This means this report has the same description in Tableau and the same description is fetched and shows up here. The author of the report is basically the person who created this report in Tableau so this value is also basically fetched. Further, we have a lineage of the Report which actually shows us that the current Report is derived from which data set and which tables are connected to that data set.
+Viewing Data Sets from the Tableau Scan
+Select a recently scanned dataset from the listing.
+You will be redirected to the
+Dataset Detail page
+.
+The
+Overview
+tab displays the description and author fetched from Tableau.
+The
+Data
+tab includes
+Profiling Info
+and
+Field Summary.
+The
+Field View
+section displays
+Data Source
+fields and
+Data Connection
+fields.
+video tutorial:
+Watch this quick video tutorial of how to add and configure an Oracle source into DvSum app.

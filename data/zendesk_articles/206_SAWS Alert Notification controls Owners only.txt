@@ -1,0 +1,21 @@
+Title: SAWS Alert Notification controls (Owners only)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360002717393-SAWS-Alert-Notification-controls-Owners-only
+================================================================================
+
+SAWS Alert is the Capability to Send Email Notification. These Notifications let Account Owner and optionally Administrators know when a specific SAWS is not able to communicate to DvSum web application and also when it resumes communication after failure.
+These controls can be changed from Add/Edit SAWS dialogue.
+Enable SAWS Alert ( Default is Yes)
+Also Notify Admins ( Default is No )
+If
+Enable SAWS Alert
+is set to Yes and
+Also Notify Admins
+is set to No Notification will only be sent to Owner of the account.
+If
+Enable SAWS Alert
+is set to Yes and
+Also Notify Admins
+is set to Yes Notification will only be sent to Owner as well as Admins of the account.
+If
+Enable SAWS Alert
+is set to NO, Application won't send alert Notification for this specific SAWS.

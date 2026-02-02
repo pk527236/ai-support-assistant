@@ -1,0 +1,136 @@
+Title: DQ Rule Details
+URL: https://dvsum.zendesk.com/hc/en-us/articles/17468996404756-DQ-Rule-Details
+================================================================================
+
+The latest update to our rule management system introduces offline and online execution capabilities, providing users with greater flexibility. The alert status of each rule is displayed as either "Healthy" or "Alerting" based on specified thresholds. Users can now easily edit rule definitions, descriptions, priorities, and scope, including window types and lookback days. Data aggregation into buckets enables detailed data quality checks. Various threshold types allow tracking and alerting based on exceptions. Rule notifications, action statuses, and scheduling options have been enhanced for improved rule management. The new history tab provides execution charts and grids for comprehensive performance analysis. Overall, these updates enhance rule customization, monitoring, and analysis.
+Some of the major changes that have been implemented in the User Interface are highlighted in the
+the screenshot below for a quick review.
+The Rule Detail page has undergone significant changes, both in its interface and the introduction of new functionalities. Let's explore these enhancements in detail:
+Not Scheduled
+-
+A notification at the top of the page is shown which indicates whether the rule is scheduled. If the rule is not scheduled it will not run automatically.
+Alert status
+for the rule will be shown as
+Healthy
+- if the metric value is within specified threshold limits, then the alert status will be Healthy
+Alerting
+- If the metric value is not within specified threshold limits, then the status will be Alerting
+Run
+Online & Offline rules can be run directly from the Rule detail page
+For Details please check the article
+Run Online/Offline
+Action
+Users can set the Action status for non-cleansable rules using the Action button. The action status button will be available for all rules, but in data cleansing, the user can enable workflow from the workflow tab and there won't be an action button since we are tracking using workflow.
+The
+Action
+button has the following statuses:
+New -
+When the rule is created, default status is set to New
+Acknowledge
+– When the user acknowledges the rule execution/ exception details
+Resolve
+– Once the exception has been resolved, the user has the option to perform an action and mark it as resolved upon completion
+Track action item
+More
+Update Schedule
+- The User can now have the ability to update the existing schedules of the rule and able to create a new one.
+Remove Schedule
+– This option allows the user to remove any existing schedule of the rule(s)
+Delete
+- This allows the user to permanently remove Rule
+Clone
+- This allows the user to clone the current Rule
+Edit
+This button will allow the user to update the following:
+Overview
+Rule Description
+: Users can update the description for the rule
+Priority
+: Users can update the priority for the rule
+Open Rule Definition:
+Users can directly open the rule definition page from here
+Scope
+If the
+Metric Time
+field is selected on the table level. Selected field name will be inherited to the rule as well
+Otherwise, the user can also select / update the metric time field at the rule level as well
+Users can set the window type: - Used to define what is the scope of data to be selected.
+All Data
+- By Default all the rules will window type as All data, which will consider all the data in the table during the  execution of the rule
+Data Max Time
+- In the case of incremental data, we can choose this option to run validation only on newly added data based on the timestamp available on the table
+Clock Time
+-  In the case of incremental data, we can choose this option to run validation only on newly added data based on the current timestamp available on the table
+Users can set the
+Lookback days
+for Data max time & Clock time
+Users can optionally aggregate data into
+Buckets
+and DQ checks will be performed on each bucket.
+No bucket
+1 Day
+1 Hour
+Users can select available
+Slicer
+options
+Threshold
+For the Metric type, we can choose whether we want to track and alert based on the number of exceptions or percentage of exceptions.
+No Threshold
+- Metric will not alert.
+Constant
+- Metric will be compared against constant thresholds.
+User can set the Upper bound and Lower Bound
+Relative
+- Percentage change (increase or decrease) in metric compared to the previous bucket or execution. For DQ exception checks, the decrease will not alert.
+User can set the percentage for the relative threshold type
+Adaptive
+- Thresholds auto-adjust based on observations using outlier detection techniques. It uses the Interquartile range technique to detect if the metric is an outlier.
+User can choose the threshold bounds from the 3 available options:
+Upper and Lower
+Upper
+Lower
+Notifications
+Assign a rule to the user - The user is able to assign a rule to any user
+Add a rule group to the rule - The user is able to add a rule group to the current rule
+Add/update the schedule for a rule -A new functionality is added to manage the scheduling of the rule
+On the Lower Section of the Rule detail page, the user will be able to see only the 3 tabs by default:
+One important change is the modification of the first tab in the lower panel:
+Existing
+: Currently the first tab is called the "
+Analysis"
+tab
+New
+: In the new update we have replaced the "
+Analysis"
+tab with "
+Data
+"
+Users can click on
+Show More
+to view the other tabs available:
+After clicking on the
+Show More
+tab, user will be see the following tabs and if the user wants to Hide them they simply need to click on
+Hide Others
+History
+The history tab will show the execution history for the rule in the form of a chart
+Existing:
+In the existing case the Trend was shown in the Insights tab as shown in the screenshot below:
+New:
+A new tab has been introduced at the bottom of the Rule detail page named "
+History
+" which now shows two views that are as follows:
+Chart View -
+In this view, the data is shown to the user in the form of a chart
+When I select the Slicer, the data in the History Chart will get distributed based on Slicer Field
+Grid View -
+In this view, the same data is shown to the user in a tabular form
+Users can view execution history for:
+Current
+: It will show the metric value for the current execution
+30 Days
+: It will show metric value for 30 days
+90 Days:
+It will show metric value for 90 days
+ALL
+: It will show the metric value for All data

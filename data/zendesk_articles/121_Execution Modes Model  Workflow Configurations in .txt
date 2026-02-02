@@ -1,0 +1,70 @@
+Title: Execution Modes, Model & Workflow Configurations in Tool
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41054809831572-Execution-Modes-Model-Workflow-Configurations-in-Tool
+================================================================================
+
+In This Article:
+1. Instruction-Based Logic
+2. Flow-Based Logic
+When configuring a Tool, you can choose between two execution modes:
+Instruction-Based Logic
+and
+Flow-Based Logic
+. Each mode defines how the assistant interprets data, applies logic, and integrates workflows.
+1. Instruction-Based Logic
+Overview
+Instruction-Based Logic allows you to configure the assistant using natural language instructions along with dataset descriptions. The assistant interprets these instructions in real time to generate recommendations. This mode is ideal when flexibility and human-readable explanations are needed.
+Configuration Fields
+Execution Mode
+Select
+Instruction-Based Logic
+to enable this mode.
+AI Assistant Type
+A text field to define the role or job title of the assistant.
+Data Description
+A text field to provide a detailed explanation of the dataset.
+Logic
+A plain-text field to describe the rules and conditions the assistant should apply.
+Guidelines
+A text area for specifying rules or constraints that the assistant should follow when generating outputs.
+Model & Workflow Configuration
+Model Version
+– Dropdown to select the model version for execution.
+Workflow JSON
+– Editable JSON field that must include:
+"source_configs"
+"state_machine"
+The JSON editor supports copy, download, and full-screen expand options for easier editing.
+2. Flow-Based Logic
+Overview
+Flow-Based Logic requires a structured JSON flow to define all conditions, steps, and outcomes explicitly. This ensures deterministic execution where outputs are consistent and predictable.
+Configuration Fields
+Execution Mode
+Select
+Flow-Based Logic
+to enable this mode.
+AI Assistant Type
+A text field to define the role or job title of the assistant.
+Logic JSON
+A structured JSON editor field to define the Flow-Based Logic (steps, conditions, outcomes).
+This JSON determines the issue category and drives troubleshooting analysis.
+UI Response Format
+A text field specifying how the assistant’s output should be presented in the UI.
+Model & Workflow Configuration
+Workflow JSON
+– Editable JSON field that must include:
+"source_configs"
+"state_machine"
+The JSON editor supports expand-to-full-screen for easier editing.
+Key Notes
+Instruction-Based Logic
+includes a
+Model Version
+dropdown, while
+Flow-Based Logic
+does not.
+The
+Workflow JSON
+field is common to both modes and must always contain:
+"source_configs"
+"state_machine"
+The Workflow editor supports expand/full-screen mode, copy, and download for ease of use.

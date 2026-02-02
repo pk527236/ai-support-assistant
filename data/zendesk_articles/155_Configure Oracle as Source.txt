@@ -1,0 +1,54 @@
+Title: Configure Oracle as Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/23084323535124-Configure-Oracle-as-Source
+================================================================================
+
+Overview
+This article describes the steps needed to configure Oracle as a source in DvSum Data Quality (DQ).
+Detailed Steps
+Oracle Configuration
+Step 1:
+Create a user to be configured in DvSum, if the user does not already exist.
+Step 2
+: Grant readonly access to the User for schemas and tables that you would like to catalog and profile. (The username and password will be used below when configuring the data source in DvSum)
+Step 3:
+Grant readonly access to the user for the following system tables:
+ALL_USERS
+ALL_OBJECTS
+ALL_TABLES
+ALL_SYNONYMS
+ALL_TAB_COMMENTS
+ALL_EXTERNAL_TABLES
+ALL_TAB_COLS
+ALL_COL_COMMENTS
+ALL_CONSTRAINTS
+ALL_CONS_COLUMNS
+In order to grant access the below statement can be used:
+GRANT SELECT ON (
+TABLE_NAME
+) TO (
+USER
+)
+Reference Article
+DvSum configuration
+1. Add Source
+To create a data source, navigate to Administration → Manage Sources → Add Source → Select Oracle.
+1.1 Basic Information
+Add
+Source Identifier and select the Webservice for the source.
+To configure the web service, you can refer to this
+Article
+1.2 Host Information
+Add the following information in host information section:
+Host
+Port
+Database SID or Service Name
+1.3 Credentials
+Add DB login and DB password and click on the save button.  The source will be created successfully.
+2. Test the Connection
+The source will now appear in the Manage Sources Listing. Select the source and Click on Edit Source:
+Click on the Source and in the bottom left corner click "Test Connection"
+3. Catalogue the data source
+Navigate to Manage Sources and click the "Run Cataloging" button. When the cataloging is completed, the status will change to "Tick Mark".
+After the Catalog completion, click on Go to Catalog and it will open the Table Dictionary page of this source.
+The Table dictionary page displays all the insights of the scan. It indicates how many new tables and columns are fetched in this catalog.
+Your Oracle connection is now fully configured and functional.

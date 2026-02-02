@@ -1,0 +1,83 @@
+Title: Data Preparation Workbench
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360035713813-Data-Preparation-Workbench
+================================================================================
+
+Introducing
+DvSum
+Data Preparation Workbench
+, a place where you can access data from source conveniently, prepare and perform cleansing actions and commit validated data back to source. Let's start.
+On your DvSum homepage, you will see Data Preparation in left navigation. Go to "Datasets"
+You can create multiple datasets on a single table. With every dataset you create, the idea is to filter some part of data for analysis that is according to your requirements. That filtered data will open in a workbench.
+Note: For now, Data Preparation Workbench functionality is only applicable for
+Oracle and SQL Server
+sources only
+Create Dataset
+There are 3 simple steps to create a dataset.
+Step 1
+- Click on Create button and provide source and table name on which dataset is to be created.
+Step 2
+- Choose Columns and Apply filters (if required)
+Here, you can choose the columns you want to see on workbench and the order by which you want to view them on Workbench. You can also apply filters to dataset according to your requirements.
+Step 3
+- Provide a Unique Identifier, Sync All Dataset User Views (optional), Execute Stored Procedure(optional) and Sharing.
+1. A "
+Unique identifier"
+of the table needs to be selected.
+2. "
+Sync All Dataset User Views
+", will update and sync all the views that you have created on the workbench that are linked.
+3. "
+Execute Stored Procedure
+", this will execute stored procedure on commit or on consolidate, write procedure including parameter name.
+3. If you want to "
+Share"
+this dataset with others, select the required option.
+This is it. You will see the created dataset on the dataset page and when you click on the name, it will open a workbench fetching the data accordingly.
+Workbench Operations
+There are multiple operations you can perform on workbench. Here is a list of few:
+1. Inline Editing
+Click on a cell and start editing. The changes will automatically be saved and you can commit the changes to write-back to source.
+2. Drag And Copy
+You can select a cell and drag cell-selection outline to the place where you want the copy to appear and release the mouse button. Pressing CTRL + D will copy the value to all selected cells.
+3. Find and Replace
+This is a bulk-update operation performed on a single column. You can even choose to fill all blanks with a particular value across the data source.
+Select a column and you will see Find and Replace Option.
+4. Delete Rows
+This is a row level operation. Once you select row(s), you will see the option to Remove Rows. You can remove single or multiple (at max 100) rows at a time. Please note that this will permanently remove the records form your data source and you will not be able to Undo after Committing.
+5. Apply Validations for Write-back
+Sometimes there might be certain validations required on a column for write-back operation. For example, Customer_ID should have no blanks, or for a string Column "Country" the input value should have only 2 characters (US, UK etc)
+Such validations can be applied from Profiling page using Master Completeness Ruleset (MDC Ruleset) on a table.
+There are 3 types of data constraints you can apply from MDC ruleset
+1. Blanks Check
+On a column where blanks check is applied, workbench will highlight null fields are red and it will not take "Blank" as an input
+2. Value Range
+Allow only a specific range of values as valid
+3. Data Format
+Constraints
+Validations on string (character length limit), Number (only integers, whole numbers or decimal values) are to be allowed.
+These rules are reflected on Workbench. You will see a small badge for each of the rules above (B, VR, DF) below the column name on which rule is applied.
+When you hover on the DF badge, it will show you the validation and highlight the cells which do not meet the criteria.
+6. Apply DvSum Rules as Filters
+The DvSum rules, like Custom Query, Blanks, Value Range, MDC Ruleset, Orphan Records, Integrity Check created on a particular table can help you filter out the data on workbench. You can select one rule at a time on workbench and it will bring only those records which are shown as exception on rule detail page.
+Click on the "Select a Rule" drop-down where you will see only the above mentioned rules. If the rule has not been executed, it will show as disabled. Similarly, rules other than the listed will be disabled.
+The selected rule will start to show on top and it will fetch the records according to rule definition.  This is helpful when you want to perform cleansing actions on selected data.
+7. Reference Column - Data Preparation Workbench
+If a column has a reference column defined in Field configuration, when we update key column value in Prep workbench, its reference column would also get updated accordingly.
+Profiling - Field Configuration Update -
+We will now have a Reference Mapping section where user can define Reference column for a Key column
+Reference Dictionary Update -
+Currently, you were able to create reference dictionary by manually adding values from UI (by adding values for the fields) i.e name and description.
+Now, there will be a checkbox 'Is Key Value Pair', if marked this as checked, user will be able to create a Key Value based dictionary.
+On marking this checkbox checked, you will be able to add key, value and description. Else you can import values
+On importing values for a column whose reference is not defined in Field Configuration, it will prompt you to select a key column for it and the Reference column will be set in the Field Configuration automatically
+On importing values for a column whose reference is already defined, it will prompt you. On importing values, it will create a reference dictionary containing distinct values of both columns
+On saving, it will create a Key Value Based reference dictionary with Is Key Value Pair
+Note:
+While creating a MDC rule, on Reference column defined in Field configuration, it will not allow you to create a Value Range rule with normal dictionaries. It will give you a warning message to select a Key Value Pair Dictionary from the list
+Data Preparation Workbench Updates-
+On updating a value of a reference column (if defined in Field Configuration) in the Workbench, it should automatically update the value in its key column accordingly.
+All those columns having write back enabled will have icon 'Write Back' enabled for them.
+The defined unique Identifier Column, Key Column will have write back disabled with grayed out column header.
+Key Column will also have a chain icon in the column header. On hover, it will show the related information i.e the reference column defined for it.
+On updating a value in the Reference Column, it will automatically update the value in the key column accordingly
+The same operation can also be performed via Find and Replace. Clicking the reference column header checkbox, it will enable the Find and Replace button and values can be updated as required

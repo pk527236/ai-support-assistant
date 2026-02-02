@@ -1,0 +1,157 @@
+Title: Data Catalog
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360052123973-Data-Catalog
+================================================================================
+
+User will be able to see the data of all Sources/Columns/Tables in Data Dictionary section. There will be one enterprise dictionary for one account. Let’s get started step by step.
+A) Table Dictionary
+B) Column Dictionary
+C) Table Detail Page
+Table Dictionary
+Step 1
+Click on Data dictionary and it will display sub item as "Table Dictionary" under it. Select this option and it will take user to detailed page of Table dictionary. On this page, all the table specific details will be displayed as below;
+Source Name
+Source type
+Entity type
+Table type
+Table group
+Data set
+Data set description
+User description
+Record identifier exist
+Record count
+Profile status
+No. of Rules
+comments
+Column Dictionary
+Step 2
+On the left side menu of DvSum application, click on "Data Dictionary" it will display sub item as "Column Dictionary" under it. Select this option and it will take user to detailed page of Column dictionary as shown below;
+Note:
+In Data dictionary page, only those sources will be visible that are connected and cataloged.
+On this page, all the column specific details will be displayed as below;
+Source
+Entity type
+Data set
+Column Name
+Column Description
+Column type
+Column group
+Sensitivity level
+Compliance Category
+CDE
+Data type
+Length
+Primary Key
+Foreign Key
+Check Constraints
+Unique Constraints
+User description
+Profiling Info
+Glossary Info
+Step 3  Profiling Info and Distribution data
+At the end of the grid view, you will see a field name as "Profile Info". If column is profiled, then a profiling icon will be shown. Otherwise it will not be shown. Refer to the screenshot below;
+If user clicks the icon then it will show the profiling info for specific column or table that is being profiled. Also, if any source or column has distribution data info available then it will also be shown there on clicking the icon. Otherwise, only profiling info will be displayed i.e source name, table name, max value, min value, unique count and null count.
+Note:
+On default Data dictionary view page, data across all sources/Column will be displayed. Also, this default view cannot be shared or marked as favorite. The favorite and share icons on top right side will appear as disabled.
+From here, following steps listed below are commonly used features in both Table and Column dictionary.
+Step 4   Filters
+Filters are also provide against all fields of columns. User can click on any field, apply filter and sort the data as shown below;
+Step 5  Mass Update
+Mass update will be applicable on Entity field. The purpose of this functionality is to be able to group the the different sources/columns available.
+Select sources, click the Entity field, a new interface will open upfront. For the first time, create an entity, provide entity name and hit the apply button as shown below;
+You will see that it gets mass updated against all the selected sources. User can apply filter on this field as well.
+Step 6  Picker List
+Now, user will be able to select an existing entity type from the picker list available in the Entity type field which are fetched from DB. Click on cell, picker list will appear that will contain all the available entities (already existing in DB) from which user can select.
+Following are the picket lists:
+1) Entity type
+2) Table type
+3) Table group
+Step 7 : Hide/Unhide Rows
+Now, in column dictionary, select the rows that you want to hide, click on the Hide Row(s) button and then rows will be hidden. In table dictionary, same functionality will be applicable on tables.
+Click on Show Hidden Rows button on top right side, then the hidden rows will start appearing with slightly grayish background color to differentiate it. Select that row and click the Unhide Row(s) button given on top as shown below;
+Note:
+One hide/unhide Rows, the sequence of data won't change. After un-ride, the rows will appear in their current sequence from where they were hidden.
+Following field is editable
+User Description (Column + Table dictionary)
+Step 8 : Drag/Drop and Copy/Paste
+User can copy entity field from one cell and paste it into another cell by Ctrl+c and Ctrl+v. Also, drag and drop any entity type from one cell to another by selecting the cell(s) and pressing Ctrl+d.
+Step 9 : User Description as Editable text field
+This field is fully editable. User can delete, copy, paste, drag and drop text inside it.
+Step 10  Add New or Clone Existing Data dictionary
+User can also create a new Data dictionary as shown below;
+User can also clone the default data dictionary as shown below;
+Step 11  Cloning the Data Dictionary
+On cloning detail page, provide name, select column fields, Specify criteria. In specific criteria section, user can also apply criteria for Entity field that will show the data w.r.t that particular entity. A 'Share with' section is also added to share this cloned Data dictionary with specific users or groups. Now, click the save button as shown below as shown below;
+A cloned Data dictionary will be displayed w.r.t specified criteria. On the top right corner, Favorite and share icon will also become enabled as shown below;
+Step 12  Fine Grain Control
+User can create a view, add sources and give access to User, Super user and Admin. By default, Admin and Owner users will have complete access to the data of all sources added in a view. But for user and super user, data will be shown on column/table dictionary listing/detail page according to the user/super access given.
+Step 13 Export View
+Click on the "Export icon" to export records given in Table/Column grid (w.r.t record visibility on current page) as shown below;
+Table Detail Page
+Step 14
+Dataset column is a hyperlink in column/table dictionary. By clicking the hyperlink, user will be navigated to Table Detail page.
+Also, from
+profiling page
+, View Catalog on hover will appear as well as on top of the grid, it is added as button from where user will be navigated to Table detail page.
+Step 15
+On top it is displaying following;
+Source name
+Table/Column name
+View comments and its count
+Endorsing (Accept and Reject)
+This is just dummy and not functional yet.
+Mark Favorite
+Publish/Unpublish:
+Publish
+(Unhide row) -
+Button on Table detail page will appear as 'Publish' if this not published and its is hidden on Table/Column dictionary page. If user clicks on 'Publish' button, then it will automatically unhide the row on table/column dictionary page and text on button will be updated as 'Unpublished'. Similarly, if user unhides row from table/column dictionary page then on navigating to table detail page, text on button should be updated as 'unpublished'
+UnPublish
+(Hide row)-
+Button on Table detail page will appear as 'UnPublish' if this is published and its is unhide on Table/column dictionary page. If you click 'UnPublish' button then it will automatically hide the row on table/column dictionary page and text on button will be updated as 'Publish'. Similarly, if you hide row from table/column dictionary page then on navigating to table detail page, text on button should be updated as 'Publish"
+Then under this there are main navigation menus including
+Overview
+Fields
+Sample data
+Statistics
+Relationships
+Quality
+Data preparation
+Comments
+Step 15  Overview
+It has two parts;
+System description: Defined at DB level and it cannot be Editable
+User description : Defined by user just like at table/column listing page. It can be edited by clicking edit icon given.
+Step 16  Fields
+This represents that column names of table/column, Raw datatypes, data types, PK, sample value (min-max values), description (user description). Only Description field will be editable.
+Step 17  Sample Data
+This has info same as Profiling >> Data Analysis. The grid will have all columns that are added in that table and will display sample data for each column.
+Step 18   Statistics
+This section is same as main Profiling tab on Data profiling page. On clicking Distribution icon from here, it will open up column distribution data. Similarly, on clicking profiling pattern it will open up data pattern here.
+Distribution Chart
+Profiling Pattern
+Step 19   Relationships
+It shows relationship of table (whose table detail page is opened i.e CUSTOMER2) between different tables, their cardinality/relationship types, Constraint/Key names, database status, recommended status, accepted status, Zoom in/out. The rejected state will not be shown. If you click any table name from here then it will open up its table detail page separately.
+View Types:
+It has two views;
+ERD view
+Grid view
+(Same information as ERD view). Action column will be functional. From here you can update their statuses.
+Complexity Level:
+It has two complexity types
+Level 1 :
+Main table (i.e CUSTOMER2) which has relation with 7 other tables as shown below;
+Level 2 :
+In case those 7 tables have relation with further other tables as shown below;
+Step 20 Data Quality
+It shows rule sets that are created on this table (CUSTOMER2) and this info will be as same as Analyze rule page.
+Step 21  Data Preparation
+It will show all datasets here that are created on this particular table/column.
+Step 22   Comments
+All comments will be shown here. If you click comments from top header, you will be directed down here. Also, you cannot delete other user's comment(s). You can delete your comment only.
+Step 23  Stewards
+You can add and delete stewards from here as shown below;
+Step 24  Top Users
+It will show list of users here based on most visited percentage.
+Step 25  Primary Attributes
+It will be as same as Mass update fields shown in table detail page. User can edit from here as well.
+Step 26  Other Information
+It will display same information as of Profiling detail page.

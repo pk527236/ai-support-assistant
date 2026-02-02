@@ -1,0 +1,68 @@
+Title: Configure Netezza as a Data Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/31133806684948-Configure-Netezza-as-a-Data-Source
+================================================================================
+
+In this Article:
+Overview
+Pre-Requisites
+Detailed Steps
+Step 1: Add Netezza as a Source
+Step 2: Configure Connection
+Step 3: Save Connection Information
+Step 4: Scan the Data Source
+Overview:
+This article outlines the steps required to configure Netezza as a source in DvSum Data Intelligence (DI). It details the process of adding and authenticating the Netezza source, as well as running scans to retrieve data.
+Pre-Requisites
+Netezza Performance Server Deployment:
+IBM Cloud or On-Premises
+Server Status:
+Netezza server must be operational
+SAWS Version:
+1.2.9 or above
+Required Permissions for System Tables:
+_V_TABLES
+_V_RELATION_COLUMN
+_V_DATATYPE
+_V_RELATION_KEYDATA
+_V_DATSBASE
+_V_SCHEMA
+Enabling General Query Log for MySQL
+Before configuring MySQL as a source, ensure that the general query log is enabled for your MySQL server. This is essential for tracking data lineage and obtaining insights into usage patterns. For more information, refer to the
+Enabling General Query Log for Data Sources
+article.
+Detailed Steps
+Step-by-Step Configuration
+Step 1: Add Netezza as a Source
+Navigate to Administration > Data Sources > ⊕ Add Source.
+Select Netezza as the source type.
+Provide a name for the source and click Save.
+Step 2: Configure Connection
+After saving, you will be redirected to the connection settings page
+Enable the checkbox for On-premise Web Service and select the Gateway, or use DvSum Web Services (default).
+Note:
+For more information regarding Cloud Gateway, click
+here.
+3. Enter the required Host, Port, DB Login, and Password.
+4. Click Authenticate to verify the connection.
+Note:
+For more information regarding On-premise Web Service installation, click
+here
+.
+5. After authentication, the Database section will appear, allowing you to select the database for                    scanning.
+6. Choose whether to scan all schemas or limit the scan to specific schemas.
+If limiting to specific schemas, select one or multiple schemas from the Available Schemas list and move them to Selected Schemas.
+When the option to limit to specific schemas is selected, a list of available schemas will be displayed. The user can choose one or multiple schemas from the Available Schemas list and move them to the Selected Schemas tab on the right.
+Step 3: Save Connection Information
+After authentication and schema selection, scroll to the top.
+Click Done > Save.
+Click Test Connection to verify the setup.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Step 4: Scan the Data Source
+Navigate to the Scan History Page.
+Click Scan Now to initiate a job.
+After the scan is complete, click on the Scan Name to open the
+Scan Summary
+page. This page will display all the insights from the scan, including the number of new tables and columns retrieved from the schemas selected earlier.
+Next, analyze the tables and columns discovered during the scan by navigating to "Data Dictionary" in the left sidebar. The table listing view will appear. Click on the "Recently Refreshed" tab to view the tables identified in the recent scan. Click on the table names for more details.

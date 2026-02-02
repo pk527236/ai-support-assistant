@@ -1,0 +1,103 @@
+Title: Data Security Admin
+URL: https://dvsum.zendesk.com/hc/en-us/articles/22680186312468-Data-Security-Admin
+================================================================================
+
+In this Article
+Introduction
+Data Security Admins
+Hiding Tables and Columns
+Deleting Assets
+Adding "Data Classification" Tags
+Introduction
+This article explains how a user can be added as a Data Security Admin and describes the exact authorizations for a Data Security Admin.
+1. Data Security Admins
+The Account Admins can add Data Security admins from the User Security tab which is present in the Account Settings page.
+In the dropdown, all the active users in the application will be shown. The users who have "Admin" access to the catalog can only be added as Data Security Admins. The users who do not have "Admin" access to the catalog can be added to the list of Data Security Admins but there will be a warning sign shown to update its permissions.
+In this case, the user "Hassan Ghafoor" is in the list of Data Security Admins but actually not a Data Security admin until its permissions are not set to Catalog Admin. On clicking "Update User Role", the user settings will open from where permissions can be changed:
+Now when the user is logged in from the Data Security Admin account there will be some extra options that will be available on the Data Dictionary and Field Dictionary:
+2. Hiding Tables and Columns
+Data Security Admins see additional options on the Database Tables page that other users cannot see which allow them to hide and show objects. When any tables are selected from the Database Tables, the "More Actions" button will be visible. The "More Actions" button is a drop-down with the following 3 options:
+Hide Table(s)
+Unhide Table(s)
+Delete Table(s)
+When any tables are selected and the user selects the option "Hide Table(s)" then all the selected tables will be hidden. The hidden tables can be seen when the "Show hidden tables" checkbox is checked.
+Users can mark any table as hidden. The hidden tables won't show at:
+Table Dictionary
+Enterprise Search
+Exported Excel File
+Hiding columns:
+On the Database Columns when any column or columns are selected from the Database Columns, the "More Actions" button will be visible. The "More Actions" button is a drop-down with the following 4 options:
+Hide Columns
+Unhide Columns
+Data Classification
+Delete Columns
+When any columns are selected and the user selects the option "Hide Column(s)" then all the selected unhidden tables will be hidden. The hidden columns can be seen when the "Show hidden columns" checkbox is checked. The hidden columns will be greyed out.
+When a column is marked as hidden, The hidden column won't show at:
+Field Dictionary
+On the Rules Creation form
+Rule Detail Page - Data Tab
+Rule Detail Page - Definition Tab
+Exported Excel File
+3. Deleting Assets(Tables, Columns and Rules):
+Deleting Table and Columns:
+The selected tables and columns can be deleted and they will be removed from everywhere on the application:
+Note:
+To delete tables or columns, users must either be the owners of those assets with Catalog Admin permissions and have the Data Security Admin role.
+Deleting rules:
+The selected rules can be deleted by clicking the
+More Actions
+dropdown. Once deleted, they will be removed from everywhere on the application.
+Note:
+To delete rules, users must either be the rule’s creator with
+Catalog Admin
+permissions or have the
+Data Security Admin
+role.
+4. Adding "Data Classification" Tags
+Users can add the "Data Classification" tags which can be added only by Data Catalog Admins:
+The following 4 tags can be seen on the "Data Classification":
+Internal
+Public
+Restricted
+Sensitive
+The description of every tag can be seen on hover. For more information about the tags separately there is the link of the "
+Data Masking
+" article.
+Once any tag is assigned to column(s), they can be seen on the listing view:
+The selected columns can also be deleted and they will be removed from everywhere on the application:
+Note: For the deletion of columns, users should have Catalog Admin permissions but they don't have to be necessarily Data Security Admin
+One More thing to note here is that only the tables or columns that will have the status "Deleted" can be deleted from the Catalog.
+Managing Data Classification Tags
+As a
+Data Security Admin
+, you are responsible for applying classification tags (such as
+Confidential
+,
+PII
+, etc.) to data assets like columns, tables, and glossary terms.
+Tagging behavior depends on how the
+Custom Tagset
+is configured in the system.
+Single vs Multiple Tags
+Each tagset has a setting:
+“Only Single Value Allowed”
+. This determines whether you can assign
+only one
+tag or
+multiple
+tags from that tagset to a single asset.
+If
+checked
+, you can apply
+only one
+classification tag per asset.
+If
+unchecked
+, you can apply
+multiple classification tags
+to the same asset.
+This allows more flexibility in labeling data that falls under more than one classification (e.g., both
+Internal
+and
+Confidential
+).

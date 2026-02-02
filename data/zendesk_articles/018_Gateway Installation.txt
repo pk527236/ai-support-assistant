@@ -1,0 +1,277 @@
+Title: Gateway Installation
+URL: https://dvsum.zendesk.com/hc/en-us/articles/29188280659988-Gateway-Installation
+================================================================================
+
+In this Article
+Overview
+Download Links
+Prerequisites (all platforms)
+Network Configuration
+Define a Gateway
+Windows Installation
+Non-interactive Installation
+Interactive Installation
+SSL Configuration Option
+Uninstall the Gateway
+Linux Installation
+Download the installer
+Python
+Non-interactive Installation
+Interactive Installation
+Appendix
+Using Port 443
+Overview
+This document outlines the steps for installing the DvSum Gateway for use with Data Intelligence Platform. It provides detailed instructions for both Windows and Linux systems, including configuration and installation procedures.
+Note: Gateway, Connector, SAWS (Stand-Alone Web Service) and webservice are used interchangeably referring to the DvSum Edge Gateway.
+Download Links
+DvSum Data Catalog Gateway Windows Installer
+DvSum Data Catalog Gateway Linux Installer
+Prerequisites (all platforms)
+Minimum memory: 8GB (16GB recommended)
+Minimum disk space: 10GB (20GB recommended)
+CPU cores: 2 (4 recommended)
+Python 3.x must be installed for the gateway to function properly.
+Linux: Ensure that your Linux distribution has systemd support and x86_64 server architecture.
+Windows: Windows Server Edition 2012 or later
+# Confirm Architecture
+lscpu
+# Expected output includes:
+# Architecture: x86_64
+Network Configuration
+If the DvSum Gateway is installed on a server with restricted outside access to specific URLs, you'll need to whitelist the following addresses on the network. This will enable the DvSum Gateway to communicate with the DvSum SaaS application and ensure the service functions properly and securely connects to the necessary resources on the network. Please configure the network settings accordingly to allow for this communication.
+URLs that must be whitelisted for outbound access on port 443
+https://apis.dvsum.ai
+wss://3k7tif2dyi.execute-api.us-west-2.amazonaws.com/prod
+https://dvsum-app-data-prod.s3.amazonaws.com
+Ports that must be open for inbound access from end user computers
+Default: 8183
+Common alternative: 443
+Testing network configuration
+The installer includes an option to test the network configuration.
+Linux:
+./dvsum_gateway_setup.sh --check-network
+Windows:
+.\dvsum_gateway_setup.bat --check-network
+Define a Gateway
+You must define a gateway in the DvSum GUI defining the details that you will use when you install the gateway. Navigate to Administration → Account Settings → Gateway.
+Click on "Add" Button as shown in the image below. Provide the Web Service name, Host Name and Port (default 8183) and save it.
+This defines a Gateway with a unique communication key by which the gateway communicates with the DvSum web application.
+Keep track of the communication key; it will be required later during the installation.
+Windows Installation
+Download the installer
+Use the link provided above, or the installer can also be downloaded directly through the Download button available in the GUI.
+Define a Gateway
+You must define a gateway in the DvSum GUI defining the details that you will use when you install the gateway. Navigate to Administration → Account → Gateway.
+Click on "Add" Button as shown in the image below. Provide the Web Service name, Host Name and Port (default 8183) and save it.
+This defines a Gateway with a unique communication key by which the gateway communicates with the DvSum web application.
+Keep track of the communication key; it will be required later during the installation.
+Launch PowerShell
+Navigate to Start, look for Windows PowerShell, then right-click and select "Run as Administrator."
+Navigate in PowerShell to the gateway folder
+# In this example, the gateway was unzipped in c:\dvsum_gateway
+cd c:\dvsum_gateway
+dir
+Non-interactive Installation
+The non-interactive mode proceeds automatically without the need for manual input during the process. Instead, you enter all relevant information into the two properties files before running the installation.
+Edit
+configuration.properties
+Set the value for
+API Key
+Confirm the value for
+Port
+Confirm the value for
+Python Port
+Review all other properties — in most cases, no updates are needed.
+version 1.3.8 or previous
+- api.key (copy from app.dvsum.com -> Account -> Gateway -> copy communication key of your gateway)
+- port (default value: 8183)
+- python.service.port (default value: 8185)
+version 2.0.0 or later
+- dvsum.apiKey (copy from app.dvsum.com -> Account -> Gateway -> copy communication key of your gateway)
+- dvsum.port (default value: 8183)
+- dvsum.pythonServicePort (default value: 8185)
+Edit
+ssl_config.properties
+The properties that you need to set in this file depend on the SSL option that you select when running the script.
+Generate a cert (SSL Option 1): complete sections 1 and 2.
+Add cert to existing keystore (SSL Option 2): complete sections 2 and 3.
+Add cert to new keystore (SSL Option 3): complete sections 2 and 3.
+Use existing keystore (SSL Option 4): complete section 2.
+Comments on section 2:
+Keystore Configuration
+These settings define how the Java keystore is configured for SSL support.
+For Gateway version
+1.3.8 and earlier
+# Settings for the Java keystore that will hold the SSL certificates
+keystore_path= # Typically left blank. It will be named based on the domain_name.
+keystore_pass= # Use a strong password.
+key_store_type= # Typically left blank. Defaults to JKS if not specified.
+alias= # Any name can be used. dvsum-gateway-cert is a good descriptive value.
+For Gateway version
+2.0.0 and above
+# 2. Keystore Configuration
+# ----------------------------------------
+# Settings for the Java keystore that will hold the SSL certificates
+dvsum.keystorePath= # Typically left blank. It will be named based on the domain_name.
+dvsum.keystorePass= # Use a strong password.
+dvsum.keyStoreType= # Typically left blank. Defaults to JKS if not specified.
+dvsum.alias= # Any name can be used. A descriptive alias like dvsum-gateway-cert is recommended.
+Launch the installer
+Use the following command to execute the gateway setup script and proceed with the installation and configuration of the DvSum Gateway automatically, without requiring any user interaction.
+# In this example, Generate a cert (SSL Option 1) is selected.
+.\dvsum_gateway_setup.bat --ssl-option=1 --non-interactive
+Note: On Windows, Python needs to be installed for the python service to be installed successfully.
+Validate the Gateway
+Follow these steps to verify if the installation succeeded.
+. Verify that the Gateway is accessible at: https://<your-domain>:<port>
+. Check the logs at ./logs/SAWS.log for any important messages
+Interactive Installation
+In an interactive installation the installer will prompt you for all options and all properties that you need to provide.
+Launch the installer
+Use the following command to access the gateway setup file and proceed with installing and configuring the DvSum Gateway.
+.\dvsum_gateway_setup.bat
+The help command displays all the necessary commands required to operate with the gateway.
+# Display detailed help
+.\dvsum_gateway_setup.bat help
+The API key and the Port Name are required, these must match the properties you used when defining the gateway above.
+SSL Configuration Option
+Four different options will be offered for SSL configuration. You will choose one of these options. All four options are explained below.
+Generate a new certificate
+Choice: 1
+If you do not have an SSL certificate already, choose this option. This is the most common option for new users.
+It will prompt you for all details needed to generate a certificate. Then it will generate a self-signed certificate that you can use immediately as well as a certificate signing request (CSR) that you can use to obtain a CA-signed certificate later.
+Add certificates to an existing keystore
+Choice: 2
+Use this option when you have a DvSum keystore from a previous installation and you have an updated certificate that you want to use.
+You will be prompted for the keystore location and password as well as the certificate location.
+How to Use Your CA-Signed Certificate:
+1. A CSR file is utilized to obtain a CA-signed certificate from a Certificate Authority, such as GoDaddy or Digicert.
+2. Once obtained, you will receive a folder containing the certificate, which includes four files as illustrated.
+3. Copy these files and place them in the DvSum folder.
+4. Once copied, open PowerShell and select option 2.
+5. Provide the path to the keystore (obtained in step 1).
+After successful execution, the results can be observed by browsing to the gateway.
+Create a new keystore with your certificate
+Choice: 3
+Use this option if you have a certificate and private key. The script will create a new keystore and save your certificate in the keystore.
+Use an existing keystore with certificate and private key
+Choice: 4
+Use this option if you already have a keystore fully configured with the appropriate SSL certificate. The script will update the DvSum gateway to use this keystore.
+All the information of the keystore is displayed and the user is asked if it's the correct keystore, configuration is completed accordingly.
+Uninstall the Gateway
+Use the following command to uninstall the gateway:
+# Uninstall the gateway
+.\dvsum_gateway_setup.bat uninstall
+Note:
+After uninstalling the previous gateway, proceed with the new dvsum_gateway_setup.bat file in order to install the latest gateway.
+Linux Installation
+Download the installer
+Use the link provided above. You can either download directly to the Linux server, or download to a desktop first and then upload to the Linux server. Your corporate firewalls and network policies will determine which is easier.
+Download directly
+The provided link redirects to the latest version of the download. As a best practice, it's good to determine what version of the installer you will download, and use that name when you save the file.
+# Simple curl command to see the redirected URL
+# Note the filename "DvSum_1.2.3.tar.gz" in the response
+curl "
+https://apis.dvsum.ai/admin/account/saws/download-gateway?env=linux&app=dc"
+# response:
+https://dvsum-app-data-prod.s3.amazonaws.com/connector/linux/DvSum_1.2.3.tar.gz?AWSAccessKeyId=ASI..
+.
+Now that we have the filename "DvSum_1.2.3.tar.gz" from the command above,
+# Using the filename "DvSum_1.2.3.tar.gz" from the previous output
+# Run curl using the same URL as above but with these additional parameters
+# -L to follow the redirect
+# -o to specify the downloaded filename
+curl -L -o DvSum_1.2.3.tar.gz "
+https://apis.dvsum.ai/admin/account/saws/download-gateway?env=linux&app=dc"
+Download to desktop first
+If you are unable to download directly to the Linux server, then you can download first to your desktop computer. From there upload to the Linux server using SCP or any other file transfer mechanism.
+Unzip the installer
+# Create a directory for the gateway
+mkdir /home/my_user/dvsum_gateway
+# Unzip the installer
+# In this example these directories are used:
+# /home/ubuntu/dvsum_installers
+# /home/ubuntu/dvsum_gateway
+cd /home/my_user/dvsum_gateway
+tar -vxzf ../dvsum_installers/DvSum_2.0.0.tar.gz
+Python
+Python3 must be installed. The installer will install the required packages. Administrators may optionally install these packages before running the installer.
+# Confirm Python version
+$ python --version
+Python 3.12.3
+# Install required packages manually (optional)
+cd
+/home/my_user/dvsum_gateway
+python3 -m venv ./python_service/venv
+./python_service/venv/bin/pip install --upgrade pip
+./python_service/venv/bin/pip install -r ./python_service/requirements.txt
+Non-interactive Installation
+The non-interactive mode reads all relevant information from two properties files during the installation. This is the most common installation method.
+Edit
+configuration.properties
+Set the value for
+api.Key
+Confirm the value for
+port
+Confirm the value for
+python.service.port
+Review all other properties — in most cases, no updates are needed.
+Note:
+For
+Gateway version 1.3.8 and below
+, use the property names as listed above (
+api.Key
+,
+port
+,
+python.service.port
+).
+For
+Gateway version 2.0.0 and above
+, use the updated property names:
+dvsum.apiKey
+dvsum.port
+dvsum.pythonServicePort
+Edit
+ssl_config.properties
+The properties that you need to set in this file depend on the SSL option that you select when running the script.
+Generate a cert (SSL Option 1): complete sections 1 and 2.
+Add cert to existing keystore (SSL Option 2): complete sections 2 and 3.
+Add cert to new keystore (SSL Option 3): complete sections 2 and 3.
+Use existing keystore (SSL Option 4): complete section 2.
+Comments on section 2:
+Keystore Configuration
+These settings define how the Java keystore is configured for SSL support.
+# 2. Keystore Configuration
+# ----------------------------------------
+# Settings for the Java keystore that will hold the SSL certificates
+dvsum.keystorePath= # Typically left blank. It will be named based on the domain_name.
+dvsum.keystorePass= # Use a strong password.
+dvsum.keyStoreType= # Typically left blank. Defaults to JKS if not specified.
+dvsum.alias= # Any name can be used. A descriptive alias like dvsum-gateway-cert is recommended.
+Launch the installer
+Use the following command to execute the gateway setup script and proceed with the installation and configuration of the DvSum Gateway automatically, without requiring any user interaction.
+# In this example, Generate a cert (SSL Option 1) is selected.
+./dvsum_gateway_setup.sh --ssl-option=1 --non-interactive
+Validate the Gateway
+Follow these steps to verify if the installation succeeded.
+. Verify that the Gateway is accessible at: https://<your-domain>:<port>
+. Check the logs at ./logs/SAWS.log for any important messages
+Interactive Installation
+In an interactive installation the installer will prompt you for all options and all properties that you need to provide.
+Launch the installer
+Use the following command to access the gateway setup file and proceed with installing and configuring the DvSum Gateway.
+./dvsum_gateway_setup.sh
+Appendix
+Using Port 443
+Most customers prefer to open the standard port for https, 443, rather than opening port 8183. The simplest way to achieve this is to simply redirect traffic from port 443 to port 8183.
+Ubuntu example
+# Add the iptables rule.
+sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8183
+# Install iptables-persistent if not already present.
+sudo apt-get update
+sudo apt-get install iptables-persistent
+# Save the current iptables rules
+# and ensure they start on reboot.
+sudo netfilter-persistent save
+sudo systemctl enable netfilter-persistent

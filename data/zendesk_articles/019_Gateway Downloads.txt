@@ -1,0 +1,12 @@
+Title: Gateway Downloads
+URL: https://dvsum.zendesk.com/hc/en-us/articles/24882110844692-Gateway-Downloads
+================================================================================
+
+To connect to a data source, you use either the DvSum web service or an on-premises gateway. Refer to the article
+DvSum Web Service vs On-Premises Gateway
+for details.
+If you're using an on-premises gateway, you'll need to download and install the gateway.
+All Gateway Downloads
+Data Catalog Linux
+Data Catalog Windows
+Data Quality Windows

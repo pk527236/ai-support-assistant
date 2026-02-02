@@ -1,0 +1,19 @@
+Title: Training of CADDI Agents
+URL: https://dvsum.zendesk.com/hc/en-us/articles/27022713765524-Training-of-CADDI-Agents
+================================================================================
+
+Training of Agents:
+In the CADDI Agent detail page, users can refine and enhance the agent's performance through the Training tab. This feature allows users to add and manage concepts that impact the agent's responses, as well as handle feedback to ensure continuous improvement. Here's a step-by-step guide on how to train your CADDI agent effectively.
+In the CADDI agent detail page, there is a Training tab where users can train the agent. From the Training tab, users can add different concepts that impact the results of CADDI. Users can add concepts as shown below:
+Go to the Training tab in the agent detail page and click on the 'Add Concept' button.
+Once the 'Add Concept' button is clicked, a modal will open where the user can add and save the concept.
+Once the user enters the concept, they need to set the scope of the concept. There are three scopes for concepts:
+Agent Level:
+By default, the concept is set at the Agent level. This means the concept will only be applied to questions asked within this specific agent.
+Source Level:
+This option can be selected if the concept needs to be added at the source level. This means the concept will be incorporated into all questions asked in any agent within this source.
+Account Level:
+If the concept needs to be added at the account level, this option can be selected. This will apply the concept to all agents within the entire account, making it a global scope.
+Once the scope of the concept is set, click on the Save button, and the concept will be added to the Training tab listing.
+.
+Moreover, when the user provides negative feedback on any of the question results, that feedback shows up in the Training listing as well. Users can edit and delete the feedback and concepts.

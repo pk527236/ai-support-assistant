@@ -1,0 +1,188 @@
+Title: Data Domains & Data Sub-Domains
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41940755917204-Data-Domains-Data-Sub-Domains
+================================================================================
+
+In this Article
+Overview
+Accessing Data Domains
+Adding a New Data Domain
+Mass Update Data Domain for Tables and Columns
+Mass Update Data Domain for DQ Rules
+Data Sub-Domain
+Accessing Data Sub-Domains
+Adding a New Data Sub-Domain
+Mass Update Data Sub-Domain
+Overview
+Data Domains help organize and manage data assets by grouping them into logical categories based on business or functional areas. Defining Domains and Sub-Domains makes it easier to manage ownership, improve governance, and maintain better visibility across all data.
+Accessing Data Domains
+Navigate to
+Administration > Organization
+.
+Click on
+Data Domains
+.
+The
+Data Domains
+page displays a list of all existing domains configured in the system.
+Adding a New Data Domain
+To create a new domain:
+Click the
+Add
+button.
+2. In the
+Add Domain
+form, provide:
+Domain Name
+Description
+Data Steward
+3. Select
+Enable Metadata Workflow
+to activate metadata management options.
+Metadata Workflow: Enabled
+The 'Workflow' dropdown under the 'Enable Metadata Workflow' section provides two available options:
+1. Anyone can approve – Any assigned approver can approve the metadata update.
+2. All need to approve – Every assigned approver must approve before publishing updates.
+Note:
+For complete details on governance roles and responsibilities, refer to the
+Data Governance Roles and Responsibilities
+article.
+Sub-Domain Selection
+The
+“Choose Sub-Domains”
+section allows the user to assign sub-domains to the new Data Domain.
+Click the
+Save
+button to save the domain. Then the newly added domain will appear at the top of the listing. An icon will indicate that the domain has the workflow enabled, as shown below.
+Steward that is selected while creating the Domain will be the one who will be editing the term and making the changes. Then changes will be sent for approval to the approver(s). Approver's job will be to review the changes made by the Steward and approve or reject them.
+For more information on the approving glossary terms, refer to the article
+Approving Business Glossary Terms
+.
+Mass Update Data Domain for Tables and Columns
+The
+Mass Update
+feature allows updating the Data Domain for multiple assets simultaneously across different modules, including:
+Asset Dictionary
+Database Tables
+Database Columns
+Step 1: Navigate to the Module
+Go to the module where the update needs to be applied:
+Asset Dictionary
+Database Tables
+Database Columns
+Step 2: Select the Records
+In the asset list, select the checkboxes next to the items to be updated.
+From the toolbar at the top, click
+Mass Update
+. A
+Mass Update
+dialog box will appear.
+Step 3: Configure the Update
+Make the necessary changes in the dialog box.
+Click
+Apply
+to confirm the update. A confirmation message will appear once the update is successful.
+The updated Data Domain will now be visible under the
+Data Domain
+column for all selected records.
+Note:
+Data Domains can also be assigned to multiple assets through
+relationships
+, similar to how it is done for rules, as described in the next section.
+Mass Update Data Domain for DQ Rules
+To update the data domains for multiple rules at once,
+Navigate to
+DQ Rules
+, select the rules wanted to update.
+Select the Relationship to add the data domains.
+3. Select the data domain that needs to added/updated.
+4. Click
+Apply
+.
+Note:
+Data Domains and Data Sub-Domains can be updated for multiple assets simultaneously using the
+Import
+feature. For more information, refer to the article
+Data Import
+.
+Data Sub-Domain
+The Data Sub-Domains section allows users to view, manage, and organize sub-domains associated with various data domains.
+Sub-Domains are logical subdivisions within Data Domain, used to organize datasets at a more granular level. They enable structured classification, enhance metadata traceability, and support precise governance across the data catalog
+Accessing Data Sub-Domains:
+To access the
+Data Sub-Domains
+page:
+Go to
+Administration
+>
+Organization.
+Click on
+Data Sub-Domains
+.
+Adding a New Data Sub-Domain
+To create a new Data Sub-Domain:
+Click on the
+Add
+button
+In the form, define:
+Classification
+Ownership
+Governance
+Choose the
+Priority
+level of importance from the dropdown options:
+•
+Normal
+– Default priority level.
+•
+High
+– Marks sub-domains requiring critical attention.
+•
+Low
+– Used for less significant domains.
+Once a domain is selected, the sub-domain will inherit the workflow settings from the domain. This means the sub-domain will have the same Workflow Type, Stewards, and Approvers as the parent domain. Click Save to save the sub-domain.
+Click
+Save
+.
+Note:
+If the workflow is enabled in Domain then its associated sub-domain will inherit all the domain's workflow settings. And if the workflow is disabled in Domain, then workflow can be enabled separately for the associated sub-domain.
+Approval & Access Behavior
+Domains can be assigned to user groups. When a domain is linked to a group, approval is considered complete as soon as
+any one
+member of that group approves it, even though the approval request is issued to all members.
+Note:
+Group-based approval is
+not supported
+when working with Import Data sources. For file imports, only
+individual users
+can be assigned and must approve.
+Mass Update Data Sub-Domain
+The
+Mass Update
+feature allows users to update
+Data Sub-Domain
+for Glossary Terms assets modules:
+Note:
+Sub-Domains can only be assigned to
+Glossary Terms
+. For
+Tables
+and
+Columns
+, Sub-Domains cannot be added separately. In the case of Columns, Sub-Domains are automatically inherited when a Glossary Term is associated with the column.
+Step 1: Go to Glossary Term and select the records for which Data Sub-domain needs update.
+Step 2: A
+Mass Update
+dialog box will appear.
+Step 3: Configure the Update.
+Step 4: Click
+Apply
+to confirm the update. A confirmation message will appear once the update is successful.
+Step 5: The updated
+Data Domain
+will now appear under the
+Data Domain
+column for all selected records.
+For more information on the approving glossary terms, refer to the article
+Approving Glossary Terms
+.
+Note: Users can edit the default Data Domain and Sub-Domain; however, they cannot delete them as these are system defaults.

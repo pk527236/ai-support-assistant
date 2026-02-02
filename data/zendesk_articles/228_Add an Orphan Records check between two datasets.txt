@@ -1,0 +1,18 @@
+Title: Add an Orphan Records check between two datasets
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360009027514-Add-an-Orphan-Records-check-between-two-datasets
+================================================================================
+
+Overview
+Orphan records are records that exist in one dataset but not in a corresponding dataset. For example, consider these three datasets: ORDERS_PLACED, ORDERS_SHIPPED, INVOICES. We may have a business requirement that any orders found in ORDERS_SHIPPED or in INVOICES must also be found in ORDERS_PLACED. If we ship an order but have no record of receiving the order, there is a discrepancy. The converse could also apply: if we have an order in ORDERS_PLACED but no corresponding record in INVOICES, this could also indicate a problem.
+You can perform this type of check using Orphan Records or Orphan Keys rules in DvSum.
+Detailed Steps
+Step 1. Manage Rules
+Login to DvSum and navigate to Audit → Manage Rules.
+Step 2. Orphan Records
+Select "⊕ Add Rule" → Foundational → Orphan Records.
+Step 3: Basic Input
+In the Rules Wizard, enter a description, e.g. "Validate that all ORDERS_SHIPPED appear in ORDERS_PLACED." Then fill in the Basic Input section with Data Source, Table Name, and Field Name corresponding to the table in which you want to search for orphan records.
+Step 4: Reference Input
+Fill in the Reference Input with Data Source, Table Name, and Field Name that you want to check against. The system will automatically select the columns with the same names. You can change them if appropriate.
+Step 5: Validate
+Save the rule. The rule definition will be displayed. Click Run to execute and test the rule.

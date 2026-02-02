@@ -1,0 +1,105 @@
+Title: Configuring Exception Settings for Rules in DvSum
+URL: https://dvsum.zendesk.com/hc/en-us/articles/39028423072916-Configuring-Exception-Settings-for-Rules-in-DvSum
+================================================================================
+
+In this article:
+Accessing the Exception Configuration Panel
+Exception Configuration Options
+Alerting Exception Files
+Exceptions to Include
+Email Recipients
+Enable Exception Tracing
+New Metadata Columns in the Data Tab
+The
+Exception Configuration
+panel provides greater control over how exceptions are managed in DvSum. By customizing these settings, users can streamline exception handling, reduce alert fatigue, and improve traceability.
+This article explains the purpose and functionality of the
+Exception Configuration
+panel and how to use it effectively.
+Accessing the Exception Configuration Panel
+To access the
+Exception Configuration
+panel:
+To configure exception settings for a rule:
+Navigate to the
+Dictionaries
+>
+DQ Rules
+.
+Choose a rule from the
+listing page
+.
+Go to the
+Data Quality
+tab.
+Click on
+Edit
+to open the rule settings.
+Select the
+Notifications
+section from the left panel.
+Scroll down to locate the
+Exception Configuration
+panel.
+Exception Configuration Options
+The
+Exception Configuration
+panel includes the following options:
+Alerting Exception Files
+When enabled, this option generates exception files during rule execution.
+These files can be used for auditing or further analysis.
+Exceptions to Include
+All Exceptions
+: Includes all exceptions identified during the rule run.
+New Exceptions Only
+: Includes only exceptions that are new since the last execution.
+Email Recipients
+Allows users to define who should receive exception alerts.
+You can select from default email groups or specify custom recipients.
+These recipients will receive the exception notification email when the rule is run.
+Enable Exception Tracing
+Enabling
+Exception Tracking
+is required to identify and differentiate between
+new
+and
+existing
+exceptions during rule execution.
+This feature uses a
+key field
+(e.g.,
+customer_id
+) to trace recurring exceptions across multiple runs. Once enabled, users can easily spot
+new exceptions
+, which are typically the primary focus during data quality reviews, along with the
+existing exceptions
+.
+Note:
+After enabling Exception Tracking and executing the rule, additional metadata columns will appear in the
+Data
+tab to support exception analysis.
+New Metadata Columns in the Data Tab
+When Exception Tracing is enabled, the following columns are added to the
+Exception Deep Dive
+view in the
+Data
+tab:
+DV First Observed
+– Timestamp of when the exception was first detected.
+DV Status
+– Indicates whether the exception is
+New
+or
+Existing
+.
+DV Age
+– Shows how long the exception has existed since it was first observed.
+These columns help users monitor exception trends and prioritize remediation efforts more effectively.
+Status
+filter has been added, allowing users to quickly switch between viewing
+All
+,
+New
+, or
+Existing
+exceptions.

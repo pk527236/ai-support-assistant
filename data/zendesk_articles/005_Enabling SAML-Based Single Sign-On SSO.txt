@@ -1,0 +1,104 @@
+Title: Enabling SAML-Based Single Sign-On (SSO)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/4403180875156-Enabling-SAML-Based-Single-Sign-On-SSO
+================================================================================
+
+In this Article:
+Overview
+Detailed Steps
+Step 1: Log in to Owner Account
+Step 2: Add Identity Provider
+Step 3: Download DvSum SP Metadata
+Step 4: Fill in Required Fields
+Step 5: Save and View IdP Listing
+Step 6: Enable SSO in Test Mode
+Step 7: Enable SSO in Live Mode
+Step 8: Adding Multiple Identity Providers
+Step 9: Disable SSO
+SAML Configuration to Okta
+Additional Reference: Microsoft Entra
+Overview
+SAML-based single sign on (SSO) gives members access to DvSum through an
+ identity provider (IdP) of your choice.
+SSO, or Single Sign-On, is a service for session and user authentication.
+ It enables users to use a single set of login credentials to access multiple
+ applications. This simplifies the management of various usernames and passwords
+ for both enterprises and individuals.
+DvSum enables you to secure your account by providing Web SSO capabilities
+ based on popular standards such as SAML-based identity provider, allowing
+ your enterprise user directory or third-party IdP to secure your applications
+ via standards-based security tokens.
+Certified identity providers:
+ADFS
+Microsoft Entra
+Okta
+OneLogin
+Detailed Steps
+Step 1: Log in to your Owner account
+Go to the Administration tab → Account → Click on SSO
+Step 2: Add Identity Provider
+Click the button "Add Identity Provider" to navigate to the following form.
+Step 3: Download DvSum SP Metadata
+Download the DvSum SP Metadata file and configure your IdP to add DvSum as
+ an application.
+Step 4: Fill in Required Fields
+Fill the form with all the required fields.
+Provider Name
+– Give a unique provider name in case you
+ have multiple IdP's. The Provider Name cannot be updated once configured.
+ Provider Name can only be alphanumeric, must be 3 to 32 characters long,
+ must start with a letter, and cannot have special characters or spaces.
+Identifier
+– This is your company's domain name, e.g. mycompany.com.
+IdP Metadata
+– This is the metadata information from your
+ Identity Provider. You can either provide a URL, or upload a local copy of
+ the metadata file.
+Attributes
+– DvSum requires one attribute:
+attribute: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
+value:
+Email
+Step 5: Save and View IdP Listing
+Click Save. You will be directed to the IdP Listing page.
+Step 6: Enable SSO in Test Mode
+When a user enables the SSO Toggle button, they will be prompted with a confirmation.
+ After clicking OK, SSO will be enabled in Test Mode.
+After clicking OK, SSO will be enabled in Test Mode.
+All administrators will receive an email notification informing them of this
+ change.
+Note:
+In Test mode, Single Sign-On applies only to administrators
+ who can test login using either corporate email ID or basic authentication
+ credentials. Super users and regular users continue to log in with basic
+ authentication.
+Step 7: Enable SSO in Live Mode
+After the Admin successfully verifies the SSO corporate login in Test mode,
+ they can enable SSO in Live mode.
+When SSO is made live, all active DvSum users will be required to use their
+ SSO credentials to sign in. Their existing DvSum passwords will be deleted.
+ An email notification will be sent to all active users.
+An email will be sent to all active users and they will no longer be able
+ to login using basic authentication.
+Step 8: Adding Multiple Identity Providers
+Add a new identifier and ensure it is different while keeping the Metadata
+ URL the same. Save the changes. Both domains should now work with SSO.
+Clicking "Sign in" will redirect to the identity provider (Okta).
+Once the user is verified by Okta, they will be logged in to the application.
+After Okta verifies the user, they will be logged into the application.
+Step 9: Disable SSO
+If the Owner turns off the SSO configuration from Manage Account, an email
+ will be sent to all users.
+Note:
+When Single Sign-On is disabled, all users will be
+ authenticated by the Basic Authentication process and will be required to
+ set up a password.
+SAML Configuration to Okta
+Please use the following
+link
+to configure SAML integration for your Okta application.
+Additional Reference: Microsoft Entra
+Reference:
+https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/add-application-portal-setup-sso
+Note: For more details on reset password refer
+How to Reset Password on the DI Platform
+article.

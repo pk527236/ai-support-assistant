@@ -1,0 +1,50 @@
+Title: SAP Writeback Configuration Setup For Writeback from Flat to Classification table Mapping
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360047799993-SAP-Writeback-Configuration-Setup-For-Writeback-from-Flat-to-Classification-table-Mapping
+================================================================================
+
+Scenario: Writeback from Flat to Classification table Mapping
+Step 1:
+In Order to Writeback to SAP Table using DB Source, First Verify the Record Identifiers are set for the SAP Table by Navigating to Profiling > Selected SAP Table > More Actions > Edit Configuration as shown below
+Now Verify the Record Identifier’s in the below location. If the Record Identifier’s are not set, please set them here and Save.
+Step 2:
+Now, navigate to the DB Source Table (Ex: DVSUM.VW_ZMAT_ATTRIBUTE_FLAT) as shown below for which User wants to create a rule and do the writeback to SAP Table (Ex: ZMAT_ATTRIBUTE).
+Step 3:
+Verify the Record Identifiers are same as the SAP Table. If not, please select the record Identifiers for DB Source Table (Ex: DVSUM.VW_ZMAT_ATTRIBUTE_FLAT)
+Step 4:
+Select the SAP Table (Ex: ZMAT_ATTRIBUTE) To which user needs to writeback using DB source Table (Ex: DVSUM.VW_ZMAT_ATTRIBUTE_FLAT) as shown below, and Click on “Next”
+Step 5:
+Map the Key Identifier columns and Write-back columns of DB Table and SAP Table by using below screen. Perform the mapping as shown the below screens.
+Here, As there are two Key Identifier’s(MATNR, ATTRIBUTE) in the Target (ZMAT_ATTRIBUTE) table, and in the source we have only one key identifier (MATNR_ARTICLE), The Field “ATTRIBUTE” is by default selected as Qualifier.
+In Case of ZMAT_ATTRIBUTE_FLAT table, there will be only One Writeback Column. That Field Needs to be selected under “Write Back Column Mapping Selection”.
+The “Qualifier Column Value” will be the “ATTRIBUTE” Column Value Where the Writeback will be performed in ZMAT_ATTRIBUTE table.
+Once the mapping is completed for the Required/All columns that are used in the rule, Save the mapping by clicking on “Save” button.
+Addition configuration for Custom Query
+Step 6:
+Starting from creating a custom query rule, go to Manage Rules, click on Add Rule button, select Process Quality from drop down options and lastly click on Custom Query
+as shown in image below
+Step 6:
+User will be redirected to Add Rule detail page. In Basic Input section, under Custom Query box you will see the
+Enable Write-back
+check box
+as shown in image below:
+Provide all the details for the Rule and Enable Write-back by clicking on the check box. Save the rule by clicking on “Save” button
+Step 7:
+Run the Rule First, then to setup the Writeback Configuration Fields.
+After running the rule, User will see the rule as below.
+Step 8:
+Setup the Record identifiers mapping by navigating to “Writeback Configuration” tab as shown below and click on “Next”
+Step 9:
+Setup the mapping for remaining columns as shown below. Click on check box under “Enable Write-back” column for the columns where we need to writeback the data. After Enabling Writeback, User can verify the configuration where the field is going to writeback if SAP configuration is available.
+Click on “Save” to save the configuration as shown below
+Step 10:
+Re-Run the Rule after Saving to see the Editable Fields and Cleanse Button.
+After the running the rule, now user can see the Cleanse button and Writeback Fields marked with colour.
+Step 11:
+Now, click on Cleanse Button, Modify the Data as shown below.
+After Modifying, Save the data. Here, user can see the Writeback is going to Perform on SAP Table (ZMAT_ATTRIBUTE)
+Step 12:
+Once the Save is done. Click on “Commit” button to writeback data into SAP Table.
+As soon as commit is pressed, user can see Job(s) are scheduled to perform the operation.
+Wait for the Jobs to complete by Navigating to Scheduler Page.
+13:
+Verify the changes on the Rule Page by refreshing the page Once the Job(s) are completed.

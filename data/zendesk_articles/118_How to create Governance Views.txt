@@ -1,0 +1,58 @@
+Title: How to create Governance Views
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10027321551380-How-to-create-Governance-Views
+================================================================================
+
+In this Article:
+Overview
+Create View
+Clone View
+Share View
+Saved View
+Delete View
+Export View
+Video Tutorial
+Overview:
+DvSum enables users to create views on the Data Dictionary, Field Dictionary, Analytics Dictionary, and Business Glossary. Let's begin exploring this functionality.
+Create View:
+Navigate to the Dictionaries > Data Dictionary option in the left menu. This will take the user to the Data Dictionary listing page, where the Default Table view is initially shown. Choose the option to create a view of your preference.
+On the "Create View" page:
+Provide view name
+Add/remove column for the view
+Specify criteria
+Note:
+The user will not be able to Edit/ Share and Save the default view. These buttons will remain disabled.
+The columns available in the current view will be automatically pre-selected.
+Multi-Sort
+You can now sort Governance Views using multiple columns. For example, first by
+Table Name
+and then by
+Assigned To
+.
+The
+Default Sort Order
+can be configured directly in the UI, as shown below:
+To apply multi-sort, hold the
+Ctrl
+key (or
+Cmd
+on Mac) and click on the columns you want to sort. Users will then see the rows ordered based on the hierarchy of columns selected, first by the primary column, then by the secondary, and so on.
+Example:
+Ctrl+Click on the Business Name column header now includes it in the sorting:
+Clone View:
+To create a clone of any view, users can click on the Edit pencil icon next to the view name. This action will reveal the clone button, allowing users to duplicate the selected view.
+Share View:
+The view can be shared with other users by granting "Editor" or "Viewer" access.
+Users with "Editor" access have the capability to Edit, Clone, Delete, Share, Save, and Export operations with a view.
+Users with "Viewer" access can perform Share, Save, and Export operations with a view.
+Saved View:
+The saved view will appear in the "Favourites" section of the views drop-down.
+Delete View:
+To delete a particular view, click on the Edit button, and you will find a delete button available.
+Export View:
+Simply click on the download button, and users can download the records available in the grid as an Excel file.
+Note
+:
+For details on refining views using filters, refer to the article:
+How to Apply Filters in Governance Views.
+Video Tutorial:
+Watch this quick video tutorial of how to create Governance Views:

@@ -1,0 +1,55 @@
+Title: Catalog, Profile & Lineage Scan on Data Sources
+URL: https://dvsum.zendesk.com/hc/en-us/articles/20310539391252-Catalog-Profile-Lineage-Scan-on-Data-Sources
+================================================================================
+
+In this Article:
+Introduction
+Catalog Scan
+Profiling
+Catalog & Profile Scans
+Catalog, Profile & Lineage Scans
+Scheduling a Job
+Special Cases for Certain Sources
+Introduction
+To get the data in the DvSum Catalog, the Data source should be Scanned from the database. The scanning process is divided further into three steps which are catalog scan,  profile scan & lineage scan. This article will show how to perform these three types of scans. Before moving further make sure that you know how to add a data source and how a source is authenticated. Here is the
+link
+to the article that shows how to add an Oracle Data source.
+Catalog Scan
+Cataloging the data source means that during the authentication there are some databases and schemas added and schemas further contain tables that have the data. When the source is authenticated then "Scan Now" button can be seen. When the "Scan Now" button is clicked it further shows two options:
+Profile
+Lineage
+When the user doesn't select any of the above options the "Catalog" scan will run automatically. Catalog scan will run in any case.
+When any source is scanned using the scan type "Catalog" then a job will be scheduled with the scan type "Catalog".
+The scan type can be will be shown in the job detail page.
+After few minutes the catalog step will be completed and the status will be changed from "Running" to "Completed".
+When the Scan is completed then scan information can be viewed by clicking on the "Job Execution ID". The scan results page shows us the total tables and columns that are scanned. The scan type is also mentioned on the Scan Results page.
+Go to the
+Dictionary
+dropdown o
+n the Database tables tab
+, the data sources that are newly scanned can be seen. Since the data source was "cataloged" so the tables will come but there will be no records in the tables and it can be verified by looking at the record count which will be empty.
+Profiling
+Only the columns in the tables are not useful until the data is not there so in order to bring data of the tables in the catalog, the table must be profiled. When any table is selected then "Run Profiling" button can be seen above.
+On clicking "Run Profiling" the tables will be profiled (all the data present in the tables will be fetched in the catalog) and a job will be scheduled.
+When the Job will be completed then all the tables will be profiled. On the Database Tables tab there will be record count for the tables that were profiled indicating that the data is now present in the tables:
+Note: Scan Results tab for the scan type "Profile" does not exist
+Catalog & Profile Scans
+When the source is authenticated then on the "Scan Now" button there is an option of "Profile" which is a combination of cataloging and profiling (full scan). It will bring the schemas and tables along with the data inside them in the catalog. Once the "Scan" button is clicked, a scan job will be created of the type "Catalog & Profile" will be created.
+Once the scan is completed, the scan details information can be seen by clicking on the Job ID  which will open up the job detail page which contains all the information related to the scan along with the scan type:
+Go to the
+Dictionaries
+dropdown o
+n the Database Tables tab, all the tables along with the data will be present in the catalog. Here we do not require profiling separately as it was done during the scan.
+It is to be noted that scan type "Catalog & Profile" basically brings all the schemas and tables present inside it along with the data. If the data for some tables is required then the source must be cataloged first and then profiling can be applied to specific tables.
+Catalog, Profile & Lineage Scans
+On the Scan Now button the user has the option of running "Lineage" scans with "Catalog" or the user can also run "Catalog", "Profile" and "Lineage" scans by checking all the checkboxes. Now along with the "Catalog" and "Profile" scan, the Lineage will also be rendered into the application. Once the user clicks on the Scan button the job will be created for "Catalog", "Profile" & "Lineage".
+Users can access the information related tothe  scan by clicking on the particular scan name.
+Scheduling a Job
+The above examples of scans are basically on-demand which means the moment the "Scan" button is clicked, a job will be created and start running but if there is a scenario in which scans are required to run daily or start from a specific date then scans can be scheduled. On the settings tab of the Data Source, the "General" tab contains scanning information, and on clicking "Edit", jobs can be scheduled and the user can mention the scan types:
+It is to be noted that only scan types "Catalog", "Catalog & Profile", "Catalog & Lineage" & "Catalog, Profile & Lineage" can be scheduled. The scan type "Profile" can not be scheduled for a particular time. On selecting the right scan type, the scan frequency, start, and end time can be selected according to the requirement. Once the information is saved, a job will be scheduled with the scan type that was selected:
+Special Cases for Certain Sources
+In our application, there are some sources that don't have the option of separate "Catalog" & "Profile" and "Catalog" & "Lineage. For these sources on the "Scan Now" button on Data sources, there will be no drop-down appearing asking for selecting scan type. In these sources, the scan type will be "Catalog & Profile" or "Catalog" & "Lineage" by default. These 4 sources are:
+Azure Data Lake Storage (Catalog & Profile scan available)
+Power BI (Catalog & Lineage scan available)
+Tableau (Catalog & Lineage scan available)
+File Upload (Catalog & Profile scan available)

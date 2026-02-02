@@ -1,0 +1,100 @@
+Title: Configure IBM Db2 as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/29763482203028-Configure-IBM-Db2-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Prerequisites
+Step-by-Step Configuration
+Step 1: Add IBM Db2 as a Source
+Step 2: Configure the Connection
+Step 3: Save the Connection
+Step 4: Scan the Data Source
+Browsing the Data Catalog
+Troubleshooting & FAQs
+Additional Resources
+Overview
+This article describes the steps needed to configure IBM Db2 as a source in DvSum Data Insights (DI). The same steps apply to configure a source in DvSum Data Qualtiy (DQ) with only a slight variation.
+Prerequisites
+IBM DB2 configuration
+User
+: Create a user to be used in DvSum, or identify an existing user.
+Table permissions
+: Grant read-only access to the user for schemas and tables that you would like to catalog and profile.
+System table permissions:
+Grant read-only access to the user for the following system tables:
+SYSIBM.SYSDUMMY1
+SYSCAT.SCHEMATA
+SYSCAT.TABLES
+SYSCAT.COLUMNS
+SYSCAT.KEYCOLUSE
+SYSCAT.REFERENCES
+SYSCAT.TABCONST
+Step-by-Step Configuration
+Step 1: Add IBM Db2 as a Source
+Navigate to: Administration → Data Sources → Add Source (+).
+Select: IBM Db2.
+Enter a Name for the source.
+Click Save.
+Step 2: Configure the Connection
+Once the source is saved, you will be redirected to the connection settings detail page.
+Most common
+: Connect Using DvSum Web Service
+Whitelist the DvSum application by IP address as indicated. Then enter the required connection information:
+Hostname
+Port
+Database
+DB Login & Password
+Alternative
+: You may
+install a DvSum Edge Gateway
+behind your firewall. Then connect to your IBM Db2 instance using this web service installed on premises. Read more details in
+DvSum Web Service vs On-Premises Edge Gateway
+.
+After entering the credentials, Authenticate the source.
+Once the source is Authenticated, the Database section will appear.
+Select the schemas which you want to catalog.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+3. Save the Connection
+Scroll up and click the Done button.
+Click Save to finalize the configuration.
+4. Scan the data source
+Go to the Settings page or Scan History.
+Click Scan Now.
+When the scan completes, the status will change to "Completed".
+After the scan completion, click on Scan Name (SCN-001071 in the above example) and it will open the Scan Summary page of this scan.
+The Scan Summary page displays all the insights of the scan. It indicates how many new tables and columns are fetched in this scan.
+Your IBM Db2 connection is now fully configured and functional.
+Browsing the Data Catalog
+To analyze discovered tables and columns:
+Navigate to the Data Dictionary from the left sidebar.
+Click on the Recently Refreshed tab.
+Select a table name to see its details
+Troubleshooting & FAQs
+Common Issues & Solutions
+Issue
+Possible Solution
+Connection test fails
+Ensure the hostname, port, and firewall rules allow DvSum access.
+Invalid credentials error
+Verify the username and password. Ensure the user has read permissions.
+FAQs
+Q:
+Can I connect multiple IBM Db2 instances to DvSum?
+A:
+Yes, repeat the steps to add additional sources.
+Q:
+How do I verify if the connection is successful?
+A:
+Run a test query in IBM Db2 before connecting: SELECT * FROM SYSIBM.SYSDUMMY1;
+Q:
+What should I do if my scan doesn’t return any tables?
+A:
+Ensure the user has access to the required schemas and tables.
+Additional Resources
+Read more about
+DvSum Web Service vs On-Premises Gateway
+Read more about
+Gateway Installation

@@ -1,0 +1,96 @@
+Title: Configure MongoDB as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/17494822453524-Configure-MongoDB-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Step-by-Step Configuration
+Add MongoDB as a Data Source
+Configure Connection
+Save the Connection
+Running a Data Scan
+Start a Scan
+Review Scan Results
+Browsing the Data Catalog
+Additional Resources
+Overview
+Integrating
+MongoDB
+with
+DvSum
+allows users to query NoSQL data, perform analytics, and enforce data governance. This guide provides step-by-step instructions for configuring
+MongoDB
+as a data source in
+DvSum
+.
+Step-by-Step Configuration
+1. Add MongoDB as a Data Source
+Navigate to
+Administration → Data Sources → ⊕ Add Source
+.
+Select
+MongoDB
+from the list of available sources.
+2. Configure Connection
+Once the source is saved, you will be redirected to the connection settings detail page.
+Most common
+: Connect Using DvSum Web Service
+Whitelist the DvSum application by IP address as indicated. Then enter the required connection information:
+Host
+Port
+Instance Name
+DB Login
+DB Password
+Alternative
+: You may
+install a DvSum Edge Gateway
+behind your firewall. Then connect to your SQL Server instance from this web service installed on premises. Read more details in
+DvSum Web Service vs On-Premises Edge Gateway
+.
+After entering the credentials, Authenticate the source.
+Once the source is Authenticated, the Database section will appear.
+3. Save the Connection
+After credentials are authenticated and the database is selected, then you must save the source. For that, scroll up to the top. From the top right corner click the “Done” button.
+After that click the “Save” button.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Running a Data Scan
+1. Start a Scan
+Navigate to
+Scan History
+.
+Click
+Scan Now
+.
+The scan will initiate, creating a job to fetch data from
+MongoDB
+.
+2. Review Scan Results
+Once the scan completes, the status will change to
+Completed
+.
+Click on the
+Scan Name
+to open the
+Scan Summary
+page.
+The
+Scan Summary
+displays:
+Number of new tables and columns fetched.
+Data insights and schema updates.
+When the scan completes, the status will change to "Completed".
+After the scan completion, click on Scan Name and it will open the Scan Summary page for this scan.
+The Scan Summary page displays all the insights of the scan. It indicates how many new tables and columns are fetched in this scan.
+Your MongoDB connection is now fully configured and functional.
+Browsing the Data Catalog
+Navigate to the Data Dictionary on the left sidebar.
+Click on the Recently Refreshed tab to view tables discovered in the recent scan.
+Click on table names to see detailed metadata and structure.
+Watch this quick video tutorial of how to add and configure an Mongo DB source into DvSum app.
+Additional Resources
+Read more about
+DvSum Web Service (Cloud SAWS)
+Read more about
+DvSum Edge Gateway (On-Premises SAWS)

@@ -1,0 +1,64 @@
+Title: How to Configure Email Notifications ?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360045674733-How-to-Configure-Email-Notifications
+================================================================================
+
+In DvSum, there are multiple modules which send emails to notify information about respective modules. Most popular modules are Job Scheduling (Rules, Profiling, Batch), Data Quality Workflows and Data Management workflows. Previously, there was no control defined at account level for these emails to be received. With Email Optimization, we will be giving the control on user profile page (click user name at top right corner + click Profile option in the drop-down to navigate to User Profile) to set the frequency of the Notification Alert type.
+You will be provided with the notification settings on the profile page through which respective flags can be controlled.
+Notifications settings are segregated into following parts
+Notification Frequency
+Notification Type
+Notification Frequency
+Instant:
+Notifications will be received as they were previously. Emails will be received right away as the event gets completed.
+Hourly:
+Notifications will be received on the hourly basis i.e all the set of actions performed in previous hour will be consolidated in a single email and then sent to the respective user. No emails will be received instantly then.
+Daily:
+Notifications will be received on the daily basis i.e all the set of actions performed in previous day will be consolidated in a single email and then sent to the respective user. No emails will be received instantly or hourly then.
+Never:
+Notifications will never be received on setting Never as frequency from the list.
+Notification Type
+There are five standard notification types in DvSum application. Below are the details for each notification type.
+Data Management Workflow Notifications
+Enable to receive the following notifications for data management workflows
+Workflow Initiation Request
+:
+Enable to receive notification whenever new Workflow request is started
+Workflow Completion
+:
+Enable to receive notification whenever workflow gets finished
+Workflow Cancellation
+:
+Enable to receive notification whenever workflow gets cancelled
+Workflow Step Assignment
+:
+Enable to receive notification whenever step is assigned to you
+Workflow Step Assignee Changed
+:
+Enable to receive notification whenever step is reassigned to someone else
+Workflow Consecutive Steps
+:
+Enable to receive notification to your further next step
+Workflow Step Rejection
+:
+Enable to receive notification whenever step assigned to you gets rejected
+Data Quality Workflow Notifications
+Enable to receive notifications for data quality workflows
+On proceeding to your own next step
+:
+Enable to receive notification when you are assigned to in the next step
+Scheduled Rule Email Notifications
+Enable to receive scheduler rule email notifications
+Receive Email only with Exceptions
+:
+Enable to receive notification with exception rule only
+Scheduled Batch Email Notifications
+Enable to receive scheduler batch email notifications
+Receive Email only with Exceptions
+:
+Enable to receive batch notification with exception rules only
+Scheduled Profiling Email
+Enable to receive schedule profile email notifications
+Add on Feature - Receive Job Email as Creator
+There was a request from our customer that they do not want to receive the email if they have scheduled a job unless they are explicitly added in the job as an internal recipient. So if it is disabled and you schedule a job with yourself added as recipient in that job, you will not be receiving the job completion email.
+Enable to receive schedule email if you create the job.
+Note: If you are the job creator and you have turned off the notification and added external user in that job, the external user will not be receiving the job completion email. The resolution is that you must have to select at-least one internal user in that job.

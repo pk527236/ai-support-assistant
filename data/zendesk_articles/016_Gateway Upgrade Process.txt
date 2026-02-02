@@ -1,0 +1,142 @@
+Title: Gateway Upgrade Process
+URL: https://dvsum.zendesk.com/hc/en-us/articles/30864921622676-Gateway-Upgrade-Process
+================================================================================
+
+In this Article
+Detailed Steps for Gateway Upgrade
+Preparation
+Configuration
+Installation
+Notes on Certificate Handling
+Detailed Steps for Gateway Upgrade
+1. Preparation
+Step 1: Download the New Gateway Version
+Download the latest gateway version.
+DvSum Gateway Installer Links
+.
+Step 2: Uninstall the Current Gateway Service
+Before installing the new gateway, uninstall the existing version to prevent conflicts. Use the following command to uninstall the service:
+# Windows
+.\dvsum_gateway_setup.bat uninstall
+# Linux
+./dvsum_gateway_setup.sh uninstall
+Step 3: Verify Uninstallation
+Ensure the service is no longer running:
+# Windows
+.\dvsum_gateway_setup.bat status
+# Linux
+./dvsum_gateway_setup.bat status
+Step 4: Backup the Previous Version
+Move the current gateway folder to create a backup:
+# Windows
+Rename the existing dvsum_gateway directory to <dvsum_gateway_1.2.3>
+# Linux
+mv
+dvsum_gateway/ dvsum_gateway_1.2.3/
+2. Configuration
+Windows
+Step 1: Set up a New Folder for the Latest Gateway
+Create a new folder for the latest gateway files.
+Step 2: Extract the Gateway Files
+Extract the downloaded .zip file to the new folder. Avoid using the Downloads folder.
+Step 3: Migrate Previous Settings
+For Gateway version
+1.3.8 and earlier
+You can
+copy the configuration and SSL files directly
+from the old gateway folder to the new one:
+configuration.properties
+ssl_config.properties
+If you are using a CA-signed certificate, also transfer the relevant certificate or keystore files:
+cp
+dvsum_gateway_1.2.3/my_domain.jks dvsum_gateway_1.2.4/my_domain.jks
+For Gateway version
+2.0.0 and above
+Do
+not
+copy the configuration files from an older version (e.g.,
+1.x.x
+).
+Instead, manually create new
+configuration.properties
+and
+ssl_config.properties
+files and populate them using the updated format.
+Note:
+Configuration files can only be copied when upgrading
+within the same minor version range
+(e.g., from 2.0.x to another 2.0.x version).
+Step 4: Migrate existing scan and chat information
+Copy the data_analysis folder from the old installation to the new one.
+Copy the dq_analysis folder from the old installation to the new one.
+Copy the scan_output folder from the old installation to the new one.
+Not all installations have all of these folders. Copy the folders that you have, but it's fine if you do not have all of them.
+Linux
+Step 1: Set up a New Folder for the Latest Gateway
+Create a new folder for the latest gateway installation:
+mkdir
+dvsum_gateway
+Step 2: Extract the Gateway Files
+Extract the .tar.gz file into the newly created folder:
+tar -xzf dvsum_gateway_latest.tar.gz -C dvsum_gateway/
+Step 3: Migrate Previous Settings
+For Gateway version
+1.3.8 and earlier
+You can
+copy the configuration and SSL files directly
+from the old gateway folder to the new one:
+configuration.properties
+ssl_config.properties
+If you are using a CA-signed certificate, also transfer the relevant certificate or keystore files:
+cp
+dvsum_gateway_1.2.3/my_domain.jks dvsum_gateway_1.2.4/my_domain.jks
+For Gateway version
+2.0.0 and above
+Do
+not
+copy the configuration files from an older version (e.g.,
+1.x.x
+).
+Instead, manually create new
+configuration.properties
+and
+ssl_config.properties
+files and populate them using the updated format.
+Note:
+Configuration files can only be copied when upgrading
+within the same minor version range
+(e.g., from 2.0.x to another 2.0.x version).
+Step 4: Migrate existing scan and chat information
+Copy the data_analysis folder from the old installation to the new one.
+Copy the dq_analysis folder from the old installation to the new one.
+Copy the scan_output folder from the old installation to the new one.
+Not all installations have all of these folders. Copy the folders that you have, but it's fine if you do not have all of them.
+3. Installation
+Windows
+After setting up the new gateway and transferring the necessary files, install the gateway:
+.\dvsum_gateway_setup.bat install --ssl-option=4 --non-interactive
+Next, start the gateway:
+Open PowerShell in Administrator mode.
+Navigate to the gateway folder:
+cd
+c:\dvsum_gateway
+Run the install command:
+.\dvsum_gateway_setup.bat install
+Linux
+To complete the installation and start the gateway on Linux:
+./dvsum_gateway_setup.sh install --ssl-option=4 --non-interactive
+Notes on Certificate Handling
+For
+self-signed certificates
+, if you don’t need to retain previous settings, you can follow the general installation steps in the Gateway Installation article.
+For
+CA-signed certificates
+, it’s recommended to reuse the same keystore to avoid reconfiguring the private key and related settings. Simply copy the keystore from the previous installation to the new gateway folder to maintain secure communication.
+Final Remarks
+Ensure that
+configuration.properties
+and
+ssl_config.properties
+are correctly migrated/configure.
+Keeping a backup of the previous version is recommended to avoid potential issues with SSL configurations or other settings.
+For CA-signed certificates, reusing the existing keystore simplifies the process, avoiding the need to track down the private key.

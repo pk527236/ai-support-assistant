@@ -1,0 +1,12 @@
+Title: Scheduler not executing jobs / error in SAWS.log related to SUN PKIX Path Building Failed
+URL: https://dvsum.zendesk.com/hc/en-us/articles/221853427-Scheduler-not-executing-jobs-error-in-SAWS-log-related-to-SUN-PKIX-Path-Building-Failed
+================================================================================
+
+Root-cause
+This is related to DvSum Web Service (SAWS) not able to make a secure HTTPS connection to DvSum Cloud. This issue occurs due to local java not recognizing the root certificate authority (CA).  By default Java Security configuration exists under JRE and not under JDK.
+Resolution
+Execute SAWS using JRE instead of JDK
+Steps
+1. On the machine (laptop, server) where SAWS is running, open Computer Properties --> Advanced Properties --> Environment Variables
+2. Add JAVA_HOME\jre\bin to the beginning of the path
+3. If you are using SAWS as a service, stop and re-start the Service. If you manually started SAWS, end the Java Process in Task Manager and re-start by double-clicking on DvSum.jar

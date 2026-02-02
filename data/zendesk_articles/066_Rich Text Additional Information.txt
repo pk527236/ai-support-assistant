@@ -1,0 +1,36 @@
+Title: Rich Text Additional Information
+URL: https://dvsum.zendesk.com/hc/en-us/articles/19188186862996-Rich-Text-Additional-Information
+================================================================================
+
+In this Article
+Introduction
+Accessing Additional Info tab for Tables
+Accessing Additional Info tab for Terms
+Introduction
+DvSum allows its users to add additional information to the Table Detail page and Glossary Detail page. Although this feature already existed, in order to increase the capability of the feature, enhancements have been made, which are discussed in this article.
+Accessing Additional Info tab for Tables
+The Table Detail Page can be accessible through the Database Tables from the left menu, and it can be opened by clicking on the Table name.
+Once the Table Detail Page is opened, the user can perform different tasks like "
+Edit
+" the changes in the Table.
+Once the "
+Edit"
+button is clicked, the Table detail page changes to edit mode. Additional Information can be found by scrolling downwards.
+Once the user clicks the Edit icon on Additional Info, the text editor will open up, and just like any text editor, it has options like selecting different font families and font sizes, changing font colors, adding numbering to the text, etc.
+Any necessary additional information regarding the table can be added here according to the requirement of the user.
+Once the information is added, the user can click on the blue arrow icon on the bottom right to add the additional information.
+After incorporating the information, it will be included as an item. At this point, the user can choose to edit the newly added information or remove it. Additionally, the user has the option to append another additional info item if desired
+. If the user has added the additional info item that is/are required, then the user can click on the "tick" button on the top right:
+If the user chooses to publish the changes, the added information becomes part of the table. Conversely, if the user discards the changes, the additional information will not be included in the table.
+Note:
+For more information on Table detalied page, refer to the article "
+Table Detail Page"
+Accessing Additional Info tab for Terms
+Just like the Table detail page, the term detail page can be opened from the Business Glossary tab from the left menu:
+Once the detail page is opened, the user can enter the edit mode by clicking the "
+Edit
+" button, and additional info can be found by scrolling downwards. Users can add the required additional info:
+Once the user has added the information, they can publish the changes:
+If workflow is enabled for a term, instead of "Publish," the user will see "Submit for Approval." So, to finalize the changes, approval from the designated approver is necessary before publishing the term.
+For more information about the workflow of terms, go through the article
+here.

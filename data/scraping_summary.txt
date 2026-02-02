@@ -1,0 +1,715 @@
+Zendesk Scraping Summary
+================================================================================
+
+Scraped at: 2026-01-29 13:21:37
+Total articles: 236
+
+Articles:
+1. DvSum AWS PrivateLink Setup (Customer Guide)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/43220623721876-DvSum-AWS-PrivateLink-Setup-Customer-Guide
+
+2. IP Allow List
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/42943305742612-IP-Allow-List
+
+3. Audit Trail Logs
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/42333972028436-Audit-Trail-Logs
+
+4. Configure SAML for Okta
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35305937125268-Configure-SAML-for-Okta
+
+5. Enabling SAML-Based Single Sign-On (SSO)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/4403180875156-Enabling-SAML-Based-Single-Sign-On-SSO
+
+6. Power BI Source Permissions
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41264497137684-Power-BI-Source-Permissions
+
+7. Azure SQL & Azure Synapse Analytics User Setup and Query Store Configuration for Metadata Extraction
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41243166846740-Azure-SQL-Azure-Synapse-Analytics-User-Setup-and-Query-Store-Configuration-for-Metadata-Extraction
+
+8. Configure File Upload as a Data Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35169298078356-Configure-File-Upload-as-a-Data-Source
+
+9. Configure Amazon S3 as a Data Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/32779279948052-Configure-Amazon-S3-as-a-Data-Source
+
+10. Configure Netezza as a Data Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/31133806684948-Configure-Netezza-as-a-Data-Source
+
+11. Configure IBM Db2 as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/29763482203028-Configure-IBM-Db2-as-a-Source
+
+12. Data Governance Roles and Responsibilities
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41098426049172-Data-Governance-Roles-and-Responsibilities
+
+13. Default Roles Access Matrix
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/32742836074516-Default-Roles-Access-Matrix
+
+14. User Role and Module Settings
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/17327470244244-User-Role-and-Module-Settings
+
+15. Manage Users
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/203082210-Manage-Users
+
+16. SSL Certificate Types Supported for Gateway Installation
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/45315196278804-SSL-Certificate-Types-Supported-for-Gateway-Installation
+
+17. Gateway Upgrade Process
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/30864921622676-Gateway-Upgrade-Process
+
+18. DvSum Gateway Installer Links
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/29756078237460-DvSum-Gateway-Installer-Links
+
+19. Gateway Installation
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/29188280659988-Gateway-Installation
+
+20. Gateway Downloads
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/24882110844692-Gateway-Downloads
+
+21. Sample Data and On-Premises Gateway
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/23896259032596-Sample-Data-and-On-Premises-Gateway
+
+22. Configure Azure Databricks (Service Principal Access)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/22643550730132-Configure-Azure-Databricks-Service-Principal-Access
+
+23. Scan Logs
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/21582531523348-Scan-Logs
+
+24. Catalog, Profile & Lineage Scan on Data Sources
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/20310539391252-Catalog-Profile-Lineage-Scan-on-Data-Sources
+
+25. Configure Salesforce as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/19345773418388-Configure-Salesforce-as-a-Source
+
+26. Configure MongoDB as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/17494822453524-Configure-MongoDB-as-a-Source
+
+27. Configure PostgreSQL as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/12597290833172-Configure-PostgreSQL-as-a-Source
+
+28. Configure Databricks as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/11918822204436-Configure-Databricks-as-a-Source
+
+29. Configure Tableau as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10713006510868-Configure-Tableau-as-a-Source
+
+30. Configure MySQL as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10636157522708-Configure-MySQL-as-a-Source
+
+31. Configure Azure SQL & Azure Synapse Analytics
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10636132296852-Configure-Azure-SQL-Azure-Synapse-Analytics
+
+32. Configure Snowflake as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10627532986004-Configure-Snowflake-as-a-Source
+
+33. Configure Microsoft SQL Server as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10618954602004-Configure-Microsoft-SQL-Server-as-a-Source
+
+34. Configure Oracle as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10583264674836-Configure-Oracle-as-a-Source
+
+35. Configure Microsoft Power BI as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/8960509886868-Configure-Microsoft-Power-BI-as-a-Source
+
+36. Supported Connectors/Data Sources
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/6067542488724-Supported-Connectors-Data-Sources
+
+37. DvSum Web Service vs On-Premises Gateway
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/16448743421716-DvSum-Web-Service-vs-On-Premises-Gateway
+
+38. DvSum Edge Gateway Installation (SAWS) for Data Catalog and CADDI on Linux
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/14609957062164-DvSum-Edge-Gateway-Installation-SAWS-for-Data-Catalog-and-CADDI-on-Linux
+
+39. DvSum API Access and Authentication Management
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41740390031764-DvSum-API-Access-and-Authentication-Management
+
+40. Logical View
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/44352096354964-Logical-View
+
+41. Getting Started with Custom Assets and Attributes in DvSum DI
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/38888864440340-Getting-Started-with-Custom-Assets-and-Attributes-in-DvSum-DI
+
+42. Managing Custom Assets in DvSum
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/38663390098964-Managing-Custom-Assets-in-DvSum
+
+43. Creating and Managing Custom Attributes
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/38568362581908-Creating-and-Managing-Custom-Attributes
+
+44. Assets Dictionary
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35793716144532-Assets-Dictionary
+
+45. Executing Jobs via API
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/30417646570132-Executing-Jobs-via-API
+
+46. Creating a new Job
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/27001229007380-Creating-a-new-Job
+
+47. Data Exclusion Policy
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/39824964543764-Data-Exclusion-Policy
+
+48. Data Classification
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/39292360682900-Data-Classification
+
+49. Data Security Admin
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/22680186312468-Data-Security-Admin
+
+50. Differentiating Empty & Nulls Strings
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/36505019344532-Differentiating-Empty-Nulls-Strings
+
+51. Data Quality Overview
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/23520582795924-Data-Quality-Overview
+
+52. Pivot View Configuration in Data Quality Rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/44369988407572-Pivot-View-Configuration-in-Data-Quality-Rules
+
+53. Cross-System DQ - Reconciliation Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/44350372876308-Cross-System-DQ-Reconciliation-Rule
+
+54. Jira Integration for DQ Rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41467238935700-Jira-Integration-for-DQ-Rules
+
+55. Configuring Exception Settings for Rules in DvSum
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/39028423072916-Configuring-Exception-Settings-for-Rules-in-DvSum
+
+56. Foundational Data Quality - Uniqueness Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35889122920468-Foundational-Data-Quality-Uniqueness-Rule
+
+57. Access DQ Rule information via REST API
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/33018039015828-Access-DQ-Rule-information-via-REST-API
+
+58. Reference Dictionary with Value Range/Ruleset Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/28703505711636-Reference-Dictionary-with-Value-Range-Ruleset-Rule
+
+59. Reference Dictionary
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/28688102882196-Reference-Dictionary
+
+60. Dashboard and Widgets
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/30481164045588-Dashboard-and-Widgets
+
+61. Table Detail Page
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/42041709770772-Table-Detail-Page
+
+62. Enabling Query History for Data Sources
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/33861396141076-Enabling-Query-History-for-Data-Sources
+
+63. Lineage in DvSum
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/33694180953108-Lineage-in-DvSum
+
+64. Run Online & Run Offline
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/27004996852500-Run-Online-Run-Offline
+
+65. Entity Relationship Diagram - ERD
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/19960718695700-Entity-Relationship-Diagram-ERD
+
+66. Rich Text Additional Information
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/19188186862996-Rich-Text-Additional-Information
+
+67. Entity Field Format in the Field Dictionary Template
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/36407279883156-Entity-Field-Format-in-the-Field-Dictionary-Template
+
+68. Database Columns
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/34934067464084-Database-Columns
+
+69. Glossary Term
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35943193733396-Glossary-Term
+
+70. How to Sign Up for DvSum Data Catalog
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/15389497274260-How-to-Sign-Up-for-DvSum-Data-Catalog
+
+71. An Overview of Usage Analytics
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/8596413680020-An-Overview-of-Usage-Analytics
+
+72. Asset and Glossary Status Lifecycle
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/43341691915668-Asset-and-Glossary-Status-Lifecycle
+
+73. Visualizing Agent Questions on Dashboard
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/43031984347924-Visualizing-Agent-Questions-on-Dashboard
+
+74. Enterprise Search
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/42822153397908-Enterprise-Search
+
+75. Data Domains & Data Sub-Domains
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41940755917204-Data-Domains-Data-Sub-Domains
+
+76. How to Apply Filters in Governance Views
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/40953420948884-How-to-Apply-Filters-in-Governance-Views
+
+77. Exception Storage Integration for Rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/39857375831956-Exception-Storage-Integration-for-Rules
+
+78. Rule Detail page
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/26973748320532-Rule-Detail-page
+
+79. Adaptive Thresholds
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18139200580116-Adaptive-Thresholds
+
+80. Clone Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/27010646948884-Clone-Rule
+
+81. Column Sequencing
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/26980095608596-Column-Sequencing
+
+82. Cross-System DQ - Compare Schema Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25404616533524-Cross-System-DQ-Compare-Schema-Rule
+
+83. Cross-System DQ - Compare Metric Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25404439140372-Cross-System-DQ-Compare-Metric-Rule
+
+84. Cross-System DQ - Orphan Keys Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25403824473364-Cross-System-DQ-Orphan-Keys-Rule
+
+85. Cross-System DQ - Orphan Records Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25403704015636-Cross-System-DQ-Orphan-Records-Rule
+
+86. Pipeline Checks - Metric Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25247261939604-Pipeline-Checks-Metric-Rule
+
+87. Pipeline Checks - Freshness rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25246892783380-Pipeline-Checks-Freshness-rule
+
+88. Pipeline Checks - Count Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25246624213396-Pipeline-Checks-Count-Rule
+
+89. Foundational DQ - Ruleset
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25246448647828-Foundational-DQ-Ruleset
+
+90. Foundational DQ - Custom Query
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25211951751060-Foundational-DQ-Custom-Query
+
+91. Foundational DQ - Unique Values Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25211808095892-Foundational-DQ-Unique-Values-Rule
+
+92. Foundational DQ - Value Range Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25211047471124-Foundational-DQ-Value-Range-Rule
+
+93. Foundational DQ - Data Format Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25210951110420-Foundational-DQ-Data-Format-Rule
+
+94. Foundational DQ - Blanks Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25210423692564-Foundational-DQ-Blanks-Rule
+
+95. How is DQ Score calculated for rules?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/27005589675796-How-is-DQ-Score-calculated-for-rules
+
+96. Post-Import Steps for Workflow-Enabled Domains
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/39826074221332-Post-Import-Steps-for-Workflow-Enabled-Domains
+
+97. Post-Import Steps for Non-Workflow Domains
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/39824926810644-Post-Import-Steps-for-Non-Workflow-Domains
+
+98. Usability Score
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/37654166387860-Usability-Score
+
+99. Configure Amazon S3 permissions: Use Existing Resources (Limited Permissions)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/37053578369684-Configure-Amazon-S3-permissions-Use-Existing-Resources-Limited-Permissions
+
+100. How to Configure External Recipients & Whitelist Domains
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/37016421057428-How-to-Configure-External-Recipients-Whitelist-Domains
+
+101. How to set the exception record limit for rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/37016023734036-How-to-set-the-exception-record-limit-for-rules
+
+102. How to Reset Password on the DI Platform
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/36793238343060-How-to-Reset-Password-on-the-DI-Platform
+
+103. How to Link Terms to Columns
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/36043768656020-How-to-Link-Terms-to-Columns
+
+104. How to Manage Relationships Between Assets
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35968933714196-How-to-Manage-Relationships-Between-Assets
+
+105. How to Execute Selective Rules in DvSum
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35301308681876-How-to-Execute-Selective-Rules-in-DvSum
+
+106. How to re-set password after disabling SSO?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35213710872468-How-to-re-set-password-after-disabling-SSO
+
+107. How to delete a table in Data Dictionary?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35166590464404-How-to-delete-a-table-in-Data-Dictionary
+
+108. How to Create View in Jobs and Job Executions
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/35132550978452-How-to-Create-View-in-Jobs-and-Job-Executions
+
+109. How to create a Tag
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10673319844884-How-to-create-a-Tag
+
+110. Configure Amazon S3 permissions: manage data source in DvSum (Elevated Permissions Required)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360055209472-Configure-Amazon-S3-permissions-manage-data-source-in-DvSum-Elevated-Permissions-Required
+
+111. Tracking Data Set Usage in Data Catalog
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/11795434280212-Tracking-Data-Set-Usage-in-Data-Catalog
+
+112. How to Use Global Filters
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10534035730836-How-to-Use-Global-Filters
+
+113. How To: Mass Update
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10582893963924-How-To-Mass-Update
+
+114. How to Schedule a Job for Data Sources
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18727787422228-How-to-Schedule-a-Job-for-Data-Sources
+
+115. How to find help using our in-product Help Center in Dvsum App
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/11525283492500-How-to-find-help-using-our-in-product-Help-Center-in-Dvsum-App
+
+116. Data Import
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/11197801100820-Data-Import
+
+117. How to do Target Scan of Data Sources
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10860307282580-How-to-do-Target-Scan-of-Data-Sources
+
+118. How to create Governance Views
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10027321551380-How-to-create-Governance-Views
+
+119. How to use Certification and Quality Tagset?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/8946385941140-How-to-use-Certification-and-Quality-Tagset
+
+120. Catalog and Datasets/Reports Approval
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/19390168472852-Catalog-and-Datasets-Reports-Approval
+
+121. Approving Glossary Terms
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/15536676968724-Approving-Glossary-Terms
+
+122. Execution Modes, Model & Workflow Configurations in Tool
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/41054809831572-Execution-Modes-Model-Workflow-Configurations-in-Tool
+
+123. Co-Pilot in Data Intelligence
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25996549175828-Co-Pilot-in-Data-Intelligence
+
+124. CADDI Chat (Talk to your Data)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18534685180948-CADDI-Chat-Talk-to-your-Data
+
+125. How CADDI Agents Interpret Questions and Follow-Up Requests
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/45239604841108-How-CADDI-Agents-Interpret-Questions-and-Follow-Up-Requests
+
+126. Feedback Analytics
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/28138720331796-Feedback-Analytics
+
+127. Agent Analytics
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/27034936667924-Agent-Analytics
+
+128. Training of CADDI Agents
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/27022713765524-Training-of-CADDI-Agents
+
+129. Question level Menu items for CADDI Agents
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/25334871881364-Question-level-Menu-items-for-CADDI-Agents
+
+130. Chat Preferences for Agents
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/24639112445716-Chat-Preferences-for-Agents
+
+131. Agent Reliability; How Query generation re-attempt works
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/23892690705684-Agent-Reliability-How-Query-generation-re-attempt-works
+
+132. Query Explanation in CADDI
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/23891989976084-Query-Explanation-in-CADDI
+
+133. Adding a context in CADDI and Agents
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/22955304388628-Adding-a-context-in-CADDI-and-Agents
+
+134. Pivot Tables in CADDI
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18540310425748-Pivot-Tables-in-CADDI
+
+135. Chart Settings in CADDI
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18506870411284-Chart-Settings-in-CADDI
+
+136. Configuring CADDI - Creating Agents
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18497031217428-Configuring-CADDI-Creating-Agents
+
+137. How to get a guided set of follow up questions to ask in CADDI
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/16290044151828-How-to-get-a-guided-set-of-follow-up-questions-to-ask-in-CADDI
+
+138. How to talk to your data
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/15168396488852-How-to-talk-to-your-data
+
+139. Why can I see only 300 exceptions in Analysis tab when Rule Run Result shows more ?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000991833-Why-can-I-see-only-300-exceptions-in-Analysis-tab-when-Rule-Run-Result-shows-more
+
+140. How do you select the right Catalog View?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115005116933-How-do-you-select-the-right-Catalog-View
+
+141. Add an IP Address to the White List
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115006294588-Add-an-IP-Address-to-the-White-List
+
+142. How to add Dataset Group?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/22706867079700-How-to-add-Dataset-Group
+
+143. Guide on using Address Validation API
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360056932812-Guide-on-using-Address-Validation-API
+
+144. How to Configure Email Notifications ?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360045674733-How-to-Configure-Email-Notifications
+
+145. Data Security Admin
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/21781811462676-Data-Security-Admin
+
+146. Data Masking
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/21103301641748-Data-Masking
+
+147. Manage Roles
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360052075952-Manage-Roles
+
+148. Schedule Cataloging
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360049346552-Schedule-Cataloging
+
+149. User Access at DQ Rules Level
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360050817613-User-Access-at-DQ-Rules-Level
+
+150. DvSum Edge Gateway Installation (SAWS) for Data Quality
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360021928854-DvSum-Edge-Gateway-Installation-SAWS-for-Data-Quality
+
+151. Advanced Dashboards
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360052125833-Advanced-Dashboards
+
+152. History Trend Widget using Power BI Template Reports
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360049313234-History-Trend-Widget-using-Power-BI-Template-Reports
+
+153. History Trend Widget – Dashboards
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360045131774-History-Trend-Widget-Dashboards
+
+154. Advanced Analytics - Integrating Power BI reports into DvSum
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360021231094-Advanced-Analytics-Integrating-Power-BI-reports-into-DvSum
+
+155. Workflow Digest Emails
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360021222614-Workflow-Digest-Emails
+
+156. DvSum export options for reports
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360007921813-DvSum-export-options-for-reports
+
+157. Configure Oracle as Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/23084323535124-Configure-Oracle-as-Source
+
+158. Configure Oracle ADW as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/18826674587796-Configure-Oracle-ADW-as-a-Source
+
+159. Configure Azure Synapse Analytics as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/12893404920980-Configure-Azure-Synapse-Analytics-as-a-Source
+
+160. Configure Databricks as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/9830486369428-Configure-Databricks-as-a-Source
+
+161. Configure Google BigQuery as a source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/4403282434324-Configure-Google-BigQuery-as-a-source
+
+162. Configure Snowflake as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360050674571-Configure-Snowflake-as-a-Source
+
+163. Catalog Table Detail Page
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/17457787570452-Catalog-Table-Detail-Page
+
+164. Data Catalog
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360052123973-Data-Catalog
+
+165. Blend Views
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360016874754-Blend-Views
+
+166. Reference Dictionary
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360005669534-Reference-Dictionary
+
+167. Creating and editing a Catalog View
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115005116733-Creating-and-editing-a-Catalog-View
+
+168. Review Profiling Results
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/202846854-Review-Profiling-Results
+
+169. Run Online and Run Offline
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/17472157533076-Run-Online-and-Run-Offline
+
+170. DQ Rule Details
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/17468996404756-DQ-Rule-Details
+
+171. Rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/17457922936468-Rules
+
+172. Creating a CUSTOM QUERY DQ Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/15714519528980-Creating-a-CUSTOM-QUERY-DQ-Rule
+
+173. How to Create/Assign/Remove Rule Group or Val group & Batch Scheduling
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/13070366457620-How-to-Create-Assign-Remove-Rule-Group-or-Val-group-Batch-Scheduling
+
+174. Executing the rule API via ADF
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/10311781361556-Executing-the-rule-API-via-ADF
+
+175. Execute/run Scheduled Jobs
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115000205853-Execute-run-Scheduled-Jobs
+
+176. File upload to DvSum and creating rules on file
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360014113613-File-upload-to-DvSum-and-creating-rules-on-file
+
+177. Excel Cleansing Upon File Upload
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360013799514-Excel-Cleansing-Upon-File-Upload
+
+178. Data Preparation Workbench
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360035713813-Data-Preparation-Workbench
+
+179. Off-line Write-back to Source in DQ workflow
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360013797874-Off-line-Write-back-to-Source-in-DQ-workflow
+
+180. Cleansing Work Bench and Audit Trail
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/219786788-Cleansing-Work-Bench-and-Audit-Trail
+
+181. How to create a Workflow with excel file as input ?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360033768933-How-to-create-a-Workflow-with-excel-file-as-input
+
+182. Why is Data Analysis tab not showing for the profiled table?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360022912733-Why-is-Data-Analysis-tab-not-showing-for-the-profiled-table
+
+183. Staging Configuration: How to set up staging table ?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360021780333-Staging-Configuration-How-to-set-up-staging-table
+
+184. How can I send Scheduler job emails to other users?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360021367293-How-can-I-send-Scheduler-job-emails-to-other-users
+
+185. Can I add new columns to my already cataloged and profiled EXCEL source?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360013703693-Can-I-add-new-columns-to-my-already-cataloged-and-profiled-EXCEL-source
+
+186. How to create Custom Governance Views for Rules?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360008059154-How-to-create-Custom-Governance-Views-for-Rules
+
+187. How can I export/download Rule Exception Report?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360006879773-How-can-I-export-download-Rule-Exception-Report
+
+188. Why don't I see all users in list of owners in glossary?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360002074473-Why-don-t-I-see-all-users-in-list-of-owners-in-glossary
+
+189. Edge Gateway (SAWS) not accessible
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360001182373-Edge-Gateway-SAWS-not-accessible
+
+190. How to create a Custom Dashboard?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000260754-How-to-create-a-Custom-Dashboard
+
+191. How do you select the right chart based on your data?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000024413-How-do-you-select-the-right-chart-based-on-your-data
+
+192. How do my Scheduled jobs execute with MultiSaws?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000018334-How-do-my-Scheduled-jobs-execute-with-MultiSaws
+
+193. How to reassign responsibilities of a user upon deletion?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115001891934-How-to-reassign-responsibilities-of-a-user-upon-deletion
+
+194. What is Fine-Grain and Global Workflow Access Control?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115001889873-What-is-Fine-Grain-and-Global-Workflow-Access-Control
+
+195. Why can User A see more Source Tables than User B?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115000143513-Why-can-User-A-see-more-Source-Tables-than-User-B
+
+196. Error - 'File is corrupted and cannot be opened'
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/225558507-Error-File-is-corrupted-and-cannot-be-opened
+
+197. Address Validation rule is becoming Invalid
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/222595948-Address-Validation-rule-is-becoming-Invalid
+
+198. Scheduler not executing jobs / error in SAWS.log related to SUN PKIX Path Building Failed
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/221853427-Scheduler-not-executing-jobs-error-in-SAWS-log-related-to-SUN-PKIX-Path-Building-Failed
+
+199. Why only certain fields are available in the Data Analysis screen
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/221403867-Why-only-certain-fields-are-available-in-the-Data-Analysis-screen
+
+200. How to Create Rules (Standard, Data Quality Ruleset, Business Rules DAE)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/202846784-How-to-Create-Rules-Standard-Data-Quality-Ruleset-Business-Rules-DAE
+
+201. How to Install Python service for Excel, Excel in Memory Source?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360021118474-How-to-Install-Python-service-for-Excel-Excel-in-Memory-Source
+
+202. Is there a limit of how much data we can extract to a file on azure blob/S3 bucket or to folder?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360018196733-Is-there-a-limit-of-how-much-data-we-can-extract-to-a-file-on-azure-blob-S3-bucket-or-to-folder
+
+203. On Premise Gateway (SAWS) Advanced Settings (Configuration properties file)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360015361094-On-Premise-Gateway-SAWS-Advanced-Settings-Configuration-properties-file
+
+204. Deleting the data source. (Owner and Administrators)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360005670514-Deleting-the-data-source-Owner-and-Administrators
+
+205. Export options for Rule Results (Administrators and Super Users)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360005093774-Export-options-for-Rule-Results-Administrators-and-Super-Users
+
+206. SAWS Alert Notification controls (Owners only)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360002717393-SAWS-Alert-Notification-controls-Owners-only
+
+207. What is a "Not-Connected DataSource"?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360002610433-What-is-a-Not-Connected-DataSource
+
+208. DQ SAWS Update (For Owner Account)
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000764854-DQ-SAWS-Update-For-Owner-Account
+
+209. Configure one Data Source with Multiple SAWS
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000247253-Configure-one-Data-Source-with-Multiple-SAWS
+
+210. Updates to database source data catalog
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/225102967-Updates-to-database-source-data-catalog
+
+211. Change of language in DvSum
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360003300593-Change-of-language-in-DvSum
+
+212. Dashboard templates and blank widgets
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000024353-Dashboard-templates-and-blank-widgets
+
+213. What do I see on Advanced Dashboard based on user roles?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000017313-What-do-I-see-on-Advanced-Dashboard-based-on-user-roles
+
+214. What is new in Advanced Dashboards?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360000018374-What-is-new-in-Advanced-Dashboards
+
+215. Configure Salesforce as a Source
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360049829631-Configure-Salesforce-as-a-Source
+
+216. SQLEXPRESS connection to SAWS
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360033961454-SQLEXPRESS-connection-to-SAWS
+
+217. Configure Excel/CSV files?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115000641314-Configure-Excel-CSV-files
+
+218. Job Execution Using Dynamic Schema
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360061493952-Job-Execution-Using-Dynamic-Schema
+
+219. Address Validation Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360054484771-Address-Validation-Rule
+
+220. Allow Blanks in SAP Writeback
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360051535313-Allow-Blanks-in-SAP-Writeback
+
+221. Clone Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360050083754-Clone-Rule
+
+222. Rule Status
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360050837013-Rule-Status
+
+223. SAP Writeback Configuration Setup For Writeback from Flat to Classification table Mapping
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360047799993-SAP-Writeback-Configuration-Setup-For-Writeback-from-Flat-to-Classification-table-Mapping
+
+224. Column Sequencing
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360046573114-Column-Sequencing
+
+225. Enable Writeback on Custom Query DQ Rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360045992074-Enable-Writeback-on-Custom-Query-DQ-Rules
+
+226. SAP Writeback - Overview
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360045900614-SAP-Writeback-Overview
+
+227. SAP Connector Installation and Configuration Guide
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360043550373-SAP-Connector-Installation-and-Configuration-Guide
+
+228. How is Readiness Score calculated for rules?
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360035985334-How-is-Readiness-Score-calculated-for-rules
+
+229. Data Format Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360013705873-Data-Format-Rule
+
+230. Add an Orphan Records check between two datasets
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360009027514-Add-an-Orphan-Records-check-between-two-datasets
+
+231. Field Dictionary
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360007001653-Field-Dictionary
+
+232. Features of Value Range Rule
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360006916294-Features-of-Value-Range-Rule
+
+233. Integrating Rules into batch workflow
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/360006820634-Integrating-Rules-into-batch-workflow
+
+234. Use Rule Groups as tags for better management of Rules
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/115000728633-Use-Rule-Groups-as-tags-for-better-management-of-Rules
+
+235. Types of Rules Wizards
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/230178488-Types-of-Rules-Wizards
+
+236. Validation Rule Reference Information
+   URL: https://dvsum.zendesk.com/hc/en-us/articles/203082320-Validation-Rule-Reference-Information
+

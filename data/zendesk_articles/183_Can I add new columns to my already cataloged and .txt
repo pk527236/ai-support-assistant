@@ -1,0 +1,13 @@
+Title: Can I add new columns to my already cataloged and profiled EXCEL source?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360013703693-Can-I-add-new-columns-to-my-already-cataloged-and-profiled-EXCEL-source
+================================================================================
+
+If an excel source is already cataloged and profiled and a user wishes to add new columns, he can add, catalog and profile them individually and it will not have an impact on profiling of old columns or affect any rules created on source previously.
+- Navigate to the Administration tab
+- Configure the Excel source
+- Add the desired column
+- Click on Finish
+This will catalog the new column:
+Upon visiting the profiling details for this source, the added column will be visible. You can then individually profile and establish rules for this column without any impact on your existing rules.
+Note:
+Merge Catalog feature is available for both EXCEL and CSV.

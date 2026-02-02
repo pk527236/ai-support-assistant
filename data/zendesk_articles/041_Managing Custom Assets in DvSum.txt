@@ -1,0 +1,115 @@
+Title: Managing Custom Assets in DvSum
+URL: https://dvsum.zendesk.com/hc/en-us/articles/38663390098964-Managing-Custom-Assets-in-DvSum
+================================================================================
+
+In This Article:
+Overview
+Defining a Custom Asset Type
+Customizing the Asset Type
+Configuring Relationships for an Asset Type
+Adding a Custom Asset
+Editing and Enriching the Asset
+Overview
+The DvSum DI Application supports
+Custom Assets
+, allowing organizations to define and manage asset types that align with their unique data landscape. This capability enables teams to create asset categories tailored to specific governance frameworks, business processes, and domain requirements.
+Custom Assets are fully integrated into the DvSum platform—they appear in the asset feed, support Custom Attributes, and participate in workflows, lineage, and search. This ensures a flexible and consistent metadata experience across the catalog.
+Defining a Custom Asset Type
+Before creating a Custom Asset, the asset type must be defined. To do this:
+Navigate to the
+Asset Management
+section from the left-side menu.
+Click on
+Asset Types
+.
+Click the
+Add
+button at the top right.
+On the listing page, a predefined set of default asset types is displayed. These system-provided assets are visible even if no custom assets have been added. Any newly created custom assets will appear alongside these default entries.
+This opens the
+Add Asset Type
+pop-up.
+Enter the required details for the new asset type.
+Click
+Add
+to save.
+Customizing the Asset Type
+Once the asset type is created, the
+Asset Type Detail
+page is displayed. This page acts as a
+template
+for all assets created using this type. Any configurations made here—such as custom attributes, tags, or relationships—will automatically apply to all assets of this type. Changes made to the asset type template will reflect across all associated assets.
+Add or edit
+Custom Attributes
+Define
+Tags
+Set up
+Relationships
+with other asset types
+These configurations allow you to enrich your custom asset with relevant metadata, improving its discoverability, traceability, and integration within workflows.
+Configuring Relationships for an Asset Type
+As part of configuring a custom asset type, you can define how it relates to other assets in the system using the
+Relationships
+section.
+Navigate to the
+Relationships
+tab on the asset type detail page.
+You can
+add multiple relationship types
+, each with a:
+Relationship Type Name
+(e.g., Contains, Governed By)
+Target Asset Type
+(e.g., BI Model and Report, Data Domain)
+Each relationship type includes a checkbox that allows you to
+enable or disable multi-asset linking
+.
+Enable this option to define relationships that support linking multiple assets of the selected type. For example, allowing an asset to be related to several database tables.
+You can also remove a relationship type using the
+trash can icon
+under the Actions column.
+Adding a Custom Asset
+Once your custom asset type is configured, you can begin adding assets to the system.
+Steps to Add a Custom Asset:
+Navigate to the Assets Dictionary
+From the
+left-side navigation menu
+, click on
+Assets Dictionary
+.
+Click on "Add Asset"
+In the
+All Assets
+section, click the green
+Add Asset
+button at the top right.
+This will open a form where you can enter details for the new asset, including selecting the appropriate
+Asset Type
+, filling in standard and custom attributes, and establishing relationships.
+Editing and Enriching the Asset
+After adding a new asset, you’ll be directed to the
+Asset Detail Page
+, where you can view and manage all the metadata associated with the asset.
+The configurations made on the
+Asset Type Detail Page
+—such as
+Custom Attributes
+,
+Tags
+, and
+Relationships
+—are automatically applied to the asset. From here, you can:
+Edit or update custom attributes
+(e.g., URLs, rich text fields)
+Add additional relationships
+to link the asset with other entities
+Delete existing relationships
+if they are no longer relevant
+Assign or update ownership
+via the
+Managed By
+section (e.g., Data Owner, Data Steward)
+Add or modify tags
+like Data Classification, Certification, or Dataset Quality
+Include additional information
+such as descriptions, data domains, and other contextual metadata

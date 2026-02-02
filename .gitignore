@@ -23,12 +23,12 @@ env/
 chroma_db/
 *.db
 
-# Data files (may contain sensitive information)
-data/
-zendesk_articles/
-*.json
-*.docx
-*.pdf
+# # Data files (may contain sensitive information)
+# data/
+# zendesk_articles/
+# *.json
+# *.docx
+# *.pdf
 
 # Keep data directory structure but ignore contents
 !data/.gitkeep

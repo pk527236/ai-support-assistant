@@ -1,0 +1,105 @@
+Title: Post-Import Steps for Workflow-Enabled Domains
+URL: https://dvsum.zendesk.com/hc/en-us/articles/39826074221332-Post-Import-Steps-for-Workflow-Enabled-Domains
+================================================================================
+
+In this Article:
+Workflow Behavior After Import
+Steps to Manually Submit Imported Records for Approval
+Navigate to the Asset Type
+Find Recently Imported Records
+Select Records to Submit
+Click Mass Update
+Submit for Approval
+Confirm Submission
+Approve the Records (For Approver)
+Import File Behavior for the Status Field
+Known Limitation
+Workflow Behavior After Import:
+After completing the import,
+records are not automatically submitted for approval
+.
+In workflow-enabled domains:
+Newly imported records
+will have
+Draft
+status
+Updated records
+will have
+Modified
+status — regardless of their previous status or the value in the import file
+To move records through the approval workflow, a
+manual submission
+is required after import.
+Steps:
+1. Navigate to the Asset Type
+Open the domain where the records were imported (e.g., Business Glossary, Data Dictionary, Field Dictionary).
+2. Find Recently Imported Records
+Apply a filter to a column
+Last Updated On,
+like:
+Last Updated On → Greater than → Yesterday
+3. Select Records to Submit
+Select the relevant records from the grid.
+By default, clicking the checkbox on the top-left corner selects all records currently visible on the page.
+2. To select all records in the current view (not just the visible page), click the
+"Select all records in this view"
+option that appears after selecting the first checkbox (as shown above).
+Tip: There is
+no hard limit on records
+. The system allows bulk selection beyond 1000 records, provided you've filtered or configured the view accordingly.
+4. Click
+Mass Update
+.
+5.
+Submit for Approval
+In the Mass Edit modal:
+Field
+: Status
+Value
+:
+Submit for Approval
+Click
+Submit
+.
+6.
+Confirm
+Records will now enter the
+workflow process
+and await approval.
+7. Approve the Records (For Approver)
+1. Go to the
+Assigned to Me
+section in the listing page of the relevant asset type.
+2. Select the records → Click
+Mass Update
+→ Set
+Status
+to
+Approved
+→ Click
+Submit
+.
+Import File Behavior for the Status Field
+The system ignores the Status value during import. All new records are set to
+Draft
+, and all updated records are set to
+Modified
+, regardless of whether the column is included or omitted.
+Regardless of the import type,
+manual submission is always required
+to trigger the approval workflow.
+Known Limitation
+Automatic publishing or submission via import is not supported.
+Records
+cannot be auto-submitted
+into the workflow during import, even if the
+Status
+is set to
+Published
+in the import file.
+Manual action is required post-import
+to submit both
+newly added
+and
+updated
+records for approval through the UI (e.g., via Mass Update).

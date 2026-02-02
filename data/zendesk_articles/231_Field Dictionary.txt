@@ -1,0 +1,7 @@
+Title: Field Dictionary
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360007001653-Field-Dictionary
+================================================================================
+
+The term field dictionary appears in basic Value Range rule (or DQ ruleset, Exploration). Value range identifies exception records within a dataset where a specific field is not within a desired range. Range can be a continue range between min and max or could be a set of specific values.
+These Specific values can be selected from the field's own profile called Field Dictionary. In a Value Range rule, select your data source, table and field. Specify Field dictionary to define valid/invalid values.
+This will show you all existing values of the field "Ending_Date". This makes it easy for a user to pick out the values for fixing data.

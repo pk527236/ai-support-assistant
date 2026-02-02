@@ -1,0 +1,48 @@
+Title: How to delete a table in Data Dictionary?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35166590464404-How-to-delete-a-table-in-Data-Dictionary
+================================================================================
+
+In This Article:
+Overview
+Steps to Enable Table Deletion
+Overview:
+Tables can only be deleted if their status is set to 'Deleted'. If an attempt is made to delete tables with any other status, as shown in the screenshot below, the system will display a pop-up message:
+"No table(s) has been deleted."
+To delete a table successfully, follow the steps below to change its status to 'Deleted' before proceeding with the deletion.
+Steps to Enable Table Deletion
+Navigate to the Administration >Data Source
+Open the
+Data Source
+option from the left-hand menu.
+Select the Table’s Source
+Locate and select the source that contains the table you want to delete.
+Go to
+Settings
+and select the
+Connection
+option.
+Modify Schema Selection
+Click the
+Edit
+button to open the
+Schemas
+page.
+Identify the schema that contains the table.
+Move the schema from
+'Selected'
+to
+'Available'
+to remove it from the data source.
+Perform a Scan
+Initiate a
+scan
+to update the system.
+Once the scan is complete, the table’s status will be updated to
+'Deleted'
+.
+Delete the Table
+Once the status is set to
+'Deleted'
+, proceed with the table deletion.
+Note:
+For the Amazon S3 data source, updating the S3 buckets is required instead of moving the schema from 'Selected' to 'Available.'

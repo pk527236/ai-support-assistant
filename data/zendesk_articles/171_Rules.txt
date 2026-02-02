@@ -1,0 +1,89 @@
+Title: Rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/17457922936468-Rules
+================================================================================
+
+Introducing a range of exciting updates to our rule management and analysis features. We are thrilled to enhance your experience by introducing offline rule execution capabilities and expanding the Action Grid Menu with more options. Users can now run rules both online and offline, ensuring continuous rule execution even in disconnected environments. The updated menu offers functionalities like updating and removing schedules, deleting and cloning rules, and performing mass updates. Additionally, the system now highlights recommended rules, providing improved visibility. These updates empower users to efficiently manage and analyze rules, enabling better decision-making and data quality control.
+Manage Rules
+The Manage Rules page has undergone significant changes, both in its interface and the introduction of new functionalities. Let's explore these enhancements in detail:
+In the User interface, the following changes have been introduced:
+Available and Recommended Rules
+There are 2 options regarding the rules:
+Available Rules
+- These are the existing rules that are created and can be run
+Recommended Rules
+- These are the rules that are recommended based on the profiling of the source's tables
+Alert Status -
+This column has been added in the new release to show the alerting status of the rule based on the threshold limits
+There are 2 alerting statuses:
+Healthy
+- if the metric value is within specified threshold limits, then the alert status will be Healthy
+Alerting
+- If the metric value is not within specified threshold limits, then the status will be Alerting
+New Rule -
+Users can create new rules based on their requirements from the following rules available
+Foundational DQ
+Pipeline Checks
+Cross-System DQ
+MDM
+Data Diffs
+Run Rule
+Run
+Online
+- This feature will immediately execute the reference action
+Run Offline
+- This feature will schedule the reference action to run ad-hoc and will be
+For Details please check the article
+Run Online/Offline
+More Actions
+Update Schedule
+- The User can now have the ability to update the existing schedules of the rule as we can able to create a new one.
+Remove Schedule
+- This option allows the user to remove any existing schedule of the rule(s)
+Delete rule
+- This option allows the user to Remove the rule permanently
+Clone rule
+- This option allows the user to clone the current rule
+Mass Update
+- Mass update allows the user to select multiple rules and update them at once
+Analyze Rules
+ReRun Rule
+Run
+Online
+- This feature will immediately execute the reference action
+Run Offline
+- This feature will schedule the reference action to run ad-hoc and will be
+More Actions
+Update Schedule
+- The User can now have the ability to update the existing schedules of the rule as we can able to create a new one.
+Remove Schedule
+- This option allows the user to remove any existing schedule of the rule(s)
+Delete rule
+- This option allows the user to Remove the rule permanently
+Clone rule
+- This option allows the user to clone the current rule
+Mass Update
+- Mass update allows the user to select multiple rules and update them at once
+Users can
+Export
+grid data - This allows the user to export the current grid
+Favorite
+- This allows the user to mark the current view as favorite
+Share
+the view - The user can share the current view with any user
+More
+:
+Edit
+- Allows the user to edit the current view settings
+Clone
+- Allows the user to clone the current view
+Delete
+- Allows the user to permanently remove the current view
+Alert Status -
+This column has been added in the new release to show the alerting status of the rule based on the threshold limits
+There are 2 alerting statuses:
+Healthy
+- if the metric value is within specified threshold limits, then the alert status will be Healthy
+Alerting
+- If the metric value is not within specified threshold limits, then the status will be Alerting
+Workflow Status
+A workflow status column has been added to the Default Analyze Rules Page

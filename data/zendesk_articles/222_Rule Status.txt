@@ -1,0 +1,41 @@
+Title: Rule Status
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360050837013-Rule-Status
+================================================================================
+
+Cleansing Information Visibility On Listing Page
+Previously, when user used to run a rule then it showed the X number of exceptions and it's status which was also exception status. Later on, after cleansing and write-back operation, there was no such visibility of this action on analyze rule listing page and also in rule detail page unless user had opened cleanse workbench page. There was as such no indication that exceptions were getting fixed or write-back was performed.
+In order to have visibility, without opening the work-bench, we introduced this new enhancement with the help of which now users will have more visibility about the rule(s) on listing/Rule detail page. To get familiar with this enhancement, let us get started step by step.
+Manage Rules >> Rule Detail Page
+Step 1:
+Go to Manage Rule section, select any rule and click on it to open Rule detail page. On this page, you will see a new field added as 'Commit Status'. This field has three new statuses as shown below.
+'Modified' : To be committed
+'Committed' : Write-back has done successfully
+'Commit Failed' : Write-back has failed
+Cleanse Bench Detail Page
+Step 2 :
+Now, go to Analysis tab, hit the cleanse button there which opens up the cleanse bench detail page. On top you will see three different sections, 'Suggestions', 'Progress', 'Change History'. In Progress box, you will see total number of Exceptions, remaining ones and under that modified count, committed count and commit failed count is displaying as shown in image below:
+Step 3 : Modified Rule Status
+Now, update any value and you will see that Modified count gets updated from 0 to 1. Also, remaining Exceptions count reduces from 54 to 53 as shown below:
+Step 4: Committed Rule Status
+Save the changes and then hit commit button. After commit gets successful then modified count changes from 1 to 0 and commit count increases from 0 to 1 as shown below:
+Step 5 : Commit Failed Rule Status
+Now, we will try to perform this status scenario. For that, provide any input which is invalid and Save the changes. The modified count gets updated again from 0 to 1  and Remaining count reduces from 53 to 52 as shown below:
+Step 6 :
+After saving, now hit the Commit button and observe the following change. Remaining count stays as 52 but modified count changes again from 1 to 0 and since it was an invalid input so commit failed count gets increased by 1 as shown below:
+Step 7 :
+Now we will modify few more records to see the visibility of its status on other different screens. Make sure that you just Save the changes but do not commit it. After this, Modified count gets updated as 5 and Remaining count reduces to 47. The sum of these 3 status and remaining count will be equal to total Exception count as shown below:
+Step 8 :
+Navigate back to Rule detail page and check the count update there. It will be same as it was on cleanse bench detail page. Also, Run status field will show Modified status and icon since we did last modify it as shown below:
+Analyze Rules >> Rule Listing Page
+Step 9:
+Go to analyze rule page and observe the count update there as well which will be as same as shown above. See image below :
+Dashboard Page
+We have added 2 more widget under Rule History category
+Step 10 :
+Same rule statuses will be shown in all existing widgets on Dashboard created on any particular rule. A new widget is added
+Exception detail History
+as shown below: It will show the commutative count for run result and other 3 rule statuses.
+Step 11 :
+Now click on "
+Run status of Rules by weekly Run date
+" to view report. The weekly filter is applied. Select the rule on which cleanse was done. You will see the recent rule statues count in the top record which lies with in the current week. The other records shown under it are previous weeks rule status results:

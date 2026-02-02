@@ -1,0 +1,20 @@
+Title: How to create Custom Governance Views for Rules?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360008059154-How-to-create-Custom-Governance-Views-for-Rules
+================================================================================
+
+You can create custom view in DvSum by selecting the fields and defining filtering criteria according to your requirement, once created, these views will appear in "Created by me" section.
+This capability is available for Rules list and Workflow execution list. To create a custom view, follow the steps below.
+1.
+Go to Review > Analyze Rules > Analyze rules drop down > Create View
+2.
+A dialog will open where you enter relative information.
+Enter name for your view and drag the available fields to selected. These field will appear in your custom view.
+3.
+Specify the criteria
+4.
+For "Shared with" section, choose who can see the view.
+5.
+Save this view and it will appear in "Created by me" section of drop down.
+You can mark the view as favourite, edit, clone or delete a view from the ellipsis button on top tight corner.
+You cannot edit a view that is created by someone else and shared with you. You can however clone it and then edit it to create your own version.
+Note: You can create a custom view for Workflow execution list in a similar way from Workflows > Execution list > Workflow Exec List drop down > Create View.

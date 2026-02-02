@@ -1,0 +1,6 @@
+Title: Off-line Write-back to Source in DQ workflow
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360013797874-Off-line-Write-back-to-Source-in-DQ-workflow
+================================================================================
+
+Among the Workflow Configuration Steps, there is a setting of commit parameter as "Off-line Write-back to source".
+By default, when a DQ Workflow executes, DvSum writes back the fixes of exceptions to the source. With off-line write-back, user can cleanse the exception records on DvSum cleanse workbench UI and save changes but it would be required to manually commit fixes to source outside DvSum.

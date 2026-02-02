@@ -1,0 +1,44 @@
+Title: DvSum Web Service vs On-Premises Gateway
+URL: https://dvsum.zendesk.com/hc/en-us/articles/16448743421716-DvSum-Web-Service-vs-On-Premises-Gateway
+================================================================================
+
+In this Article
+What is DvSum Web Service?
+IP Whitelisting
+Before IP whitelisting
+After IP whitelisting
+Advantages Over Local On-Premises SAWS
+What is DvSum Web Service?
+DvSum Web Service (sometimes referred to as
+Cloud SAWS) is an online connector designed to facilitate seamless connectivity to sources available online. It provides analogous functionality to the on-premises gateway (sometimes referred to as SAWS), but it eliminates the need for users to install the connector locally on their machines. The
+DvSum Web Service
+enables users to establish connections with various online sources, such as APIs, databases, or services, without the burden of setting up and managing local installations.
+By leveraging the
+DvSum Web Service
+, users can access and interact with online sources directly, streamlining the process of retrieving data or integrating with external systems. The connector is hosted in the cloud, offering convenience, scalability, and ease of use for users. They can utilize Cloud SAWS to securely connect to authorized online sources, leveraging its capabilities to fetch data, make requests, or perform desired actions without the need for local installation.
+DvSum connects to data sources using one of these:
+DvSum Web Service
+On-Premises Gateway
+In this article, we will be covering the process through which a source can be connected using the
+DvSum Web Service
+and how this compares to using an on-premises gateway.
+By default when any source is added, it will be connected using the
+DvSum Web Service,
+so there is no extra step required for connection. But if the user chooses to authenticate using the on-premises gateway then they will need to enable the checkbox of On-premises Web Service.
+For Configuring of Data Source (Snowflake) using On-Premises Local Saws, click
+here
+IP Whitelisting:
+For the Sources in which any Inbound Connection is not allowed or requires VPN for the connection to be made will be required to whitelist the given IP address in order to authenticate the credentials for that source. Currently, there are two sources for which IP whitelisting will be required:
+Microsoft SQL Server
+Oracle (Host selected as "qasaws.dvsum.com")
+Once the IP address is whitelisted the network firewall will allow the particular connector to be able to connect with that particular source.
+Before IP whitelisting
+After IP whitelisting
+Note
+: For whitelisting, users will be required to whitelist the DvSum IP where the organization's data source has been hosted. Admin of that source will be authorized to do that.
+After Successful Authentication, the user can choose any database and save the changes and scan that particular source to bring in the tables:
+Advantages Over Local On-Premises SAWS
+No Prior Installations Required:
+In the case of Local On-premises SAWS, it should be locally installed and running but in the case of Cloud SAWS, no installation is required.
+Much Faster than Local On-Premises SAWS:
+Scans that run on Cloud SAWS take less time as compared to the scan when it is run using the local on-premises SAWS.

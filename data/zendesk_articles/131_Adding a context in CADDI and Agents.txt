@@ -1,0 +1,29 @@
+Title: Adding a context in CADDI and Agents
+URL: https://dvsum.zendesk.com/hc/en-us/articles/22955304388628-Adding-a-context-in-CADDI-and-Agents
+================================================================================
+
+In this Article:
+Overview
+Adding context to the questions
+Removing the added context
+Overview
+In this article, we'll be covering how we can use contexts in the questions that we ask in CADDI. Adding the context will have a significant impact on our data analysis and insights. Let's discover more about the context in detail.
+What is the importance of Contexts and how does it impact the insights which are generated s
+ubsequently
+?
+When a user adds some context, the system stores this information. Subsequently, when a new question is asked, the system seamlessly integrates the contextual input into the generated queries, facilitating the generation of insights aligned with the provided context. This will help users get more precise insights from the data, contributing to an enhanced data analysis experience.
+Adding context to the questions
+Click on the "Saved Contexts" button which is located just underneath the Question text field as shown below.
+Once the button is clicked, the Context panel will open from the right side of the screen. From that panel click on the "Add Context" button which will open up a text field where context can be added.
+The example below shows the context that is added. Users can also add multiple contexts. Click on the Save button and the context will be saved.
+From there on whatever question is asked, will incorporate the saved context. The below example shows how added context is used in the generated query
+Results and insights as shown below are presented in alignment with the user's context.
+Questions can also be used as a context. After a question is asked, click on the context button located with the actions buttons of the question.
+After clicking the context button, the selected question will be added as a context. If any filters are applied from the grid view using profiling, these filters will also be incorporated into the context after the question is set as the context.
+Note
+: Users can add multiple contexts.
+Removing the added context
+The user has the option to remove a single context or clear all contexts. If a single context is to be removed, simply click on the cross icon located with each context as shown below.
+Once it is clicked, that context will be removed from the "Context in Use" section but it will still appear in the "Saved Context" section as shown below.
+An essential point to note is that only the contexts in the "Context in Use" section are active and will be included in the upcoming questions. Contexts that show up in the "Saved Context" section are only there to be added back to the active contexts section if needed.
+The other option to remove the existing context from the "Context in Use" section is by clicking on the "Clear Context" button, it will remove all the contexts and move them to the "Saved Context" section.

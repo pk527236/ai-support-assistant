@@ -1,0 +1,31 @@
+Title: Job Execution Using Dynamic Schema
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360061493952-Job-Execution-Using-Dynamic-Schema
+================================================================================
+
+We have introduced a feature where user can execute rule created in Dvsum on another source just by providing information of source with same metadata. A new field has been added up 'Generate Script form'. User have to copy curl Script from Dynamic source Script section given on Generate Script tab of create Scheduler page. Let's get started step by step.
+Step 1 :
+Prerequisite - Installation of curl
+Click the
+link
+here.
+Download curl w.r.t machine's compatibility
+Extract the files from zip folder and double click on application main file to run the curl
+Step 2 :
+Rules, Profiling, Cataloging Execution using Dynamic schema
+Open Dvsum application, go to Audit >> Manage Rules >> select any existing rule >> click More action >> select Schedule Rule as shown below;
+Step 3 :
+Dynamic Source Script Generation
+Go to Generate Script tab and click on the button at the bottom to generate the script as shown below;
+Step 3.1
+Copy the Dynamic source script and click OK as shown below;
+Step 3.2
+Job is created against the rule. Now go to the main scheduler page, search the rule and a new created job will be visible with description and status as 'stand by' as shown below;
+Step 3.3
+Open notepad and paste the copied source script there. It is recommended to make changes in the script using notepad. Replace the information which is different or which you may want to update i.e. Schema name/port/sourceID/Host. Once the modifications are done, copy the script.
+Step 3.4
+Open command prompt, run it as Administrator and paste the copied script and hit enter. It starts the execution and at Dvsum application side, the Job description and its status gets updated as shown below;
+Step 3.5
+Once the execution is completed then in cmd, it will print the remarks as same as shown in rule detail page in Dvsum.
+and job status changes to completed after execution
+Step 3.6
+Similarly for Profiling and Batch execution same steps can be performed to execute jobs using dynamic schema.

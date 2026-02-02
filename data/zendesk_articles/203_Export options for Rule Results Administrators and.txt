@@ -1,0 +1,21 @@
+Title: Export options for Rule Results (Administrators and Super Users)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360005093774-Export-options-for-Rule-Results-Administrators-and-Super-Users
+================================================================================
+
+When you execute a rule on DvSum, you see the run result in Analysis tab. You can also download the exception file on your computer.
+There are further advanced options available for you to manage rule result. You can export rule data to cloud storage like AWS S3 and Azure  or return it to calling API. This can be done only on a Custom Query rule as it covers almost all rules.
+On the custom rule detail page, there is a tab "Script Configuration". You can set the export configuration to send the data to either AWS S3 Bucket/Azure Bucket or send the data to calling API.
+AWS S3 Storage/ Azure Storage
+From Administration > Manage Account > Cloud Storage, click on Add and select the Storage type and the web-service. Depending on the Storage type, you will provide the Access key and fill out the mandatory fields.
+Export limit allows you to set the number of records to be uploaded to Azure/s3 bucket. (Default limit 75,000)
+Once you save this, you can test your connection with Cloud Storage.
+Now from rule detail page you can select this storage, give a file name and type, say the file name is "S3 file" and the type selected is CSV.
+When this rule is executed, the results will be uploaded to AWS S3 bucket in a file named "S3 file".
+Similarly for Azure, you can set up Azure storage from Cloud Storage tab and select the same Azure Storage on rule detail page.
+Send Data to Calling API
+This option allows you to execute rule and fetch the results of that rule outside the DvSum domain. As the name suggests, the run result will be sent to the calling API.
+To generate script, schedule a rule and go to Generate Script tab. Copy the script and run from command line. The results for this rule will be returned in command line.
+Export to Folder
+Another option to manage rule report is to export it to a folder. This folder can be on your local machine or wherever the webservice is running. Folder is created from Administration tab > Folder tab where user needs to specify folder path and SAWS associated with it.
+When the option “Export to File” is selected, you will be able to see the folders which are associated with the same SAWS as the source on which rule is created. i.e. The SAWS executing the rule and uploading the report to the folder should be same.
+NOTE: when there are no exceptions in rule executions, no file will be created or uploaded.

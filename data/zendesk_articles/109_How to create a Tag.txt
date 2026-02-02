@@ -1,0 +1,44 @@
+Title: How to create a Tag
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10673319844884-How-to-create-a-Tag
+================================================================================
+
+In this Article:
+Overview
+Step 1: Access Tags
+Step 2: Create a New Tagset
+Step 3: Configure Tagset Information
+Overview
+User can classify data assets ( data dictionary, field dictionary, analytics dictionary and business glossary) using tags. User can link single and multiple tags to data assets. Lets see how tags can be created and link to data assets:
+Step 1: Access Tags
+Tags can be accessed by navigating to
+Administration > Asset Management > Tags
+.
+By default following tags are available. You can also use the already-created tags.
+PII classification
+Sensitivity
+Custome Tags
+Dataset Type
+Certification Tag
+Dataset Quality tags
+NOTE
+: Certification tags and Dataset quality tags are non-editable by default.
+Step 2: Create a New Tagset
+Provide Tagset name, and description and click on Add button. The user will be redirected to the tagset configuration page.
+The tagset detail page would have two section:
+Information
+Tag
+Step 3: Configure Tagset Information
+Now let's see each option in the information section for tagset:
+- Name & Description:
+Tagset name and definition would be pre-populated as this information was already provided while creating a tagset.
+- Applicable To
+Using the Applicable To option, the User can enable/disable tagset for the Dataset, Fields, terms , Model & Report. If applicable To is unchecked for any Data asset, then the tag will not be shown for unchecked data assets.
+- Only Single value Allowed
+Users can select only one tag for tagset. Multiple selections of tags is not allowed if this option is enabled.
+- Allow New Values During Tagging
+User can also add his own custom tag in the tagset from Data asset detail page.
+Require Note when Tagging:
+While linking a tag to any data asset user has to provide a note. Note will be shown when user hover over the tag.
+- Make Tags Prominent:
+Prominent tags with selected colors will be shown with the Data assets name on top of the detail page and Enterprise search.
+Watch this quick video tutorial on how creating a tag works:

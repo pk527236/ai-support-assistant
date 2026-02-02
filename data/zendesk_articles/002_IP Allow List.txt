@@ -1,0 +1,65 @@
+Title: IP Allow List
+URL: https://dvsum.zendesk.com/hc/en-us/articles/42943305742612-IP-Allow-List
+================================================================================
+
+In this Article:
+Overview
+Navigation Path
+Configuration Steps
+Add IP Address
+Edit, Update, or Delete an IP Address
+Overview
+The
+IP Allow List
+feature lets administrators control access to the DvSum environment by specifying the network locations that are permitted to connect.
+Only the IP addresses or ranges added to this list will be able to sign in or send API requests.
+This setting is typically used to:
+Restrict access to corporate networks, VPNs, or trusted data centers.
+Prevent unauthorized logins from unknown or public networks.
+Strengthen overall security and compliance posture.
+Navigation Path
+To access the IP Allow List feature, follow the below path:
+Administration → Account → Application Security → IP Allow List
+This section allows administrators to define and manage the list of approved IP addresses or ranges that are permitted to access the DvSum environment.
+Configuration Steps
+Follow the below steps to configure the IP Allow List.
+Add IP Address
+Select the checkbox
+Allow login only from listed IP addresses
+to enable IP-based access control.
+Once enabled, only users connecting from the listed IP addresses can access the application.
+In the input field below, enter the IP address or range that needs to be allowed (for example,
+39.43.171.123
+).
+Tip:
+Click
+Get Current IP
+to automatically extract your current public IP and insert it in the input field.
+Click
+Add
+to include the entered IP address in the allow list.
+Note:
+This setting does
+not apply to the owner account
+, which can log in regardless of the IP allow list.
+The added IP appears in the list below and will be considered an approved source for login when enforcement is active.
+Edit, Update, or Delete an IP Address
+Once IP addresses are added, they appear in a list below the input field.
+Each entry in the list includes options to modify or remove the IP configuration.
+Edit:
+Click the
+Edit
+icon (✏️) next to an existing IP address to modify it.
+Update the IP address or range as required, then click the
+checkmark
+icon to save the changes.
+The updated entry is immediately reflected in the list.
+Cancel Edit:
+To discard an edit before saving, click the
+cross
+icon next to the field.
+Delete:
+Click the
+Delete
+icon (🗑️) to remove an IP address from the allow list.
+Once deleted, login access from that IP address will be restricted.

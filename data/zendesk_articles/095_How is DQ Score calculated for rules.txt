@@ -1,0 +1,40 @@
+Title: How is DQ Score calculated for rules?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/27005589675796-How-is-DQ-Score-calculated-for-rules
+================================================================================
+
+Introduction
+The DQ Score helps assess how well a data quality rule is configured and ready for execution. A higher score indicates that the rule is properly set up, while a lower score suggests areas that may need improvement. It provides a precise overview of data quality and assists users in making relevant decisions.
+DQ Score Calculation
+The DQ Score is calculated slightly differently for different types of rules. The table below describes how the score is determined for each type of DvSum rule.
+Rule Type
+DQ Score Calculation
+Count
+Metric
+If the threshold minimum is 0 and the result is less than or equal to 0, then the DQ score is 100%.
+If the threshold minimum is not 0 and the result is less than or equal to the threshold minimum, then the DQ score is:
+result/threshold minimum
+If the result is greater than or equal to 2 times the threshold maximum, then the DQ score is zero.
+If the result is greater than or equal to the threshold maximum but less than 2 times the threshold maximum, then the DQ score is:
+(result - threshold maximum) / threshold maximum
+Blank Check
+Value Range
+Ruleset
+Orphan Records
+Cross Dataset
+Orphan Keys
+Data Format
+If there are no exceptions, then the DQ Score is 100%.
+If there are exceptions, then the DQ Score is calculated as:
+(total records - exception records) / total records
+CUSTOM QUERY
+If there are no exceptions, then the DQ score is 100%.
+If there are exceptions, then the DQ score is:
+(total records - exception records) / total records
+If the total record count is less than the custom query count, then the DQ score is 0%.
+Compare Schema
+Compare Metric
+If the calculated result is less than or equal to the reference result, then the DQ score is:
+calculated result/reference result
+If the calculated result is greater than or equal to 2 times the reference result, then the DQ score is 0%.
+If the calculated result is greater than or equal to the reference result, then the DQ score is:
+(calculated result - reference result) / reference result

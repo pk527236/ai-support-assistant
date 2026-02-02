@@ -1,0 +1,108 @@
+Title: Configure File Upload as a Data Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35169298078356-Configure-File-Upload-as-a-Data-Source
+================================================================================
+
+In this Article:
+Overview
+DvSum Configuration
+Add Source
+Add Files
+Supported File Formats
+File Upload and Scan
+Scan Summary
+Browsing the Data Dictionary
+Sample Files
+Overview
+This article describes the steps needed to configure File Upload as a source in DvSum Data Intelligence (DI).
+Detailed Steps
+DvSum configuration
+1. Add Source
+To create a data source, navigate to Administration → Data Sources → ⊕Add Source.
+Select Upload Files.
+Give the folder a name and save it.
+2: Add Files
+Drag and drop a file into the designated area.
+Alternatively, click on the
+Upload Files
+button to open your system's file explorer and select the desired file.
+Supported File Formats:
+You can upload the following file types:
+Excel
+:
+.xlsx
+,
+.xls
+,
+.xlsm
+,
+.xlt
+,
+.xlr
+CSV
+:
+.csv
+Note: You can find the sample files attached at the end of this article.
+3. File Upload and Scan
+Once a file is selected or dragged and dropped, it is uploaded, and a scan is automatically initiated on the file.
+File Actions
+Click on the
+three-dot menu
+next to the uploaded file to access additional actions. You can choose to
+Delete
+or
+Download
+the file as needed.
+File uploads are manual:
+Unlike other data sources (databases or APIs) that can fetch new data automatically during rescans, file-based sources do not update automatically.
+User action required:
+Users must manually upload new files each day to refresh the data; the system will not do this automatically.
+After a file is uploaded and scanned, the following tabs are populated accordingly:
+Overview Tab
+Displays the detected tables and columns extracted from the scanned file.
+Scan History Tab
+Shows details of the scan, including timestamps and outcomes.
+Logs Tab
+Records system activities related to the scan for troubleshooting and tracking purposes.
+Settings Tab
+The
+Settings
+tab displays folder-related information, including:
+Folder Name
+and
+Description
+Access Information
+on how to download files
+Owner Details
+Users can
+Edit
+folder settings or
+Delete
+the folder if needed.
+Note:
+Only profiling tables can be scheduled by creating a job.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+4. Scan Summary
+After the scan is completed, click on the
+Scan Name
+(e.g., SCN-000060) to open the
+Scan Summary
+page.
+The
+Scan Summary
+page provides insights into the scan, including:
+The number of new tables and columns detected.
+Other key details related to the scan..
+5. Browsing the Data Dictionary
+After the scan, you can explore the detected tables and columns. Navigate to
+Data Dictionary
+from the left sidebar to access the table listing view.
+Click on the
+Recently Refreshed
+tab to view tables discovered in the latest scan.
+Select a table name to view its details.
+DQ rules:
+Data Quality (DQ) rules cannot be created for file upload data sources.
+Sample Files
+Here are the sample files for reference:

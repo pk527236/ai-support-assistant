@@ -1,0 +1,109 @@
+Title: Validation Rule Reference Information
+URL: https://dvsum.zendesk.com/hc/en-us/articles/203082320-Validation-Rule-Reference-Information
+================================================================================
+
+Overview
+Reference information about validation rules (DQ Rules).
+Rule Types
+Category
+Rule Type
+Foundational DQ
+DATA FORMAT
+BLANKS
+VALUERANGE
+UNIQUENESS
+UNIQUE VALUES
+DATA ANALYSIS EXCEPTIONS
+CUSTOM QUERY
+Pipeline Checks
+COUNT
+FRESHNESS
+METRIC
+Cross-System DQ
+ORPHAN RECORDS
+ORPHAN KEYS
+INTEGRITY CHECK
+MDM
+ADDRESS VALIDATION
+DOC-MATCHING
+Data Diffs
+COMPARE COUNT
+COMPARE METRIC
+COMPARE TABLE
+COMPARE CUSTOM QUERY
+Run Status
+A new rule will have an implicit Run Status of
+Valid
+. After the rule is executed, there are a variety of Run Results that the rule may take. "Run Status" and "Run Result" are used interchangeably in DvSum DQ.
+Status
+Icon
+Definition
+Passed
+Rule is valid, and no exceptions were found in the data in the most recent run.
+Failed
+Rule is valid, and exceptions were found in the most recent run.
+This applies only to rules which do not identify specific invalid records. For example, a COUNT rule result falls outside of the allowed range.
+Exception
+Rule is valid, and at least one exception was found in the data in the most recent run.
+This applies to rules which identify invalid records. For example, a failed BLANKS or UNIQUENESS check will result in this status.
+Invalid
+Rule is not valid.
+This does not indicate a problem with the data. Rather, it indicates a problem with the rule definition which must be solved before the rule can be executed.
+Matched
+For example, a ADDRESS VALIDATION will indicate Matched after successful execution.
+Modified
+After data steward performs cleansing, but data is not yet committed back to source.
+Committed
+Valid
+Run Status & Readiness Score
+Along with a status, a Readiness Score is also generated. Readiness score provides a second degree of information on the quality of data. If the data rule is failing, how bad is it. Readiness score creates a common unit for measuring the quality of data and allows result of audits calculating the overall data quality score across various data elements and types of audits.
+Sample Audit Result
+Audit Result Icon
+Readiness Score
+Count of finished good items in item master is 6000 which is within the tolerance of 5500 and 7000
+100%
+Count of finished good items in item master is 5000 which is not within the tolerance of 5500 and 7000
+91%
+Explanation: 5000 is 9% short of 5500.
+Calculation:
+1 - (500/5500)
+Forecast Name is 100% unique in SALES_FORECAST extract
+100%
+Run over run variance of qtyplanned in PURCHASE_PLAN is 5% for Supplier X which is more than the limit of 3%
+33%
+Calculation:
+1 - (.02/.03)
+There are 2 routing records where yield is not between 0 and 1. (total records are 100)
+98%
+Calculation:
+1 - (2/100)
+Following insights are available with your audit results
+Icon
+Insight Type
+Definition
+History
+History for all audits
+Exception List
+List of Exceptions for master data audits
+Drill-down Analytical
+Drill-down with Variance for aggregation audits
+History Trend Insights
+With history, you can get insights into the changes to the audit result from last run and also the trend of that audit over time. History insights can be useful to identify what audits to focus on.
+History Trend
+Definition
+Focus Required
+Flat. No change
+Status Quo
+or
+Positive Up
+– Test was a fail before and now pass. Test has been failing because results too low but now trending up.
+Positive Down
+– Test has been failing because results were too high and now trending down.
+Things are improving even if the tests are failing. May not need to focus.
+or
+Negative Down
+– Test was passing before and is now failing. Or it has been passing but values are trending down and will cross the lower tolerance soon. Or it has been failing and things are getting worse
+Negative Up
+– Test was passing before and is not failing. Or it has been passing but values are trending up to cross the upper tolerance soon
+Things are getting worse for failed tests – requires top priority focus.
+Things are trending in the wrong direction for passing tests – heads-up for future issues

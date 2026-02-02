@@ -1,0 +1,11 @@
+Title: How to get a guided set of follow up questions to ask in CADDI
+URL: https://dvsum.zendesk.com/hc/en-us/articles/16290044151828-How-to-get-a-guided-set-of-follow-up-questions-to-ask-in-CADDI
+================================================================================
+
+Before the user starts talking to the data, the user can get a guide of questions that can be asked. The guide depends upon what is the description of the topic and what objective is set by the user. Once you have selected the topic In CADDI, click on the icon on the top right of the question field as shown below.
+Once the button is clicked, a modal will open which will have the objective field. Enter your objective and click Save.
+Once the objective is set and saved, the user will get the summary along with the guided set of questions that will relate to the objective.
+Users can get the guide at any time by clicking the guide icon. The guide questions will generate depending on the description of the chat topic, the objective that is set by the user, and the questions asked (if any) before triggering the guide.
+Click on the "
+Use this
+" button and it will copy the guided question into the text field.

@@ -1,0 +1,185 @@
+Title: Enterprise Search
+URL: https://dvsum.zendesk.com/hc/en-us/articles/42822153397908-Enterprise-Search
+================================================================================
+
+In this Article:
+Overview
+Searching for Assets
+Search Suggestions
+Search by Asset Name
+Search by Table and Column Name
+Search by Unique Asset ID
+Search by Custom Attribute Values
+Using Filters
+Filtering Options
+Filters Available for All Assets
+Available Filters for Tables
+Available Filters for Columns
+Available Filters for Terms
+Filters for Rules
+Search Results
+Consistent Result Display
+Example Search Scenarios
+Summary
+Overview
+The
+Enterprise Search
+feature provides a unified way to explore and discover assets across your organization including datasets, reports, tables, rules, schemas, and more. It enables users to locate information quickly without needing to navigate through multiple modules.
+Searching for Assets
+Enterprise Search supports flexible search capabilities to help you find exactly what you are looking for.
+Search Suggestions
+As you type a query, Enterprise Search provides real-time suggestions to help refine your search.
+If the system detects alternate or closely related terms, it displays a
+“Did you mean…”
+line above the suggestion list.
+Users can click one of the suggested phrases to update the search term or press
+Go
+to execute the current query.
+Fuzzy Search
+Typos trigger “Did you mean…?” suggestions, while results are based on exact or prefix matches.
+Expanded Search
+Enable
+Expanded Search
+to include similar and partial matches for broader, more relevant results.
+For example, if you search for
+“Claim B”
+with this option checked, results will also include assets containing the word
+“Claim”
+—not just exact matches.
+This helps surface related or similar assets that might otherwise be missed.
+Example Behavior
+The “Did you mean…” line shows suggested alternative keywords.
+The suggestions list shows recent or recommended searches and matching assets with basic metadata.
+Clicking a suggestion or the “Did you mean…” phrase runs a new search with that term.
+Search by Asset Name
+Enter the full or partial name of any dataset, table, report, or rule to view all related results.
+For example, typing
+Sales
+will bring up all assets whose names contain that keyword.
+Note:
+Exact matches to your entered keyword appear at the
+top of the results
+, allowing quick access to the most relevant tables, columns, or reports.
+Search by Table and Column Name
+You can search directly using a table name or column name.
+If you add a period (
+.
+) and the column name after the table name (for example,
+Orders.OrderDate
+), the search will return all matching assets containing that column.
+This also supports
+full-path search
+such as
+DB.Schema.Table.Column
+, allowing more precise targeting across complex data models.
+Search by Unique Asset ID
+Enterprise Search also allows searching through a specific
+unique ID
+of an asset.
+This ID can be found in the URL of the asset (for example, a Power BI report or dataset).
+Entering this ID in the search bar will return that particular asset directly.
+You can also paste a
+Power BI report URL
+to locate that exact report in Enterprise Search.
+Search by Custom Attribute Values
+Assets with custom attributes such as picklist values can be located by searching those values.
+For example, if a picklist attribute contains values like
+Single
+or
+Double
+, typing those terms in the search bar will display all assets assigned with that particular value.
+In addition to standard assets, Enterprise Search supports a wider range of technical and custom objects including
+databases, schemas, stored procedures, and custom assets
+, ensuring broader visibility across your organization’s data catalog.
+Using Filters
+In addition to free-text search, users can apply filters to refine search results based on different asset characteristics.
+Filtering Options
+Filters in the left panel enable refinement of search results across asset types such as tables, columns, rules, terms, and agents. Each asset type provides its own set of filter categories, allowing more targeted exploration of data assets.
+Filters available for All Assets
+Data Owners -
+Filter by the assigned data owner responsible for the Table.
+Data Steward
+- Filter by the assigned data steward responsible for the Table.
+Data Domain
+– Filter by assigned domain.
+Last Updated On
+- Filter based on the last updated date.
+Status
+– Filter based on Deleted, Default, New, Modified, and  Published.
+Tags
+– Filter by applied metadata tags.
+Available Filters for Tables
+You can refine your search using the filters on the left panel:
+Format
+– Filter by format of the data i.e. Files or Tables.
+Last Refreshed On
+– Filter based on the last scan or refresh date.
+Record Count
+– Filter by data size or volume.
+Source
+– Filter by data source name.
+The available filter list changes dynamically based on the selected asset type.
+Note:
+Selecting the Plus (+) icon beside a filter reveals available options for more precise asset selection, such as tables, columns, rules, or agents.
+Selecting Clear at the top of the filter section resets all applied filters.
+Available Filters (for Columns)
+You can refine your search using the filters on the left panel:
+Data Type
+– Filters by the column’s data type (e.g., String, Integer, Date).
+Empty or Null
+- Filters based on the number of empty or null values. Users can set the minimum and maximum limits for empty or null values to retrieve the desired columns.
+Entity
+– Filters by the related entity or object.
+Table -
+Filters based on the table names to which the columns belong.
+Unique Count
+– Filters by the distinct value count of a column.
+Available Filters for Terms
+You can refine your search using the filters on the left panel:
+Sub-domain
+– Filters by the sub-domain under which the term is classified.
+Type
+– Filters by term type (e.g., Business Term, Technical Term).
+Filters for Rules
+You can refine your search using the filters on the left panel:
+Alert Status
+– Filter by the alert level or current notification state.
+Last Executed On
+- Filters by the latest execution date.
+Rule Type
+– Filter by rule type such as Orphan Records, Missing Values, or Data Consistency.
+Run Status
+– Filter by the latest execution status (e.g., Valid, Invalid, Failed).
+Search Results
+Selecting a column from the search results opens a detailed panel on the right side, displaying key metadata and attributes
+Selecting the arrow icon in the detail panel redirects to the Dictionary tab—specifically to the Database Column page—where the column can be viewed in full context along with related governance information.
+Consistent Result Display
+The presentation of search results has been standardized to ensure consistent metadata visibility and layout across all asset types.
+This makes it easier to interpret and compare results within the Enterprise Search interface.
+Example Search Scenarios
+Searching
+Orders
+returns all tables and reports containing that table name.
+Searching
+Orders.OrderDate
+lists all assets containing that column.
+Entering a unique
+Power BI asset ID
+(from its URL) displays that specific report.
+Searching
+Lahore
+returns all assets with that picklist value assigned in their custom attributes.
+Pasting a
+Power BI report URL
+shows the matching report directly.
+Applying filters for
+Asset Type = “Data Quality Rule”
+and
+Status = “Published”
+displays only published data quality rules.
+Summary
+Enterprise Search centralizes discovery across all connected data assets.
+It helps you find, filter, and access the information you need faster and more efficiently.
+Whether you are searching by name, column, ID, or URL, or refining results through filters and tags, Enterprise Search ensures that all relevant assets are easily within reach.
+Note:
+AI Agents are not included as part of Enterprise Search.

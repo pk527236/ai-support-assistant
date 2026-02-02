@@ -1,0 +1,36 @@
+Title: Column Sequencing
+URL: https://dvsum.zendesk.com/hc/en-us/articles/26980095608596-Column-Sequencing
+================================================================================
+
+In this Article
+Setting Column Sequence
+Suggested Column Sequence
+Table Specific Column Sequence
+Rule Specific Column Sequence
+Rules Where Column Sequence is Available
+Note:
+The Column Sequence tab will be shown for the following rules:
+Users have 3 different options for Column Sequencing on the Rule detail page. In this article, we will go through how users can set Column sequences and what are the 3 different column sequences defined on the Rule detail page.
+Setting Column Sequence
+On the Data Quality tab of the Table Detail page, the column sequence can be opened by clicking on the Gear settings icon
+Once Column Sequence is opened then the user can change the sequence for any column of the table:
+Now on the Rule detail page, on the "Column Sequence" tab user can select one of the three options that are:
+Suggested
+Table Specific
+Rule Specific
+Suggested Column Sequence
+By default, there is a sequence of the table that is defined and that is the "Suggested" column sequence.
+After running the rule the suggested column sequence that was defined can be seen on the "Data" tab.
+Table Specific Column Sequence
+The "Table Specific" option is disabled if the user does not change the Column sequence from the "Data Quality" tab on the Table detail page. Once the user changes the Column sequence from there then this option is enabled. The Column sequence which was defined the the Table level can be seen here.
+Once the user saves this option and runs the rule then the sequence on the "Data" tab will be the same as what was defined on the "Data Quality" tab.
+Rule Specific Column Sequence
+If the user changes the "Suggested" column sequence or the "Table specific" column sequence then the new sequence will be called "Rule Specific" specific. Users can make any changes in the column sequencing and save the option.
+After running the rule, the user can see the same sequence on the "Data" tab that was defined in the "Column Sequence" tab:
+Note:
+The Column Sequence tab will be shown for the following rules on the Rule detail page:
+Data Format
+Blanks
+Value Range
+Orphan Records
+Ruleset

@@ -1,0 +1,64 @@
+Title: How to Create/Assign/Remove Rule Group or Val group & Batch Scheduling
+URL: https://dvsum.zendesk.com/hc/en-us/articles/13070366457620-How-to-Create-Assign-Remove-Rule-Group-or-Val-group-Batch-Scheduling
+================================================================================
+
+What are Rule Groups?
+Rule Groups serve as categorizing "labels" for organizing your audits into meaningful groups. By applying a Rule Group label, you can categorize your Audits according to your desired grouping. Unlike folders, Rule Groups allow for multiple labels to be assigned to a single audit and vice versa, where an audit can belong to multiple Rule Groups.
+How to Create a new/ Assign existing Rule Group?
+In case you want to add a new Rule Group or Assign an existing one to your Audit you can do that from multiple places.
+1. Rule Detail Page
+Adding a New Rule Group
+Select any rule, Go To the Rule detail page, Click on the Edit Button, and navigate to the Notification Section. In the screenshot below you can see the option of "Rule Group". You can simply type in the name you want to give to the new Rule Group and press enter and the new rule will be added and assigned to your audit after you have saved it.
+Adding single or multiple Existing Rule Groups
+In case you want to add single or multiple rule groups that already exist to a new Audit you can simply select them from existing rule groups from the dropdown as shown in the screenshot below.
+2. Mass Updating Rule Groups
+Mass update is another way of adding/removing and replacing single/multiple Rule groups to a single or multiple Rules. There are multiple operations that you can perform with Mass Update as follows:
+1. Adding one or multiple new Rule Groups to a single Rule
+2. Adding one or multiple existing Rule Groups to a single Rule
+3. Adding one or multiple new Rule Groups to multiple Rules
+4. Adding one or multiple existing Rule Groups to multiple Rules
+5. Replacing/ Removing one or multiple Rule Groups from a single or multiple Rules
+Mass update operations can be performed from both Manage Rules (For Legacy Accounts only) and Analyze Rules:
+Manage Rules:
+Analyze Rule:
+Batch Execution
+Batch execution is an operation that allows a user to Run a single or more Rule Groups at the same time.
+Details of the Run History are shown at the bottom of the page.
+Execute Via a Schedule
+You can create a
+Schedule
+by following the steps:
+Select Group -> Add group -> Schedule Rule
+Next, you need to enter the following details if you want to share an email alert:
+1. Internal Recipients
+2. Recipient Groups
+3. External Recipients
+4. Select the Repeat configuration from dropdown. (One-time/ Daily/ Weekly/ Monthly / Monitor)
+5. Select the start date & time for the schedule
+6. Click on the Save button in the bottom right corner:
+Note
+: "
+Send schedule completion email" will send an email on job completion
+"Send email only on alerts" will send email only rule is
+Alerting
+Execute Via a Script
+You can also schedule them
+Via a Script
+by following the steps:
+Select Group -> Add group -> Schedule Rule
+Next, you need to enter the following details if you want to share an email alert:
+1. Internal Recipients
+2. Recipient Groups
+3. External Recipients
+4. Click on Generate Script in the bottom right corner:
+Note
+: "
+Send schedule completion email" will send an email on job completion
+"Send email only on alerts" will send email only rule is
+Alerting
+You will now receive the
+Script information
+and
+Dynamic Source Script
+in the respective blocks:
+You can copy the script and execute it to run the rule.

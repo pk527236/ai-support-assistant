@@ -1,0 +1,130 @@
+Title: Database Columns
+URL: https://dvsum.zendesk.com/hc/en-us/articles/34934067464084-Database-Columns
+================================================================================
+
+In this Article
+Overview
+Database Columns
+Accessing the Field Dictionary
+Database Columns Details
+Column Detail Page
+Overview Tab
+Profiling Tab
+Data Quality Tab
+Overview
+The Database Columns in DvSum provides users with a comprehensive view of all data columns across different sources and datasets. It consolidates metadata, profiling details, and data quality insights into a structured interface, enabling users to explore and manage their data efficiently.
+Accessing the Database Columns
+On the left-side menu of the DvSum application, Go to the
+Dictionary
+dropdown and select the
+Database Columns
+to navigate to its detailed page.
+This page displays all column-specific details, provided that the sources are
+connected and cataloged
+.
+Database Columns Details
+The Field Dictionary provides an organized view of column-related metadata, including:
+Source
+Table
+Column Name
+Business Name
+Column Description
+Data Type
+Profiling Info
+Range Value
+DQ Score
+Column Sub-type
+Column Detail Page
+Clicking on a
+Column Name
+opens the
+Column Detail Page
+, which contains three tabs:
+Overview
+– Displays general metadata and descriptions.
+Profiling
+– Shows profiling statistics and insights.
+Data Quality
+– Highlights rule violations and data quality metrics.
+Overview Tab
+The
+Overview
+tab in the
+Field Dictionary
+comprises several key sections that provide a structured summary of column attributes and configurations. These sections typically include:
+Column Name & Description
+: Displays the name of the column along with a brief description of its purpose.
+Data Type
+: Specifies the type of data the column holds (e.g., String, Integer, Boolean).
+Source & Lineage
+: Identifies the origin of the column and traces its transformation across datasets.
+Usage & Dependencies
+: Indicates where and how the column is utilized within the system.
+Constraints & Validation
+: Lists any applied rules, such as mandatory columns, unique constraints, or default values.
+Tags & Classification
+: Allows categorization of columns for better organization and governance.
+Additional Info
+: Displays any extra details relevant to the column.
+Similar Columns
+: Suggests columns with similar characteristics to aid in analysis and comparison.
+Editing and Deleting a Column
+On the
+Overview
+page, users have the option to either
+Edit
+or
+Delete
+a column.
+Edit
+: Clicking the
+Edit
+button (represented by a blue button with a pencil icon) allows users to modify the column’s properties, such as its name, tags, or other metadata.
+Delete
+: The
+Delete
+button (represented by a red trash bin icon) enables users to remove the column permanently. Users should exercise caution while deleting, as this action may not be reversible.
+Profiling Tab
+The
+Profiling
+tab in the Field Dictionary contains the following sections:
+Statistics
+: Displays key metrics such as record count, number of empty/null values, unique values, and completeness percentage.
+Information
+: Provides details including the last profiled date, min-max values, whether the column is a primary key or nullable, technical data type, column position, size, and the number of fractional digits.
+Note:
+The Min-Max values depend on the column's data type. For string data types, the minimum and maximum values are determined based on lexicographical order.
+Visualization
+: Includes graphical representations of data distributions, with options to view distribution and pattern insights.
+Histogram time intervals automatically determined based on the span of date values:
+0–1 day → Hourly
+2–30 days → Daily
+31–60 days → Weekly
+61–730 days → Monthly
+731–1460 days → Quarterly
+Over 1460 days → Yearly
+Run Profiling
+: An option is available to initiate online profiling for updating column statistics and insights.
+Data Quality Tab
+The
+Data Quality
+tab in the Field Dictionary contains the following sections:
+Statistics
+: Displays key metrics such as DQ Score, total rules, rules with alerts, total exceptions, total records scanned, and last rule execution status.
+Rules
+: Lists all data quality rules applied to the column, including details such as rule ID, description, run status, alert status, and exception count.
+Add Rule
+: Provides an option to add new data quality rules for monitoring and validation. Only the following three rules can be applied:
+Blanks
+: Checks for missing or empty values in the column.
+Value Range
+: Ensures that data falls within a specified range.
+Data Format
+: Validates the format of the data based on predefined patterns.
+DQ Score History
+Clicking on the arrow icon history is displayed.
+Learn more about the Rules section in Data Quality tab
+here
+Field Reference Page
+The Field Reference page appears when a user clicks on a column name from the homepage.
+It slides out from the right side of the screen, displaying relevant information about the selected column.

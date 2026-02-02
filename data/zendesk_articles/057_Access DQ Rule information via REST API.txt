@@ -1,0 +1,119 @@
+Title: Access DQ Rule information via REST API
+URL: https://dvsum.zendesk.com/hc/en-us/articles/33018039015828-Access-DQ-Rule-information-via-REST-API
+================================================================================
+
+In this Article
+Overview
+Detailed Steps
+API Key
+Making an API Call to Retrieve DQ Rules
+Key Information
+Example API Call
+Defining and Viewing DQ Rules in DvSum
+Custom Views and API Extraction
+Testing with Postman
+Overview
+All information about Data Quality (DQ) rules is accessible through the DvSum web user interface and is also available via API. Using the API provides users with greater flexibility and control over their DQ results. For example, you can integrate the data into a corporate BI tool or dashboard, or archive the results for future review.
+The data retrieved via API corresponds to what is displayed on the
+DQ Dictionary
+page and is filtered based on the specific views of your rules that you define on this page.
+Detailed Steps
+Authentication Update
+DvSum APIs now use
+OAuth2 Client Credentials
+for secure authentication instead of direct API keys.
+To access APIs:
+Navigate to Administration → Account → Application Security → Manage OAuth2 Clients.
+Create an
+Authentication Client
+and download the generated
+Client ID
+and
+Client Secret
+.
+or
+Alternatively, enable API access at the user role level, and then generate a user role–based credential from
+My Settings → API Credentials
+tab.
+Use these credentials to generate an
+Access Token
+using the Authentication API mentioned in the
+API Documentation.
+Refer to the article
+‘API Access and Authentication Management’
+for details on creating an authentication client and generating access tokens.
+DvSum API Access and Authentication Management
+Making an API Call to Retrieve DQ Rules
+To fetch a list of Data Quality (DQ) Rules, follow the steps below:
+Key Information
+Base URL
+:
+https://apis.dvsum.ai/node-listing/listing/rules?view-name=
+Parameter
+:
+Name
+:
+view-name
+Value
+: Specify the name of the DQ Rules view you have defined in DvSum.
+Example: Use
+"DQ Rules"
+for the pre-defined view available to all users.
+Headers
+:
+Value
+: Use the API key obtained in the previous step.
+Authorization
+: Bearer
+<access_token>
+.
+Example API Call
+https://apis.dvsum.ai/node-listing/listing/rules?view-name=DQ Rules
+Ensure to replace
+view-name
+with your desired DQ Rules view name as required.
+Defining and Viewing DQ Rules in DvSum
+To access and define views in DvSum, follow these steps:
+Navigate to the DQ Dictionary
+:
+Go to the
+Dictionary
+dropdown and select the
+DQ Rules
+in the DvSum platform.
+Select a View
+:
+Choose any available view to retrieve the rules and fields relevant to your needs.
+Default View
+:
+The default view is
+"DQ Rules"
+, which is accessible to all users.
+You can also define a custom view to specify the rules and fields you want to retrieve.
+These views can be used as input parameters for API calls to fetch specific Data Quality rules and related fields.
+Custom Views and API Extraction
+When using
+custom views
+for API extraction, keep the following in mind:
+Owner vs. Non-Owner Accounts:
+If the view is created by the
+owner account
+, it is directly available for API calls.
+If the view is created by a
+non-owner account
+, it must first be
+shared with the owner account
+before it can be used in the API.
+Sharing a Custom View:
+Navigate to the DQ Dictionary and locate the custom view you created.
+Use the
+share option
+to share the view with the owner account.
+Once shared, the owner can access the view, and it becomes available for API extraction.
+Note:
+If a custom view from a non-owner account is not shared with the owner, attempting to use it in an API call will result in no data being retrieved.
+Testing with Postman
+Below is an example where the selected view is
+‘Analyze Rules’
+.
+The headers and the successful JSON response to the GET request are displayed.

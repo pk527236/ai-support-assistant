@@ -1,0 +1,32 @@
+Title: DvSum export options for reports
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360007921813-DvSum-export-options-for-reports
+================================================================================
+
+DvSum supports export report capability for the following:
+1. Dashboard (Views)
+You can create customized dashboard with different criteria and filters. These dashboards appear in the drop down list. Here's how to proceed:
+Select the dashboard you want to export
+Click on export icon
+An excel file consisting the data of all the widgets present in the selected dashboard will be downloaded on your computer
+2. Audits (All rules)
+To download the list of created rules, navigate to Manage Rules > More Actions > Export Rules.
+3. Analyze Rules (Views)
+You can create customized view of rules as follows:
+Navigate to Review > Analyze Rules page.
+From "Analyze Rules" drop down, click on "Create View".
+Here you can apply specific criteria and choose columns to appear in a view.
+Once the view is created, it appears in the drop-down list.
+Select the view and click on "Export Results". An excel report of the selected view will be downloaded.
+4. Exceptions report
+Whenever a rule is executed and there are exceptions, DvSum generates an exception report which can be downloaded from the rule detail page. Go to Analysis tab and click on "Export".
+5. Glossary Categories
+Glossary category export downloads all the terms within that category. You can download multiple categories at a time. From Manage Categories page, click on "Export Results"
+6. Assessment Report
+DvSum provides the GDPR assessment report. You can take the
+survey
+and create a
+data model
+required to generate the
+assessment report
+.
+Go to assessment report detail page. The "Download PDF" option will download the report.

@@ -1,0 +1,102 @@
+Title: Usability Score
+URL: https://dvsum.zendesk.com/hc/en-us/articles/37654166387860-Usability-Score
+================================================================================
+
+In this Article:
+Introduction
+Improving Usability Score
+Accessing the Overview Page
+Understanding the Usability Score
+Improving the Usability Score
+Completing the Required Fields
+Finalizing the Updates
+Result
+Required Metadata Fields for Full Score
+Introduction
+In DvSum, the
+Usability Score
+measures the completeness of a table’s metadata. A full score of
+10
+indicates that all essential metadata fields have been properly filled in, promoting better governance, discoverability, and trust in the data asset.
+Note:
+Full Score = 10
+: Achieved when
+all required metadata fields
+are populated.
+Partial Score
+: If some fields are missing, the score is
+calculated as the average
+of the available metadata inputs.
+If the Usability score is not 10/10 then the asset will considered as
+Incomplete.
+To mark an asset as Complete, the usability score must be updated to 10/10.
+Improving Usability Score
+1. Accessing the Overview Page:
+Click on any
+table name
+,
+field name
+, or
+term name
+.
+You will be redirected to the
+Overview Page
+.
+The
+Usability Score
+is prominently displayed at the top of this page.
+2. Understanding the Usability Score:
+A
+partial usability score
+indicates that
+not all required metadata fields
+have been populated.
+3. Improving the Usability Score:
+Click on the
+Edit
+button.
+A list of
+required fields
+that need to be filled will be displayed.
+4. Completing the Required Fields:
+Navigate to the
+respective tab(s)
+where the required fields are located.
+Enter the
+necessary information
+in each required field.
+5. Finalizing the Updates:
+After filling in all required fields, click
+Save
+.
+Then click
+Done
+and
+Publish
+.
+6. Result:
+Once all steps are completed, the
+Usability Score
+will be updated to
+10/10
+.
+Once an asset achieves a 10/10 Usability Score, its status automatically transitions from
+Incomplete
+to
+Complete
+. For assets with workflow enabled, the asset must be approved and published after these updates. If any required fields are not filled in, the asset will continue to remain in
+Incomplete
+until all required information is provided.
+Required Metadata Fields for Full Score
+To reach a usability score of
+10/10
+, the following fields must be filled in:
+Description
+Ownership
+Tags
+Domains
+Additional Info
+Lineage
+Additional info.
+Note:
+Missing even one of these fields will reduce the score.

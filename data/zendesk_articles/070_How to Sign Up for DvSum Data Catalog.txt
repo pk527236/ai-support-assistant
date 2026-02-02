@@ -1,0 +1,29 @@
+Title: How to Sign Up for DvSum Data Catalog
+URL: https://dvsum.zendesk.com/hc/en-us/articles/15389497274260-How-to-Sign-Up-for-DvSum-Data-Catalog
+================================================================================
+
+Overview
+Join the thousands of satisfied users who have already unlocked the full potential of our Data Catalog. Sign up now and experience the difference for yourself! Follow these simple signup steps below and get started using DvSum Data Catalog in less than 3 minutes.
+Step 1:
+Browse to DvSum's
+Agile Data Catalog
+page and click on "
+Start for Free
+".
+Step 2:
+On the next screen enter an email you want to register for the trial account. A verification link will be sent to the provided email.
+Note:
+This user will be the
+Account Owner
+.
+Step 3:
+In the received email click on the "
+Verify Email
+" button. You will be redirected to the Signup form. Fill this out to create your account.
+Step 4:
+On the
+DvSum Data Catalog Sign-In page
+, enter your login credentials to sign in and access all the amazing features and functionalities our Data Catalog has to offer.
+Next steps:
+Follow the product tour wizard to get started.
+Happy Cataloging!

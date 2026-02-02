@@ -1,0 +1,121 @@
+Title: Configure Microsoft Power BI as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/8960509886868-Configure-Microsoft-Power-BI-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Prerequisites
+Step-by-Step Configuration
+Confirm Availability of Datasets and Reports
+Add Power BI as a Source in DvSum
+Configure Connection Settings
+Save the Connection
+Scan the Data Source
+Browsing the Data Catalog
+Troubleshooting Tips
+Video Tutorial
+Next Steps
+Additional Resources
+Overview
+This guide walks you through setting up Microsoft Power BI as a data source in DvSum, enabling seamless data integration, governance, and analysis. By adding Power BI as a source, you can scan reports and datasets, making them available for documentation, curation, and tracking lineage from their originating data sources.
+Prerequisites
+Before proceeding, ensure you have the following:
+A valid Power BI account with appropriate permissions.
+The Client ID, Client Secret, and Tenant ID for your Power BI application.
+Access to the Power BI API for seamless integration.
+A DvSum account with access to Data Catalog (DC) or Data Quality (DQ).
+Step-by-Step Configuration
+1. Confirm Availability of Datasets and Reports
+Log in to your Power BI account.
+Ensure that reports and datasets are available and accessible based on your user permissions.
+2. Add Power BI as a Source in DvSum
+Log into DvSum Data Catalog (DC).
+Navigate to
+Administration
+→
+Data Sources
+→
+Add Source
+.
+In the pop-up window:
+Select
+Power BI
+as the source.
+Provide a
+Source Name
+.
+Click
+Save
+.
+3. Configure Connection Settings
+Once a new Power BI source is created, you will be redirected to the connection settings detail page of the new source. In the Credentials section in Connection settings, enter these three properties:
+Client ID
+Client Secret
+Tenant ID
+After entering the credentials, authenticate the source.
+Once the source is authenticated, a
+"Workspaces"
+section will appear below the Authenticate button. By default, all workspaces will be scanned.
+To limit the scan to specific workspaces, check the
+"Limit to specific workspaces"
+option. This will enable two tabs:
+"Available Workspaces"
+and
+"Selected Workspaces"
+, allowing you to choose which workspaces to include in the scan. You can also choose whether to
+include personal workspaces
+by selecting the corresponding checkbox.
+If "Limit to specific workspaces" is checked, the workspaces will be listed in the “Available Workspaces” tab. Select workspaces that are to be scanned, and move them to the “Selected Schemas” tab.
+4. Save the Connection
+To save, scroll up to the top. From the top right corner click on the “Done” button.
+After that click the “Save” button. The source will get saved successfully.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+5. Scan the Data Source
+Navigate to the
+Scan History Page
+.
+Click
+Scan Now
+to initiate the scan.
+Once completed, the status will change to
+Completed
+.
+Click on the
+Scan Name
+to open the Scan Summary page.
+The summary will show the number of reports and datasets fetched.
+Navigate to Scan History Page and click the "Scan Now" button. When the scan is complete, the status will change to "Completed".
+After the scan completes, click on Scan Name and it will open the Scan Summary page of this scan.
+The Scan Summary page displays all the insights of the scan. It indicates how many new workbooks and datasets were found in the scan. In the screenshot below it shows that 9 Reports and 5 Datasets were found.
+Your Power BI connection is now fully configured and functional.
+Browsing the Data Catalog
+Semantic Models
+Now, let’s analyze the semantic models that we got from this scan. Navigate to the Assets Dictionary on the left sidebar and apply the asset type filter "BI Semantic Model". You will be able to see all the semantic models. From there, go to the  "Recently Refreshed" tab and select the semantic models that we have got in the recent scan.x
+The Semantic Model can further have BI Tables if they were created in it, and the list of BI tables can be seen on the detail page of the Semantic Model:
+The BI table detail page has an "Overview" tab, which contains all the properties of the BI tables, and a "Data" tab, which will contain the BI fields of the Table. Users can also see the lineage on BI Table if it exists:
+Reports
+From the BI Reports listing, select a recently scanned Report, and the user will be redirected to the detail page of the Report. The screenshot below shows what the Reports detail page looks like.
+Please note that only BI Reports have a separate listing page; for other BI assets, users will have to go to the Assets dictionary and apply the asset type filter
+On the detail page, a description of the report is fetched from the Power BI report. This means this report has the same description in Power BI, and the same description is fetched and shows up here. The author of the report is basically the person who created this report in Power BI, so this value is also basically fetched. Further, we have a lineage of the Report, which actually shows us that the current Report is derived from which data set and which tables are connected to that data set.
+Dashboards
+From the Assets dictionary listing, users can apply the asset type filter "BI Dashboard," and all the dashboards (if there were any) can be seen on the listing page. The screenshot below shows what the dashboard detail page looks like:
+Troubleshooting Tips
+If the test connection fails, confirm that prerequisites are complete and API validation has been performed (see
+[Configure Microsoft Power BI Permissions]
+).
+Ensure the Client Secret is valid and not expired.
+Verify that metadata scanning is enabled in Power BI.
+Video Tutorial
+Watch this quick video tutorial on how to add and configure a Power BI source into DvSum app.
+Next Steps
+For setting up permissions in Power BI:
+[
+Configure Microsoft Power BI Permissions
+]
+Additional Resources
+Read more about
+DvSum Web Service (Cloud SAWS)
+Read more about
+DvSum Edge Gateway (On-Premises SAWS)

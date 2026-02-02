@@ -1,0 +1,45 @@
+Title: How to set the exception record limit for rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/37016023734036-How-to-set-the-exception-record-limit-for-rules
+================================================================================
+
+In this article:
+Navigate to the Data Dictionary Module
+Access the Data Quality Section
+Adjust the Exceptions Record Limit
+Save Your Changes
+Additional Reference
+To configure the number of exception records for a specific table, follow the steps outlined below:
+Step 1: Navigate to the Data Dictionary Module
+Open the
+Dictionaries
+>
+Database Tables
+module from your system.
+Locate the relevant table associated with the rule for which you want to adjust the exception record count.
+Step 2: Access the Data Quality Section
+Within the table settings, locate the
+Data Quality
+section.
+Steps 3:
+Adjust the Exceptions Record Limit
+Under the
+Data Quality
+section, click on
+Settings
+.
+In the
+Exceptions Record Limit
+field, enter the desired number. The maximum allowable limit is
+75,000
+records. You can set the limit anywhere between 300 and 75,000 based on your needs.
+Steps 4: Save Your Changes
+After entering the desired record limit, click
+Save
+to confirm and apply the changes.
+Note:
+Minimum Limit: The minimum number of exception records you can set is 300.
+Maximum Limit: The maximum number of exception records you can set is 75,000.
+Additional Reference:
+Refer the article
+Rule detail page
+to know more about exporting exception records.

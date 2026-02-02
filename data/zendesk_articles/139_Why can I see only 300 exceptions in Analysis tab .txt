@@ -1,0 +1,21 @@
+Title: Why can I see only 300 exceptions in Analysis tab when Rule Run Result shows more ?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000991833-Why-can-I-see-only-300-exceptions-in-Analysis-tab-when-Rule-Run-Result-shows-more
+================================================================================
+
+If you see less records in cleansing workbench than the number of exceptions in the Rule Run Result, below is the reason why.
+Please refer to the end of this article to know how to view all exceptions in Analysis tab.
+You may have hundreds of records in your data source, but DvSum will process a limited number of records at a time. Similarly, there is a limited number of exceptions that are displayed in the cleansing workbench.
+Where do these limits come from?
+Every table of a source has its own staging configuration from where the administrator can control the number of records to be processed at a time and the number of exceptions which can be displayed at a time. This means if there are 1,241 exceptions (refer to the image above), you will only see 300 of the exceptions. Once these 300 are fixed and the rule is executed again, it will show 941 (1241 - 300) exceptions.
+Can I show higher number of exceptions in extract?
+Allowed Review limit: 300 - 10,000*
+1. When the rule is run in
+online mode
+(through online execution), it will give the correct exception count in Run Result, but the actual detail is 300 records in cleansing workbench.
+2. When the rule is run in
+batch mode
+(through scheduler), it will still have the same count, and the actual detail extract is up to 10,000 records in cleansing workbench.
+*Note: These are the 2 boundary limits. Changing that number below 300 will not decrease and changing from 10,000 to a higher number will not increase the limit.
+All exceptions in Online Run
+This small button has the power to show you all exceptions on Analysis tab of rule detail page. By default this button is off and you will see 300 exceptions.
+If you turn the button on, it will bring upto 10,000 exception records on Analysis tab.

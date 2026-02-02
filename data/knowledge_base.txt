@@ -1,0 +1,15 @@
+# Network Troubleshooting
+
+## Common Network Issues
+
+1. Cannot connect to VPN
+   - Check internet connection
+   - Verify VPN credentials
+   - Restart VPN client
+   - Contact IT if issue persists
+
+2. Slow network speed
+   - Run speed test
+   - Check bandwidth usage
+   - Restart router
+   - Clear DNS cache

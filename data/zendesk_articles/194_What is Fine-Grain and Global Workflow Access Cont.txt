@@ -1,0 +1,34 @@
+Title: What is Fine-Grain and Global Workflow Access Control?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115001889873-What-is-Fine-Grain-and-Global-Workflow-Access-Control
+================================================================================
+
+Workflow Control
+The two levels of control provided to users over Workflows are
+Workflow fine-grain access control
+Global (when the checkbox for Workflow fine-grain access control is disabled)
+Fine Grain Disabled (Global Access)
+When fine grain checkbox is disabled, it means the users of a particular group are given global access to “all” the categories of Workflow.
+On all categories, there are further 3 levels of access. i.e. Execute, Manage, No Access. An admin can set the access for a group from edit/add group dialog.
+Execute Workflows
+On Workflows Manage and Execution listing pages, all the WFs of all the categories will be visible to the users of that particular group. It means that the users can only view the WF list and details but cannot create or edit them.
+Manage Workflows
+On Workflows Manage and Execution listing pages, all the WFs of all the categories will be editable to the users of that particular group. It means that the users can edit the WF list and create and execute WFs.
+No Access
+For no access, User will be not able to see the WF listing on the Manage and Execution List pages.
+Fine-Grain Enabled
+When fine grain checkbox is enabled, it means the users of a particular group are given privileges to “selective or all” categories of Workflow.
+On all categories, there are further 2 levels of access. i.e. Manage Workflow and Execute Workflow. An admin can set the access for a group from edit/add group dialog.
+Execute Workflow
+On Workflows Manage and Execution listing pages, all the WFs of the selective categories will be visible to the users of that particular group. It means that the users can only view the WF list and details but cannot create or edit them.
+Manage Workflow
+On Workflows Manage and Execution listing pages, all the WFs of the selective categories will be editable to the users of that particular group. It means that the users can edit and create and execute WFs.
+Workflow Behavior for both Fine Grain and Global Access
+There are some actions that a user can perform regardless of the defined access control.
+Workflow Creation:
+Functional Owner: Only those users of a group can be Functional Owner for which they have “manage” or “execute” right over a category of WF.
+Data Stewards: Users of a group can Data Stewards for which they have “manage” right over a category of WF.
+Step Owner: Only those users of a group can be assigned a step for which they have “manage” or “execute” right over a category of WF.
+Initiate, Cancel and Delete Workflow:
+All these actions can be performed by the Functional Owner or Data Stewards of a particular WF.
+Reassign, Reject and Close Reject:
+All these actions can be performed by the Functional Owner, Data Stewards or Step Owners of a particular WF.

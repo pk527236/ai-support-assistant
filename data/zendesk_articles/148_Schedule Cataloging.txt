@@ -1,0 +1,23 @@
+Title: Schedule Cataloging
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360049346552-Schedule-Cataloging
+================================================================================
+
+The article below explains how users can schedule the cataloging process. Let's get started.
+Catalog Scheduling
+Step 1 :
+Go to Administration -> Manage Sources
+Choose a source and click the "
+Schedule Cataloging
+" button as shown below:
+Note:
+The scheduler catalog is applicable to SAWS version 2.4 and above.
+The user will be directed to the Schedule page as shown below. The scheduler operates in the same manner as it does in the Dvsum tool.
+Step 2 :
+If you schedule a job and view the details in the Scheduler section, you'll notice a newly introduced Catalog icon. When hovered over, it displays as "Cataloging," as shown below:
+Schedule Cataloging Email Notification
+Step 3:
+To customize the notification frequency or enable/disable scheduled cataloging notifications, visit your User profile. Click on Email Notification, then scroll down to find the "Scheduled Cataloging Email Notification" option, as shown below:
+Note:
+By default, this option will be enabled.
+Step 4:
+After scheduling a Catalog, the user will receive an email according to the set email frequency. Below is the template for the email:

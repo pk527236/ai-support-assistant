@@ -1,0 +1,53 @@
+Title: User Access at DQ Rules Level
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360050817613-User-Access-at-DQ-Rules-Level
+================================================================================
+
+User Access at DQ Rules Level
+Now, users and Super users can be restricted from using Edit functionality in Rule definition, Rule Summary, Users, Workflows, Script configuration, Column Sequence and Rule instruction tabs in Rule detail page. Only Admins, Owners or any authorized users will be able to Edit the rules. For that, this access is managed using the User Groups section. For getting started with it, let us dig into the detail bit by bit.
+Step 1:
+From Home page, click Administration section. In drop down options you will see a Manage User Groups option. This option is available for Admins and Owners to limit the access for users or super users at DQ Rule level. Select this option and Manage User Groups detailed page will be displayed. On this page you can Add, Edit and Delete Group(s) as shown below.
+Step 2:
+From there, click Add/Edit Group. An Add/Edit Group detailed page will be displayed, scroll down to bottom and there you will see a new section for
+DQ
+Rule
+Access
+is added. The access setting in this section will be applied to all exiting and new DQ-Rules that are present in application. It will have two options, View and Edit as shown below:
+Scenario 1:
+Edit Access at User/Super User Level
+Step 3 :
+Now on the same page, select user(s) or super user(s) that you want to limit or give the access to Edit the DQ Rule(s). For example, you select the Edit option from drop down for selected user(s). Save the option and now login into DvSum application using that user credentials. After login, select any rule to open rule detail page. Once rule detail paged is displaced, observe the following changes.
+A- Rule Summary
+User/Super user will be able to edit Rule summary as shown below:
+B- Rule Definition
+User/ Super user will be able to edit Rule definition as shown below:
+C- Users
+User/Super user will be able to remove or add user(s) as shown below:
+D- Script Configuration
+User/Super user will be able to edit Script configuration as shown below:
+E- Workflow
+User/Super user will be able to add workflow as shown below:
+F- Rule Instruction
+User/ Super user will be able to edit Rule instruction as shown below:
+G- Column Sequence
+User/Super user will be able to edit column sequence and save button will be visible as shown below:
+Scenario 2:   View Access at User/Super User Level
+Step 4 :
+Now on the same page, select user(s) or super user(s) that you want to limit or give the access to View the DQ Rule(s). For example, you select the View option from drop down for selected user(s). Save the option and now login into DvSum application using that user credentials. After login, select any rule to open rule detail page. Once rule detail paged is displaced, observe the following changes.
+A- Rule Summary
+User/Super user will not see the Edit icon to edit the Rule summary as shown below:
+B- Rule Definition
+User/Super user will not see the Edit icon to edit the Rule definition as shown below:
+C- Users
+User/Super user will not be able to Add or Remove user(s) as shown below:
+D- Workflow
+User/Super user will not be able to Add Workflow(s) as shown below:
+E- Rule Instructions
+User/Super user will not be Edit in Rule instruction as shown below:
+F- Script Configuration
+User/ Super user will not be able to Edit Script configuration tab as shown below:
+G- Column Sequence
+User/ Super user will not be able to make any change in the column sequence tab. Save button will be hidden as shown below:
+Scenario 3:
+If a user/super is added in two different user groups and in each of those groups, user/super user has different access. For instance, user/super user in Group A has "View" access and same user/super user in Group B has "Edit" access. By business requirement, the least access which is only "View" access will be applicable to user/super user.  Therefore, user/super user will only be able to view the changes and won't be able to Edit anything.
+Scenario 4:
+If you select any user which has the role type "Admin/Owner" and you set the access as "View" for that particular user then by default as per Business requirement, it will still have the Edit access at the rule level. Therefore, this access limit will not be applicable on role type of Admin and owner.
