@@ -1,0 +1,36 @@
+Title: Enable Writeback on Custom Query DQ Rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360045992074-Enable-Writeback-on-Custom-Query-DQ-Rules
+================================================================================
+
+Custom Query Rules
+Custom Query data quality rules are powerful rules that give users the ability to monitor any sort of data quality rules that they require. The article
+Creating a CUSTOM QUERY DQ Rule
+explains how to create a rule. This article builds on that foundation and explains how to support writeback so that data stewards can take corrective action.
+Enabling writeback prerequisites
+You have a working DQ rule of type "CUSTOM QUERY".
+The table that you want to allow writeback on has an ID field configured.
+Confirm that an ID field is configured for the table
+Profile → Profiling → [tick relevant table] → More Actions → Edit Configuration
+Confirm the value of "Field(s) that can uniquely identify a data record".
+Confirm that "Allow Write-Back" is ticked.
+Enabling writeback steps
+Overview
+Edit rule definition to enable writeback.
+Run the rule.
+Configure writeback fields.
+Run the rule.
+Details
+Edit the rule definition and tick "Enable Writeback".
+Notes:
+The tab "Write-back Configuration" is grayed out when writeback is not enabled.
+The Analysis tab displays error records. They may be exported, but there is no "Cleanse" option to correct the errors.
+After saving the change, a warning is displayed.
+Note: the tab "Write-back Configuration" should now be enabled. But you must run the rule before it's possible to configure the writeback details.
+Run the rule.
+Configure the Key Identifier on the "Write-back Configuration" tab. Then click Next.
+In this example the Key Identifier is CUSTOMER_ID, and the field returned by the query is also CUSTOMER_ID. So DvSum has automatically guessed the mapping. This is typical, and it's a best practice to use field names that match. But in some cases you'll need to map fields with different names.
+Configure the Write-back Column Mapping.
+Enable Write-back for the columns which data stewards should be allowed to make changes.
+Run the rule.
+Cleanse is now enabled in the Analysis tab.
+The fields enabled for writeback will be highlighted in red. Clicking "Cleanse" will start a workflow allowing a data steward to fix the data.

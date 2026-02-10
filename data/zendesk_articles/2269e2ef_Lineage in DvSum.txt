@@ -1,0 +1,249 @@
+Title: Lineage in DvSum
+URL: https://dvsum.zendesk.com/hc/en-us/articles/33694180953108-Lineage-in-DvSum
+================================================================================
+
+Overview
+Data lineage in the DvSum Application provides a comprehensive view of the data's journey, helping users understand how data moves, transforms, and interacts across systems. It offers a visual map of the data flow, from the source to the destination, showing all stages of transformation and any dependencies involved. By utilizing data lineage, it is possible to trace the movement of data in real time, detect issues quickly, and assess the impact of changes to processes. This feature is essential for improving data transparency, ensuring data quality, and maintaining compliance with governance standards. This article covers the following topics:
+Prerequisites for Data Lineage
+Performing a Lineage Scan
+Step 1: Navigate to Data Sources
+Step 2: Initiate a Scan
+Step 3: Select Scan Options
+Step 4: View Scan Details
+Understanding Lineage Visualization
+Lineage View
+Footer Options
+Header Options
+Placeholder Tables
+Data Quality (DQ) Observability and Data Classification
+DQ Observability
+Data Classification
+Exploring Functional and Technical Lineage
+Functional Lineage
+Technical Lineage
+ETL Nodes
+Managing Lineage Permissions in User Roles
+Permission Levels
+Entity Level vs. Entity-Attribute Level
+Current Functionality
+Demonstration
+Adding an Upstream Node
+Supported Data Sources
+Prerequisites for Data Lineage
+To enable effective data lineage in the DvSum application, the following prerequisites must be met:
+Complete Database and Schema Scan:
+Ensure that all relevant databases, schemas, and their associated tables/views are scanned in the DvSum application.
+Query History Configuration:
+Query history must be enabled for your data sources to derive both functional and technical lineage. For detailed instructions, refer to the
+Enable
+Query
+History
+for
+Data
+Sources
+article.
+Comprehensive Query Tracking:
+Ensure all query types relevant to lineage (e.g.,
+INSERT
+,
+MERGE
+,
+UPDATE
+, and
+SELECT
+) are captured and made available for lineage analysis.
+Lineage Extraction from Procedures, Functions, and Notebooks:
+To successfully capture lineage from Stored Procedures, Functions, and Databricks Notebooks, users must have the necessary access permissions based on the source system:
+Databricks:
+The user must authenticate using a
+Personal Access Token
+.
+The user must have access to
+Databricks Notebooks
+.
+Snowflake:
+The
+user cataloging the Snowflake source must be the owner of the stored procedure
+being used. Without this ownership, DvSum will not be able to extract lineage information.
+For instructions on how to grant ownership, refer to the
+Configure Snowflake as a Source
+article.
+All Other Sources:
+The user must have access to the relevant stored procedures to retrieve lineage information.
+Performing a Lineage Scan
+Step 1: Navigate to Data Sources
+Access the
+Data Sources
+section in the application.
+Select the desired data source.
+Step 2: Initiate a Scan
+Navigate to the
+Scan History
+tab.
+Click the
+Scan Now
+button, which provides the following options:
+Profile
+: Profiles data assets.
+Lineage
+: Tracks and visualizes the data flow.
+The catalog scan runs by default. Users can use checkboxes to select additional scan types.
+Step 3: Select Scan Options
+Selecting the
+Lineage
+checkbox triggers a lineage scan.
+Selecting both
+Profile
+and
+Lineage
+options triggers all three scans (Catalog, Profile, and Lineage) simultaneously.
+This setup allows for the customization of scans based on specific requirements.
+Step 4: View Scan Details
+Locate the scan name and click on it to access detailed insights.
+The detailed Insights are displayed as such:
+Navigate to the
+Table Detail
+page for further exploration.
+Understanding Lineage Visualization
+Lineage View
+The lineage visualization opens in a new tab, displaying:
+Reference Node
+(center): The selected table or view.
+Upstream Nodes
+: Sources influencing the reference node.
+Downstream Nodes
+: Entities impacted by the reference node.
+Footer Options
+Expand All Upstream Nodes
+: Displays all upstream relationships.
+Reference View
+: Tables reference view ID displayed
+Set Context
+: Focuses the lineage on a specific node or column.
+In the example, lineage is already set for a node, but any other node can be selected as Context:
+Resetting to the original node is still an option if another node is set:
+Expand Columns: All the columns can be expanded and have the same footer options as tables:
+Placeholder Tables in Lineage
+Placeholder tables are tables that exist in the database but are not recognized within the application. These tables are visually indicated by a dotted line around their boundary and placeholder text will be written on the node.
+Key behaviors of placeholder tables:
+They will
+not be accessible elsewhere
+in the application except in the lineage view.
+The
+Reference View
+for placeholder tables
+will not open
+.
+The
+Reference View for their columns will also not open
+.
+Other than the above two options, the rest of the options on the placeholder node will be the same as that of any other table node.
+This ensures that users can now identify and track placeholder tables within the lineage flow while maintaining standard lineage functionalities.
+Header Options
+Search:
+Search for specific tables, nodes, or columns within the lineage view. Searches highlight all relevant elements, providing a quick way to locate specific data flows.
+Reset View
+: Resets the visualization to the default reference node view.
+Share Lineage:
+Shares a link to this lineage view with people or groups
+Layers:
+This displays two new options when clicked
+Data Quality (DQ) Observability and Data Classification
+DQ Observability
+: Highlights upstream nodes in the lineage view with active alerting rules applied.
+Data Classification
+: Sensitive data tags and classifications (e.g., PII, PCI) are prominently displayed within the lineage visualization.
+Exploring Functional and Technical Lineage
+Functional Lineage
+Functional lineage illustrates the data flow at an abstract level, showing tables, columns, and relationships (Everything discussed above was Functional Lineage)
+Technical Lineage
+Technical lineage includes:
+Source and target code blocks derived from query history.
+Attribute-level insights are not available for precise analysis.
+If the angle brackets are clicked the code is displayed:
+ETL Nodes in Technical Lineage
+Technical Lineage also includes
+ETL Nodes
+, representing
+Stored Procedures (SPs)
+in the database. Stored Procedures are pre-written SQL scripts that execute complex data transformations and manipulations within the database. In our application, we refer to them as
+ETL Nodes
+.
+Key Features of ETL Nodes:
+Transformations on Columns
+: ETL Nodes display the transformations applied to tables and columns within the lineage.
+Stored Procedure Code Visibility
+: Users can now
+view the full SQL code of the stored procedure
+from the ETL node.
+Column-Level Transformations
+: The lineage details now include transformations applied at the column level, providing deeper insights into data movement.
+Just like any other node, the ETL node can also be set as context for viewing lineage from its perspective. The same thing can be done on transformations on ETL nodes.
+Managing Lineage Permissions in User Roles
+The
+Lineage
+section in user roles configuration allows managing access to lineage data. Below are the available permissions:
+Permission Levels
+User access to lineage features depends on assigned roles:
+No Access
+: Restricts lineage visibility.
+Functional Lineage
+: Allows entity and attribute-level exploration.
+Functional and Technical Lineage
+: Grants full access, including technical insights.
+Entity Level
+: Displays relationships between entities like tables or datasets.
+Entity-Attribute Level
+: Shows relationships at both entity and attribute levels.
+Current Functionality
+Admin Role
+: Only admins can upload lineage data through the import process.
+Upstream Nodes
+: Users can add upstream nodes at the
+table level
+but not at the
+column level
+.
+Demonstration
+To add an upstream node:
+Go to the
+Table Detail Page
+.
+Click
+Edit
+to add upstream nodes at the table level.
+Supported Data Sources
+Lineage functionality is currently supported for:
+Relational Databases
+: Oracle, SQL Server, MySQL, PostgreSQL, IBM Db2, Azure SQL
+Data Lakes and Warehouses
+: Snowflake, Databricks, Azure Synapse, Netezza, Amazon S3
+BI Tools
+: Tableau, Power BI
+Not Supported
+: MongoDB, Salesforce, Azure Data Lake, and file uploads.
+Enabling Lineage in Oracle
+To enable lineage tracking from Oracle in DvSum, especially when stored procedures or packages are involved, the following setup is required.
+Accessing Stored Procedure/Package Code
+To extract lineage from stored procedures or packages, DvSum needs access to their source code. This source code is stored in Oracle’s
+ALL_SOURCE
+system view. The Oracle user should have
+read-only access
+to this view to allow DvSum to parse the code and identify lineage relationships.
+You can use the following SQL query to retrieve the procedure or package code:
+SELECT
+OWNER,
+NAME,
+TYPE,
+TEXT,
+LINE
+FROM
+ALL_SOURCE
+WHERE
+OWNER IN ('{schema_names}')
+Note
+: Replace
+{schema_names}
+with the actual schema names where the procedures or packages are defined.
+Source Configuration Requirement
+Make sure that all relevant schemas (where the procedure or package code resides) are included in the source configuration in DvSum. If any required schemas are missing, lineage extraction may not work as expected.

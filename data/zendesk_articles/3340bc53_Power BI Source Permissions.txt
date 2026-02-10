@@ -1,0 +1,72 @@
+Title: Power BI Source Permissions
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41264497137684-Power-BI-Source-Permissions
+================================================================================
+
+In this Article:
+Overview
+Required Prerequisites
+API Testing from Power BI Admin
+Authentication Token Acquisition
+Test Connection - Retrieve Workspaces using Auth token Generated in Step 1
+Scanning APIs using Auth token Generated in Step 1
+Workspace Information Request
+Scan Status Check
+Scan Results Retrieval
+Overview:
+The Power BI Admin Team needs to complete the required prerequisites and test the specified APIs to resolve the authentication issue. Once these steps are successfully completed, we can proceed with configuring the connection in DvSum.
+Note:
+For steps to configure Power BI as a source, refer to
+Microsoft Power BI as a Source.
+Required Prerequisites
+Before proceeding to test API, please ensure the following prerequisites are completed:
+Metadata Scanning Setup
+Create Azure AD Application
+Note: The same links are already available in the Source Detail Page.
+API Testing from Power BI Admin
+1. Authentication Token Acquisition
+Endpoint:
+POST
+https://login.microsoftonline.com/
+<tenant-id>/oauth2/v2.0/token
+Request Body:
+{
+"client_id": "<client-id>",
+"scope": "
+https://analysis.windows.net/powerbi/api/.default
+",
+"grant_type": "client_credentials",
+"client_secret": "<client_secret>"
+}
+Expected Response:
+Status Code: 200 OK (indicates successful connection)
+Response Body:
+{
+"token_type": "Bearer",
+"expires_in": 3599,
+"ext_expires_in": 3599,
+"access_token": "<token>"
+}
+2. Test Connection - Retrieve Workspaces using Auth token Generated in Step 1
+Endpoint:
+GET
+https://api.powerbi.com/v1.0/myorg/admin/reports?$filter={$filter}
+Reference:
+https://learn.microsoft.com/en-us/rest/api/power-bi/admin/groups-get-groups-as-admin
+Supported Filters: "Personal", "PersonalGroup", "Workspace"
+3. Scanning APIs using Auth token Generated in Step 1
+The following APIs will be used during the scanning process:
+Workspace Information Request:
+POST
+https://api.powerbi.com/v1.0/myorg/admin/workspaces/getInfo?lineage={lineage}&datasourceDetails={datasourceDetails}&datasetSchema={datasetSchema}&datasetExpressions={datasetExpressions}&getArtifactUsers={getArtifactUsers}
+Documentation:
+https://learn.microsoft.com/en-us/rest/api/power-bi/admin/workspace-info-post-workspace-info
+Scan Status Check:
+GET
+https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/{scanId}
+Documentation:
+https://learn.microsoft.com/en-us/rest/api/power-bi/admin/workspace-info-get-scan-status
+Scan Results Retrieval:
+GET
+https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/{scanId}
+Documentation:
+https://learn.microsoft.com/en-us/rest/api/power-bi/admin/workspace-info-get-scan-result

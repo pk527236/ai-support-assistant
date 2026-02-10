@@ -1,0 +1,97 @@
+Title: Types of Rules Wizards
+URL: https://dvsum.zendesk.com/hc/en-us/articles/230178488-Types-of-Rules-Wizards
+================================================================================
+
+Types of Rules Wizards
+We encourage customers to begin by identifying whatever data errors are causing impacts to their business and start with rules to identify those exceptions. Some of the rule types are straightforward, and their relevance is obvious. Others were created for specific customer use cases, and the potential application to your environment may not be readily apparent. Over time, potential rules and use cases become more apparent as you build out a more complete data governance approach.
+The rules wizards are organized into the following categories:
+Foundational DQ
+Basic, logical checks you would typically do in any environment. Includes completeness, consistency, and validity checks.
+Pipeline Checks
+Validates data pipelines by verifying data quantities, assessing data quality and performance, and monitoring data timeliness within the data processing workflows. Enhances data flow, quality, and efficiency.
+Cross System DQ
+Validations and checks based on a specific business understanding of what the data should be.
+MDM
+Is the data valid or what is expected based on the process or purpose. Includes accuracy checks.
+Data Diffs
+Compare and reconcile details and records across systems – without having to consolidate or pull the data. Includes consistency and validity checks.
+Within these categories are various rule types that can be configured to validate data and generate exceptions. There may also be different approaches to start with different rule types that generate the Exceptions you’re looking for. We encourage users to explore different rules and approaches, as there is an art to determining what works best within your environment and business processes.
+Type of Audit Rule
+Definition
+Example (s)
+Foundational DQ
+BLANKS
+Availability and completeness of data. Are there missing values?
+All the records where address field is missing in customer ship-to information.
+VALUE RANGE
+Are the values in data within the expected range? Either within a continuous range, within a pick list, or one of a specific value.
+Manufacturing yield should always be between 0.01 and 1
+Order type in sales orders should only be one of ZOST, ZOCO, ZOFR.
+Item_category in shipments should only be one of the values in the item_category reference
+UNIQUENESS
+Are the values within a data element unique in the dataset?
+Duplicate customers in customer table. Data is not unique. Duplicate keys and their count are displayed.
+UNIQUE VALUES
+Are the Count of Unique Values within an acceptable range or equal to a defined number?
+Expect unique locations to be between 95-100 based on 100 ship-from locations. Over 100 indicates error. Under 95 indicates potential error.
+CUSTOM QUERY
+Ability to write custom SQL.
+Any custom SQL query.
+DATA FORMAT
+Are the values in the data conforming to predefined formats, or users defining their own formats or patterns, such as SSN, Email etc. ensuring consistency and accuracy.
+Expect 2 values after decimal point in employee IDs field , if employee ID violates the rules's expected format, it would be considered a potential error.
+Defining pattern and then providing regex expression in the filter modal.
+Pipeline Checks
+COUNT
+Is the count of records within the expected range?
+Count of sales orders in open order extract should be between 800k and 1M records.
+Freshness
+Monitors if data is not present or updated by a certain time.
+In a weather forecasting app:
+Data initially fetched at "2023-09-30 08:00:00."
+Next execution timestamp: "2023-09-30 14:30:00."
+Time difference: 6 hours.
+Defined threshold: 3 hours.
+if the difference is more than the defined difference, it should be alerting.
+Metric
+Is the aggregated quantity within the expected range?
+Sum of open order quantity should be between 75M and 100M units.
+Cross System DQ
+ORPHAN RECORDS
+Record exists in one system’s set of records, but not in another system’s set of what should be the same records.
+Order A exists in the ERP’s list of Orders, but not in the Transportation System’s list of Planned Orders.
+ORPHAN KEYS
+Group of Records of a certain type exist in one system but not in another. Summarized by type.
+Shipments for Customer X not found in list of Shipments by Customer.
+Product Category B is found in the list of shipments, but it is not found in list of Products.
+INTEGRITY CHECK
+Does valid data exist in reference systems to execute a process?
+Does each SKU have a valid Bill-of-Distribution?
+Does each Item have weight/measure populated?
+MDM
+ADDRESS VALIDATION
+Validates existing address against Google Maps. Also enables standardization.
+123 Main Rd should actually be 123 W Main St.
+DOC-MATCHING
+Compare records at a field level and highlight discrepancies.
+For Planned Orders in ERP vs Planned Orders in Warehouse System: validate dates, quantity, and price and show discrepancies
+Data Diffs
+COMPARE COUNT
+Compare the count of records between 2 different data sources. The test may be at same or different granularities.
+Compare total Orders or Shipments in ERP at transactional level to Order or Shipment summary loaded in data warehouse at aggregated level.
+COMPARE CUSTOM QUERY
+Create your own custom validation rule within one data set and compare to the same query in a separate data set or system.
+Compare totals in the operational system of record to a downstream system and to an enterprise data warehouse.
+COMPARE METRIC
+Compare aggregated quantity between 2 different data sources.
+Compare the total shipment volume for last 3 months in ERP with shipment volume loaded in data warehouse at aggregated level.
+COMPARE TABLE
+Holistic comparison of the count of records and volume for metric fields across different attributes.
+Compare Open Sales Orders in SAP with Sales Order extract in JDA for count, total of orderquantity, qtyopen by order_type, item_category, plant, key customer accounts, product line.
+COMPARE SCHEMA
+Compare the schema structure between two sources, highlight differences in tables and columns, include disparities in data types where applicable.
+Compare schema definitions between the operational system of record, a downstream system, and an enterprise data warehouse to ensure consistency and identify any discrepancies in table structures and column definitions.
+Ruleset
+Ruleset is a predefined set of data constraints, It ensures data accuracy by enforcing rules such as disallowing blank values, restricting values to a specified range, and validating data formats for columns like strings or numbers.
+Example:
+Customer_ID can't be left blank, and the "Country" column should only have two-character inputs like US or UK.

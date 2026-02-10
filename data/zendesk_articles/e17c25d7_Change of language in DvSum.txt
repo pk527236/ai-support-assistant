@@ -1,0 +1,7 @@
+Title: Change of language in DvSum
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360003300593-Change-of-language-in-DvSum
+================================================================================
+
+DvSum application can adapt according to the language preferences by translating the source language (English) in to the targeted language.
+You can change the display language to your preferred language from Profile Page
+Under the Change Settings section, choose your language from the drop down box and Save.

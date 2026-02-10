@@ -1,0 +1,66 @@
+Title: How to Execute Selective Rules in DvSum
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35301308681876-How-to-Execute-Selective-Rules-in-DvSum
+================================================================================
+
+In this Article:
+Overview
+Step 1: Navigate...
+Step 2: Apply Filters...
+Step 3: Select Rules
+Step 4: Execute Rules
+Overview
+In
+Data Intelligence (DI)
+, rules help validate, cleanse, and monitor data quality. Sometimes, instead of running all rules at once, you may need to execute specific rules explicitly based on certain conditions.
+By applying filters in the DQ Dictionary, you can isolate and execute only the necessary rules.
+Steps to Run Rules Explicitly Using Filters
+Step 1: Navigate to the DQ Dictionary Page
+Go to the
+Dictionaries
+>
+DQ Dictionary
+section within your DI environment.
+This section contains all configured
+Data Quality (DQ) rules
+in DI.
+Step 2: Apply Filters to Isolate Specific Rules
+Use the
+search bar or filtering options
+to locate the specific rules you need to run.
+You can filter rules based on various attributes like
+Rule ID, Rule Name, Rule Type,
+or
+Status.
+Example: If you need to run
+DQ-0001234 and DQ-0005678
+, apply a filter to display only these rules.
+After filtering, only the relevant rules will be listed.
+Step 3: Select the Rules
+Once the desired rules are displayed,
+select them
+by clicking the checkbox next to each rule.
+Ensure that only the required rules are selected before proceeding.
+Step 4: Execute the Rules Using 'Run Rule'
+After selecting the rules, click the
+"Run Rule"
+button located at the
+top right
+of the page.
+A dropdown will appear with two options:
+Run Online
+:
+Executes the rule instantly and provides real-time results.
+Note:
+If you change the tab while the rule is running, the process will get
+aborted
+.
+Run Offline
+:
+Runs the rule in the background (via a scheduler).
+Results will be available after execution is complete.
+Execution status can be checked later in the
+Job section
+Note:
+This option is Recommended for
+large datasets
+or when running multiple rules simultaneously.

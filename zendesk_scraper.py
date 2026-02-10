@@ -1,6 +1,7 @@
 """
 Zendesk Help Center Scraper with Selenium
 Scrapes articles from DVSum Zendesk help center using browser automation
+NOW WITH INCREMENTAL UPDATES - Only scrapes new/updated articles after first run
 """
 
 from selenium import webdriver
@@ -16,6 +17,7 @@ import time
 import os
 import re
 from urllib.parse import urljoin
+import hashlib
 
 class ZendeskSeleniumScraper:
     def __init__(self, base_url, headless=True):
@@ -24,6 +26,69 @@ class ZendeskSeleniumScraper:
         self.visited_urls = set()
         self.driver = None
         self.headless = headless
+        
+        # NEW: Metadata tracking for incremental updates
+        self.metadata_file = './data/scraper_metadata.json'
+        self.metadata = self.load_metadata()
+        self.stats = {
+            'new': 0,
+            'updated': 0,
+            'unchanged': 0,
+            'total_checked': 0
+        }
+    
+    # NEW: Load metadata about previously scraped articles
+    def load_metadata(self):
+        """Load metadata about previously scraped articles"""
+        if os.path.exists(self.metadata_file):
+            try:
+                with open(self.metadata_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    print(f"📋 Found {len(data.get('articles', {}))} existing articles")
+                    return data
+            except Exception as e:
+                print(f"⚠️ Error loading metadata: {e}")
+        return {'articles': {}, 'last_run': None}
+    
+    # NEW: Save metadata
+    def save_metadata(self):
+        """Save metadata about scraped articles"""
+        self.metadata['last_run'] = time.strftime('%Y-%m-%d %H:%M:%S')
+        os.makedirs(os.path.dirname(self.metadata_file), exist_ok=True)
+        with open(self.metadata_file, 'w', encoding='utf-8') as f:
+            json.dump(self.metadata, f, indent=2, ensure_ascii=False)
+    
+    # NEW: Generate content hash
+    def get_content_hash(self, content):
+        """Generate hash of content to detect changes"""
+        return hashlib.md5(content.encode('utf-8')).hexdigest()
+    
+    # NEW: Check if article needs scraping
+    def should_scrape_article(self, url, content):
+        """Check if article is new or has been updated"""
+        content_hash = self.get_content_hash(content)
+        
+        if url not in self.metadata['articles']:
+            self.stats['new'] += 1
+            return True, 'new'
+        
+        old_hash = self.metadata['articles'][url].get('content_hash')
+        if old_hash != content_hash:
+            self.stats['updated'] += 1
+            return True, 'updated'
+        
+        self.stats['unchanged'] += 1
+        return False, 'unchanged'
+    
+    # NEW: Update article metadata
+    def update_metadata(self, url, title, content):
+        """Update metadata for an article"""
+        content_hash = self.get_content_hash(content)
+        self.metadata['articles'][url] = {
+            'title': title,
+            'content_hash': content_hash,
+            'last_scraped': time.strftime('%Y-%m-%d %H:%M:%S')
+        }
         
     def setup_driver(self):
         """Setup Selenium Chrome driver with options"""
@@ -125,7 +190,8 @@ class ZendeskSeleniumScraper:
     
     def scrape_article(self, article_url):
         """Scrape content from a single article"""
-        print(f"📄 Scraping: {article_url}")
+        print(f"📄 Checking: {article_url}")
+        self.stats['total_checked'] += 1
         
         if not self.get_page(article_url):
             return None
@@ -176,6 +242,22 @@ class ZendeskSeleniumScraper:
             content_text = re.sub(r'\n\s*\n', '\n\n', content_text)
             content_text = re.sub(r' +', ' ', content_text)
             
+            # NEW: Check if we should scrape this article
+            should_scrape, change_type = self.should_scrape_article(article_url, content_text)
+            
+            if not should_scrape:
+                print(f"⏭️  Skipping (unchanged): {title_text[:60]}...")
+                return None
+            
+            # NEW: Update metadata
+            self.update_metadata(article_url, title_text, content_text)
+            
+            # Show status
+            if change_type == 'new':
+                print(f"🆕 NEW: {title_text[:60]}...")
+            else:
+                print(f"🔄 UPDATED: {title_text[:60]}...")
+            
             article_data = {
                 'title': title_text,
                 'url': article_url,
@@ -183,7 +265,6 @@ class ZendeskSeleniumScraper:
                 'scraped_at': time.strftime('%Y-%m-%d %H:%M:%S')
             }
             
-            print(f"✅ Scraped: {title_text[:60]}...")
             return article_data
             
         except Exception as e:
@@ -194,6 +275,14 @@ class ZendeskSeleniumScraper:
         """Main method to scrape all articles"""
         print("="*80)
         print("🚀 Starting Selenium-based Zendesk scraper...")
+        
+        # NEW: Show if this is incremental mode
+        if self.metadata.get('last_run'):
+            print("🔄 INCREMENTAL MODE - Only scraping new/updated articles")
+            print(f"📅 Last run: {self.metadata['last_run']}")
+        else:
+            print("🆕 FIRST RUN - Will scrape all articles")
+        
         print("="*80)
         
         # Setup driver
@@ -236,12 +325,12 @@ class ZendeskSeleniumScraper:
                     all_article_urls.extend(article_urls)
                 time.sleep(1)  # Be polite
             
-            print(f"\n📊 Found {len(all_article_urls)} unique articles to scrape")
+            print(f"\n📊 Found {len(all_article_urls)} unique articles to check")
             
             if not all_article_urls:
                 return []
             
-            # Scrape each article
+            # Scrape each article (only if new or updated)
             for i, article_url in enumerate(all_article_urls, 1):
                 print(f"\n[{i}/{len(all_article_urls)}]", end=" ")
                 article_data = self.scrape_article(article_url)
@@ -249,7 +338,20 @@ class ZendeskSeleniumScraper:
                     self.articles.append(article_data)
                 time.sleep(1.5)  # Be polite
             
-            print(f"\n\n✅ Successfully scraped {len(self.articles)} articles")
+            # NEW: Save metadata
+            self.save_metadata()
+            
+            # NEW: Print statistics
+            print(f"\n\n{'='*80}")
+            print("📊 SCRAPING STATISTICS")
+            print("="*80)
+            print(f"Total articles checked: {self.stats['total_checked']}")
+            print(f"🆕 New articles: {self.stats['new']}")
+            print(f"🔄 Updated articles: {self.stats['updated']}")
+            print(f"⏭️  Unchanged articles: {self.stats['unchanged']}")
+            print(f"💾 Articles to save: {len(self.articles)}")
+            print("="*80)
+            
             return self.articles
             
         finally:
@@ -261,39 +363,59 @@ class ZendeskSeleniumScraper:
     def save_articles(self, output_dir='./data'):
         """Save scraped articles to files"""
         if not self.articles:
-            print("⚠️ No articles to save!")
+            print("\n✅ No new or updated articles to save!")
+            print("   Your knowledge base is already up to date.")
             return
         
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         
-        # Save as JSON
+        # NEW: Load existing articles and update them
         json_file = os.path.join(output_dir, 'zendesk_articles.json')
+        existing_articles = []
+        
+        if os.path.exists(json_file):
+            try:
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    existing_articles = json.load(f)
+                print(f"📂 Loaded {len(existing_articles)} existing articles")
+            except Exception as e:
+                print(f"⚠️ Error loading existing articles: {e}")
+        
+        # NEW: Update existing articles or add new ones
+        article_dict = {a['url']: a for a in existing_articles}
+        for article in self.articles:
+            article_dict[article['url']] = article
+        
+        updated_articles = list(article_dict.values())
+        
+        # Save as JSON
         with open(json_file, 'w', encoding='utf-8') as f:
-            json.dump(self.articles, f, indent=2, ensure_ascii=False)
-        print(f"💾 Saved JSON to: {json_file}")
+            json.dump(updated_articles, f, indent=2, ensure_ascii=False)
+        print(f"💾 Updated JSON: {json_file} (total: {len(updated_articles)} articles)")
         
         # Save as text file (better for RAG/training)
         txt_file = os.path.join(output_dir, 'zendesk_knowledge_base.txt')
         with open(txt_file, 'w', encoding='utf-8') as f:
-            for article in self.articles:
+            for article in updated_articles:
                 f.write(f"{'='*80}\n")
                 f.write(f"TITLE: {article['title']}\n")
                 f.write(f"URL: {article['url']}\n")
                 f.write(f"{'='*80}\n\n")
                 f.write(f"{article['content']}\n\n")
                 f.write(f"{'-'*80}\n\n")
-        print(f"💾 Saved text to: {txt_file}")
+        print(f"💾 Updated text file: {txt_file}")
         
         # Save individual article files
         articles_dir = os.path.join(output_dir, 'zendesk_articles')
         if not os.path.exists(articles_dir):
             os.makedirs(articles_dir)
         
-        for i, article in enumerate(self.articles):
-            # Create safe filename
+        for article in self.articles:
+            # Create safe filename using URL hash for consistency
+            url_hash = hashlib.md5(article['url'].encode()).hexdigest()[:8]
             safe_title = re.sub(r'[^\w\s-]', '', article['title'])[:50]
-            filename = f"{i+1:03d}_{safe_title}.txt"
+            filename = f"{url_hash}_{safe_title}.txt"
             filepath = os.path.join(articles_dir, filename)
             
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -301,21 +423,26 @@ class ZendeskSeleniumScraper:
                 f.write(f"URL: {article['url']}\n")
                 f.write(f"{'='*80}\n\n")
                 f.write(article['content'])
+            
+            print(f"  💾 {filename}")
         
-        print(f"💾 Saved {len(self.articles)} individual articles to: {articles_dir}")
+        print(f"💾 Updated {len(self.articles)} individual articles in: {articles_dir}")
         
-        # Create a summary file
+        # NEW: Update summary file with incremental info
         summary_file = os.path.join(output_dir, 'scraping_summary.txt')
         with open(summary_file, 'w', encoding='utf-8') as f:
             f.write(f"Zendesk Scraping Summary\n")
             f.write(f"{'='*80}\n\n")
-            f.write(f"Scraped at: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Total articles: {len(self.articles)}\n\n")
-            f.write(f"Articles:\n")
-            for i, article in enumerate(self.articles, 1):
+            f.write(f"Last scraped: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"Total articles: {len(updated_articles)}\n")
+            f.write(f"New articles this run: {self.stats['new']}\n")
+            f.write(f"Updated articles this run: {self.stats['updated']}\n")
+            f.write(f"Unchanged articles: {self.stats['unchanged']}\n\n")
+            f.write(f"All Articles:\n")
+            for i, article in enumerate(updated_articles, 1):
                 f.write(f"{i}. {article['title']}\n")
                 f.write(f"   URL: {article['url']}\n\n")
-        print(f"📋 Saved summary to: {summary_file}")
+        print(f"📋 Updated summary: {summary_file}")
 
 
 def main():
@@ -327,7 +454,7 @@ def main():
     print("="*80)
     print("\n⚙️ Configuration:")
     print(f"   URL: {ZENDESK_URL}")
-    print(f"   Mode: Headless Chrome")
+    print(f"   Mode: Headless Chrome + Incremental Updates")
     print("="*80 + "\n")
     
     # Create scraper instance
@@ -337,31 +464,34 @@ def main():
         # Scrape all articles
         articles = scraper.scrape_all()
         
+        # Always try to save (even if no new articles)
+        scraper.save_articles()
+        
         if articles:
-            # Save the articles
-            scraper.save_articles()
-            
             print("\n" + "="*80)
             print("✅ SCRAPING COMPLETED SUCCESSFULLY!")
             print("="*80)
-            print(f"📊 Total articles scraped: {len(articles)}")
-            print("\n📁 Files created:")
+            print(f"🆕 New articles: {scraper.stats['new']}")
+            print(f"🔄 Updated articles: {scraper.stats['updated']}")
+            print("\n📁 Updated files:")
             print("  ✓ ./data/zendesk_articles.json")
             print("  ✓ ./data/zendesk_knowledge_base.txt")
             print("  ✓ ./data/zendesk_articles/ (individual files)")
             print("  ✓ ./data/scraping_summary.txt")
+            print("  ✓ ./data/scraper_metadata.json (tracking)")
             print("\n🚀 Next steps:")
-            print("  1. Review the scraped content in ./data/")
-            print("  2. Run your data ingestion: python ingest_data.py")
+            print("  1. Review the new/updated content in ./data/")
+            print("  2. Run your data ingestion: python data_ingestion.py")
             print("  3. Start your bot: python app.py")
             print("="*80)
         else:
-            print("\n⚠️ No articles were scraped.")
-            print("\n🔧 Troubleshooting:")
-            print("  1. Check if the URL is correct and accessible")
-            print("  2. Try running with headless=False to see the browser")
-            print("  3. Check if the site requires login/authentication")
-            print("  4. Verify Chrome/Chromium is installed")
+            print("\n" + "="*80)
+            print("✅ ALL ARTICLES ARE UP TO DATE!")
+            print("="*80)
+            print("No new or updated articles found.")
+            print("Your knowledge base is current.")
+            print("\n💡 You can skip the data ingestion step.")
+            print("="*80)
     
     except KeyboardInterrupt:
         print("\n\n⚠️ Scraping interrupted by user")
@@ -369,6 +499,7 @@ def main():
             save = input("Save partially scraped articles? (y/n): ")
             if save.lower() == 'y':
                 scraper.save_articles()
+                scraper.save_metadata()
     
     except Exception as e:
         print(f"\n❌ Error during scraping: {e}")

@@ -1,0 +1,120 @@
+Title: Tracking Data Set Usage in Data Catalog
+URL: https://dvsum.zendesk.com/hc/en-us/articles/11795434280212-Tracking-Data-Set-Usage-in-Data-Catalog
+================================================================================
+
+In This Article:
+Overview
+Data Usage Statistics in Data Catalog
+Usage Classifications
+Capturing Data Usage Statistics
+Enable Query Logging (SQL Server / Azure)
+Enable Query Logging (PostgreSQL)
+Query Logging in Other Sources
+Overview
+DvSum Data Catalog (DC) manages lots of information about data sets--from metadata like column definitions to governance information like the data owner and data steward to data classifications like 'restricted' vs 'public' and much more. Data sets include tables and views in relational data sources, reports in business intelligence platforms, and objects in other applications like SAP and Salesforce.
+One piece of information that DC tracks about relational data sets (tables and views) is data usage metrics documenting how often the data set is accessed by users via SQL queries. Query logs are maintained by the underlying database, and these statistics are summarized in DC to help users to understand which data sets are used most frequently.
+These data set usage statistics are tracked in a property called "Popularity". This article explains where popularity is available in DC and how to configure databases to allow DC to gather this information.
+Data Usage Statistics in Data Catalog
+The data popularity is displayed in several locations in DC:
+Data Dictionary table view
+Data Set popup window
+Data Set details page
+Search results for tables
+Examples of data popularity available in DC:
+Usage Classifications
+3 Stars - Heavily used
+Table is used daily over the last 30 days
+2 Stars - Moderately used
+Table is used at least weekly over the last 30 days
+1 Star - Lightly used
+Table is used less than once per week over the last 30 days
+If no stars are displayed it means either DvSum is unable to read query logs or the table has not been accessed in the past 30 days.
+Note:
+The popularity score is typically calculated for the last 30 days. The data retention policy for Snowflake tracks user query history for only 7 days. Keep in mind that retention policies and query logging details can be set differently by your corporate database administrators.
+Examples in DvSum Data Catalog (DC)
+Data Dictionary table view
+Note: The field "Popularity" is an optional field, so add it to your view if it is not visible.
+Data Set popup window
+Data Set details page
+Search results for tables
+Note: If search results have multiple tables with the same name, the table with the higher popularity score will be shown first.
+Capturing Data Usage Statistics in Data Sources
+Enable Query logging in SQL Server, A
+zure SQL, Azure Synapse
+Use the
+Query Store
+.
+The Query Store is enabled by default for new Azure SQL Database and Azure SQL Managed Instance databases.
+Query Store is not enabled by default for SQL Server 2016 (13.x), SQL Server 2017 (14.x), SQL Server 2019 (15.x). It is enabled by default in the
+READ_WRITE
+mode for new databases starting with SQL Server 2022 (16.x). To enable features to better track performance history, troubleshoot query plan related issues, and enable new capabilities in SQL Server 2022 (16.x), we recommend enabling Query Store on all databases.
+Query Store is not enabled by default for new Azure Synapse Analytics databases.
+Enabling the Query Store can be done in multiple ways.
+Enable Query Store using the Query Store page in SQL Server Management Studio
+In Object Explorer, right-click a database, and then select
+Properties
+.
+Note: Requires version 16 or later of Management Studio
+In the
+Database Properties
+dialog box, select the
+Query Store
+page.
+In the
+Operation Mode (Requested)
+box, select
+Read Write
+.
+Enable Query Store using Transact-SQL statements
+Use the
+ALTER DATABASE
+statement to enable the query store for a given database. For example:
+ALTER DATABASE <database_name>
+SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE);
+In Azure Synapse Analytics, enable the Query Store without additional options, for example:
+ALTER DATABASE <database_name>
+SET QUERY_STORE = ON;
+Enable Query logging in PostgreSQL
+To enable query logging in PostgreSQL, you can modify the configuration file (postgresql.conf) and use SQL statements for more fine-grained control.
+Modify postgresql.conf
+You need superuser privileges to edit this file.
+You can locate
+postgresql.conf
+in your PostgreSQL data directory.
+Common locations include:
+/etc/postgresql/<version>/main
+(Linux)
+C:\Program Files\PostgreSQL\<version>\data
+(Windows)
+Edit
+postgresql.conf
+Set
+logging_collector
+to '
+on
+'
+Set
+log_statement
+to 'all' to track SQL queries. For reference, these are the valid values:
+none
+(default): Log no statements.
+ddl
+: Log data definition language (DDL) statements like CREATE, ALTER, and DROP.
+mod
+: Log moderate-level statements, including DDL and most of the data manipulation language (DML) statements.
+all
+: Log all statements, including SELECT, INSERT, UPDATE, DELETE, and more.
+Use SQL Statements for Fine-Grained Control
+If you want to enable or disable query logging for specific databases or sessions, you can use SQL statements. This can be especially useful for debugging or auditing purposes. You can change logging settings on a per-session or per-database basis using the following SQL commands:
+To enable query logging for the current session only:
+SET log_statement = 'all';
+To enable query logging for a specific database (replace your_database with the actual database name):
+ALTER DATABASE your_database SET log_statement = 'all';
+To disable query logging for a specific database:
+ALTER DATABASE your_database SET log_statement = 'none';
+These SQL statements will take effect immediately for the current session or database.
+Remember to be cautious with query logging in production environments, as it can generate large log files and potentially impact performance. Always monitor your log files and adjust the log level as needed to balance the need for more information and the need for better performance.
+Query logging in other sources
+Query logging is enabled by default for these databases, so DC will typically gather popularity statistics with no additional configuration needed.
+Oracle
+Snowflake

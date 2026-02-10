@@ -1,0 +1,127 @@
+Title: Column Sequencing
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360046573114-Column-Sequencing
+================================================================================
+
+Now, users can control the sequence of columns when profiling a source's table/view. Additionally, the sequence of columns can be customized at the rule level too. To learn more about this feature and understand how it works, let's start step by step.
+Table Level Column Sequencing
+Step 1
+Navigate to Profiling. On the Profiling detail page, choose a table associated with any source where you want to apply sequencing. If you observe the Configuration column, you'll notice that no icon is currently displayed, indicating that no column sequencing is applied. Once you apply customized sequencing at the table level, an icon will appear (which we will verify in the next steps). Finally, click on the "Show Details" button, as depicted in the image below:
+The user will be redirected to the Table's detail page. In the Profiling tab, you will notice a
+"Default Sequence"
+label right next to the Table's name in the lower grid, serving as a secondary identification to indicate that no customized sequencing has been applied. Now, click on the "Field Configuration" tab, as shown in the image below:
+Step 2
+It's important to note that the "
+Field Configuration"
+is the main tab where column sequencing will be applied. Similar to the previous steps, the user will observe a "Default" label displayed next to the Table's name. Directly below that, in the lower main grid, two buttons will appear: "
+Column Sequencing
+" and "
+Default Sequencing
+," as illustrated in the image below.
+The "Default Sequence" button will initially appear disabled. This button is designed to reset the sequence of columns to its default behavior. It becomes enabled once the user applies customized sequencing to the table. Hover over the button to view additional information, as depicted in the image below:
+The "Column Sequencing" button is where the user will click to set the sequence of columns. Hover over the button to read the following information, as illustrated in the image below:
+Step 3
+Now, click on the "Column Sequencing" button. This will open up a new interface listing all the column names. Begin arranging the sequence of column(s) through drag and drop. Once the sequence is set, click the "Save" button, as shown in the image below:
+Customized Sequencing Confirmation I
+In the image shown above, the user has placed the "CUSTOMER_ID" column at the top. Upon saving the changes, the user will be redirected to the Table's detail page, where the following updates will be visible, as shown in the image below:
+A - In the "Field Configuration" tab, "CUSTOMER_ID" is now displayed at the top in the Column name.
+B - The "Default Sequence" label is updated to "Custom Sequence."
+C - The "Default Sequence" button is now enabled.
+Clicking the "Default Sequence" button will reset the applied customized sequencing to its default state.
+Step 4
+Customized Sequencing Confirmation II
+After setting the customized sequence in the "Field Configuration" tab, when you go to the "Profiling" tab, you'll see the same sequence applied. The "Custom Sequence" label will be visible on this screen as well.
+Customized Sequencing Confirmation III
+Click on "Profiling" from the left navigation menu, and you will see an icon appearing against the table on which the user has applied a Custom Sequence, as depicted in the image below:
+Step 5:
+If the user wants to reset the custom sequencing to its default sequencing, there are two ways to do that, as shown in the image below:
+Step 5.1:
+- Go to the Profiling main page.
+- Select the table on which custom sequencing is applied.
+- Click the "More Actions" button.
+- Finally, click on the "Reset Column Sequence" option.
+Step 5.2:
+Users can also apply default sequencing on multiple records with the following actions:
+- Select multiple records on which custom sequencing is applied.
+- Click the "More Actions" button.
+- Then select the "Reset Column Sequence" option.
+Note: In case of multiple records, if there exists any single record with the default sequence, then the "
+Reset Column Sequence
+" option in the "More Actions" button will remain disabled until the user un-selects that particular record.
+The second way to reset custom sequencing to default sequencing is as follows:
+1. Select any record on the Profiling detail page.
+2. Click "Show Details."
+3. Navigate to the "Field Configuration" tab.
+4. Click the "Default Sequence" button, as shown in the image below:
+Once the user has reset the custom sequence to the default sequence, the applied changes will revert back to their default settings on the following sections:
+A - The "Custom Sequence" label will be replaced back with the "Default Sequence" label.
+B - The "Default Sequence" button will be disabled again.
+C - The column(s) sequence will be set to the default sequence.
+D - The custom sequence icon will disappear.
+Rule Level Column Sequencing
+Note:
+Column Sequencing at Rule level is only applicable for following rules as listed below:
+A- Blank Rule
+B- Value Range Rule
+C- Data Analysis Exception Rule
+D- Master Data-set Rule
+E- Data Format Rule
+F- Orphan Records Rule
+G- Integrity Check Rule
+Step 6
+To begin with Column Sequencing at the Rule Level, we'll consider three scenarios, starting with Scenario I. For each of these scenarios, let's create a rule from scratch. Follow these steps:
+1. Go to "Manage Rules."
+2. Click on the "Add Rule" button.
+3. Select the "Business Context" option.
+4. Then, click on "Value Range" rule.
+Scenario I  -  Table Specific :
+When the user selects the data source and table name on which custom sequencing is applied, follow these steps:
+1. Provide a rule description.
+2. Select the data source.
+3. Choose the table name.
+4. Select the field name.
+5. Enter the maximum and minimum threshold values.
+6. Hit the "Save" button.
+In Scenario I, when the user lands on the Rule detail page, a new tab called "Column Sequence" becomes visible. This tab appears for rules where Rule-level column sequencing is enabled. Under this section, three options are displayed.
+A- Suggested
+B- Table Specific
+C- Rule Specific
+In the current scenario, Option B will be selected by default. This represents the logic that when a rule is created on a Table/Source that already has Custom Sequencing applied, the sequence of columns in the rule will be the same as the Table-level sequencing. In the "Selected Columns" section, the column(s) on which the rule is created or the Primary Key column will always appear as disabled. Additionally, the "Analysis" tab initially appears as disabled. Re-run the rule to enable the Analysis tab.
+After the user has re-run the rule, the "Analysis" tab gets enabled. Click on the "Analysis" tab and verify that the sequence of columns is the same as it was on the table level, as shown in the image below. Click on the "Cleanse" button, and you will see the same sequence as it is on the "Analysis" tab and "Column Sequence" tab.
+Step 7
+If the user changes the column sequence at the Table level, upon navigating back to the rule(s) in the "Column Sequence" tab, a warning message will notify the user to re-run the rule in order to see the updated sequence in the "Analysis" tab, as shown in the image below. Once the user re-runs the rule, the sequence gets updated in the "Column Sequence" tab, "Analysis" tab, and the "Cleanse" section.
+Scenario II - Rule Specific :
+When user apply custom sequence at Rule level
+Now, go back to the "Column Sequence" tab. Change the sequence of the column(s). As soon as you change the sequence, the option changes automatically from Table specific to Rule Specific. Hit the "Save" button. The user will be notified through a Warning message to re-run the rule to see the updated sequence in the "Analysis" tab, as shown in the image below. Once the user re-runs the rule, the sequence gets updated in the "Column Sequence" tab, "Analysis" tab, and the "Cleanse" section.
+Scenario III - Suggested :
+User creates a rule on Table on which No custom sequencing is applied.
+Certainly! Here are the steps to complete Step 6:
+1. Provide a rule description.
+2. Select the data source.
+3. Choose the table name.
+4. Select the field name.
+5. Enter the maximum and minimum threshold values.
+6. Hit the "Save" button.
+In Scenario III, when the user lands on the Rule detail page, in the "Column Sequence" tab, the "Suggested" option will be selected by default. However, the "Table Specific" option will appear as disabled.
+A- Suggested
+B- Table Specific
+C- Rule Specific
+Additionally, the "Analysis" tab appears as disabled initially. Re-run the rule to enable the "Analysis" tab.
+Note:
+Columns that has exceptions will always appear upfront in case of Suggested option.
+Meanwhile, if the user applies custom sequencing at the Table level for the same table on which the above rule is created, then upon navigating back to the Column Sequencing section, the "Table" option gets enabled, as shown in the image below:
+Step 8
+Now, from here, select the "Table Specific" option. The column sequencing below gets updated with respect to the Table level. Also, if rule level sequencing is already applied to this rule, then on selecting the "Rule Specific" option, column sequencing gets updated with respect to the Rule level. However, to see the results in the "Analysis" and "Cleanse" tabs for Table level and Rule level changes, the user will always have to re-run the rule.
+Case 1:
+For instance, if the user switches the option from 'Suggested' to the 'Table Specific' option, the sequence gets updated. After clicking the "Save" button, it notifies the user through a Warning message to re-run the rule in order to see the updated sequence in the "Analysis" and "Cleanse" tabs.
+Case 2:
+Now, in "Table Specific," if the user changes the column sequence further, then the option switches from 'Table Specific' to 'Rule Specific' instantly. After clicking the "Save" button, it notifies the user through a Warning message to re-run the rule in order to see the updated sequence in the "Analysis" and "Cleanse" tabs.
+Note:
+If the user has created multiple rules against a single table, each rule can have its own unique column sequencing.
+Step 9
+As per the functionality, a maximum of 30 columns can be displayed on the Analysis tab. For instance, if a user selects a table that has 50 columns and creates a rule on the column that comes at the 40th number, the following behavior will be observed:
+A-
+Suggested:
+The column name gets displayed upfront in the Column Sequencing/Analysis/Cleanse tab.
+B-
+Table/Rule Specific:
+The column name gets displayed on the 31st number.

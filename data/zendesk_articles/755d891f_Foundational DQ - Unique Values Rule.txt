@@ -1,0 +1,29 @@
+Title: Foundational DQ - Unique Values Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25211808095892-Foundational-DQ-Unique-Values-Rule
+================================================================================
+
+In this Article
+Introduction
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Step 2: Select Table & Data Quality Rules
+Step 3: Add a New Rule (Foundational DQ → Unique Values)
+Step 4: Basic Input Setup
+Step 5: Validate & Run the Rule
+Introduction
+The "UNIQUE VALUES" rule evaluates whether the count of unique values within a particular dataset falls within an acceptable range or matches a specified number.
+For instance, if there are 100 ship-from locations expected, the rule anticipates the count of unique locations to range between 95 and 100. An occurrence exceeding 100 suggests an error, typically due to duplicated or erroneous entries. Conversely, if the count falls below 95, it signifies a potential error, often attributable to missing or incomplete data.
+By applying this rule, data analysts can ensure that the number of unique values conforms to expectations, thereby upholding data quality and reliability.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+How to Configure the Rule:
+Step 1: Access Database Tables
+Log in to DvSum and proceed to the Data Dictionary tab under the Dictionaries and select the relevant Data source and Table Name.
+Step 2: Select Table & Data Quality Rules
+Select the table name then select the Data Quality tab and choose Available Rules.
+Step 3: Add a New Rule (Foundational DQ → Unique Values)
+Select the "⊕ Add Rule" button, then choose the "Foundational DQ" category. From the list of options, click on "Value Range".
+Step 4: Basic Input Setup
+In the Rule Wizard's Basic Input section, you need to fill in the Rule Description, Column Name, corresponding to the table in which you want to search for Unique records.
+Step 5: Validate & Run the Rule
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.

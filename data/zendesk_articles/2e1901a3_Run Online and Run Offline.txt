@@ -1,0 +1,39 @@
+Title: Run Online and Run Offline
+URL: https://dvsum.zendesk.com/hc/en-us/articles/17472157533076-Run-Online-and-Run-Offline
+================================================================================
+
+Overview
+Users can execute many different tasks in DvSum Data Quality (DQ). Testing a DQ rule might take just a few seconds. But some rules could take several minutes or even longer. Therefore DQ offers the ability to "
+Run Online
+" and "
+Run Offline
+" to give users the flexibility to run jobs as required.
+Executing a rule synchronously and waiting to see the results is often the most efficient way to test a new rule. Executing a long-running job in the background and reviewing the results later is sometimes preferred.
+Details
+The option to "
+Execute Now
+" or "
+Run Offline"
+applies in several places.
+Source cataloging
+Table profiling
+Rule execution
+The options are complementary and give developers the flexibility to work as they prefer.
+Run
+Online
+- Will immediately execute the action. Note that if the user navigates to another page while the task is executing, then the task will be aborted.
+Run Offline
+- Will schedule the action to run soon. Typically the task will begin execution within a few seconds. The job will be visible in the
+Scheduler
+tab (Review → Scheduler).
+Source cataloging
+Administration → Manage Sources
+Table Profiling
+Table profiling can be executed from multiple places.
+Data Catalog → Table Dictionary
+Profile → Profiling
+Table Detail Page:
+Rule Execution
+Audit → Manage Rules
+Rule Detail Page:
+Review → Analyze Rules

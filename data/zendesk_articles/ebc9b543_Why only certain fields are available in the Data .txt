@@ -1,0 +1,7 @@
+Title: Why only certain fields are available in the Data Analysis screen
+URL: https://dvsum.zendesk.com/hc/en-us/articles/221403867-Why-only-certain-fields-are-available-in-the-Data-Analysis-screen
+================================================================================
+
+In DvSum, Data Analysis is a part of the Data Profiling module. It helps discover how data is connected across different fields, such as business unit, product family, and product line. For example, it identifies which combinations exist and how many records are associated with them.
+The system automatically makes those determinations by reading the statistics of the data. And it does it only for fields it considers as attributes. So for example if a table has 100,000 rows and there are 100,000 unique item ids, then that field will not show up in Data Analysis. On the other hand, if there is  product family, for which there are 100 unique values, then those will show up in the analysis.
+For this reason, you only see limited values in the data analysis section.

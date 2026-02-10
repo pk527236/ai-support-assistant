@@ -1,0 +1,103 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Deploy to EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      run: |
+        # Save private key to file
+        echo "$PRIVATE_KEY" > private_key.pem
+        chmod 600 private_key.pem
+        
+        # Add EC2 to known hosts
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        
+        # Deploy via SSH
+        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << 'ENDSSH'
+          set -e
+          
+          echo "🚀 Starting deployment..."
+          
+          # Navigate to app directory
+          cd ~/ai-support-bot || {
+            echo "Creating app directory..."
+            mkdir -p ~/ai-support-bot
+            cd ~/ai-support-bot
+          }
+          
+          # Pull latest code
+          if [ -d .git ]; then
+            echo "📥 Pulling latest changes..."
+            git pull origin main || git pull origin master
+          else
+            echo "📥 Cloning repository..."
+            git clone https://github.com/${{ github.repository }} .
+          fi
+          
+          # Update .env file with secrets
+          echo "🔧 Updating environment variables..."
+          cat > .env << EOF
+        GROQ_API_KEY=$GROQ_API_KEY
+        FRESHSERVICE_DOMAIN=yourcompany.freshservice.com
+        FRESHSERVICE_API_KEY=your_api_key_here
+        EOF
+          
+          # Activate virtual environment or create if not exists
+          if [ ! -d venv ]; then
+            echo "🐍 Creating virtual environment..."
+            python3 -m venv venv
+          fi
+          
+          source venv/bin/activate
+          
+          # Install/Update dependencies
+          echo "📦 Installing dependencies..."
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          
+          # Check if data directory exists
+          if [ ! -d data ]; then
+            echo "📁 Creating data directory..."
+            mkdir -p data
+          fi
+          
+          # Restart the Flask app using systemd
+          echo "🔄 Restarting application..."
+          sudo systemctl restart dvsum-bot.service || echo "⚠️ Service not configured yet"
+          
+          # Check application status
+          echo "✅ Checking application status..."
+          sudo systemctl status dvsum-bot.service --no-pager || echo "Service status check skipped"
+          
+          echo "✅ Deployment completed successfully!"
+        ENDSSH
+        
+        # Cleanup
+        rm -f private_key.pem
+    
+    - name: Deployment Status
+      if: always()
+      run: |
+        if [ ${{ job.status }} == 'success' ]; then
+          echo "✅ Deployment successful!"
+        else
+          echo "❌ Deployment failed!"
+          exit 1
+        fi

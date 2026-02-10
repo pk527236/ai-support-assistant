@@ -1,0 +1,51 @@
+Title: Pivot View Configuration in Data Quality Rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/44369988407572-Pivot-View-Configuration-in-Data-Quality-Rules
+================================================================================
+
+In This Article
+Overview
+Accessing Pivot View
+Configuring Pivot View
+Overview
+The Pivot View in Data Quality Rules provides an interactive way to analyze exception data by grouping and aggregating records directly within the application. It allows users to summarize large volumes of exception data, identify patterns, and gain insights.
+This article is part of the
+Rule Detail Page
+documentation. For information on the
+Data tab
+, including how exception data is generated and displayed, see
+Rule Detail Page – Data Tab
+.
+Accessing Pivot View
+The Pivot View can be accessed from within a Data Quality rule.
+Open the
+DQ Rule
+.
+Go to
+Data Quality → Data
+.
+Click on the
+Pivot View
+icon.
+Select
+Configure Pivot View
+.
+Define the required grouping and summarization parameters.
+Save the configuration to render the Pivot View results.
+Note:
+If the Pivot View has not been configured previously, the system displays a message indicating that the Pivot View is not yet configured.
+Configuring Pivot View
+To configure the Pivot View, users must select
+Configure Pivot View
+from the Pivot View panel within the Data Quality rule. All available columns from the
+Data
+tab are displayed for configuration.
+Users can configure it by:
+Defining Row Groups
+Select aggregation options such as Maximum and Minimum
+Select Column
+Save the configuration settings.
+These configurations determine how the exception data is grouped and summarized in the Pivot View.
+Note:
+After saving the Pivot View configuration, only a preview of up to 200 records is displayed. To populate the Pivot View with the full dataset, the rule must be re-run. users can configure the maximum number of exception records displayed in the data grid, up to 75,000 records.
+Pivot View data can be exported to Excel, similar to the Data tab. When exported in Grid format, grouped columns are downloaded as individual columns in the Excel file.
+Pivot View is intended for interactive, UI-based analysis. Pivoted data can be manually exported from the UI but is not included in automated exception outputs.

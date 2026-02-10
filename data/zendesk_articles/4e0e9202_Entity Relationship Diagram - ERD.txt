@@ -1,0 +1,58 @@
+Title: Entity Relationship Diagram - ERD
+URL: https://dvsum.zendesk.com/hc/en-us/articles/19960718695700-Entity-Relationship-Diagram-ERD
+================================================================================
+
+In this Article
+Introduction
+Data Model Tab
+Add/Edit Relationships
+Setting Tables as Context
+Grid View
+Levels in ERD
+Introduction
+An Entity Relationship (ER) Diagram is a visual map that acts like a flowchart, revealing the connections between various elements, such as people, objects, or ideas, within a system. In our application, the ER Diagram serves as a helpful tool to show how different datasets and their respective columns are related. It provides a clear, organized view, allowing users to grasp the connections between datasets and gain a deeper understanding of the overall data structure. This article explores the role of an ER diagram in improving data comprehension.
+Data Model Tab
+Navigate to Dictionaries >Database Tables from the side bar
+Click on a table name
+The ER diagram can be found on the detail page of any table within the "Data Model" tab.
+In the ER diagram, you'll notice a main table that stands out, and the other tables connected to it are linked with arrows to show their relationships.
+By default, you can see the name of each table.
+For more detailed information, you have the option to expand each table to see the specific columns it contains.
+To the left of the ER diagram there are some interactions such as:
+Zoom In
+Zoom Out
+Fit View
+Toggle Interactivity
+Users can change the zoom level of the diagram based on their preferences. This can be done by either using the mouse scroll along with the CTRL button or through zoom controls. To move around the diagram, users can right-click and drag their mouse to pan the view in different directions.
+The "Fit View" option instantly resets the ER diagram to its default view on the screen.
+This "Toggle Interactivity" function serves to enable or disable various interactions within the ER diagram. For instance, when the toggle interactivity is in the locked state, users cannot add relations or access reference views of columns in the ER diagram.
+Add/Edit Relationships
+Before we proceed to add or edit relationships, let's first define the three fundamental relations within the application:
+Relationship added from Database
+Relationship recommended by DvSum
+Relationship added by User
+Every relationship has a reference view and it can be opened by simply clicking on the line that connects the two tables
+The Relationship that is added to the database can neither be edited nor deleted.
+The second type of relationship is the one that is recommended by DvSum. These relationships can be edited or deleted. There is another option of "Confirm" along with the "Edit". Once the user confirms the relationship this relationship is changed to the "User added" relationship type.
+The "User added" relationship is the third type of relationship. One way of making the relationship "User added" is just confirming the relationship which is recommended by DvSum:
+Another method to create a "User-added" relationship is by manually adding and defining the relationship.
+To add a relationship, click on the "+" icon located in the top-right corner of the source table. This icon allows users to initiate the process of adding a new relationship.
+Once the "+" icon is clicked the "Add Relationship" reference view is opened. Here the Source table is mentioned, Users can add the Reference table from the drop-down menu and define any type of relationship
+After adding the Reference table and selecting the Relationship type the user will be required to add source fields and reference fields for which the relationship is being added. Users can add single or multiple columns for the relationship.
+Note
+: It is to be noted that once any column is added to a relationship then that column can not be added again, the column will be greyed out when a user tries to add it to the relationship:
+Once the relevant fields are added user can click on "Save Changes" and the relationship will be created. In this way, the user can add multiple relationships to the source table. The relationship that is added by the user can be edited again by clicking on the line connecting the tables. If the relationship is not required then it can be removed also:
+Setting Tables as Context
+On the ER diagram other than the source table there is an arrow icon on the other tables on the top right.
+When this button is clicked the detail page of the respective table is opened and the Data Model Tab is displayed:
+Grid View
+By default, the view which is opened is the Model view of the "Data Model" tab. Along with the model view, there is another view "Grid View" which basically shows all the relationships defined in the ER diagram and some other information. The relationships that are recommended by DvSum or user-added can also be edited/deleted from here.
+Levels in ERD
+There are levels defined in the ER diagram.
+On
+Level 1
+the tables that are directly related to the source table are shown:
+Moving to
+Level 2
+, you'll discover the tables associated with tables on Level 1.
+In the same way, the tables that are further related to the highlighted tables will be shown in the 3rd+ level thus showing the ER diagram in detail.

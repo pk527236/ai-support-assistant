@@ -1,0 +1,110 @@
+Title: Configure PostgreSQL as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/12597290833172-Configure-PostgreSQL-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Adding PostgreSQL Source in DvSum
+Prerequisite: Enabling General Query Log for PostgreSQL
+Step-by-Step Configuration
+Step 1: Add a New Postgres DataSource
+Step 2: Configure Connection Settings
+Step 3: Select Database and Schema(s)
+Step 4: Save the Connection
+Step 5: Run a Data Scan
+Reviewing Scan Results
+Video Tutorial
+Overview:
+This article outlines the process of configuring PostgreSQL as a data source in DvSum, enabling integration for data cataloging and profiling. The steps provided apply to both DvSum Data Insights (DI) and DvSum Data Quality (DQ), with only minor variations based on the specific platform.
+Adding PostgreSQL source in DvSum:
+Prerequisite: Enabling General Query Log for PostgreSQL
+Before configuring MySQL as a source, ensure that the general query log is enabled for your PostgreSQL server. This is essential for tracking data lineage and obtaining insights into usage patterns. For more information, refer to the
+Enabling General Query Log for Data Sources
+article.
+You can follow the steps mentioned below to configure and authenticate a PostgreSQL source:
+Step-by-Step Configuration
+Step 1: Add a New Postgres DataSource
+Navigate to
+Data Sources
+.
+Click on
+Add Source
+.
+Select
+PostgreSQL
+as the data source.
+Enter a
+source name
+and click
+Save
+.
+Step 2: Configure Connection Settings
+After saving, you will be redirected to the
+connection settings
+page.
+Enable the
+On-premise Web Service
+checkbox if applicable.
+Select the
+SAWS (Smart Adaptive Web Service)
+that is set up and running.
+Enter the following details:
+Host
+Port
+Database Login
+Password
+Note
+: By Default the SAWS type will be cloud. For more information regarding Cloud SAWS, click
+here
+Step 3: Select Database and Schema(s)
+Once authentication is successful, the
+Database
+section appears.
+Select the
+database
+you wish to scan.
+If scanning all schemas, leave the
+Schema checkbox
+unchecked.
+To scan specific schemas:
+Check the
+Schema checkbox
+.
+Select the required schemas from the
+Available Schemas
+list.
+Move them to the
+Selected Schemas
+tab.
+Once the database is selected, we now have an option of limiting the scan to some specific schema(s) or we have to scan all of them. For the PostgreSQL source, we would have a Schema field as well which will contain a checkbox, If we want to scan all the schemas then we shouldn't check this checkbox and proceed with saving and scanning the source. But if we want to limit our scan to some specific schemas then check this checkbox.
+Once it is checked then the list of available schemas will be displayed. Users can select single or multiple schemas from the Available Schemas list and move them to the Selected Schemas tab on the right.
+Step 4: Save the Connection
+Scroll to the top of the page.
+Click Done.
+Click Save.
+The PostgreSQL source is now configured successfully.
+After that click the “Save” button. The source will get saved successfully.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Step 5: Run a Data Scan
+Navigate to the Scan History page.
+Click Scan Now.
+The scan will run, and a job will be created.
+Once completed, the status will change to Completed.
+Click on the Scan Name to view the Scan Summary.
+Once the status of the job gets Completed, our new PostgreSQL source's scan will be completed successfully.
+After the scan completion, click on Scan Name and it will open the Scan Summary page of this scan.
+Reviewing Scan Results
+The
+Scan Summary
+page displays insights such as the number of tables and columns fetched.
+Navigate to
+Data Dictionary
+to view the scanned tables.\
+Click on the
+Recently Refreshed
+tab to see newly added tables.
+Click on individual table names for more details.
+Video Tutorial:
+Watch this quick video tutorial on how to add and configure a PostgreSQL source into DvSum app.

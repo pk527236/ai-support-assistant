@@ -1,10 +1,13 @@
 Zendesk Scraping Summary
 ================================================================================
 
-Scraped at: 2026-01-29 13:21:37
+Last scraped: 2026-02-02 15:48:24
 Total articles: 236
+New articles this run: 236
+Updated articles this run: 0
+Unchanged articles: 0
 
-Articles:
+All Articles:
 1. DvSum AWS PrivateLink Setup (Customer Guide)
    URL: https://dvsum.zendesk.com/hc/en-us/articles/43220623721876-DvSum-AWS-PrivateLink-Setup-Customer-Guide
 

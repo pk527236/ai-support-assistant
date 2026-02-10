@@ -1,0 +1,77 @@
+Title: Dashboard and Widgets
+URL: https://dvsum.zendesk.com/hc/en-us/articles/30481164045588-Dashboard-and-Widgets
+================================================================================
+
+In this Article
+Overview
+Default Dashboards
+Dashboard Creation
+Pick from Gallery
+Create your Own
+Sharing the Dashboard
+Delete a Dashboard
+Clone a Dashboard
+Drill-down Functionality
+Overview
+A dashboard is a centralized interface that visually organizes and presents key data points, enabling users to monitor, analyze, and make informed decisions. In the DvSum application, dashboards provide an efficient way to manage and track data across various modules, offering customizable views and functionality. This article covers the types of dashboards available in DvSum, how to create and customize your own dashboards, and the options provided for sharing, downloading, and managing dashboard data. Whether using default dashboards or building your own, DvSum's
+dashboard features help streamline data presentation and enhance decision-making.
+Default Dashboards
+Four default dashboards are provided:
+CADDI Dashboard
+Catalog Dashboard
+DQ Dashboard
+Platform Dashboard
+Note:
+The default dashboards can not be shared with any other user.
+Created by Me: Displays all dashboards created by the user.
+Shared with Me: Lists all the dashboard shared with the user by someone else.
+Dashboard Creation
+Click on Create Dashboard
+Specify a name and description. Click on "Create" button.
+An empty Dashboard is displayed.
+Click on Add Widget, choose either "Pick from Gallery" or "Create your Own".
+Pick from Gallery
+Includes all available widgets from every module within the DvSum application.
+After selecting a widget, the detail page is displayed These template widgets automatically populate the title, module, preferred
+chart type
+for
+slicers
+(Y-axis) and
+metrics
+(X-axis). The data can be
+sorted
+for display on the chart, and
+Data Labels
+(legends) can be enabled on the charts.
+Create your Own
+A new widget can be created and the module can be targeted, own filter criteria and chart type can be selected.
+Module Filter Criteria
+Module filter criteria are predefined conditions that allow users to narrow down data within a module based on specific parameters, helping to focus on relevant information. These filters streamline user interaction by providing a customized view that aligns with their needs and objectives.
+New filter criteria can also be added.
+This newly created criteria will then be populated in Selected Filter:
+After saving the widget, it
+will start appearing on Dashboard.
+Enabling Data Labels
+To enable data labels on widgets, users can do so from the create/edit widget form, as shown below.
+When data labels are enabled for the widget, it will be displayed as shown in the image below.
+Disabling Data Labels
+When data labels are disabled for the widget, it will be displayed as shown in the image below.
+You can add more widget by clicking on "
+Add Widget
+" Button.
+The widget can be expanded by clicking the Expand Icon:
+Upon clicking the three dots, below options are displayed:
+Add to Home:
+The selected widget will start appearing on the Home page as shown below:
+Download Widget
+The widget can be downloaded as a CSV file.
+Sharing the Dashboard
+It is possible to either keep a Dashboard private or share it with others. When sharing, two options are available: granting Editor or Viewer rights. If shared as a Viewer, the recipient will have three options: expanding and viewing widgets in full screen, downloading, and adding the dashboard to their home screen.
+Viewer Access
+Editor Access
+Delete a Dashboard
+When deleting a dashboard, a prompt appears indicating the number of people the dashboard is shared with and asking if the user would like to proceed.
+Clone a Dashboard
+Dashboards that are set as default can be cloned but cannot be deleted. However, dashboards created by the user can be both deleted and cloned.
+Drill-down Functionality
+Drill-down functionality is available in Dvsum's dashboard widgets, allowing users to click on charts, pies, or bars to access more detailed data. This feature enables exploration of granular insights directly from the visual elements of the dashboard.

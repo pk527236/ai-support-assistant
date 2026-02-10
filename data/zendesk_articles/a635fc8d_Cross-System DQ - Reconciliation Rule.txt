@@ -1,0 +1,215 @@
+Title: Cross-System DQ - Reconciliation Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/44350372876308-Cross-System-DQ-Reconciliation-Rule
+================================================================================
+
+In This Article
+Overview
+Creating a Reconciliation Rule
+Rule Configuration
+Reconciliation Type
+Aggregate-Level Reconciliation Types
+Data Source and Table Selection
+Key Field Mapping
+Metric Fields
+Additional Fields
+Sort Order
+Data Comparison
+What You Can Achieve with the Reconciliation Rule
+Overview
+The
+Reconciliation rule
+is a Cross-System Data Quality (DQ) rule used to compare data between two tables, either at the
+record level
+or the
+aggregate level
+, within a single source or across different sources.
+This rule allows users to:
+Match records between tables using one or more key fields
+Compare metric values for matched records
+Validate record counts between datasets
+Compare aggregated metric values
+Creating a Reconciliation Rule
+To create a Reconciliation rule:
+Navigate to a table
+Click
+Add Rule
+Select
+Cross System DQ
+Choose
+Reconciliation
+Rule Configuration
+After selecting the Reconciliation rule, configure the rule using the sections described below.
+Reconciliation Type
+The
+Reconciliation Type
+defines how the comparison between the source and reference tables is performed.
+DvSum provides
+four reconciliation types
+, grouped into
+record-level
+and
+aggregate-level
+checks.
+Record-Level Reconciliation Types
+Each reconciliation type exposes a specific set of configuration sections based on the comparison being performed.
+Record Level Metric Check
+The
+Record Level Metric Check
+compares
+numeric metric values for matched records
+between the source and reference tables.
+Records are first matched using key fields, and metric values are then compared for each matched record.
+Available configuration sections:
+Data Source & Table Selection
+Choose the source and reference datasets for comparison.
+Key Fields Mapping
+Select one or more fields that uniquely identify records. The same fields must be selected on both source and reference.
+Metric Fields
+Select numeric fields whose values will be compared between source and reference.
+Additional Fields
+Select additional context or identification fields to include in the comparison results.
+Record Level Check
+The
+Record Level Check
+compares records between the source and reference tables based on defined key fields, without comparing metric values.
+This check focuses on
+record presence and alignment
+between datasets.
+Available configuration sections:
+Data Source & Table Selection
+Choose the source and reference datasets for comparison.
+Key Fields Mapping
+Select one or more fields that uniquely identify records.
+Additional Fields
+Select additional context or identification fields to include in the results.
+Aggregate-Level Reconciliation Types
+Aggregate Count Check
+The
+Aggregate Count Check
+compares the
+total number of records
+between the source and reference tables.
+This check evaluates whether record counts are aligned across datasets.
+Available configuration sections:
+Data Source & Table Selection
+Choose the source and reference datasets for comparison.
+Key Fields Mapping
+Select one or more fields to group records for comparison (if applicable).
+Absolute Delta
+When enabled, the system displays the absolute difference between source and reference counts without considering the sign.
+Aggregate Metric Check
+The
+Aggregate Metric Check
+compares
+aggregated metric values
+between the source and reference tables.
+Metric values are aggregated before comparison using a selected aggregation function.
+Available configuration sections:
+Data Source & Table Selection
+Choose the source and reference datasets for comparison.
+Key Fields Mapping
+Select one or more fields to group records for aggregation.
+Metric Fields
+Select numeric fields to aggregate and compare. Aggregation functions include
+SUM, MIN, MAX, and AVG
+.
+Data Source and Table Selection
+For all reconciliation types, users must define:
+A
+Source
+connection and table
+A
+Reference
+connection and table
+Filters can be applied independently to both tables to control which records participate in the reconciliation.
+Key Field Mapping
+Key fields define how records are matched between the source and reference tables.
+By default, records are matched using the same field or set of fields selected on both the source and reference tables.
+When record uniqueness depends on more than one field, multiple fields can be selected to form a composite key.
+If
+Asymmetric Keys
+is enabled, the selected fields are concatenated to form a single key value that is used for comparison.
+This allows reconciliation of datasets where no single field uniquely identifies a record.
+Metric Fields
+Metric fields define the
+numeric values
+that are compared between the source and reference tables.
+For each selected metric field:
+The system automatically calculates the
+difference (Delta)
+between the source and reference values.
+When grouping is enabled, an aggregation function (
+SUM, MIN, MAX, AVG
+) must be selected for each metric.
+Absolute Delta
+When
+Absolute Delta
+is enabled, the system displays the
+absolute value of the calculated difference
+, without considering whether the source value is higher or lower than the reference value.
+This is useful when the focus is on the
+size of the difference
+, rather than the direction of the difference.
+Use
+Add Field
+to compare additional metric fields.
+Additional Fields
+Additional fields are used to include
+extra identifying or contextual columns
+in the reconciliation results.
+These fields do not participate in key matching or metric comparison. Instead, they help identify
+which specific records
+are being compared when reviewing reconciliation results, especially for
+record-level checks
+.
+These fields help users interpret reconciliation results more effectively.
+Sort Order
+The
+Sort Order
+section controls how reconciliation results are sorted when the results view is loaded.
+Users can define one or more columns to sort the results and specify the sort direction for each column.
+Configuration
+Sort By
+Select a column by which the reconciliation results should be sorted.
+Ascending
+Sorts results from lowest to highest (A–Z, smallest to largest).
+Descending
+Sorts results from highest to lowest (Z–A, largest to smallest).
+Add Sort Column
+Allows multiple sort columns to be added to define a hierarchical sort order.
+If no sort criteria are defined, the results are displayed using the default system order.
+Data Comparison
+The
+Data Comparison
+section defines how differences between the source and reference data are evaluated.
+Variance Percent
+Variance Percent
+defines the maximum allowed percentage difference between the
+source metric value
+and the
+reference metric value
+before the comparison is marked as a mismatch.
+A value of
+0
+means the source and reference values must match exactly.
+A non-zero value allows small differences within the specified percentage range.
+This is useful when minor variations are expected due to rounding, timing differences, or calculation behavior between systems.
+Comparison Type
+The
+Comparison Type
+determines how records from the source and reference tables are matched during reconciliation.
+Full
+Includes all records from both source and reference tables, whether matched or unmatched.
+Inner
+Includes only records that exist in both source and reference tables.
+Left
+Includes all records from the source table and matching records from the reference table.
+Right
+Includes all records from the reference table and matching records from the source table.
+The selected comparison type controls which records appear in the reconciliation results and how unmatched records are handled.
+What You Can Achieve with the Reconciliation Rule
+Using the Reconciliation rule, users can:
+Compare records and metrics across systems
+Validate data completeness and accuracy
+Identify mismatches at both record and aggregate levels
+Reconcile transactional or metric-based datasets using flexible matching logic

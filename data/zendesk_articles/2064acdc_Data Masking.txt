@@ -1,0 +1,25 @@
+Title: Data Masking
+URL: https://dvsum.zendesk.com/hc/en-us/articles/21103301641748-Data-Masking
+================================================================================
+
+Overview
+DvSum Data Quality (DvSum DQ) provides the ability to mask sensitive data through the use of tags. Tag values include Public, Internal, Restricted, and Sensitive. Details about the effect of different tags and how to set them are explained in this article.
+Configuring Data Security Admins
+In order for a user to specify the tag values that control whether data is masked, the user must be given the Data Security Admin privilege. Steps to enable this privilege:
+While logged in as the account owner, navigate to Administration → Manage Account → User Security → Data Security Admins
+Select and add the relevant users. Likewise, remove users when appropriate.
+Masking Columns
+Users with the Data Security Admin privilege are able to view and set the value of the Data Classification property.
+Data masking in DvSum DQ serves as a privacy shield, obscuring sensitive information with masked placeholder values of "X". A data security admin can mask any column using the Data Classification property.
+Navigate to Data Catalog → Column Dictionary.
+Select the desired columns, then click "Mass Update".
+Set the Data Classification property to the desired value.
+Sensitive
+: The column data will be masked as "XXX " all across the application.
+Restricted
+: The column will be marked as a Hidden Column, so users won't see the column.
+Internal
+/ Public
+: The column data will be visible (default situation).
+When the column is marked as sensitive, an icon will be shown with the column name and the data for the sensitive column will be masked as "XXX" throughout the application.
+When the rule is executed on the table that has a masked column, the exported Excel file will show masked Data for the sensitive Column.

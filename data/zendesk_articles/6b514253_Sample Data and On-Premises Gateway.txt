@@ -1,0 +1,33 @@
+Title: Sample Data and On-Premises Gateway
+URL: https://dvsum.zendesk.com/hc/en-us/articles/23896259032596-Sample-Data-and-On-Premises-Gateway
+================================================================================
+
+In this Article
+Overview
+Details about locally-stored sample data
+Data in scan_output folder
+Sample data unavailability
+Gateway not running
+Certificate validation required
+Data Retention
+Overview
+When a local gateway is in use and a data source is scanned, a new file is generated and stored in a folder called "scan_output". Sample data for each table is stored in a corresponding file named *_sample_data.json.
+Details about locally-stored sample data
+Data in scan_output folder
+The sample data file is available in an encrypted format. It's saved in the folder "scan_output".
+The
+AES/CBC/PKCS5Padding algorithm is used for symmetric data encryption.
+Sample data unavailability
+Sample data is normally available to DvSum users to view. Sample data becomes unavailable in the DvSum application in the following two situations.
+Gateway not running
+If the gateway is not in the running state, then it cannot respond to requests to display the sample data.
+Solution: Restart the gateway
+Certificate validation required
+If the gateway is running, but it's using a self-signed certificate, then then the browser cannot establish a connection to the gateway. Certificate Validation is required in order to connect to the gateway.
+Solution: Click "here" in the displayed message. Accept the self-signed certificate.
+Afterwards, a manual browser refresh is required in order to view the sample data again.
+Data Retention
+The scan_output folder contains separate folders corresponding to all of the scans that took place. The retention policy for these folders can be configured as follows:
+Edit the file configuration.properties.
+Set the property "dataRetentionPolicyEnabled" to "true" or "false"
+Set the property "dataRetentionPeriodInDays" as desired

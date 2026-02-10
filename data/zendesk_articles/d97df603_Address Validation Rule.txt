@@ -1,0 +1,259 @@
+Title: Address Validation Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360054484771-Address-Validation-Rule
+================================================================================
+
+Address validation, or address verification, is a rule ensuring that street and postal addresses are valid. It can be done upfront when a user searches for an incomplete or incorrect address, or by comparing and formatting data in a database with reference postal information.
+In the application, there are changes in:
+Staging Configuration (Profiling section)
+Rule Detail (Workbench)
+Staging Configuration for Address Validation Rules
+Note
+:
+This setup is necessary only for the initial configuration on Oracle source. It's mandatory to complete this step; otherwise, during the execution of Address Validation rules, the user will receive an error message in the rule remarks stating "MM configurations missing."
+Step 1 :
+Navigate to Profile -> Profiling -> Select an Oracle data source, select main table and staging configuration table. In the below screenshot, main table is CUSTOMER_ADDRESSES and staging table is CUSTOMER_ADDRESSES_DVSUM.
+Note:
+It is required to make sure that Staging table exists for Address Validation rule to be run.
+Step 2 :
+Select main table and click on show details
+Step 3 :
+Select Staging configuration tab and click on Edit
+Steps 4 :
+Setting up Configuration, Additional Configuration, Staging Configuration fields
+Configuration setup
+Choose the Subject Area, set Golden Record Criteria, tick the Enable Validation checkbox, and provide a Description.
+Additional Configuration setup
+Verify the "Write-back Post Process" option, meaning enable it if the user intends to activate write-back on the main table. Additionally, specify the "Case type" preference, indicating whether the user wants to maintain the format of the Suggested Address as fetched by default, either in lower or UPPER case.
+Staging Configuration
+setup
+Choose the Staging table, Match key, Match count, Match rule, Record identifier, Golden record ref, Record type, Merge status, Time stamp identifier, and then click the Save button located at the top, as illustrated below:
+Step 5 :
+Upon saving the changes, a success notification will inform the user that the modifications have been saved successfully. Simultaneously, an error message will appear, indicating that "Fields are not mapped to address data types Address Line 1 or Country." At the bottom, the Edit Mapping grid will be displayed as illustrated below:
+Edit Mapping
+Step 6 :
+After configuring the staging settings, click on the Edit button to modify the mapping. Initially, Match Data Types are assigned randomly to column names, so the user needs to update these Address Match Data Types based on the required columns. The user can choose all columns by clicking Select All or include individual columns, as depicted below:
+Step 7 :
+Columns are mandatory to be mapped against following Address Match Data Types
+City
+Country
+State
+US ZIP code
+ADDRESS LINE 1
+Following address match data types will be mapped as:
+Address Line 1 (Street Address)
+Address Line 2 (Suit/Apartment)
+Address Line 3 (Info/Atten)
+Other Address Lines
+Google response of street address will writeback to Address Line 1. Likewise suit/apartment, Info/Atten will writeback to Address line 2 and Address Line 3 respectively. In this way, the quality of addresses data will be improved.
+Step 8 :  Completeness Rule
+The default completeness rule is as follows:
+"address_line1" is mandatory.
+"country" is mandatory.
+Either "city" or "zip_code" must be mandatory.
+Users have the option to add this rule for all records or apply it selectively to specific filtered records. For instance, in the example provided, the `CUST_STATE` column is chosen as a mandatory field for all addresses where the country is set to 'US'.
+Address Validation Rule
+Step 9 :
+Navigate to "Manage Rules," click on "Add Rule," and choose the Address Validation rule from the Process Quality category.
+Step 10 :
+Provide all the required fields here.
+Note
+: Table name field should be Main table not the staging configuration table as Rule will be created on Main table.
+Step 11:
+Visit the Rule Detail page and execute the rule, as shown below:
+Step 12:
+After the rule is executed, the following data is retrieved:
+Run Status
+Scanned Records (Total records got scanned)
+Review Status
+a. Pending (requires review)
+b. Modified (if user accepts suggested address OR current address fetched from DB gets updated        and Saved)
+c. Skipped (If user skips suggested address)
+Commit Status
+a. committed
+b. commit failed
+Readiness Score
+Remarks
+Step 13 :
+Visit the Addresses tab, where the matched addresses will be visible in the grid. To edit or update any record, simply click on the Review button, as shown below:
+Address Line 1, Address Line 2, Address Line 3, Other address lines, City, state, country are mapped together in Complete Address column.
+Complete Address detail information is fetched from User's DB
+Match Statuses
+Step 14
+Following are the Match statuses
+INC (Incomplete)
+i
+ndicates that the provided address data is not complete and is returned if any of the below conditions is fulfilled:
+address_line1 is empty.
+country is empty.
+city and zip_code both are empty.
+OK
+i
+s returned if following conditions are fulfilled:
+matched_location_type is “
+ROOFTOP
+”.
+matched_address_line1 exists.
+matched_city exists.
+matched_zip_code exists.
+matched_country exists.
+Provided address and validated address are exactly same without any case difference.
+SD (Standardized)
+i
+s returned if following conditions are fulfilled:
+matched_location_type is not empty.
+matched_address_line1 exists.
+matched_city exists.
+matched_zip_code exists.
+matched_country exists.
+There is only
+Case
+difference between provided address and validated address (example: HENRY STREET, Henry Street).
+There is only
+ZIP Code
+deference between provided address and validated address (example: 63122-6604, 63122 or 63122, 63122-6604).
+There is
+abbreviated form
+found in the validated address (example: Henry Street, Henry St).
+ER (Enrich)
+i
+s returned if following conditions are fulfilled:
+matched_location_type is “
+ROOFTOP
+”.
+matched_address_line1 exists.
+matched_city exists.
+matched_zip_code exists.
+matched_country exists.
+There is at the very least 50% match difference between provided address_line1 + address_line2 and matched_address_line1+ matched_address_line2.
+Validated address is a bit changed from provided address (example: Henry Road, Henry St).
+There is only
+ZIP Code
+deference between provided address, validated address (example: 63121, 63122).
+NM (No match)
+is returned if none of the above status is returned.
+Record Statuses
+Step 15
+There are following record statuses:
+Update
+(If user Accept Suggestion)
+Skip
+(If user Skips Suggestion)
+Modified update
+(Once current address fetched from DB gets updated and Saved by user)
+Step 16 :
+In the presented screenshot, this icon indicates the specific address chosen for writeback from the suggested or complete address.
+Users can edit the current address in the review window, validate it, and receive a success or error message accordingly. The label next to the current address will show "Edited," and users can also revert to the original value if needed.
+Review Window:
+Step 17
+When the record statuses are modified to Update, Skip, or Update, the count for pending records decreases, while the count for reviewed records increases.
+Step 18
+Users have the option to select all records and take actions such as accepting or skipping suggestions. They can also clear the selection for all records or choose to discard the changes.
+Step 19
+Once user clicks Finish button given on bottom, then
+Commit
+button appears in Address tab on rule detail page.
+Step 20
+Once commit is done, then Fixed records and Reviewed records count gets updated in Rule summary
+Step 21
+User can also create view
+Step 22
+Users can add comments to the Match Status column by clicking on any status, entering a comment, and saving it. A comment icon with a count will start to appear on the main grid, and the count increases with each new comment. If there are no comments, hovering over the comment icon will display it.
+Postal Addressing Standards supported in Address Validation rule (Bag of words)
+Primary Street Suffix Name
+Commonly Used Street Suffix or Abbreviation
+Postal Service Standard Suffix Abbreviation
+AVENUE
+AV
+AVE
+AVE
+AVEN
+AVENU
+AVENUE
+AVN
+AVNUE
+BOULEVARD
+BLVD
+BLVD
+BOUL
+BOULEVARD
+BOULV
+CAUSEWAY
+CAUSEWAY
+CSWY
+CAUSWA
+CSWY
+CIRCLE
+CIR
+CIR
+CIRC
+CIRCL
+CIRCLE
+CRCL
+CRCLE
+COURT
+COURT
+CT
+CT
+DRIVE
+DR
+DR
+DRIV
+DRIVE
+DRV
+HIGHWAY
+HIGHWAY
+HWY
+HIGHWY
+HIWAY
+HIWY
+HWAY
+HWY
+LANE
+LANE
+LN
+LN
+PARKWAY
+PARKWAY
+PKWY
+PARKWY
+PKWAY
+PKWY
+PKY
+PLACE
+PL
+PL
+ROAD
+RD
+RD
+ROAD
+STREET
+STREET
+ST
+STRT
+ST
+STR
+TRAIL
+TRAIL
+TRL
+TRAILS
+TRL
+TRLS
+Full Form
+Abbreviation
+Apartment
+APT
+Building
+BLDG
+Department
+DEPT
+Floor
+FL
+Unit
+UNIT
+Suite
+STE
+Room
+RM
+Guide on using Address Validation API
+Here
+is a link to an article for a complete guide on address validation API.

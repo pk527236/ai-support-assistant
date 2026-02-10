@@ -1,0 +1,19 @@
+Title: Creating and editing a Catalog View
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115005116733-Creating-and-editing-a-Catalog-View
+================================================================================
+
+Data profiling provides you the basic information summary about a particular table of source which might not be enough for effective profiling and rule definition. Whereas, Catalog view generates customized information from multiple tables of sources. You can personalize these views depending on how you want to evaluate the data. That data is shown in the form of a table. You can then run profiling on that table just as on any other table of a source.
+From Profile tab in the left Navigation, go to profiling and click on "Create View". There are 3 steps in creating a view.
+Step 1:
+Enter View Name, type, source and table name.
+Read here to see
+how to select the right Catalog View Type?
+Step 2:
+Now you can apply Conditions to filter the data in the required form.
+Step 3:
+Now you can select the table fields of your source. Only these selected fields will appear as columns of catalog view table.
+You can change the name of the columns as well from the Fields Information section. That is it. Now you can "Save" the view.
+This will take you to the View detail page where you can profile or create rules on this view.
+Edit View
+If you want to edit any view, you will go back to the Profiling page and select the check-box for the view. Go to "More Actions > Edit view"
+This will open the Edit View dialogue where you can make changes and save.

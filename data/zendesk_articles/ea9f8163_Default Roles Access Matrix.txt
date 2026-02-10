@@ -1,0 +1,11 @@
+Title: Default Roles Access Matrix
+URL: https://dvsum.zendesk.com/hc/en-us/articles/32742836074516-Default-Roles-Access-Matrix
+================================================================================
+
+Understanding Default User Roles in DvSum Data Insights
+Managing user roles and permissions is essential for maintaining security, efficiency, and collaboration within
+DvSum Data Insights
+. Our
+User Roles Access Matrix
+provides a comprehensive overview of the permissions assigned to each default role—Owner, Admin, Editor, and User—across various modules, including Administration, Data Dictionary, Field Dictionary, and more.
+This matrix is a valuable resource to help you understand how each role interacts with different features and actions, ensuring users have the appropriate access to perform their tasks effectively. You can explore the matrix in detail by downloading the Excel file provided.

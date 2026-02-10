@@ -1,0 +1,95 @@
+Title: Catalog and Datasets/Reports Approval
+URL: https://dvsum.zendesk.com/hc/en-us/articles/19390168472852-Catalog-and-Datasets-Reports-Approval
+================================================================================
+
+Introduction
+Catalog Tables and Datasets/Reports can be scanned and edited using an approval workflow in the DvSum Data Catalog. Approval workflows are configured for each data sub-domain. When an approval workflow is configured, then Data Stewards are able to edit the tables and datasets/reports and submit the changes for approval. Approvers are then able to approve or reject the updates. The Approval flow already exists in the case of Business Glossary Terms. You can click
+here
+if you would like more information about the Glossary Approval flow.
+Prerequisites
+1. An administrator must enable data governance.
+Administration → Account → Module Settings → Governance
+2. Data domains should already be defined.
+The approval workflows will be defined for a data domain.
+Let's check the step-by-step guide on how this functionality works. So, first of all, we will be adding the data domain and then attaching the data domain to a table or catalog/report.
+Adding a Domain:
+Go to the Administration tab, and select " Organizations", and then choose "Data Domains" from the dropdown. On the domain listing page, click the
+Add
+button.
+On Add Domain form provide the Domain name, Description, and Data Steward. And then click on the "
+Enable Workflow
+" checkbox.
+This will enable the workflow for this particular domain. Choose the approvers: There can be single or multiple approvers. Further, choose the workflow type, either "
+Anyone can approve
+" or "
+All need to approve
+".
+Click on the Save button, and the domain will be saved. In the listing, it can be seen that the newly added domain will appear on the top with an icon that represents this domain has workflow enabled as shown below.
+The steward who is selected while creating the Domain will be the one who will be editing the table/dataset/reports and making the changes. Then, changes will be sent for approval to the approver(s). The approver's job will be to review the changes made by the Steward and approve or reject them.
+Workflow for Tables
+Workflow can be enabled for Tables by attaching a Domain for which workflow was enabled. Users can add data domain by going on to the detail page of the table from data dictionary tab:
+The Data domain can be added to the table by clicking on "Edit," which opens the Edit mode of the table. The Data domain for which workflow is enabled should be added in order for the workflow process to be started:
+Note: The Domain for which workflow is enabled will have the workflow symbol in front of it
+Once the Domain is added, the changes will be needed to publish so that the domain is now attached to the table:
+Once the changes are published for the workflow to be initiated user is required to edit the table and make any changes in the table once the change is made then in order to publish the change, the table would be required to be published by the approver.
+Once the changes are made, the user can click on the "Done" button. After clicking "Done," there will be an option of "Submit for Approval". Once the user clicks "Submit for Approval," then the workflow process can be initiated, and the table will be submitted for approval.
+The Submitter has the option of Cancelling the submission or otherwise waiting from the approver's end.
+The approver will receive an email once the table is submitted for approval:
+On the Approver's screen, the approver can "Review changes" that have been made by the submitter.
+All the fields will appear, and the edited ones will show up as highlighted.
+If the approver wants to reject the changes, then the "
+Reject
+" button can be clicked. It will ask the user to add a reason for rejection as a comment. The changes will get rejected.
+To approve the changes, the user needs to click on the "
+Approve
+" button, and the changes that the Steward made will be approved, and the term will get Published.
+Submitting/Approving multiple Tables using Mass Update:
+If there are more tables to be submitted for approval, then the user can submit them all for approval at once by using mass update:
+Note: In order to initiate the workflow from listing first tables should have the workflow domain and must be edited (change the data domain, add entity from mass update, or add tags).
+Once the Tables are submitted for approval, the approver can approve multiple tables as well at once from the Mass update. Go to the Data Dictionary listing again, and there will be a tab "Assigned to me," which will show all the tables that are assigned to the logged-in approver.
+From the "Assigned to me" tab, select the tables and click on mass update and from the mass update modal, click on the status field and select "
+Approve
+" and apply. This will approve all the selected tables. That's how the approver can approve multiple tables at once.
+Workflow for DQ Rules
+Workflow for DQ Rules is automatically applied to any Rule associated with a Table that belongs to a Data Domain where workflow functionality is enabled. This ensures that any modifications to DQ Rules follow a controlled approval process, maintaining data governance and change auditability across governed domains.
+For Tables or DQ Rules that belong to a workflow-enabled Data Domain, a workflow symbol appears on both the Database Table and DQ Rule tabs..
+The newly created rule can be executed in either
+Online
+or
+Offline
+mode where both the
+Data Steward
+and
+Data Owner
+can initiate the rule execution.
+After initial creation, the Steward can modify the rule definition by selecting
+Edit option
+. Changes can be made on the  Rule Definition (Overview), Thresholds, and Workflow. However, any changes made to a workflow-enabled rule require
+approver authorization
+before being published.
+For Example:
+When changes are made to the Rule Definition, the
+Submit for Approval
+option automatically appears.
+Once all modifications are complete, select Submit for Approval to initiate the workflow process.
+The rule then enters the approval stage.
+On the DQ Rule > Overview page, the submitter can view the current workflow status.
+At this stage, the submitter can either Cancel the Submission or wait for the approver’s response.
+Approval Process
+Once a rule is submitted for approval, the approver receives an email notification indicating that the DQ Rule is awaiting review.
+The approver can click Review Changes to view all modifications made by the submitter. All updated fields are highlighted for easier comparison.
+If the approver decides to reject the changes, the Reject option can be selected. A reason for rejection must be entered as a comment. Once rejected, the submission is discarded, and the rule remains in its previous state.
+To approve the changes, click Approve. The updates made by the Data Steward are then accepted, and the DQ Rule is published.
+Workflow for Dataset/Reports
+Datasets and Reports can be found on the BI Models and reports tab, and just like the tables for the workflow to be started, a data domain for which workflow is enabled should be added for the dataset or report:
+Once the workflow domain is added, the user will be required first to publish the changes and then again edit the dataset/report to initiate the workflow:
+Once the Dataset/Report is submitted for approval, user can see the workflow on the top right, and email will be received by the approver about the dataset/report that is sent for approval:
+The approver can "Compare changes" for the dataset/report and afterward approve or reject the dataset or report. Once the approver approves the dataset/report, the dataset/report will be published
+Just like the Tables, if there are more than one dataset/reports then they can be submitted for approval through the mass update, and the approver can accept the dataset/report through the mass update:
+Submitter's account
+Approver's account
+The overall functionality of the workflow is the same for Tables, Datasets, and reports, so for that reason, the dataset/report part is not covered like the Tables part.
+How to check the Activities history of the Tables/Reports/Datasets?
+On the Table/Report/Dataset detail page "
+Managed by
+" section, there will be a chat icon. Click on that, and it will show all the history of activities that have been performed on the table/report/dataset. Comments can also be added to the table/report/dataset activity.

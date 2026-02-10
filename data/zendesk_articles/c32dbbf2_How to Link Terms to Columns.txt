@@ -1,0 +1,44 @@
+Title: How to Link Terms to Columns
+URL: https://dvsum.zendesk.com/hc/en-us/articles/36043768656020-How-to-Link-Terms-to-Columns
+================================================================================
+
+In this Article:
+Overview
+Add a Term to a Column
+Overview
+Associating terms with columns enhances data governance and traceability by ensuring consistency in definitions. The Business Glossary allows users to link terms to relevant columns, making it easier to maintain standardized terminology. Follow the steps below to add a term to a column.
+Add a Term to a Column
+Go to the
+Dictionary
+dropdown and select the
+Glossary Terms
+tab.
+Locate and click on the term you want to associate with column(s).
+Open the Term Overview Page
+On the Overview page, select
+Edit
+.
+Scroll down to the
+Relationships
+section and click the
+pencil
+icon to add a relationship.
+Click on
+Add
+button
+After clicking on
+Add
+, choose the following options:
+Relationship Type
+:
+Represented By
+Asset Type
+:
+Database Column
+Asset
+: Search and select the relevant columns (e.g., Address, AddressLine1, AddressLine2, etc.).
+Once selected, multiple columns can be associated with the term.
+Click on Add
+The chosen terms are displayed in a tabular form
+Scroll to the top of the page and click Done
+By following these steps, you can efficiently manage term-column relationships.

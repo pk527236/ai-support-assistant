@@ -1,0 +1,85 @@
+Title: Logical View
+URL: https://dvsum.zendesk.com/hc/en-us/articles/44352096354964-Logical-View
+================================================================================
+
+In This Article
+Overview
+Logical View as an Asset
+Creating a Logical View
+Role of SQL Definition
+Viewing a Logical View
+When to Use a Logical View
+Summary
+Overview
+A
+Logical View
+is an asset in DvSum that represents a
+logical dataset defined using a SQL query
+, independent of physical database tables.
+While tables in DvSum are created directly from database metadata, Logical Views allow users to define datasets at a
+logical or schema level
+. This makes them useful for modeling filtered, derived, or analytical datasets that do not exist as standalone physical tables.
+Logical Views behave like datasets within DvSum and can be viewed, managed, and used similarly to other assets.
+Logical View as an Asset
+Logical View is available as a
+system asset type
+and can be created from
+Asset Management
+.
+These are visible in the
+Asset Dictionary
+and can be browsed and managed like other assets.
+Creating a Logical View
+To create a Logical View:
+Navigate to
+Asset Management
+Click
+Add Asset
+Select
+Logical View
+as the Asset Type
+Select the
+Schema
+Provide a
+Name
+and optional
+Description
+Save the asset
+After saving, the Logical View opens in its dataset view.
+Role of SQL Definition
+The
+SQL Definition
+defines the query used to construct the Logical View.
+Users can enter a SQL query that selects and filters data from one or more underlying tables or views. The result of this query represents the dataset exposed by the Logical View.
+After entering the SQL query, click
+Validate
+to verify that the query is valid and can be executed successfully.
+If validation is successful, a confirmation message is displayed.
+A SQL definition can be used to:
+Select specific columns
+Filter records based on conditions
+Apply business logic to shape the dataset
+Once validated, the SQL definition can be saved and used as the Logical View’s data source.
+Viewing a Logical View
+After saving and validating the SQL definition, the Logical View behaves like a dataset within DvSum.
+The
+Overview
+tab displays asset-level details
+The
+Data
+tab shows the dataset defined by the SQL
+The
+Data Quality
+tab allows data quality rules to be applied
+When to Use a Logical View
+Logical Views are useful when:
+Data needs to be represented logically rather than physically
+A dataset is derived using filters or transformations
+Physical tables do not align with analytical or validation needs
+You want to apply data quality rules on a SQL-defined dataset
+They provide flexibility without requiring changes to the underlying database.
+Summary
+Logical Views extend DvSum’s asset model by allowing users to define and manage
+SQL-based logical datasets
+independently of physical database tables.
+They enable flexible data modeling, support analytical use cases, and integrate seamlessly with existing dataset and data quality workflows.

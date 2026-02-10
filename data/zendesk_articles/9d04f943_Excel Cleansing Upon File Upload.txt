@@ -1,0 +1,29 @@
+Title: Excel Cleansing Upon File Upload
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360013799514-Excel-Cleansing-Upon-File-Upload
+================================================================================
+
+EXCEL Default Cleansing
+When a file is uploaded, it is automatically cleansed to make it compatible for DvSum use. DvSum always reads the first row as "header" and rest of the rows as "data".
+The default cleansing includes:
+Removing blank rows
+Replacing white spaces within a column name with underscore e.g. First Column will be changed to First_Column
+Special characters from column name are removed
+Duplicate columns are dropped
+However in some cases, the default cleansing is not enough and the user needs to explicitly specify if any rows needs to be skipped or specify the format for number columns where the data automatically truncates the values up to required decimal precision, for that purpose, a properties file associated with every uploaded file is available for user to edit.
+EXCEL Pre-process properties
+When an excel file is uploaded to folder, properties file is created with the same name as the uploaded file name. A user can manually set the pre-process options to change file formatting. So whenever the same file is uploaded again to the folder, DvSum will automatically apply the pre-process options and cleanse the file accordingly.
+For example, below is the un-processed file.
+1. There is some extra information in row 1, 3 and 4 which cannot be read by DvSum. User manually needs to inform DvSum to skip these.
+2. Any spaces in between column names will be replaced by underscore and special characters will be removed automatically.
+3. Any blanks rows within the data will be removed automatically.
+4. For number fields, User can inform DvSum to cleanse the values up to a specific decimal precision.
+Once this file is uploaded to folder, basic cleansing (as mentioned before) will be applied by DvSum and pre-process properties for upload file will be created.
+Open the pre-process properties file with the name as the original file (AES2test)
+Save the properties file. An important step is to upload the file again to the target folder. This will format the excel source file according to the changes made in preprocess properties.
+Now the file is cleansed and ready to use in DvSum. If you configure this excel source from Manage Sources page, it will show you the cleansed file.
+Validate JSON - Verify syntax of pre-process.properties file
+As a good practice, we recommend you to validate json of preprocess file to make sure it has no syntax errors. You can validate using
+https://jsonlint.com/
+Copy all the content of preprocess.properties file and paste it in text field of jsonlint.com and click on "Validate JSON". If there is no syntax error, it will say Valid JSON.
+If JSON is invalid, it will show you the line where there is an error. Here, you can see there is error on line 11 because there is semi-colon (;) added instead of comma (,)
+It is recommended to validate json every time you make changes to your pre-process file.

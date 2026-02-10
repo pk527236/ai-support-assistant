@@ -1,0 +1,34 @@
+Title: How to do Target Scan of Data Sources
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10860307282580-How-to-do-Target-Scan-of-Data-Sources
+================================================================================
+
+How do you limit your scan to specific schemas?
+Initially, you must add and configure a data source in Dvsum. Once successfully configured and authenticated, a Database field will be visible, containing a list of all available databases. From this list, you'll then proceed to select the specific database intended for the scanning process.
+After selecting the database, the next step involves targeting specific schemas for scanning. To achieve this, you can focus your scan on particular schemas to retrieve metadata from the selected ones.
+If the goal is to scan all available schemas within the chosen database:
+Navigate to the connection settings tab of a source.
+Ensure that the checkbox for "Limit to specific schemas" remains unchecked.
+Save the settings.
+Initiate the scan for the source.
+The scan will comprehensively cover all schemas in the selected database.
+If the goal is to scan specific schemas:
+Check the "Limit to specific schemas" checkbox.
+Select the particular schemas intended for scanning.
+It is possible to choose either a single schema or multiple schemas for the scanning process.
+DvSum supports different Data Sources including RDBMS sources such as
+Oracle
+,
+Snowflake
+,
+My SQL
+,
+SQL Server
+,
+Azure SQL
+, &
+Azure Synapse.
+Additionally, it includes different Reports-related sources like
+Tableau
+&
+Power BI
+. Comprehensive articles are available for each of these sources, providing step-by-step guides on how to add and configure them within the application. To access the detailed instructions for a specific source, simply click on the corresponding link mentioned above, and it will direct you to the relevant article.

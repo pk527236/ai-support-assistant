@@ -1,0 +1,72 @@
+Title: DvSum Edge Gateway Installation (SAWS) for Data Catalog and CADDI on Linux
+URL: https://dvsum.zendesk.com/hc/en-us/articles/14609957062164-DvSum-Edge-Gateway-Installation-SAWS-for-Data-Catalog-and-CADDI-on-Linux
+================================================================================
+
+In this Article
+Overview
+Detailed Steps
+Network Configuration
+Linux Server Prerequisites
+Additional Information
+Installation Video
+Overview
+This document describes the installation process for the DvSum Edge Gateway for DvSum Data Catalog and CADDI (DC). It covers all aspects of the installation including middleware needed and how to deploy the Gateway on a Linux machine.
+For Windows, refer to
+DvSum Edge Gateway Installation (SAWS) for Data Catalog and CADDI
+.
+Note:
+Gateway, Connector, SAWS (Stand-Alone Web Service) and webservice are used interchangeably referring to the DvSum Edge Gateway.
+Detailed Steps
+Network Configuration
+If the DvSum Gateway is installed on a server with restricted outside access to specific URLs, you'll need to whitelist the following addresses on the network. This will enable the DvSum Gateway to communicate with the DvSum SaaS application and ensure the service functions properly and securely connects to the necessary resources on the network. Please configure the network settings accordingly to allow for this communication.
+URLs that must be whitelisted for outbound access on port 443:
+https://apis.dvsum.ai
+wss://3k7tif2dyi.execute-api.us-west-2.amazonaws.com/prod
+https://dvsum-app-data-prod.s3.amazonaws.com
+Ports that must be open for inbound access from end user computers:
+Default: 8183
+Common alternative: 443
+Linux Server Prerequisites
+Ensure that your Linux distribution has systemd support and x86_64 server architecture.
+# Confirm Architecture
+lscpu
+# Expected output includes:
+# Architecture: x86_64
+The minimum memory requirement is 2GB (with 4GB recommended).
+The minimum disk space requirement is 1GB (with 5GB recommended).
+Download Link for
+tar.gz
+file
+Step 1:
+Download the DvSum service
+tar.gz
+file from the provided link by DvSum Support.
+Step 2:
+Copy the downloaded tar.gz file to your Linux server.
+Create a new directory, e.g., DvSum_Service, and copy the downloaded tar.gz into that directory.
+Step 3:
+Navigate to the directory where you have copied the tar.gz file and unzip it.
+Use the following command: "tar -xzf DvSum_1.1.11.tar.gz"
+Step 4:
+In the DvSum application, create the DvSum gateway and copy the communication key.
+Step 5
+: Update the configuration.properties file with the copied communication key.
+The default port will be set as 8183.
+Step 6:
+To install the DvSum service, execute the shell script "install_dvsum_service.sh".
+Additional Information
+Installation Video
+Video tutorial link
+Video tutorial on how to install the DvSum Gateway on Linux.
+Linux Configuration
+It can be useful/desirable to connect to the gateway on the standard SSL port 443. There are multiple ways to achieve this. One common configuration technique is to redirect incoming traffic on port 443 to the DvSum Gateway listening on port 8183 using iptables.
+sudo iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 8183
+Troubleshooting
+Confirm that your gateway has started successfully and is now listening on port 8183.
+netstat -at
+# If the machine has many services, it can be useful to filter the output of netstat
+netstat -at | grep 8183
+Confirm that the machine is able to reach the DvSum SaaS application (confirm that it's not blocked by a firewall).
+# Sample commands to confirm connectivity
+curl -v --tlsv1.2 https://apis.dvsum.ai/catalog/scan/sockets-url
+curl -v --tlsv1.3 https://dvsum-app-data-prod.s3.amazonaws.com

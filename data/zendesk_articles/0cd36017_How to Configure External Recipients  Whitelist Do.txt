@@ -1,0 +1,71 @@
+Title: How to Configure External Recipients & Whitelist Domains
+URL: https://dvsum.zendesk.com/hc/en-us/articles/37016421057428-How-to-Configure-External-Recipients-Whitelist-Domains
+================================================================================
+
+In this article:
+Overview
+Add External Email Addresses in the Job Notification Tab
+Handle Domain Whitelisting
+Verify the Email Address
+Adding Multiple Recipients
+Overview:
+In DvSum's DI (Data Intelligence) tool, you can configure job notifications to be sent to users who are not part of your DvSum organization (external users). This guide walks you through the steps required to successfully add external email addresses.
+For more details on  jobs, refer to the article
+Creating new Job
+.
+Step 1: Add External Email Addresses in the Job Notification Tab
+From the
+Administration
+Tab navigate to
+Jobs
+and select
+Definition
+.
+Click on the Job ID for which you want to add an external recipient.
+Click
+Edit
+on the selected job.
+Go to the
+Notification
+tab.
+Enter the external email address in the external recipients field.
+Press Enter
+after typing the email address.
+This step is important:
+Only after pressing Enter
+will the email address be properly saved.
+Once saved, the email will appear enclosed in a box.
+Step 2: Handle Domain Whitelisting
+If you encounter an warning saying that the domain (e.g.,
+gmail.com
+,
+yahoo.com
+) is
+not whitelisted
+, perform the following:
+Go to
+Administration
+>
+Account
+.
+Navigate to
+User Security
+>
+External Domains
+.
+Click on
+Add Domain
+.
+Enter the domain name (e.g.,
+gmail.com
+) and
+save
+it.
+Step 3: Verify the Email Address
+After whitelisting the domain, return to the Job Notification tab.
+Re-enter the external email address.
+Press Enter
+to save it properly.
+The email should now be accepted without any errors and displayed in a box format.
+Adding Multiple Recipients:
+Users can enter multiple external email addresses, provided each address belongs to a whitelisted domain.

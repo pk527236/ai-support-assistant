@@ -1,0 +1,37 @@
+Title: Cross-System DQ - Compare Schema Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25404616533524-Cross-System-DQ-Compare-Schema-Rule
+================================================================================
+
+In this Article
+Introduction
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Step 2: Select Table & Available Rules
+Step 3: Add a New Rule
+Step 4: Basic Input Setup
+Step 5: Validate & Run the Rule
+Introduction
+The "Compare Schema" rule involves a comprehensive examination of data from two distinct schemas to verify that they are consistent with each other.
+Consider there is a scenario in which consistency of two schemas is to be checked. The Compare Schema Rule will compare the schema structure between two sources, highlight differences in tables and columns, include disparities in data types where applicable.
+In essence, the Compare Schema rule ensures that data across different sources aligns accurately, providing insights into potential discrepancies or variations.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+How to Configure the Rule:
+Step 1: Access Data Dictionary
+Log in to DvSum, proceed to the Data Dictionary tab, and select the relevant Data source and Table Name.
+Step 2: Select Table & Available Rules
+Select the table name then select the Data Quality tab and choose Available Rules.
+Step 3: Add a New Rule
+Select the "⊕ Add Rule" button, then choose the "Cross-System DQ" category. From the list of options, click on "COMPARE Schema"
+Step 4: Basic Input Setup
+In the Rule Wizard's
+Basic Input
+section, provide the
+Source Schema
+and
+Target Schema
+for the comparison. You can also add filters to refine the scope of comparison. Additionally, use the
+Ignore Prefixes and Suffixes
+option to remove common naming patterns (e.g., 'vw_' or '_temp') from table or column names, improving matching accuracy between the source and target schemas.
+Step 5: Validate & Run the Rule
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.

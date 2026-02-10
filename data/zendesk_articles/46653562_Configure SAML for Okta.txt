@@ -1,0 +1,170 @@
+Title: Configure SAML for Okta
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35305937125268-Configure-SAML-for-Okta
+================================================================================
+
+In This Article
+Introduction
+Prerequisites
+SAML Configuration Steps
+Step 1: Configuring Okta
+1.1 Create a SAML App in Okta
+1.2 Configure SAML Settings in Okta
+Step 2: Retrieve Identity Provider Metadata
+Step 3: Setting Up SAML in DvSum
+Step 4: Enable & Test SSO in DvSum
+Step 5: Assign Users to Okta Application
+Introduction
+This guide walks you through setting up SAML authentication for Okta in DvSum. By following these steps, you will enable Single Sign-On (SSO), allowing users to log in securely using their corporate credentials.
+Prerequisites
+Before you begin, ensure the following:
+You have admin access to your Okta account.
+You have a DvSum Owner account with access to Manage Account > SSO settings.
+You have an SP Metadata File from DvSum (will be downloaded during setup).
+Please use the following steps to configure SAML integration for your Okta application.
+SAML Configuration Steps:
+Step 1: Configuring Okta
+1.1 Create a SAML App in Okta
+Log in
+to your Okta admin account.
+In the
+menu bar
+, go to
+Applications > Add Application
+.
+Click
+Create App Integration
+.
+For the Sign-on
+method
+, select
+SAML 2.0
+and click
+Next
+.
+Enter an app name
+(e.g., "DvSum SSO") and click
+Next
+.
+1.2 Configure SAML Settings in Okta
+Log in to DvSum
+from your
+Owner account
+.
+Go to
+Manage Account > SSO tab
+.
+Click
+Add IdP
+.
+Download the
+SP Metadata File
+.
+Open the XML file in Notepad.
+Extract and enter required values in Okta
+:
+Copy the
+Location
+value inside the <AssertionConsumerService> tag from XML.
+Paste it into a Single
+Sign-On URL
+in Okta.
+Copy the
+entityID
+value from XML.
+Paste it into
+Audience URI (SP Entity ID)
+in Okta.
+Set
+Name ID Format
+to
+EmailAddress
+.
+Set
+Application Username
+to
+Email
+.
+Under
+Attribute Statements (Optional)
+, add a statement:
+Name
+: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
+Name Format
+: Basic
+Value
+: user.email
+Leave other settings as default and click
+Next
+.
+Choose a feedback response for Okta Support and click
+Finish
+.
+Step 2: Retrieve Identity Provider Metadata
+In Okta, go to
+Applications > Select your created app
+.
+Open the
+Sign-On
+tab.
+Find the
+Identity Provider Metadata
+hyperlink.
+Right-click
+the link and
+Copy the URL
+.
+This will be used as the
+IdP metadata
+when adding the IdP in DvSum.
+Step 3: Setting Up SAML in DvSum
+Log in to
+DvSum
+with an
+Owner account
+.
+Go to
+Manage Account > SSO tab
+.
+Click
+Add IdP
+and enter the required details:
+Provider Name
+: A unique name for the IdP.
+Identifier
+: Your company's domain (e.g., mycompany.com).
+IdP Metadata
+: Paste the
+metadata URL
+copied from Okta.
+Click
+Save
+.
+Step 4: Enable & Test SSO in DvSum
+Enable SSO
+in DvSum.
+Try logging in with your
+corporate email address
+.
+Step 5: Assign Users to Okta Application
+In Okta, go to the
+Assignments
+tab.
+Click
+Assign to People
+.
+Click
+Assign
+next to the user you want to add.
+If this is a new account, assign yourself (admin).
+(Optional) Set a custom
+User Name
+, or leave it as the
+email address
+.
+Click
+Save and Go Back
+→
+Done
+.
+For more information
+Click here

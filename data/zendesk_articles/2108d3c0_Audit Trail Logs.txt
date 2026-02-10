@@ -1,0 +1,151 @@
+Title: Audit Trail Logs
+URL: https://dvsum.zendesk.com/hc/en-us/articles/42333972028436-Audit-Trail-Logs
+================================================================================
+
+In This Article:
+Overview
+Navigation Path
+Audit Trail Log Details
+Filtering Records
+Exporting Data
+Managing Access to Audit Trail Logs
+Audit Trail on Asset Detail Page
+Overview
+The
+Audit Trail Logs
+feature provides a comprehensive record of all user and system activities performed within DvSum. It captures key events such as data updates, configuration changes, and user actions across various modules, allowing administrators to maintain visibility into platform usage and modifications.
+Each log entry records what action was performed, on which entity, by whom, and when. This information supports transparency, accountability, and compliance by enabling detailed tracking of platform activity and changes over time.
+Navigation Path
+To access the
+Audit Trail Logs
+, follow these steps:
+From the left navigation panel, click
+Administration
+.
+Select
+Audit Trail Logs
+.
+Audit Trail Log Details
+The
+Audit Trail Logs
+page displays a comprehensive record of all user and system activities within the platform. Each entry captures details about the action performed, the entity affected, the user responsible, and the timestamp of the event.
+The table contains the following columns:
+Entity ID
+– Unique identifier of the entity on which the action was performed.
+Entity Name
+– Name of the specific item (such as a table, glossary term, or data source) affected by the action.
+Entity Type
+– Type of entity, for example,
+Database Table
+or
+Glossary Term
+.
+Action Taken
+– Description of the operation performed, such as
+Created
+,
+Updated
+,
+Deleted
+, or
+Submitted for Approval
+.
+Action Details
+– Additional context or system-generated information related to the action, such as notification or approval details.
+Property Changed
+– Field or attribute that was modified as part of the action.
+When multiple fields are modified during an action, the
+Property Changed
+column displays a count (for example,
++7
+). Hovering over this value reveals a tooltip listing all affected attributes.
+For instance, when a user account is created, the tooltip may show fields such as
+Email
+,
+User Group
+,
+Status
+,
+Start Date
+,
+First Name
+, and
+Last Name
+as the attributes that were set or updated.
+Modified By
+– Name of the user who performed the action.
+Modified On
+– Date and time when the action occurred.
+The log table provides an organized view of all recorded activities, supporting system transparency and data governance tracking.
+Filtering Records
+To refine the records displayed in the
+Audit Trail Logs
+table, a set of filters is available. Filters enable focused viewing of specific actions, users, or time periods, making it easier to analyze targeted activity.
+To open the filter panel:
+Click the
+Filter
+icon on the top-right of the
+Audit Trail Logs
+page.
+A
+Filter By
+panel will slide out from the right side of the screen.
+Here, you can narrow down the logs using the following criteria:
+Entity Type
+– Select the specific asset type or module (e.g., Glossary Term, Data Source, etc.) to view activities related to it.
+Action
+– Filter by the type of operation performed, such as Create, Update, or Delete.
+User
+– Choose a specific user to view only the actions performed by that user.
+Date
+– Filter the logs based on when the action occurred. You can select from preset time ranges or define a custom period:
+Last 24 hours
+Last 7 days
+Last month
+Last 6 months
+Last year
+Custom
+– Allows you to specify your own date range.
+Once your filters are selected, the list updates to display only the relevant records.
+Exporting Data
+The
+Audit Trail Logs
+can be exported for offline review or reporting.
+Selecting the
+Export
+icon in the top-right corner generates an
+Excel (.xlsx)
+file containing all log entries based on the current filters. If no filters are applied, all available records are included.
+As noted in the
+Audit Trail Log Details
+section, when an action involves multiple field updates (displayed in the interface as
++7
+, for example), each updated field is recorded as an individual entry in the exported file. This may result in a higher number of records appearing in the export than displayed on-screen.
+The exported file retains the same column structure as displayed in the table. A maximum of
+100,000 records
+can be exported at a time.
+Managing Access to Audit Trail Logs
+Access to Audit Trail Logs is controlled through user role permissions in the Admin panel. Administrators can assign view or admin-level access to this feature using the Fine-Grained Control settings.
+To modify access:
+Navigate to
+Admin > Edit User Role
+In the
+Audit Trail Logs
+row, select the appropriate permission level:
+This allows organizations to tailor visibility and control based on user responsibilities.
+Audit Trail on Asset Detail Page
+Audit Trail information is also available directly on
+Asset Detail Pages
+.
+Clicking the
+three dots menu
+opens a
+right-side drawer
+, similar to the filter panel described earlier
+This drawer displays a timeline of actions specific to the selected asset, such as creation, edits, approvals, and notifications
+The drawer includes:
+Export
+option to download asset-specific audit data
+Comment field
+for adding remarks or context; these comments are also shown on the main Audit Trail Logs page
+This feature supports quick access to audit history and annotations without leaving the asset view.

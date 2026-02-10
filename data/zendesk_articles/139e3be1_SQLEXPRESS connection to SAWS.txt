@@ -1,0 +1,23 @@
+Title: SQLEXPRESS connection to SAWS
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360033961454-SQLEXPRESS-connection-to-SAWS
+================================================================================
+
+Sometimes DvSum Gateway is unable to make connection to SQLEXPRESS. If you are sure you have provided the correct information and credentials and "Test Connection" still fails, please check the following settings on your computer.
+Step 1:
+From Windows button, click on SQL Server Configuration Manager.
+Step 2:
+Click on Network Configuration in the Manager
+Step 3:
+Double click on Protocols. Confirm if TCP/IP is enabled.
+If not enabled, right click and enable. (Don’t re-start service yet)
+Step 4:
+Double click TCP/IP and in the dialog box, click on IP Address tab
+Step 5:
+Scroll to bottom of page. Confirm that under IPAll, TCP Port is  set to 1433.
+If not, add it and apply.
+Step 6:
+Close and get back to Configuration Manager. Click on SQL Server Services on left side.
+Step 7:
+Click on SQL Server (Running) and Click on Restart button in action bar.
+Step 8:
+Once re-started, DvSum will connect to this database. Confirm the following in Manage Sources page.

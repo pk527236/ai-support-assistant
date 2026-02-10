@@ -1,0 +1,8 @@
+Title: Reference Dictionary
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360005669534-Reference-Dictionary
+================================================================================
+
+A Reference Dictionary is like a pre-organized reference book where users can create their own dictionaries, associating useful information with sets of values. This is helpful for DvSum validation audits, allowing users to choose a reference dictionary with a set of data values instead of listing individual ones.
+For example, a user might create a "Hired Personnel 2017" dictionary with names and hiring dates of employees who joined in that year.
+When setting up a "Value Range" audit to ensure only hired personnel are included in a column, you can easily select the reference dictionary you've created, rather than manually entering the range.
+When you run the audit, it checks if your data matches the values in the reference dictionary you selected.

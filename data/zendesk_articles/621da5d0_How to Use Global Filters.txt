@@ -1,0 +1,31 @@
+Title: How to Use Global Filters
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10534035730836-How-to-Use-Global-Filters
+================================================================================
+
+In This Article:
+Overview
+How to apply Global Filters
+Enterprise Search
+Listing Pages
+Home Page
+Turn Off Global Filter (Note)
+Overview
+In the Data Catalog application, users have the catalog of all the sources, but when users want to look into the details of certain sources and data domains, t
+hey have to apply filters again and again on different sections in the application to view the desired data so in order to save the time and effort we have
+Global filter where users can choose the sources and data domains as user settings at the global level to view the data in the application.
+How to apply Global Filters:
+To apply global filters navigate to the My settings Page, Select the Data sources and Data Domain that you want to add as Filter, and click on the save button.
+Global filter will be applied on Enterprise search, Listing pages ( Data Dictionary, Analytics Dictionary, Field Dictionary & Business glossary), and Home page. Let's see each one by one:
+Enterprise Search
+When users search any keyword using enterprise search, a global filter would be applied to selected Data sources and domains. Global filters will applicable on all tabs ( Tables, columns Terms, Model,s and reports) of enterprise search.
+NOTE
+: The user can also apply other filters available in enterprise search.
+Listing Pages:
+On Listing pages ( Data Dictionary, Analytics Dictionary, Field Dictionary & Business glossary) global filters gets applied and results will be shown on the basis of filters. Users can remove the Filter using the
+Clear All
+button.
+Home Page:
+When global filters settings are turned on, Feed on the home page will be shown on the basis of global filters.
+Note:
+Users can turn off the global filter anytime by un-checking the global filter flag for Data sources and data domains on the My settings page. Filter will not get applied on Enterprise Search, Listing pages and Home page
+Watch this quick video tutorial on how to apply and use Global filters in the DvSum app.

@@ -1,0 +1,9 @@
+Title: Why can User A see more Source Tables than User B?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115000143513-Why-can-User-A-see-more-Source-Tables-than-User-B
+================================================================================
+
+Users can't add sources; only administrators can do that. Admins have the authority to grant users permission to work with specific tables on source and table levels. Essentially, users can only see tables that administrators give them access to.
+Consider this example: the administrator adds a source, let's call it Source XYZ, which includes 20 tables. User A is granted "Source level" access, while User B is given "Table level" access to specific tables (10 out of the 20).
+User A can view/configure* Source XYZ (20)
+User B can view/configure* Source XYZ (10)
+If you need access to a data source or its tables that you currently don't have, please reach out to your DvSum Administrator for assistance. The administrator is responsible for determining whether a user has the ability to view, write, or configure at the Source level or Table level.

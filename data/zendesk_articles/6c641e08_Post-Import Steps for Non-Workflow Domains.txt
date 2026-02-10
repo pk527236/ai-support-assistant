@@ -1,0 +1,70 @@
+Title: Post-Import Steps for Non-Workflow Domains
+URL: https://dvsum.zendesk.com/hc/en-us/articles/39824926810644-Post-Import-Steps-for-Non-Workflow-Domains
+================================================================================
+
+In this Article:
+Workflow Behavior After Import
+Steps to Manually Publish Imported Records
+Navigate to the Asset Type
+Find Recently Imported Records
+Select Records to Update
+Click Mass Update
+Update Status
+Import File Behavior for the Status Field
+Known Limitation
+Workflow Behavior After Import:
+After completing the import,
+records are not automatically published
+.
+In non-workflow domains:
+Newly imported records will have
+Draft
+status
+Updated records will have
+Modified
+status, this happens regardless of their previous status or the value provided in the import file
+Steps:
+1. Navigate to the Asset Type
+Open the domain where the records were imported (e.g., Business Glossary, Data Dictionary, Field Dictionary).
+2. Find Recently Imported Records
+Apply a filter to a column
+Last Updated On,
+like:
+Last Updated On → Greater than → Yesterday
+3. Select Records to Update
+Select the relevant records from the grid.
+By default, clicking the checkbox on the top-left corner selects all records currently visible on the page.
+To select all records in the current view (not just the visible page), click the
+"Select all records in this view"
+option that appears after selecting the first checkbox (as shown above).
+Tip: There is
+no hard limit on records
+. The system allows bulk selection beyond 1000 records, provided you've filtered or configured the view accordingly.
+4. Click Mass update.
+5. Update Status
+In the Mass Update modal:
+Field
+: Status
+Value
+: Published
+Click
+Submit
+.
+Confirm the status is updated to
+Published
+. Once the status is published, then you can verify the changes in the respective section where you modified.
+Tip: Save a custom view with filters to repeat bulk updates easily.
+Import File Behavior for the Status Field
+The system ignores the Status value during import. All new records are set to
+Draft
+, and all updated records are set to
+Modified
+, regardless of whether the column is included or omitted.
+Known Limitation
+Automatic publishing or submission via import is not supported.
+Manual action is required post-import
+to submit both
+newly added
+and
+updated
+records for approval through the UI (e.g., via Mass Update).

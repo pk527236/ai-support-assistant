@@ -1,0 +1,30 @@
+Title: Configure Oracle ADW as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/18826674587796-Configure-Oracle-ADW-as-a-Source
+================================================================================
+
+In this article, we'll guide you through the process of leveraging DvSum's capabilities within Oracle ADW to transform your data into a valuable asset. Let's embark on this journey together and unlock the full potential of your data.
+Adding Oracle ADW source in the DvSum tool
+Step 1:
+Open the Dvsum application, select Administration, and click on the Manage Sources option.
+Click on Add Source, and Select Oracle ADW source as shown below
+Step 2:
+In the "Basic Information" section, provide the following details:
+Source Name
+Description
+Select the web service on which the Oracle ADW source is enabled.
+Other fields are optional, as shown below.
+Step 3:
+In the host information section, you will be required to provide:
+TNS name: TNS names denote the available service levels and are accessible within the Database Connection Tab of the Autonomous Database Details.
+Wallet Path: Absolute directory path of the extracted wallet folder located on the same machine as the SAWS.
+Credentials:
+Wallet Username:
+The wallet username corresponds to the username of the database user.
+Wallet password:
+The wallet password refers to the password provided by the user during the download of the wallet zip file from the Database Connection Tab within the details of the Autonomous Database.
+Step 4:
+Click on Test Connection, and a success message will be displayed.
+Now click on the save button.
+Step 5:
+Now Oracle ADW is added as a source, and the
+user will be able to Catalog it, profile it, Execute Rules, and cleanse it.

@@ -1,0 +1,139 @@
+Title: CADDI Chat (Talk to your Data)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/18534685180948-CADDI-Chat-Talk-to-your-Data
+================================================================================
+
+In this Article:
+Introduction
+Viewing Execution Progress
+Sample Questions
+Detailed Questions
+Profiling & Filtering
+Saving the Question as Context
+Generating Answers Based on Different Tools
+Basic CRUD Operations
+Left Navigation Bar
+Introduction
+Artificial Intelligence (AI) plays a crucial role in data analysis by providing a simple interface to extract insights from large and complex data sets. With its ability to process natural language quickly, AI helps people make better-informed decisions, identify patterns and trends, and uncover hidden insights that might otherwise go unnoticed. In DvSum users can talk to their data using
+C
+onversational
+A
+I for
+D
+ata-
+D
+riven
+I
+nsights (CADDI). DvSum CADDI is a user-friendly platform where users can ask different questions from their datasets and extract useful insights. The following article explains how CAADI chat can be used.
+This article is linked to Agents. For more information on Agents, click
+Configuring CADDI - Creating Agents
+.
+How to talk to the data in DvSum Data Catalog:
+Before we start chatting with data, first, we need to create a agent and share it with some users.  Here I have a agent shown below, which I have shared with the user. On the agent go to "Manage Access" and share the agent with any user.
+Once the agent is shared,
+click on "Talk to Your Data" from the left Nav. It will open the Conversational page on a new tab.
+Now in the Conversational tab, all the agents that are shared with some users will appear as agents. So we need to select some agent to start the conversation. I'm selecting the agent which I shared above.
+Once the agent is selected, an About section of that chat will appear on the new chat, which will contain details of the agent i.e. the tables that were added to the agent .
+Viewing Execution Progress
+When a question is executed in CADDI Chat, a
+progress indicator
+appears showing the following four steps of processing:
+Understanding the question
+– The query is interpreted, language detected, and validated for clarity.
+Identification of relevant tables
+– CADDI determines which tables contain the required data.
+Crafting SQL query
+– A SQL query is generated to ensure accurate and relevant data retrieval.
+Explanation of how the query works
+– The system explains the query logic, including filters, joins, and calculations.
+After execution, the
+final output and query explanation
+are displayed, offering transparency into how the results were derived.
+On clicking the book icon located on the top right of the chat bar, some sample questions show up. Users can use these questions for analysis:
+On the CADDI, two types of questions can be asked which are:
+Sample Question
+Detailed Question
+Sample Questions
+Click on the "Sample Data" button, and it will show the sample data of that data set. The Sample question will not have any SQL code generated, and there will be no visualized charts for it. The Sample Data will have the Pivot View.
+From the sample data, users can have some basic insights into what data is about and what it looks like. Users can select different columns and apply filters to check the results.
+Users can see the profiling of the different columns in sample questions by simply clicking on the column heading in the grid:
+Users can apply some filters and set up that question as a context also by clicking on the context icon:
+Note: For Sample Questions, context can only be set up when some filter is selected
+The Concept of Profiling and Context will be explained further in this article.
+Detailed Questions
+A detailed question is one for which:
+SQL Code is generated
+Visualized Grid, Charts and Pivot Information is generated
+Context can be set up, and Profiling Information is available
+SQL Query
+When the question is asked about any dataset, then for that question, SQL code is generated, it can be seen when users select the "Show Code" option below the answer output:
+Different Generated Views
+For the question that is not typed, 3 different views are generated which are:
+Chart View (located next to Chart Settings)
+Grid View
+Pivot View
+The Chart View, Chart Settings, and Pivot View are separate detailed topics, and they are not included in the scope of this article. For additional information, you can visit the articles below:
+Chart Settings in CADDI
+Pivot Tables in CADDI
+The Grid View shows the data in tabular form of the columns that are fetched from the SQL query:
+Along with the 3 different views there will be a gear icon of Settings which is present when this is clicked settings tab opens up with further three options:
+General
+Chart (Learn more in
+Chart Settings in CADDI
+)
+Field (Explained in Profiling & Filtering below)
+The General tab contains the toggle button of "Human readable format". By default, this option is turned off:
+When this option is turned on then it helps in better reading of the data. For example, if there are large values like in thousands or millions then it will show in a much more readable format:
+Profiling & Filtering
+Profiling shows the distribution of different values of a column which helps in a better understanding of the data. Users can apply filters on the Grid through profiling by selecting particular values. The profiling of any column is opened by clicking the column heading in the grid. When the profiling of any column is opened then the "Settings ---> Field" tab is opened up.
+When no column is selected and from "Show settings", the "Field" option is selected then no profiling of the column will be shown. Instead, it will show this:
+2.3.1- Date type column
+For any date type column user can set different date formats according to the requirement.
+Once any date format is selected then in the grid that particular date format will be applied:
+Note: When any date format is selected then it applies to every question that was previously asked or will be asked
+The Grid can be filtered from the visual distribution section. A handle is provided which helps in applying filters according to different values. Once the values are selected then the grid on the left will be filtered accordingly:
+Decimal type column
+The Profiling of any column that has the data type can be opened by just clicking on the column heading in the grid. The difference is that there are some additional changes provided in its profiling. Users have the option to set decimal values after the point according to the requirement:
+Filters can be applied from the visual distribution section. For this particular example, the handle is not present below the distribution bars because if the distinct values for the columns are less than 20 then there will be no handle provided, users can click on the bars to fill in "Minimum" and "Maximum" values.
+Integer type column
+The Profiling can be opened by clicking on the column heading. For the columns having data type there are no additional options, there will be just visual distribution present from where "Minimum" and "Maximum" values can be selected:
+Here in the above example, the handle is provided below the distribution bars because, for this particular column, the distinct count exceeds 20. The logic that handle should be present or not is the same for columns having data type "Decimal" and "Integer".
+String type column
+The Profiling can be opened similarly by just clicking on the column heading present in the grid. The visual distribution for the string-type columns is a little different from other data types. Filters can be applied by selecting different bars and on the grid the filters will be applied accordingly:
+Saving the Question as Context
+The question that is asked that can be added as context or
+any specific filter applied on the grid can also be added from the Context icon on the top right of the question:
+The added context can be seen on the top left of the chat bar below. Users can add more than one context from different datasets. If the context is no longer needed, then it can be removed from Clear Context.
+Next Time when any question related to the dataset is added as context this context will be incorporated into the questions also:
+Generating Answers Based on Different Tools
+Often times users will require some questions to be answered in a visualized form and there would be scenarios where users would want just typed answers. For this purpose before asking a question user can select the tool that will generate the answer based on the selected tool. The three tools are located at the top right of the chat bar:
+There are 3 different types of Tools that can be selected before writing up any question:
+SQL Query Tool
+Data Understanding Tool
+General Knowledge Tool
+SQL Query Tool
+By default when any CADDI chat is opened the selected tool is the "SQL Query tool":
+When the selected tool is "SQL Query Tool" then when the user asks a question from any dataset then for that answer, SQL code and answer in visualized form (Charts and Grid) will be given:
+Data Understanding Tool
+The Data Understanding Tool can be used where the user wants some information about some columns present in the dataset e.g. range of values or different distributions of column. In this tool SQL Code and Visualized Grid will only be generated if necessary otherwise the answer is usually given in typed form where visualization is not required:
+General Knowledge Tool
+This tool can be used if the user wants to ask questions that are not related to the datasets present in the Data Catalog application. Any sort of general knowledge questions can be asked by using this tool. One use case of this tool can be for example there are some definitions for some columns for a particular dataset but user wants to know the industrial definition then this tool can be handy. This tool is located next to the Data Understanding tool:
+Basic CRUD Operations
+On the top left of the Chat, where the name is written, some basic crud operations can be performed:
+Update Chat Name & Objective
+Refresh Insights
+Delete Chat
+Collapse All/Expand All Questions
+The Chat Name can be updated by clicking on the "Edit" icon. Users can update the chat name as well as the objective for that chat:
+The "Refresh Insights" button will refresh all the questions present in the chat:
+The "Delete" button will delete the Chat and all the questions that are asked in it:
+The "Expand All/Collapse All" will expand and collapse all the questions present on the chat:
+On the top left of the chat bar, the agent that is opened will be shown. When a user clicks on it the view is expanded, and all the agents that are shared are shown here. Users can switch from one agent to another:
+Left Navigation Bar
+When any agent is opened, if "New Chat" is clicked, then it takes to the Default CADDI window. Users can also scroll around the agents that were created:
+The "Find Data" tab opens up the Home page of the Application on a new tab, and the "Logout" tab logs out of the Application:
+Chat Preferences
+Below the "Find Data" tab there will be a "Chat Preferences" tab. A modal opens up when "My Preferences" is clicked.
+Users have the flexibility to configure a wide range of settings according to their preferences, allowing them to tailor the generated insights to their specific needs and requirements.
+Note:
+For more details, refer
+"How to talk to your data".

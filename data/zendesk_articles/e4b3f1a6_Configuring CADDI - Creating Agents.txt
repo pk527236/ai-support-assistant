@@ -1,0 +1,136 @@
+Title: Configuring CADDI - Creating Agents
+URL: https://dvsum.zendesk.com/hc/en-us/articles/18497031217428-Configuring-CADDI-Creating-Agents
+================================================================================
+
+In this Article:
+Introduction
+Detailed Steps
+1. Creating an Agent
+2. Train Agent
+3. Detailed Question
+4. Add a Concept
+5. Basic CRUD Operations
+6. Manage Access
+Introduction
+Conversational AI for Data-Driven Insights (CADDI)
+makes it effortless to interact with your data, understand it, and extract reliable insights
+by using plain English. This article explains how to configure a CADDI Agent.
+Detailed Steps
+1. Creating a Agent
+Agents can be found on the Sources Detail page. Any Source that will have Chat Enabled will have the Agent Tab. Chat Access can be given to any source through the Module Settings. For more information, click on
+User Role and Module Settings
+.
+Agent Tab can be found on the detail page of the source for which Chat is enabled.
+`
+The "Agents" tab can be seen next to the "Settings" Tab. On clicking on Agents, a new Agent can be created:
+When a new Agent is created, the user is landed on the Definition Tab of the Ageny. In a Data source, there can be several Tables. Users can either use all the tables in the agent or user can limit the agent to some specific sources by adding tables from the Available Tables.
+Any added table shows up in "Tables For Chat". Users can also preview the Table to see the data inside it:
+User can also see individual columns and their profiling by clicking on the "Manage Fields" option. Here Users can select or unselect columns of any Table:
+After Adding the necessary Tables, the user can click on the "Done" and "Save" button to save the changes:
+2. Train Agent
+After the user has selected specific tables and saved the changes, along with the "Definition" Tab, the "Train Agent" tab can be seen. On clicking the "Train Agent," user can see the "Generate Questions" button up front and the Chat bar below that where questions can be typed:
+On clicking Generate Questions, some sample questions show up. Users can use these questions for analysis:
+On the Agent, two types of questions can be asked which are:
+1- Typed Question
+2- Detailed Question
+3. Detailed Question
+A detailed question is one for which:
+SQL Code and Logs are generated
+Visualized Grid, Charts, and Pivot Information are generated
+Context can be set up and Profiling Information is provided
+Positive or Negative feedback can be given for further improvement (Training)
+Logs Generation & SQL Query
+The Logs, in simpler words, are the information related to when a question is asked and what goes to the Backend in textual form. By default, the logs are not turned on. To turn the logs on, the user will have to enable them from the Chat Preferences:
+Once the logs are turned on any question is asked the Logs will be printed, and SQL query generated for that question will be printed below the Logs:
+The Log details and the SQL code can be hidden from the Hide Code/Log icon located below the answer output:
+Different Generated Views
+CADDI generates three different views:
+Chart View (learn more in
+Chart Settings in CADDI
+)
+Grid View
+Pivot View (learn more in
+Pivot Tables in CADDI
+)
+The Grid View shows the data in tabular form of the columns that are fetched from the SQL query:
+Along with the 3 different views there will be a gear icon of Settings which is present when this is clicked settings tab opens up with further three options:
+General
+Chart (Learn more in
+Chart Settings in CADDI
+)
+Field (Explained in Profiling & Filtering below)
+The General tab contains the toggle button of "Human readable format". By default, this option is turned off:
+When this option is turned on then it helps in better reading of the data. For example, if there are large values like in thousands or millions then it will show in much more readable format:
+Profiling & Filtering
+Profiling shows the distribution of different values of a column which helps in a better understanding of the data. Users can apply filters on the Grid through profiling by selecting particular values. The profiling of any column is opened by clicking the column heading in the grid. When the profiling of any column is opened then the "Settings ---> Field" tab is opened up.
+When no column is selected and from "Show settings", the "Field" option is selected then no profiling of the column will be shown. Instead, it will show this:
+Date type column
+For any date type column user can set different date formats according to the requirement.
+Once any date format is selected then in the grid that particular date format will be applied:
+Note: When any date format is selected then it applies to every question that was previously asked or will be asked
+The Grid can be filtered from the visual distribution section. A handle is provided which helps in applying filters according to different values. Once the values are selected then the grid on the left will be filtered accordingly:
+Decimal type column
+The Profiling of any column that has the data type can be opened by just clicking on the column heading in the grid. The difference is that there are some additional changes provided in its profiling. Users have the option to set decimal values after the point according to the requirement:
+Filters can be applied from the visual distribution section. For this particular example, the handle is not present below the distribution bars because if the distinct values for the columns are less than 20 then there will be no handle provided, users can click on the bars to fill in "Minimum" and "Maximum" values.
+Integer type column
+The Profiling can be opened by clicking on the column heading. For the columns having data type there are no additional options, there will be just visual distribution present from where "Minimum" and "Maximum" values can be selected:
+Here in the above example, the handle is provided below the distribution bars because, for this particular column, the distinct count exceeds 20. The logic that handle should be present or not is the same for columns having data type "Decimal" and "Integer".
+String type column
+The Profiling can be opened similarly by just clicking on the column heading present in the grid. The visual distribution for the string-type columns is a little different from other data types. Filters can be applied by selecting different bars and on the grid the filters will be applied accordingly:
+Saving the Question as Context
+The question that is asked that can be added as context or
+any specific filter applied on the grid can also be added from the Context icon on the top right of the question:
+The added context can be seen on the top left of the chat bar below. Users can add more than one context from different datasets. If the context is no longer needed, then it can be removed from Clear Context.
+Next Time when any question related to the dataset is added as context this context will be incorporated into the questions also:
+Giving Feedback
+Often times there will be some questions that may not get answered, or the answer was not according to the user expectations. To tackle this problem, the concept of giving Feedback is introduced. The feedback can be positive if the user is satisfied with the answer:
+But there will be times when the user will not be satisfied with the answer or the query generated for that question is wrong, due to which the question may give an error. In this case, the user can give negative feedback:
+In the negative feedback, the user can select an option like whether the Didn't get the right data. Didn't visualize properly or Other. In addition, the user can explain in plain English about how the question should be approached, or the user can write the correct SQL query that should have been generated:
+When the feedback is submitted, this feedback is taken into consideration when the next question will be asked. This is the kind of training that we are doing, so the accuracy of results can be improved over time.
+Generating Answers Based on Different Tools
+Often times users will require some questions to be answered in a visualized form and there would be scenarios where users would want just typed answers. For this purpose before asking a question user can select the tool that will generate the answer based on the selected tool. The three tools are located at the top right of the chat bar:
+There are 3 different types of Tools that can be selected before writing up any question:
+SQL Query Tool
+Data Understanding Tool
+General Knowledge Tool
+SQL Query Tool
+By default when any agent is opened the selected tool is the "SQL Query tool":
+When the tool chosen is "SQL Query Tool" then when the user asks a question from any dataset then for that answer, SQL code and answer in visualized form (Charts and Grid) will be given. The questions asked by using the "SQL Query Tool" are detailed type questions that were explained in the article above.
+For Technical users, they can verify which tool is being used. If the selected tool is "SQL Query Tool" then on the Log details it can be seen:
+Data Understanding Tool
+The Data Understanding Tool can be used where the user wants some information about some columns present in the dataset e.g. range of values or different distributions of column. In this tool SQL Code and Visualized Grid will only be generated if necessary otherwise the answer is usually given in typed form where visualization is not required:
+General Knowledge Tool
+This tool can be used if the user wants to ask questions that are not related to the datasets present in the Data Catalog application. Any general knowledge questions can be asked by using this tool. One use case of this tool can be for example there are some definitions for some columns for a particular dataset but user wants to know the industrial definition then this tool can be handy. This tool is located next to the Data Understanding tool:
+4. Add a Concept
+In the CADDI agent detail page, users can refine and enhance the agent's performance through the Training tab. This feature allows users to add and manage concepts that impact the agent's responses, as well as handle feedback to ensure continuous improvement. In the CADDI agent detail page, there is a Training tab where users can train the agent. From the Training tab, users can add different concepts that impact the results of CADDI. For a step-by-step guide on how to train your CADDI agent effectively go to the following article
+Training a CADDI Agent
+.
+5. Basic CRUD Operations
+On the top right of the Agent, some basic operations can be pretty handy for the users. There are two filters which are:
+Asked By
+Status
+The "Asked By" gives the option of filtering the questions that are asked by different users in the agent. All the different users who have asked the questions in the agent can be seen in this filter:
+There is another filter "Status" that will filter the questions according to different question types. The following are the filter values:
+All
+To Review
+Failed to Generate
+Approved
+Rejected
+Concepts
+With the two filters, there are three dots, users have the option of "Refresh All", which refreshes all the questions and Expand/Collapse All, which will expand or collapse all the questions present in the agent.
+The user has the option of Duplicating & Deleting the Agent. If the user wants to work on the same agent, but the user does not want to affect the original agent so the agent can be duplicated. If the user wants to delete the agent, then the option is available along with the duplicate button.
+Some more basic information about the Source and Agent can be found below the Agent name, like questions asked, tables, and Chat exclusion criteria, which are mentioned in the Module Settings for this source. The link to the Module settings article can be found
+here
+6. Manage Access
+By default, when any Agent is created, then it is private, and it is indicated by a "lock" icon present in front of the name of the agent . Users have the option of sharing the Agent with other users or user groups through Manage Access:
+On clicking Manage Access, a modal opens up where the user can enter any user group or users with whom he wants to share the Agent. 2 types of Access can be given which are:
+Chat Only
+Edit
+"Chat Only" access means that the user will only have access to CAADI chat (Talk to your Data). In "Chat Only", the user will not have any access to the agent, which is present on the Sources Detail page. Once the user shares the agent and gives "Chat Only" Access, another user will receive an email, and a link will be provided.
+The Link provided in the email takes the user to CAADI chat (Talk to your Data). For more information about CAADI chat (Talk to your Data), go through the article
+here
+When the agent is shared with Access as "Edit," then the other user will have edit access to the Agent that is present on the source detail page. When the agent is shared with other users with access as "Edit", then the user will receive an email with a link.
+The email link takes the user to the "Definition" Tab of the Agent. This user can also make changes in the original agent since he has edit access:
+Once the user has given "Chat Only" access or "Edit" access, then on Manage access, there is another option of "Remove Access", which basically will remove the Chat and Edit access to the other user:
+All the editors of the agent can change permissions for other users except for the creator of the agent.
+For here the above user is an Editor of the agent, this user can add new users and remove access from already existing users but the permissions of the agent creator can never be changed

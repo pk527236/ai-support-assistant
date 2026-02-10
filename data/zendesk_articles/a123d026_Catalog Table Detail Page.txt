@@ -1,0 +1,73 @@
+Title: Catalog Table Detail Page
+URL: https://dvsum.zendesk.com/hc/en-us/articles/17457787570452-Catalog-Table-Detail-Page
+================================================================================
+
+Overview
+DvSum DQ's Table Detail page provides an efficient look at table metadata, data, current data quality rules, suggested data quality rules, and more. Users can easily edit table details and manage rules, enabling seamless decision-making and data quality maintenance.
+Sample View:
+Finding the Table Detail Page
+Data Catalog → Table Dictionary:
+Profile → Profiling → View Catalog:
+Functionality
+Run Profiling
+Data profiling will query the data source to gather metrics about the data. It will also generate suggested DQ rules based on the data and metadata that it discovers.
+Profile Table → Run Online
+This will promptly initiate the profiling process. A progress bar will display the ongoing progress. It's crucial to stay on the page during profiling, as it operates synchronously. Leaving the page will result in the cancellation of the profiling process.
+Profile Table → Run Offline
+This will schedule a profiling job to run in the background. The job will typically start within the next minute, and this is the recommended approach for profiling large tables that may require several minutes to complete. You can navigate to other pages without affecting the job, and the updated statistics will be available once the job finishes. Check the job status here:
+Review → Scheduler.
+The
+Profile Table button will be
+Yellow
+if profiling has never run. Afterwards, it will change to
+Blue.
+Edit Table
+Edit the table details by clicking on the
+Edit Table
+button.
+The following fields can be edited:
+Description
+Table Type
+Load profile
+All Data - Select this load profile if data is fully refreshed regularly.
+Incremental Data - Select this if data is normally loaded incrementally (appended).
+If the load profile is set to incremental, then you should also set the Metric Time field.
+Metric time - Select from the Data and Timestamp fields in the table. This field will be used in relevant DQ rules. For example, when calculating daily load volumes this field will be used to see which records were loaded in the last 24 hours.
+Table Detail Page
+The Table detail page primarily contains 4 sections as shown in the screenshot below:
+Columns
+Displays metadata (e.g. data types) and data (e.g. unique count).
+Rules - Available Rules
+Create new rules and review existing rules.
+Select an existing rule to run it online or offline. For details refer to the article
+Run Online/Offline.
+More Actions:
+Update Schedule -
+update the existing schedules or add a new schedule.
+Remove Schedule -
+This option allows the user to remove any existing schedule of the rule(s)
+Delete rule
+- This option allows the user to Remove the rule permanently
+Clone rule
+- This option allows the user to clone the current rule
+Mass Update
+- Mass update allows the user to select multiple rules and update them at once
+Rules - Recommended rules
+Recommended Rules
+These are the rules that are recommended based on the profiling of the source's tables
+If the User wants to add a recommended rule they can simply click on the
+ADD
+button
+The following rule types are
+Recommended
+:
+Blank
+Value Range
+Count
+Metric
+Sample Data
+This has info same as Profiling >> Data Analysis. The grid will have all columns that are added in that table and will display sample data for each column.
+Relationship
+It shows the relationship of the table between different tables, their cardinality/relationship types, Constraint/Key names, database status, recommended status, accepted status, and Zoom in/out. The rejected state will not be shown. If you click any table name from here then it will open up its table detail page separately.
+View Comments
+Users can view the comments and add a new comment

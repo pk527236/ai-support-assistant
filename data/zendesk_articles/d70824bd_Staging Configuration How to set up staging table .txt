@@ -1,0 +1,14 @@
+Title: Staging Configuration: How to set up staging table ?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360021780333-Staging-Configuration-How-to-set-up-staging-table
+================================================================================
+
+For rules like Address Validation and Match-Merge, DvSum works on staging tables i.e copy of the original tables. The changes committed back to source will be written on staging table.
+Step 1:
+To create Staging Table, go to Profiling page and select source and table > Show Details
+Step 2:
+Enable Match Merge and enter description, click SAVE.
+Step 3:
+Click on "Generate Script"
+Step 4:
+Run the script on your Datasource to create staging table and then Refresh catalog. This table will start showing on profiling page.
+You can profile it and create Address validation rules on it.

@@ -1,0 +1,233 @@
+Title: Creating a new Job
+URL: https://dvsum.zendesk.com/hc/en-us/articles/27001229007380-Creating-a-new-Job
+================================================================================
+
+In this article:
+Overview
+Step-by-Step Guide
+Step 1: Navigate to the Job Creation Page
+Step 2: Choose a Job
+Step 3: Configure Job Parameters
+Step 4: Configure Notification Settings
+Step 5: Set Job Scheduling Options
+Scheduling Information
+One-Time Execution
+Recurring Execution
+End Conditions
+Add a Job from Job Detail Page
+Overview:
+A job in DvSum automates data validation, transformation, and integration tasks by executing a specified number of Data Quality (DQ) rules and profile tables. Jobs can be scheduled or triggered via API, but not both simultaneously. This guide walks you through creating a new job, configuring its parameters, and scheduling it for execution.
+Step-by-Step Guide
+Step 1: Navigate to the Job Creation Page
+Log in to DvSum and navigate to the
+DQ Rules
+tab.
+Select any rule, click on
+More Actions
+, and then
+Add to Jobs
+.
+Step 2: Choose a Job
+From the dropdown, select an already created job or click on
+Create a New Job
+.
+If creating a new job, a dialog box will appear. Click
+OK
+.
+Step 3: Configure Job Parameters
+In the
+Definition
+tab, add a job description.
+Choose the selection type:
+Fixed
+Dynamic
+Applying Filters When Using Dynamic Selection
+When configuring the
+Selection Type
+, if you choose
+Dynamic
+, filters must be applied to define which
+rules or tables
+will be included in the job at runtime.
+To apply filters:
+Select the
+Dynamic
+option under
+Selection Type
+.
+Under the
+Add Criteria
+section, click
+Add Condition Group
+to define one or more filter conditions.
+Once the conditions are set, click
+Apply Filter
+.
+After applying the filter:
+The
+Selected Rules
+or
+Selected Tables
+section will automatically populate based on the applied criteria.
+These selections are
+not editable
+— you cannot manually add or remove individual items.
+Note: If no filter conditions are applied, no rules or tables will be included dynamically in the job.
+Step 4: Configure Notification Settings
+In the
+Notification
+tab, you can define how and when email notifications are sent, and specify who should receive them.
+Email Notification Options
+When you first open the Notification tab, you'll see two options:
+Send schedule completion email
+Send email on job delay
+Once
+Send schedule completion email
+is selected, an additional option appears:
+Send email on alerts
+All three options can be selected together. Here's what each one does:
+Notification Option
+Purpose
+Send schedule completion email
+Notifies recipients when the job finishes its scheduled execution.
+Send email on alerts
+Sends notifications when alert conditions are triggered during a job.
+Send email on job delay
+Alerts recipients if the job exceeds its expected duration.
+Job Delay Alert Configuration
+If
+Send email on job delay
+is selected, a configuration panel appears with the following settings:
+Duration Threshold
+Automatically Determined Duration
+(default): Uses Interquartile Range (IQR) outlier detection on job run times to identify delays. Manual edits are allowed until four executions, after which thresholds auto-adjust.
+Set Custom Duration
+: Manually specify the maximum expected duration. An alert is triggered if the job exceeds this time.
+Input format:
+HH:MM:SS
+Alert Frequency
+Define how often reminder emails should be sent after a delay is detected.
+Input format:
+HH:MM:SS
+Email Recipients
+You can specify both internal and external recipients:
+Internal Recipients
+Select users or groups from the
+Available
+list.
+Move selections to the
+Selected
+list using the arrow buttons.
+At least one internal recipient is required.
+External Recipients
+Enter comma-separated email addresses.
+Only emails from whitelisted domains are allowed.
+Example:
+example@email.com, another@email.com
+Step 5: Set Job Scheduling Options
+Navigate to the
+Schedule
+tab.
+Choose a schedule type:
+Scheduled
+(For scheduled execution)
+Execute via API
+(Refer to the
+Executing Job via API article
+)
+Scheduling Information
+One-Time Execution
+Choose a
+start date
+and
+time
+.
+Set an
+end date
+, if applicable.
+Recurring Execution
+Daily
+Choose the number of days between executions.
+Weekly
+Select the number of weeks and the days for execution.
+Monthly
+Choose the number of months.
+Select
+repeat on days of the month
+or
+week of the month
+.
+End Conditions
+Never Ends
+: The job runs indefinitely.
+Ends After
+: Set the number of occurrences.
+Ends On
+: Set a specific end date.
+Additional Way to Add a Job: From the Job Detail Page
+Apart from adding jobs via the DQ Dictionary tab, you can also add a job directly from the
+Job Detail page
+. This provides a convenient way to manage jobs and quickly add related jobs without navigating back to the dictionary.
+How to add a job from the Job Detail page:
+1-From administration Tab navigate to the
+Jobs
+drop down and select
+Definitions
+in the
+DI tool
+.
+2- Click the
+Add Job
+button located at the top.
+3- Follow the same steps to select rules, configure parameters, notifications, and scheduling as described earlier.
+Cloning Jobs:
+From the Job Detail page, you can also use the
+More Actions
+menu to quickly clone an existing job. This allows you to duplicate the job configuration and make adjustments without creating it from scratch.
+Job can also be cloned from the
+Job Detail page
+by navigating to
+Edit > Clone Job
+.
+Profile Tables
+A
+Profile Table
+job is used to analyze the structure and quality of your data by generating profiling statistics on selected tables. Profiling helps you understand the characteristics of your data before applying rules or transformations.
+Purpose of Profile Jobs
+Identify data distribution and patterns.
+Detect data quality issues such as missing values, duplicates, or anomalies.
+Gain insights into column-level statistics (null counts, distinct values, min/max, etc.).
+How to Create a Profile Job
+1. Job Category
+Select
+Profile Tables
+as the job category. This specifies that the job will profile data instead of executing rules.
+2. Follow the same steps to select tables, configure parameters, notifications, and scheduling as described earlier.
+Scan Source
+A
+Scan Source
+job is used to discover metadata from a data source, helping build a catalog of data assets. Optionally, the scan can include profiling and lineage for deeper insights.
+Purpose of Scan Source Jobs
+Discover and catalog datasets, tables, columns, and schemas
+Generate metadata inventory for governance and data discovery
+Optionally include profiling statistics and data lineage mapping
+How to Create a Scan Source Job
+Job Category
+Select
+Scan Source
+as the job category. This indicates that the job will scan a data source for metadata.
+Data Source and Scan Catalog Options
+Choose the appropriate
+Data Source
+from the dropdown.
+Under
+Scan Catalog
+, you can optionally select:
+Profile
+– to include profiling statistics in the scan
+Lineage
+– to analyze data relationships and flow
+If neither option is selected, the job will schedule a
+catalog-only scan
+, capturing only metadata like table names, columns, and schema details.
+Follow the same steps to configure parameters, notifications, and scheduling as described earlier.

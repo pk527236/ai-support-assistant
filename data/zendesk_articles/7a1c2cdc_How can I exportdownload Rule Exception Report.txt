@@ -1,0 +1,8 @@
+Title: How can I export/download Rule Exception Report?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360006879773-How-can-I-export-download-Rule-Exception-Report
+================================================================================
+
+DvSum rule execution allows you to see the potential bad records in your data source. It also saves these exceptions in to an excel file which can be downloaded from Analysis tab on the rule detail page.
+The "Export" button will download an excel file containing exceptions for this rule but this button is only enabled when there are
+exceptions
+in the run result. If the executed rule passes, which means there are no bad records identified in your data source, then, there will not be any report to download. Hence, the Analysis tab will be disabled.

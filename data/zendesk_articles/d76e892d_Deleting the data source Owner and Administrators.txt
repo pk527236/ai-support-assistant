@@ -1,0 +1,8 @@
+Title: Deleting the data source. (Owner and Administrators)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360005670514-Deleting-the-data-source-Owner-and-Administrators
+================================================================================
+
+In order to delete a data source, first, navigate to Administration, then proceed to Manage Sources in the left-hand navigation menu. Select the data source labeled as EXCEL_DEMODATASET, and click on "Delete Source."
+Performing this action marks the source as deleted, and it will be removed from the Source list after 24 hours. Once deleted, it won't appear anywhere in the application, including profiling tables, rules, or related workflows, as they will also be deleted.
+Administration section is only available for Owner and Administrator roles. If you are a user or Super-User, you will not be able to delete the demo dataset.
+All data for the selected demo datasets will be deleted. This includes profiles, audits, results and action items. The data is also at an account level. So once the data sources are deleted, they are deleted at account level and no user can use it. It is recommended that you delete the demo dataset after confirming with any users in the system who might be using the demo dataset.

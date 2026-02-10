@@ -1,0 +1,43 @@
+Title: How to create a Custom Dashboard?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000260754-How-to-create-a-Custom-Dashboard
+================================================================================
+
+Step 1: Create a Dashboard
+Go to Dashboards >> Manage Dashboards Page. Click on "Add" button. Specify a name and description. You can also choose to
+Share
+your Dashboard with others or keep it to yourself.
+When you "Save" this Dashboard, you will be navigated to "My Dashboard" tab where the newly created dashboard opens. Since you need to add widgets to your dashboard, an "Add Widget" dialogue will appear.
+Step 2: Add widgets
+You can add template widgets to your dashboard.
+Upon selecting a template widget, it opens the widget dialogue which allows you to specify on which data source do you want the template widget is to display the information (
+explained in next step
+). These template widgets auto-populate the preferred choice for
+chart type
+related to
+slicers
+(Y-axis) and
+metric
+(X-axis). You can
+sort
+how the data appears on the chart and enable
+Datalabels
+(legends) on charts.
+Step 3: Create a View
+Click on "Create View". It opens an "Add Widget - Create View" dialogue. Based on this View, the widget will display the information.
+Enter a Name for View. Specifying columns wont appear on the chart because thats what slicers and metric do. But that is required to create a view. However the conditions that you apply on a view under the "Specify Criteria" section filters the data accordingly before displaying it on the dashboard.
+When you save this view, it will be populated in the "Add Widget" dialogue of step 2 (image shown below).
+Save this widget to make it appear on Dashboard. This completes Step 2.
+Step 4: Dashboard
+The widget will start appearing on Dashboard. You can add more widget by clicking on "
+Add Widget
+" Button. You can mark this dashboard as
+Favorite
+or
+Edit
+,
+Clone
+and
+Delete
+it.
+Once you mark the Dashboard as Favorite, it appears in the Dashboard drop-down under the "Favorites" section along with "Created by me" dashboards and "Shared with me" Dashboards.
+Note: You can view the dashboards shared with you but you cannot edit them. You may however clone the dashboard and edit it according to your liking.

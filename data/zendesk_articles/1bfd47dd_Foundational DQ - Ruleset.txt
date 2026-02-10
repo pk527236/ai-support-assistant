@@ -1,0 +1,96 @@
+Title: Foundational DQ - Ruleset
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25246448647828-Foundational-DQ-Ruleset
+================================================================================
+
+In this Article:
+Introduction
+Why is it Important?
+How to Configure the Ruleset Rule
+Step 1: Log in to DvSum
+Step 2: Access the Data Quality Tab
+Step 3: Add a New Rule
+Step 4: Basic Input Configuration
+Step 5: Validate & Execute
+Introduction
+The
+Ruleset Rule
+is a foundational Data Quality (DQ) check that combines three key validation rules:
+Blanks Check
+– Ensures that critical fields are not left empty.
+Value Range Check
+– Restricts values within a defined range.
+Data Format Check
+– Verifies that data follows a specified format (e.g., numerical, string, date).
+By applying these checks, the
+Ruleset Rule
+helps maintain data accuracy, consistency, and completeness.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+Why is it Important?
+The
+Ruleset Rule
+plays a crucial role in preventing data quality issues, such as:
+Missing Data
+– Ensuring key fields like Customer_ID are always populated.
+Incorrect Values
+– Restricting inputs to valid predefined ranges.
+Inconsistent Formatting
+– Standardizing data representation for consistency across datasets.
+For example:
+Customer_ID cannot be blank
+, ensuring no missing records.
+The “Country” column must contain only two-character country codes (e.g., US, UK).
+Date fields should follow the “YYYY-MM-DD” format.
+By enforcing these rules, organizations can avoid incomplete or inaccurate records that may impact reporting and decision-making.
+How to Configure the Ruleset Rule
+Step 1: Log in to DvSum
+Navigate to the
+Dictionaries
+>
+Database Tables
+tab.
+Select the relevant
+Data Source
+and
+Table Name
+.
+Step 2: Access the Data Quality Tab
+Select the
+Table Name
+.
+Click on the
+Data Quality
+tab.
+Choose
+Available Rules
+.
+Step 3: Add a New Rule
+Click the
+⊕ Add Rule
+button.
+Select the
+Foundational DQ
+category.
+From the list of options, choose
+RULESET
+.
+Step 4: Basic Input Configuration
+In the Rule Wizard’s
+Basic Input
+section, fill in the following details:
+Rule Description
+: Provide a meaningful name for the rule.
+Ruleset Checks
+: Choose the specific checks you want to apply:
+Blanks Check
+– Ensures no empty values in selected columns.
+Value Range Check
+– Restricts values to a specified range.
+Data Format Check
+– Verifies consistency in data format.
+S
+tep 5: Validate & Execute
+After saving the rule, review its definition.
+Click
+Run
+to execute and test the rule.

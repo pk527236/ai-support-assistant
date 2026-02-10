@@ -1,0 +1,23 @@
+Title: Query Explanation in CADDI
+URL: https://dvsum.zendesk.com/hc/en-us/articles/23891989976084-Query-Explanation-in-CADDI
+================================================================================
+
+While we use CADDI to communicate with the database and gain meaningful insights from our data, there's an interesting feature that provides insights into the generated query. After a query is generated for any question, an Explanation section appears below the query block. This section explains the various keywords of the query and how they are used, as well as providing the expected output of the query.
+The Query Explanation section will have the following details:
+What we are looking at:
+This section will indicate the action the query will perform, such as its purpose and the results it will produce upon execution.
+Tables included in the Query:
+This section will display all the tables that will be used in the query execution, which can range from one to many
+Join Data:
+If the generated query employs the "JOIN" keyword, indicating that a join operation is being utilized, this section will specify which tables are being joined.
+Aggregation and Counting:
+This section explains which aggregate functions are used in the query and how they are applied to specific columns.
+Grouping Data:
+This section will tell how data is being grouped in the generated query.
+Sorting Order:
+This section will specify the column for which the "ORDER BY" clause is being used and indicate whether the data will be sorted in ascending or descending order.
+Filtering Conditions:
+This section will detail any filtering conditions utilized in the query, specifying the conditions applied, such as which filters are being used.
+Expected Output:
+This section will provide an explanation of the expected output of the query, outlining the results it will return upon execution.
+Following is an example of how the Query Explanation section will look like:

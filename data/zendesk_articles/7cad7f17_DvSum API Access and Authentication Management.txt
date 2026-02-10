@@ -1,0 +1,398 @@
+Title: DvSum API Access and Authentication Management
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41740390031764-DvSum-API-Access-and-Authentication-Management
+================================================================================
+
+In This Article:
+Overview
+Authentication Methods
+Generate and Store Credentials
+Rotate API Credentials
+Download New Credentials
+Delete API Clients
+View Assigned APIs
+User Role–Based API Access
+Using API Documentation & Authentication Flow
+Overview
+DvSum provides a robust set of APIs that allow external systems to interact with the platform. These APIs can be used to:
+Manage data elements (tables, fields, terms, etc.)
+Trigger approval workflows
+Automate repetitive tasks
+Authentication is handled through
+AWS Cognito client credentials
+, ensuring secure machine-to-machine communication. This allows seamless integration with enterprise processes while maintaining high security standards.
+Refer to
+DvSum API Documentation
+for comprehensive API documentation.
+Authentication Methods
+DvSum supports
+two OAuth2-based authentication methods
+for accessing its APIs.
+Both methods use
+AWS Cognito’s
+client_credentials
+flow
+to obtain an
+access_token
+, and both provide access to the
+same set of APIs.
+The key difference lies in
+who owns the credentials
+and
+how permissions (RBAC) are assigned.
+Method 1: Service Authentication (Machine-to-Machine)
+Uses
+OAuth2 Client Credentials flow
+via AWS Cognito.
+Credentials (
+client_id
+and
+client_secret
+) are created under
+Administration → Account → Application Security → Manage OAuth2 Clients
+.
+Represents a
+service principal
+with its own identity.
+Permissions are
+assigned directly to the auth client. No roles involved.
+Ideal for
+automated workflows, background jobs, or system integrations
+without user involvement.
+Method 2: User-Based Authentication
+Also uses
+OAuth2 Client Credentials flow
+via AWS Cognito.
+Requires updating the
+role
+to allow
+API Access
+and associating
+scopes
+with the role.
+Credentials (
+client_id
+and
+client_secret
+) are created under
+My Settings → API Credentials
+for individual users.
+Tokens inherit
+user-specific roles and permissions
+via RBAC.
+Suitable for scenarios requiring
+user context, auditing, or personalized access control.
+Add a Client
+Navigate to
+Administration → Account → Application Security → Manage OAuth2 Clients
+and click
+Add
+.
+Definition
+Provide a
+Name
+for the OAuth client and an optional
+Description
+.
+Set the
+Secret Rotation Interval
+to define the duration after which the credentials expire. The interval can be set from
+7 days to 1 year
+.
+Alternatively, select
+Never Expires
+. A warning message highlights that indefinite credentials increase security risks, and regular rotation is recommended.
+These are machine-to-machine credentials, that are not tied to any user account. They act as independent identities for scripts or background processes accessing DvSum APIs.
+Scope
+Select which APIs the client should have access to:
+All Scopes
+– grants access to all APIs.
+Specific Scopes
+– grant access only to selected APIs.
+Access Level
+:
+Read
+access is enabled by default.
+Write
+access can be enabled where applicable (e.g., Asset Listing).
+Configure Alerts
+In the
+Alert
+tab, you can configure notifications to be sent when credentials are about to expire.
+Internal Recipients
+:
+Select from available
+Groups
+or
+Users
+and move them to the
+Selected
+list.
+The OAuth client creator is automatically added by default.
+External Recipients
+:
+Enter comma-separated emails (e.g.,
+example@email.com
+).
+Only emails from
+whitelisted domains
+are allowed.
+Expiry Alerts
+: Expiration alerts are sent
+3 days before credential expiry
+, then repeated daily until credentials are refreshed or rotated.
+Generate and Store Credentials
+Review all settings.
+Click
+Save
+to generate the
+Client ID
+and
+Client Secret
+for authentication.
+Important:
+Credentials can only be viewed once. After closing the modal, they cannot be retrieved again.
+Download and store them securely (e.g., password manager or encrypted vault).
+The downloaded CSV file contains both the Client ID and Client Secret, as shown below.
+Rotate API Credentials
+If credentials are compromised or nearing expiry, you can
+rotate
+them.
+Click the
+More Options (⋮)
+menu for the client.
+Select
+Rotate
+.
+Confirm Rotation
+A message will confirm that new credentials will be generated.
+Old credentials remain valid for
+24 hours
+, giving time to update integrations.
+After 24 hours, old keys are automatically disabled.
+Download New Credentials
+Once rotated, new credentials are issued.
+Copy or download them immediately — they cannot be viewed again after closing.
+Note:
+Remember to update all applications and services with the
+new Client ID/Secret
+before the old ones expire.
+Delete API Clients
+You can delete one or multiple OAuth2 clients if they are no longer required. Deletion immediately revokes access for the associated Client ID and Secret.
+Delete an Individual Client
+Click the
+More Options (⋮)
+menu next to the client.
+Select
+Delete
+.
+Confirm the deletion.
+Bulk Delete Multiple Clients
+Use the
+main checkbox
+at the top of the OAuth2 client list to select all displayed clients, or select individual checkboxes for multiple clients.
+Once selected, the
+Delete
+option will appear at the top of the list.
+Click
+Delete
+and confirm to remove all selected clients.
+Note:
+Deleting an OAuth2 client is irreversible. Any applications or integrations using the deleted credentials will immediately lose access. If access is still required, create a new client and update your systems with the new credentials.
+View Assigned APIs
+On the
+Manage OAuth2 Clients
+page, the
+Resources
+column shows how many APIs are assigned to each client.
+Clicking the API count (e.g.,
+“6 APIs”
+) opens a detailed view of the assigned scopes.
+The detailed view lists all APIs granted to the client, along with their
+access levels
+(Read, Write, Delete).
+This helps administrators quickly verify which endpoints each client can access and adjust scope if needed.
+Summary of Service-Based Authentication
+Use the generated credentials to authenticate via
+OAuth2 Client Credentials flow
+.
+Refer to the
+API documentation
+for details on endpoints, request formats, and sample payloads.
+User Role–Based API Access
+In addition to service-based authentication clients, DvSum also supports
+user role–based credentials
+. This allows administrators to enable API access tied directly to a user’s role.
+Enable API Access for a Role
+Navigate to
+Administration → User Management → User Roles
+.
+Either add a new role or edit an existing one.
+Go to the
+API Access
+tab.
+Select
+Enable API Access
+.
+Configure Role-Based API Access
+Set a
+Secret Rotation Interval
+(e.g., 180 days) or choose
+Never Expires
+(not recommended).
+Select the
+APIs
+this role should have access to.
+By default, any APIs already available to the role in the UI are pre-selected.
+Additional APIs can be enabled as needed.
+Save the configuration.
+Generate and Manage User Credentials
+Once API access is enabled for a role:
+Users assigned to that role will see a new
+API Credentials
+tab under
+My Settings
+.
+From there, each user can:
+Generate
+their own Client ID and Secret.
+Rotate
+their credentials when needed.
+Delete
+their credentials if they are no longer required.
+Notes:
+The
+expiry interval
+is set at the role level by administrators. All users in that role inherit the same expiry.
+Users
+cannot change expiry
+, but they can generate, rotate, and delete their own credentials.
+The API access scope always reflects the permissions granted to the user role. If role permissions change, the user access changes automatically.
+Once generated, users authenticate using the same flow as service-based clients: generate an
+access token
+via the Authentication API and use it in subsequent API calls.
+API Credentials Tab Availability
+By default, the
+API Credentials
+option under
+My Settings
+will appear
+greyed out
+for users.
+To activate this tab, the user must be part of a
+User Group
+that is assigned to a
+User Role with API Access enabled
+.
+API Credentials disabled before Role Assignment:
+API Credentials Enabled after Role Assignment:
+Manage Generated Credentials
+Once the
+API Credentials
+tab is active and the user generates their credentials:
+Download
+: Just like with service-based clients, credentials must be
+downloaded immediately
+. They cannot be viewed again once the modal is closed.
+Rotate
+: Users can rotate their own credentials to issue a new secret. The old secret remains valid for 24 hours, after which it is automatically disabled.
+Delete
+: Users can delete their credentials if they are no longer required. A new set can be generated at any time as long as their role has API access enabled.
+Note:
+Rotation and deletion are managed at the
+user level
+, but
+expiry
+is controlled by the
+role configuration
+set by administrators.
+Using API Documentation & Authentication Flow
+All available DvSum APIs are listed in the official API documentation:
+DvSum API Documentation
+You can download the collection from this site and import it into
+Postman
+or another API client.
+Before You Begin (Pre-requisites)
+Before running the authentication request, make sure you have the following set up in
+Postman
+:
+Create an Environment (if not already set):
+Go to the
+Environments
+tab in Postman and create a new environment.
+Add a variable named
+authUrl
+with the value:
+auth.dvsum.ai
+Click
+Set active
+to activate the environment.
+Set up Headers for Authentication:
+In the
+Headers
+tab of your authentication request (
+/oauth2/token
+), ensure the following keys and values are added:
+Content-Type: application/x-www-form-urlencoded 
+Accept: application/json 
+Authorization: Basic <base64_encoded_clientid_secret>
+Once these pre-requisites are complete, proceed with
+Step 1: Authenticate with Client Credentials
+as described below.
+Step 1: Authenticate with Client Credentials
+Use the
+Client ID
+and
+Client Secret
+you generated earlier to obtain an
+access token
+.
+Open the
+Authentication API
+(first in the documentation).
+Combine your Client ID and Secret in the format:
+client_id:client_secret
+Convert this string into
+Base64 encoding
+Once generated,
+copy the encoded value
+and
+paste it into the Authorization header
+in Postman as shown below:
+Authorization: Basic <base64_encoded_clientid_secret>
+When you send the request, the API will return an
+access token
+.
+Step 2: Use the Access Token
+The access token is a
+Bearer token
+valid for
+1 hour
+.
+Copy this token and include it in the header for all subsequent API requests:
+Authorization: Bearer <your_access_token>
+Step 3: Run an API Example
+Once you have an access token, you can use it to call APIs that your client/role has access to.
+Example request:
+GET {{baseUrl}}/node-listing/gov-view?node_type=TBL&node_id=40837560
+Headers:
+Accept
+:
+application/json
+Authorization
+:
+Bearer <your_access_token>
+Running
+Get Governance Views
+API in Postman:
+A successful call returns
+200 OK
+with the response payload.
+Important Notes
+Access is restricted to the APIs that were explicitly granted in the
+Scope
+tab when creating the client.
+Tokens must be refreshed every hour using the same authentication API.
+Tip:
+Import the full Postman collection from the
+DvSum API Documentation
+for comprehensive examples of all available APIs.

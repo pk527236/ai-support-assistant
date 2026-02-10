@@ -1,0 +1,81 @@
+Title: Configure Databricks as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/9830486369428-Configure-Databricks-as-a-Source
+================================================================================
+
+Azure Databricks is optimized for Azure and tightly integrated with Azure Data Lake Storage, Azure Data Factory, Azure Synapse Analytics, Power BI, and other Azure services to store all your data on a simple, open lakehouse and unify all your analytics and AI workloads.
+Enabling Databricks Source in DvSum
+Step 1:
+Open the Dvsum application, select the Administration tab and click on, the Manage sources option,  Click on 'Add Source' and Select Data Bricks source'. Following error messages will be displayed if the DataBricks source is not enabled for users 'Owner' and 'Admin'.
+Note
+:
+Only the owner is authorized to add a source.
+Owner:
+Admin:
+Step 1.2
+Owner will click the 'Manage account' link and gets redirected to this page from where the source can be enabled. On other hand, Admin will request the owner to get the source enabled for the account. Click the 'Saws' tab, select the saws, and click the 'Enable source' button.
+Step 1.3
+From the list of available sources, select DataBricks and click the
+Upgrade
+button as shown below
+Step 1.4
+On returning back in the SAWS tab, it will take some time to process and after that, Databricks Icon will appear in the enabled sources column which means that the source is successfully enabled as shown below
+Scenario 1: SAWS Error
+On upgrading, if there's any issue with SAWS, an error message will be displayed "Please check if your SAWS is working correctly".
+Scenario 2:  Pending State
+On upgrading, if any job(s) is running, it will go to a 'pending' state.
+Adding Databricks source
+Step 2.1
+Open the Dvsum application, select 'Administration' and click on the 'Manage sources' option,  Click on 'Add Source' and Select Databricks source as shown below
+Step 2.2
+In the Basic information section, provide the source name, and description, and select web service on which Databricks source is made enabled, other fields are optional as shown below;
+Step 2.3
+In order to get the Server hostname, HTTP path, and personal access token go to Databricks Dashboard.
+Step 2.3.1
+Click on Compute >> Cluster name >> Cluster configuration >> Advance Options >> JDBC/ODBC. And You’ll get “Server Hostname” and “HTTP path”.
+Step 2.3.2
+To get Personal Access Token, click on “User settings”. Add Name for Token and set Days limit for token and click on Generate.
+Note
+:
+Make sure to copy the token now. You won't be able to see it again
+.
+Scenario 1: Authentication using Access Token
+Step 1
+Add server hostname, HTTP path and personal access token in Host information and click on Authenticate button.
+Step 2
+Database Name will be shown select the database from the dropdown and click on the save button.
+Step 3
+Edit the source and verify the “Test connection”
+Scenario 2: Authentication using Client Secret
+~Prerequisites for Configuring Azure Databricks (
+Service Principal Service
+):
+Please refer to the article to configure
+Azure Databricks (Service Principal Service).
+Step 1
+For Authentication using
+Client Secret
+, enter the correct
+Server Hostname
+,
+HTTP path
+(
+Server Hostname and HTTP path used for authenticating via Access Token will be the same here),
+Azure Subscription ID
+,
+Azure Resource Group
+,
+Azure Workspace
+,
+Azure Tenant ID
+,
+Azure Client Id
+,
+Azure Client Secret
+and
+OAuth Secret
+. Click the Authenticate button.
+Note:
+OAuth secret is a confidential key used to authenticate and authorize applications when integrating securely with external services. Admin can generate it from Service Principle's secret tab.
+Note: OAuth Secret is a required field when the checkbox is enabled. Using OAuth secret, Databricks will use an updated driver which eliminates the need for an additional rule to wake up the cluster and scheduled jobs will be executed faster
+Step 2
+Database Name will be shown select the database from the dropdown and click on the save button and "Test Connection"

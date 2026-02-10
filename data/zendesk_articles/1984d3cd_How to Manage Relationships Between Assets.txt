@@ -1,0 +1,21 @@
+Title: How to Manage Relationships Between Assets
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35968933714196-How-to-Manage-Relationships-Between-Assets
+================================================================================
+
+Relationships help define associations between different assets, ensuring better traceability and governance. The Assets Dictionary allows users to establish these connections, making it easier to navigate related data elements. Follow the steps below to add a new relationship to an asset.
+Add a Relationship:
+On the Overview page, select
+Edit
+.
+Scroll down to the
+Relationships
+section and click the
+pencil
+icon to add a relationship.
+Click on
+Add
+button
+Enter the required details and add the relationship.
+The relationship type may vary based on the Asset Type, such as "Governed by" or "Represented by."
+Note:
+Only column assets support adding a Reference Dictionary as a relationship.

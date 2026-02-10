@@ -1,0 +1,86 @@
+Title: Foundational DQ - Data Format Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25210951110420-Foundational-DQ-Data-Format-Rule
+================================================================================
+
+In this Article
+Introduction
+Use Cases & When to Apply It
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Step 2: Create a New Rule
+Step 3: Basic Input
+Step 4: Configure Validation Conditions
+Step 5: Save & Run the Rule
+Introduction
+The Foundational DQ Data Format Rule ensures that data adheres to predefined formats, such as date formats, phone numbers, or email structures. This rule helps maintain consistency and prevents data entry errors that can lead to integration issues and failed validations.
+For example, if Social Security Numbers (SSN) should follow the pattern XXXX-XXX-XXX, any deviation would be flagged as an error.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+Use Cases & When to Apply It
+The rule is particularly useful when:
+Validating email addresses, phone numbers, dates, and other structured data.
+Ensuring standardization across datasets before data integration.
+Avoiding processing errors due to incorrect formatting.
+Maintaining compliance with regulatory or business standards
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Log in to DvSum
+Navigate to
+Dictionaries
+→
+Database Tables.
+Select the relevant
+Data Source
+and
+Table Name
+Data Quality
+→ Choose
+Available Rules
+.
+Step 2: Create a New Rule
+Click
+"
+⊕
+Add Rule"
+.
+Select the
+"Foundational DQ"
+category.
+Choose
+"DATA FORMAT"
+.
+Step 3: Basic Input
+In the Rule Wizard's Basic Input section, you need to fill in the Rule Description, Column Name, Pattern, and Filter condition corresponding to the table in which you want to search for Data Format records.
+Step 4: Configure Validation Conditions
+Define the expected format using a valid regular expression. The actual regex syntax supported depends on the underlying database technology connected to DvSum.
+Here are some commonly used patterns:
+Email
+→
+^[\w\.-]+@[\w\.-]+\.\w{2,}$
+Matches
+example@domain.com
+Phone Number
+→
+^\(\d{3}\)\s\d{3}-\d{4}$
+Matches
+(123) 456-7890
+Date (YYYY-MM-DD)
+→
+^\d{4}-\d{2}-\d{2}$
+Matches
+2025-07-02
+Postal Code (ZIP)
+→
+^\d{5}(-\d{4})?$
+Matches
+12345
+or
+12345-6789
+Note: Since regex is evaluated at the database level, pattern support may vary by database (e.g., Snowflake, PostgreSQL). Always validate patterns against your specific data source.
+Step 5: Save & Run the Rule
+Click
+"Save Rule"
+.
+Click "
+Run
+" to execute and test the rule.

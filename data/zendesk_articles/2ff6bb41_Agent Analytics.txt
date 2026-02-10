@@ -1,0 +1,60 @@
+Title: Agent Analytics
+URL: https://dvsum.zendesk.com/hc/en-us/articles/27034936667924-Agent-Analytics
+================================================================================
+
+In this Article:
+Overview
+Visibility of the Analytics Tab
+Analytics Tab
+Agent Engagement
+Top Users
+Chats Listing
+Copying and Exporting Data
+Managing Custom Views
+Overview
+The new feature in our agent interface: the Analytics tab. This enhancement offers deep insights into agent engagement, top users, and detailed chat metrics.
+Visibility of the Analytics Tab
+The analytics tab appears only when the agent is shared with other users. To enable the analytics tab, share the agent with at least one other user. Once shared, the analytics tab becomes visible in the interface.
+Analytics Tab
+The Agent Analytics is divided into three main sections:
+Agent Engagement
+Top Users
+Chats Listing
+Agent Engagement
+The Agent Engagement section provides a detailed overview of user interactions with the Agent. Here, you will find metrics on how many questions were asked by users and at what times. This section includes a graph that visualizes user activity over time and trends in user engagement.
+Top Users
+In the Top Users section, you can see a list of users ranked by their activity. This section displays the names of users and the total count of questions each has asked.
+Chats Listing
+The Chats Listing section is a overview of all chat interactions. It starts with four summary tiles:
+Total Chats:
+Total number of chats created.
+Question:
+Questions asked in the chats
+With Feedback:
+Questions with feedback
+Users:
+Users who have created the chat
+Below these tiles is a detailed listing that includes the following columns:
+Chat Name
+Total Questions
+Approved Feedback
+Rejected Feedback
+User
+Latest Chat Time
+Created On
+Feedback Count
+Objective
+Copying and Exporting Data
+The Analytics tab provides options to copy and export data from the Chats Listing section. Users can:
+Copy:
+Select and copy responses directly.
+Copy with Headers:
+Copy data along with column headers.
+Export:
+Download chat data for further analysis.
+To use these options, right-click on any row in the Chats Listing table and choose the desired action from the context menu.
+Managing Custom Views
+The Analytics tab is designed to be customizable. By default, it features the Chats Analytics view, but users can create and manage custom views to suit their specific needs.
+To create a new view click on the view, a drop-down will appear click on the Create View.
+A modal will open. Add a name and details for the new view, and it will be created and displayed in the Analytics tab.
+All the views created by the users will be shown in the drop-down.

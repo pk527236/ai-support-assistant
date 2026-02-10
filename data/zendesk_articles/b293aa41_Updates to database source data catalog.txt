@@ -1,0 +1,47 @@
+Title: Updates to database source data catalog
+URL: https://dvsum.zendesk.com/hc/en-us/articles/225102967-Updates-to-database-source-data-catalog
+================================================================================
+
+Overview
+From time to time, your database source data definition changes. The metadata changes could be as small as the data type being modified or as big as new tables being added. It can include dropping tables and adding or removing columns. All of these changes can be seamlessly synched to DvSum.
+Steps to Refresh the Data Catalog
+Step 0.
+Make changes in your source systems (outside of DvSum).
+Step 1.
+Login to
+https://prod.dvsum.com
+and navigate to
+Administration → Manage Sources.
+Note: Only users with Admin or Owner roles have access to this.
+Step 2.
+Select a source and click "Run Cataloging" or "Schedule Cataloging". DvSum will
+read your current database definition and synchronize it with the catalog in DvSum.
+Note: "Schedule Cataloging" can be executed immediately and runs in the background. This is what most users should select.
+"Run Cataloging" runs while you have the page open. It's better for smaller environments.
+Results of Data Catalog Updates
+The synchronization will result in following possible updates.
+Tables or Views
+If new tables or views are added, they will automatically be imported.
+If tables or views that previously existed were dropped, then they will be
+marked for deletion
+in DvSum. Under the catalog list in Profiling page, they will show up with a prefix (deleted). The administrator can manually review and delete them from Profile → Profiling.
+Columns or Fields
+New fields: automatically imported and become visible.
+Dropped fields: automatically removed from DvSum.
+Note that if there were rules that used those fields, those rules will become invalid and may have to be re-configured.
+Renamed fields: treated as combination of drop and add. So the new fields must be re-profiled to generate statistics.
+Extra steps when using staging configuration
+These steps are needed only when you are using the staging configuration and you added new columns or changed the names of any columns.
+New fields are not automatically included in the staging configuration. Therefore the domain data type and pre-processing and post-processing logic must be configured. Go to Staging Configuration
+Step 1.
+Go to Staging configuration of your data source by navigating from Profiling Main Page and clicking on Show Details.
+Step 2.
+Select the Staging Configuration tab and click Edit. Then press Save.
+This action will re-initialize the configuration. Click Edit a second time.
+Step 3.
+Scroll to the bottom of the screen. The new fields are available, but they are not included in the mapping.
+Step 4.
+Check the box to include the field in staging workflow. Click on the pencil icon to set its match data type and any pre-process validation or standardization settings.
+Step 5.
+Click Save. The system will warn you if there are any rules associated with the configuration; those rules will be reset due to the change in structure. Click OK.
+Object maintenance is complete and you can continue using DvSum with the fully updated Data Catalog metadata.

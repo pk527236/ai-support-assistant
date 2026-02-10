@@ -1,0 +1,62 @@
+Title: Data Governance Roles and Responsibilities
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41098426049172-Data-Governance-Roles-and-Responsibilities
+================================================================================
+
+In this Article
+Overview
+Governance Roles
+Data Owner
+Data Steward
+Approver
+System Roles & Permissions
+Admin
+Editor
+User / Viewer
+Overview
+This article outlines clear roles and responsibilities to ensure proper governance, accountability, and data quality management. These roles define who is responsible for data, how it is managed, and the level of system access each user has.
+Governance Roles
+Data Owner
+Responsible for data definition, usage, and compliance.
+Ensures data follows company standards and policies.
+Monitors and manages data quality issues.
+Sets data rules and access policies.
+Ultimately accountable for the correct and proper use of data.
+Data Steward
+Maintains day-to-day data quality within assigned domains.
+Ensures glossary terms and definitions are accurate.
+Edits and updates terms in the glossary.
+Monitors and fixes data quality issues.
+Works with system owners to make technical updates or corrections.
+Approver
+Reviews changes made by Data Stewards.
+Compares changes to validate modifications.
+Approves or rejects terms submitted by Stewards.
+Approves multiple terms at once using Mass Update.
+Monitors term activity history via audit trail.
+Note:
+For more details, refer to
+Approving Business Glossary Terms
+.
+System Roles & Permissions
+Admin
+Full access to all modules and settings, including access to the
+Administration tab
+.
+Can create, edit, and delete user roles.
+Configures fine-grained access, governance workflows, and module settings.
+Manages data sources, tables, and glossary terms.
+Editor
+Can view and edit specific datasets, tables, or glossary terms assigned via Fine-Grained Control.
+Can submit changes for approval if workflow is enabled.
+Cannot change user roles or global module settings.
+Access to the
+Administration tab
+is restricted.
+User / Viewer
+Can only view assigned datasets, tables, or glossary terms.
+Cannot edit or approve changes.
+Access is restricted by Fine-Grained Control and module settings.
+Note:
+For more details, refer to
+User Role and Module Settings
+.

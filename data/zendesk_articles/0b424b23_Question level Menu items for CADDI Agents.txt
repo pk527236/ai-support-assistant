@@ -1,0 +1,37 @@
+Title: Question level Menu items for CADDI Agents
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25334871881364-Question-level-Menu-items-for-CADDI-Agents
+================================================================================
+
+In Agents and chat interfaces, each question will be accompanied by a set of menu items, each featuring distinct action buttons for interaction. The functionality of each button is elaborated below.
+Upon selecting a specific question block within the agent interface, a menu of items will be displayed below the results, as illustrated below:
+The functionality of each menu item is explained below:
+Approve icon
+:
+Clicking on this button signifies approval of the question's results, indicating user satisfaction with the generated outcomes. Additionally, a notification confirming the submission of feedback will be displayed upon clicking.
+Reject icon
+:
+When the reject icon is clicked, a feedback modal will open, allowing the user to provide feedback on why the results appeared incorrect to them. Users can submit the feedback accordingly.
+Refresh Data
+:
+Clicking on this button will trigger the re-execution of the generated query, providing the user with fresh data and insights.
+Show code
+:
+When clicked, this icon will display the query above the results, representing the query generated for this question. If the query is already visible and the user clicks the icon again, the query block will hide.
+Show Explanation
+:
+Clicking this button will display the explanation of the question and the query. Once the explanation appears, clicking the button again will hide the explanation section.
+If the user seeks further information regarding the content displayed in the Query Explanation, they can refer to the following article:
+Query Explanation in CADDI
+Show log
+:
+The generated log will appear once this button is clicked, as shown below.
+Delete question
+:
+The user can delete the question by clicking this button.
+Save Context
+:
+Clicking this button allows the user to save the context, adding the question as a context.
+If the user seeks further information on how context is added and its end-to-end functionality, they can refer to the following article:
+Adding a context in CADDI and Agents
+Users can configure default answer view settings from Chat Preferences, such as whether the Query code, Explanation, and Log will appear by default or not. All these settings can be adjusted within Chat Preferences. For detailed information on configuring these default settings, please refer to the following article:
+Chat Preferences for CADDI Agents

@@ -1,0 +1,29 @@
+Title: Cross-System DQ - Orphan Records Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25403704015636-Cross-System-DQ-Orphan-Records-Rule
+================================================================================
+
+In this Article
+Introduction
+How to Configure the Rule
+Step 1: Access Data Dictionary
+Step 2: Select Table & Available Rules
+Step 3: Add a New Rule (Cross-System DQ → Orphan Records)
+Step 4: Basic Input Setup
+Step 5: Validate & Run the Rule
+Introduction
+The "Orphan Record" rule identifies instances where a data entry exists in the records of one system but is absent from another system where it should be present based on expected data consistency between the two systems.
+For example, if "Order A" is recorded in the list of orders within the Enterprise Resource Planning (ERP) system but is missing from the Transportation System's list of planned orders, it indicates an orphan record situation. This discrepancy suggests that there may be inconsistencies between the two systems regarding the management or synchronization of order data.
+Addressing orphan records typically involves aligning data between systems, ensuring data integrity, and establishing mechanisms to prevent such discrepancies in the future.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+Detailed Steps:
+Step 1: Access Data Dictionary
+Log in to DvSum, proceed to the Data Dictionary tab, and select the relevant Data source and Table Name.
+Step 2: Select Table & Available Rules
+Select the table name then select the Data Quality tab and choose Available Rules.
+Step 3: Add a New Rule (Cross-System DQ → Orphan Records)
+Select the "⊕ Add Rule" button, then choose the "Cross-System DQ" category. From the list of options, click on "ORPHAN RECORDS"
+Step 4: Basic Input Setup
+In the Rule Wizard's Basic Input section, you need to fill in the Rule Description, column name, reference source , reference table and reference column name corresponding to the table in which you want to search for the orphan records.
+Step 5: Validate & Run the Rule
+After saving the rule, you'll see its definition. Click "Run" to execute and test the rule.

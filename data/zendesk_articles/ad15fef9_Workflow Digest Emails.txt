@@ -1,0 +1,17 @@
+Title: Workflow Digest Emails
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360021222614-Workflow-Digest-Emails
+================================================================================
+
+If you have turned on Workflow Email Digest from User profile for Daily or weekly, you will receive email with following information.
+There are 2 sections in this email; Execution and Step summary will contain information of last 24 hours or last week depending on the setting you chose.
+Workflow Execution Summary
+Initiated Execution(s) - Executions that just launched
+In-Progress Execution(s) - Currently taking place executions in which you are involved
+Completed Execution(s) - Completed and closed by the day (or week)
+Canceled Execution(s) - Terminated executions
+Workflow Step Summary
+Submitted Step(s) - Steps which were completed by you today (or in current week)
+Open/In-Progress Step(s) Steps which you are working on or have yet to work on
+Re-assigned Step(s) - Steps re-assigned to you.
+Rejected Step(s) - When an execution is rejected and a Step is assigned back to you.
+Note: If there is no information regarding any steps or executions, you will not see the table. For example, if no steps were Re-assigned to you then this section will not appear.

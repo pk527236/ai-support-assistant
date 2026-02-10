@@ -1,0 +1,166 @@
+Title: Jira Integration for DQ Rules
+URL: https://dvsum.zendesk.com/hc/en-us/articles/41467238935700-Jira-Integration-for-DQ-Rules
+================================================================================
+
+Overview
+In this article:
+Overview
+Jira Integration Setup
+Configuring User Settings in JIRA
+Steps to Configure Jira Integration
+How to Create a Jira API Token
+Configuring Jira in DQ Rules
+Enable Integration
+Ticket Creation Modes
+Manual Ticket Creation
+Automatic Ticket Creation
+Ticket Workflow & Status Sync
+Ticket ID Column
+Non-Exception Rule Ticket Creation
+Mass Update
+Summary
+This article explains how to create Jira tickets directly from Data Quality (DQ) rules in DvSum.
+By integrating Jira workflows into the platform, teams can:
+Manage rule exceptions more efficiently.
+Eliminate manual exception tracking.
+Ensure systematic assignment, monitoring, and resolution of issues.
+Jira Integration Setup:
+Before creating tickets, users must configure Jira integration within the application. The integration ensures that Jira tickets can be created and assigned properly.
+Prerequisite:
+Configuring User Settings in JIRA
+The Admin of the JIRA account first needs to add users to the account, who will create API tokens and create JIRA integration in DvSum.
+Once the user is added, the role must be assigned to the user, and the minimal role that must be assigned is "User."
+After the user is added to the organization, the user must be added to the project on which the Jira integration will be created. On Jira, select your project and go to its settings, where users can be added:
+While adding the user, the user must have a "Member" level role at a minimum to be able to create tickets in Jira.
+Once the user is added to the project, they will receive an invite, and this user can now create an API token from this account, and the user will be able to create Jira integration in DvSum.
+Steps to Configure Jira Integration:
+Navigate to the
+Administration
+tab >
+Account
+.
+Click on the
+Integrations
+tab
+.
+Click
+Add
+Integration and choose
+Jira
+.
+4. Fill in the required fields:
+Name:
+Provide a recognizable name for the integration.
+Service URL:
+Enter the URL of your Jira instance.
+Project Key:
+Enter the project key (The key you provided while creating the project in Jira for ticket creation).
+Username/Email:
+Enter the Jira account username or email.
+API Token:
+Add the Jira API token if you already have one.
+If you want to generate a new one, you can click on the link button, which will navigate you to the Atlassian/Jira account.
+How to create a Jira API token:
+Log in to your Atlassian/Jira account in a browser.
+Open Account Settings → Security → API tokens (or navigate to https://id.atlassian.com/manage-profile/security/api-tokens).
+Click Create API token and provide a label (for example: Token Name, like (Jira Integration), and token expiry date).
+Given the token name
+Set the expiry date and click on create.
+Once done, copy the generated token.
+Paste this token into the integration’s API Token field within the DvSum app.
+Jira Cloud API tokens inherit the permissions of the user who created them. Ensure that the user has appropriate access to the project.
+Note:
+At present, the Create API token with scopes option is not supported. Only the standard Create API token functionality is available.
+Once the Jira account details are added and tested successfully, at the end of the connection details, you will see the project details, e.g., Issue Type, Priority, and Assignee.
+Note:
+When adding or editing an Integration, if incorrect details or invalid credentials are entered, the system will still allow the test connection and to save it. However, the Integration will not be usable until the credentials are verified.
+Configuring Jira in DQ Rules
+Enable Integration
+Once Jira integration is complete, rules can be configured to create tickets when exceptions are detected.
+Navigate to DQ Rules.
+Select a rule where you want Jira integration to be enabled.
+Go to Edit Settings and navigate to External Ticketing.
+Turn on the option Enable Jira Ticket Creation.
+Select the integration value from the dropdown.
+Define how exceptions should trigger ticket creation:
+Manual creation.
+Automatic creation (based on exception detection only)
+Click on save.
+Ticket Creation Modes
+Manual Ticket Creation
+Navigate to a DQ rule with exceptions.
+Click the Create Ticket button.
+Fill in ticket details
+Records to include
+(You can select any one option based on what exceptions you want to see as an attachment in the ticket).
+Select Issue Type (the dropdown will show the values defined in your Jira project).
+Title (By default, it will show the rule description, but you can add your own defined title as well).
+The
+description
+field has the pre-defined format, but you can also add a description or the details as per what you want to see in the ticket.
+Select the
+assignee
+of the ticket from the dropdown (these are the users who are added in your Jira project).
+Click on the create button to finish.
+As soon as you click the Create button, a Jira ticket will be created that is linked to the DQ rule.
+Note:
+Clicking on the ticket ID will redirect you to the Jira account for a detailed view of the ticket. You can see the ticket was created.
+Records To Include Options:
+All Exception:
+It will record all the exceptions in the ticket.
+Exception records since last ticket creation:
+This includes only the exceptions that have appeared since the last time a ticket was created.
+Exception records since last ticket creation from latest run only:
+It captures exceptions from the most recent run of the rule execution that also haven’t been ticketed yet.
+Note: Since both options are related to Exception Tracing, they will only be enabled when Exception Tracing is turned on.
+For more details on how to configure exception tracing on DQ rules, you can go through this article on
+Configuring Exception Settings for Rules in DvSum
+.
+No Exception ticket:
+These are tickets that are created manually or for reasons other than automatic exceptions.
+If the ticket is newly created, it will capture only the exceptions that have occurred since the last ticket creation. This ensures that previously logged exceptions are not duplicated, and the ticket reflects only the latest set of issues that need attention.
+Automatic Ticket Creation
+Navigate to a DQ rule with exceptions.
+Go to Edit Settings and navigate to External Ticketing.
+Change creation mode to Automatic
+Choose the exception option under the Records to Include.
+Select the Issue type and assignee
+Note:
+For automatically generated tickets, fields such as the title and description cannot be manually controlled. These are automatically populated and updated based on the rule configuration.
+After saving the settings, the Create Ticket button will be disabled, and a ticket will be created automatically during the next execution of the rule.
+Ticket Workflow & Status Sync
+To Do:
+When a new ticket is created, the ticket action workflow is enabled, and the initial status is set to To Do.
+In Progress:
+When a ticket’s status is updated from To Do to In Progress in Jira, the change automatically syncs with the DvSum rule detail page. This triggers the workflow, and the rule status is updated to In Progress.
+Jira Ticket
+DvSum Rule
+Resolved/Done:
+When the assignee updates the ticket status to Resolved or Done, the workflow syncs with the rule, and the rule status is updated to Resolved.
+Note:
+If the DQ workflow is enabled for this rule, its execution will be managed through the associated Jira ticket. The workflow status will mirror the Jira ticket status, meaning the rule is governed via Jira instead of the action workflow.
+Ticket ID Column
+A new column called Ticket ID has been added in the DQ Dictionary governance view available column and in the data tab of the rule detail page as well, which displays only the most recently created ticket for the rule.
+Non-Exception Rule Ticket Creation
+For non-exception rule types such as Unique Values, Count, Metric (Sum), and Freshness, Jira tickets can be created either manually or through automatic ticket creation.
+The overall process for creating a Jira ticket is a little simpler for these rules, as they don't have any exception dat,a so a simple ticket with title and description is created
+Behavior Based on Rule Status
+If the rule status is Healthy, then a manual ticket can bee created but an automatic ticket can not be created.
+If the rule status is Alerting, then both manual and automatic tickets can be created.
+Mass Update
+Users can now update DQ rules to integrate with Jira using the mass update functionality from the DQ Dictionary listing view.
+Navigate to the DQ Dictionary listing view.
+Select one or more DQ rules, then click Mass Update.
+From the drop-down, choose Ticketing Integration.
+Select the desired action (Update or Make Empty) and then pick the appropriate Jira integration value.
+Click Apply to save the changes.
+Summary
+The Jira integration with DvSum streamlines exception management for DQ rules by:
+Allowing
+direct Jira ticket creation
+(manual or automatic) from within the platform.
+Ensuring tickets are linked to specific rules, making it easy to track health and resolution.
+Providing a
+single view in DvSum
+to monitor rule exceptions and related tickets.
+Leveraging Jira’s workflows, notifications, and project tracking features for efficient issue resolution.

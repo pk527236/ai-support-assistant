@@ -1,0 +1,27 @@
+Title: Supported Connectors/Data Sources
+URL: https://dvsum.zendesk.com/hc/en-us/articles/6067542488724-Supported-Connectors-Data-Sources
+================================================================================
+
+Introduction
+DvSum supports a wide range of connectors to help users integrate their data seamlessly. This article provides a comprehensive list of supported sources and key details for each. Whether you are working with databases, cloud data warehouses, or enterprise applications, DvSum ensures smooth connectivity to enhance data governance, quality, and analytics.
+What is a DvSum Connector?
+A DvSum Connector is a unified service that encapsulates native data connection drivers (e.g., JDBC, ODBC, SAP JCo, etc.), a scheduler, connection routing, security, and a server to handle requests. A single connector can service multiple data sources and users, providing a flexible and scalable solution for data integration.
+Supported Data Sources
+DvSum can connect to
+150+ data sources
+, including:
+Enterprise Applications
+(SAP, NetSuite, Salesforce)
+SaaS Applications
+(Google Analytics, HubSpot, Zendesk)
+On-Premises Databases
+(Oracle, SQL Server, PostgreSQL, MySQL)
+Cloud Databases
+(Snowflake, BigQuery, Amazon Redshift, Azure SQL)
+Data Lakes
+(AWS S3, Azure Data Lake, Google Cloud Storage)
+File-Based Sources
+(CSV, Excel, Google Sheets, Shared Drives)
+If your application is not listed here, DvSum can build a connector to your application as long as it supports
+external application access through JDBC or ODBC connectivity
+.

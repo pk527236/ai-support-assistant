@@ -1,0 +1,7 @@
+Title: Configure one Data Source with Multiple SAWS
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360000247253-Configure-one-Data-Source-with-Multiple-SAWS
+================================================================================
+
+One Data source can only be configured with one web-service
+at a time.
+However, You can edit the source and map it to another web-service by clicking on "Edit Source"

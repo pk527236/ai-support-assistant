@@ -1,0 +1,193 @@
+Title: Configure Azure Databricks (Service Principal Access)
+URL: https://dvsum.zendesk.com/hc/en-us/articles/22643550730132-Configure-Azure-Databricks-Service-Principal-Access
+================================================================================
+
+Step 1: Configure an app in Azure portal
+Register an application with the Microsoft Entra ID endpoint in the Azure portal. Alternatively, you can use a Microsoft Entra ID app that is already registered.
+Sign in to the
+Azure portal
+.
+If you have access to multiple tenants, subscriptions, or directories, click the
+Directories + subscriptions
+(directory with filter) icon in the top menu to switch to the directory in which you want to register the application.
+Search for and select
+Microsoft Entra ID.
+Within
+Manage, select
+App registrations > New registration.
+For
+Name, enter a name for the application.
+In the
+Supported account types
+section, select
+Accounts in this organizational directory only (Single tenant).
+In the
+Redirect URL (optional)
+leave empty
+Click
+Register.
+On the application page’s
+Overview
+page, in the
+Essentials
+section, copy the following values:
+Application (client) ID
+Directory (tenant) ID
+Add
+AzureDatabricks
+to the required permissions of the registered application. You must be an admin user to perform this step. If you encounter a permissions-related issue while you perform this action, contact your administrator for help.
+On the application page’s
+Overview
+page, on the
+Get Started
+tab, click
+View API permissions.
+Click
+Add a permission.
+In the
+Request API permissions
+pane, click the
+APIs my organization uses
+tab, search for
+AzureDatabricks, and then select it.
+Enable the
+user_impersonation
+check box, and then click
+Add permissions.
+Click
+Grant admin consent for ###
+and then
+Yes. To perform this action, you must be an admin user or have the privilege to grant consent to the application.
+Step 2: Add the Microsoft Entra ID service principal to your Azure Databricks account
+This steps works only if your target Azure Databricks workspace is enabled for
+identity federation
+. If your workspace is not enabled for identity federation, skip ahead to Step 3.
+In your Azure Databricks workspace, click your username in the top bar and click
+Manage account.
+Alternatively, go directly to your Azure Databricks account console at
+https://accounts.azuredatabricks.net
+.
+Sign in to your Azure Databricks account, if prompted.
+On the sidebar, click
+User management.
+Click the
+Service principals
+tab.
+Click
+Add service principal.
+Enter a
+Name
+for the Microsoft Entra ID service principal.
+For
+UUID, enter the
+Application (client) ID
+value from Step 1.
+Click
+Add. Your Microsoft Entra ID service principal is added as an Azure Databricks service principal in your Azure Databricks account.
+Step 3: Add the Microsoft Entra ID service principal to your Azure Databricks workspace
+If your workspace is enabled for
+identity federation
+:
+In your Azure Databricks workspace, click your username in the top bar and click
+Admin Settings.
+Click on the
+Identity and access
+tab.
+Next to
+Service principals, click
+Manage.
+Click
+Add service principal.
+Select your Microsoft Entra ID service principal from Step 2 and click
+Add. Your Microsoft Entra ID service principal is added as an Azure Databricks service principal in your Azure Databricks workspace.
+Skip ahead to Step 4.
+If your workspace is not enabled for identity federation:
+In your Azure Databricks workspace, click your username in the top bar and click
+Admin Settings.
+Click on the
+Identity and access
+tab.
+Next to
+Service principals, click
+Manage.
+Click
+Add service principal.
+Click
+Add new.
+For
+ApplicationId, enter the
+Application (client) ID
+for your Azure service principal from Step 1.
+Enter some
+Display Name
+for the new service principal and click
+Add. Your Microsoft Entra ID service principal is added as an Azure Databricks service principal in your Azure Databricks workspace
+Step 4: Assign workspace-level permissions to the service principal
+If the admin console for your workspace is not already opened, click your username in the top bar and click
+Admin Settings.
+Click on the
+Identity and access
+tab.
+Next to
+Service principals, click
+Manage.
+Click the name of your service principal to open its settings page.
+On the
+Configurations
+tab, check the box next to each entitlement that you want your service principal to have for this workspace, and then click
+Update. Check following check boxes
+Active
+Databricks SQL Access
+Workspace access
+On the
+Permissions
+tab, grant access to any Azure Databricks users, service principals, and groups that you want to manage and use this service principal.
+Step 5: Enable Personal access token for Service principal
+Log into your Databricks workspace
+If the admin console for your workspace is not already opened, click your username in the top bar and click
+Admin Settings.
+Click on the
+Advanced
+tab.
+In Access control
+Enable personal access token
+Click on permission settings
+Search for your service principal name
+Select permission "Can Use"
+Click Add
+Step 6: Enable Hive metadata access for Service principal
+Log into your Databricks workspace
+Click on the Catalog
+tab in left menu.
+Click on catalog that was set earlier.
+Open permissions tab
+Click on Grant
+Search for your service principal name
+Check the privileges you would like to grant
+Select "All"
+Click Grant
+Step 7:
+Enable cluster access for
+Service principal
+To configure the
+Compute
+cluster permissions:
+Navigate to the
+Permissions
+section.
+Select the relevant
+Service Principal (SP) name
+.
+Set the permission to
+Can Attach To
+.
+To configure the
+SQL Warehouse
+permissions:
+Navigate to the
+Permissions
+Assign the permission level
+Can Use
+Additional References:
+https://learn.microsoft.com/en-us/azure/databricks/dev-tools/app-aad-token
+https://learn.microsoft.com/en-us/azure/databricks/dev-tools/service-principals

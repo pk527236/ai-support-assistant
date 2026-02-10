@@ -1,0 +1,20 @@
+Title: Add an IP Address to the White List
+URL: https://dvsum.zendesk.com/hc/en-us/articles/115006294588-Add-an-IP-Address-to-the-White-List
+================================================================================
+
+Problem Statement:
+When you sign in to DvSum Web Application and you see a warning sign that prevents you from connecting to the Web service.
+Reason:
+Not every IP can access the Web Service and use DvSum data quality management application because of the security risks. Your IP must exist in the White listed IP Addresses.
+Resolution:
+For a regular User/Administrator:
+In case you are a regular User, please visit
+https://www.whatsmyip.org/
+and find out your IP Address. Next, request your administrator to add your IP to white list.
+For an Owner:
+In case you are an Owner, first you need to know the IP address to be white listed (your own/your company’s user) or you can simply click on "Get Current" and it will fetch the current IP for you.
+Step 1:
+On the left menu, go to Administrator >> Manage Accounts >> Data Security Tab
+Step 2:
+Enter the IP address in the field below and click on “Add”
+Once the IP has been added to the white list, you can see the web service icon on top. You can now run the web service and access DvSum's data quality features.

@@ -1,0 +1,204 @@
+Title: Configure Amazon S3 as a Data Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/32779279948052-Configure-Amazon-S3-as-a-Data-Source
+================================================================================
+
+In this Article
+Overview
+Connect Your Amazon S3 Data Source
+Step-by-Step Configuration
+Step 1: Add Amazon S3 as a Source
+Step 2: Configure Connection
+Step 3: Save Connection Information
+Step 4: Scan the Source
+S3 Configurations
+Configuring Data Retrieval
+Scenario 1: Use an Existing Glue Catalog
+Scenario 2: Create a New Glue Catalog
+Overview
+This guide outlines the steps to configure Amazon S3 as a data source within our SaaS application. It details the process of authenticating and adding your Amazon S3 source using one of two distinct methods, followed by running scans to retrieve your data.
+Connect Your Amazon S3 Data Source
+To integrate your data from Amazon S3, our platform offers two flexible connection methods:
+1. Use Existing Resources (Connect to Your Existing S3 and Glue Setup)
+Choose this option if you have already independently set up your Amazon S3 environment, including the creation of S3 buckets, AWS Glue databases, and crawlers. In this scenario, our platform will connect directly to your existing Glue Data Catalog to access your data. Because the necessary administrative tasks for your S3 data source have already been completed outside of our system, this method requires only limited permissions for our platform to read the metadata defined in your Glue databases.
+Amazon S3 Data Source Connection: Use Existing Resources (Limited Permissions)
+2. Create New Resources (Platform Interface Setup)
+Select this option to utilize our platform's user interface to create and manage the necessary AWS resources for accessing your S3 data. This allows you to define and build your data infrastructure directly within our application. You will have the ability to create S3 buckets, define AWS Glue databases, and set up crawlers through our intuitive interface. Consequently, this method requires elevated permissions to enable the creation and management of these resources on your AWS account.
+Configure S3 Data Source in DvSum (Elevated Permissions Required)
+Once you've selected the connection method that aligns with your current setup and desired level of management, proceed with the relevant instructions to configure the necessary IAM user and assign the appropriate permissions.
+Step-by-Step Configuration
+Step 1: Add Amazon S3 as a Source
+Navigate to
+Administration → Data Sources → ⊕ Add Source
+.
+Select
+Amazon S3
+as the source type.
+Provide a name for the source and click
+Save
+.
+Step 2: Configure Connection
+After saving, you will be redirected to the connection settings page.
+Enable the checkbox for On-premise Web Service and select the Gateway, or use DvSum Web Services (default).
+In the Credentials section, enter the AWS Access Key and Secret Key.
+Click Authenticate to verify the connection.
+Note:
+For more information regarding On-premise Web Servic
+e installation, click
+here
+.
+1. Note: By default, the Web Service type is set to Cloud. For additional details, refer
+DvSum Web Service vs On-Premises Gateway
+.
+In the
+Credentials
+section, provide the correct
+AWS Access Key
+and
+AWS Secret Key
+, then click
+Authenticate
+to verify the source.
+How to create an AWS IAM User to configure S3 Data Source in DvSum?
+S3 Configurations
+Once authenticated, configure the S3 connection settings:
+Select the
+Region
+(e.g., US West - Oregon).
+Workgroup
+and
+Catalog
+settings align with your AWS Athena configuration. For typical setups, you can leave them blank.
+If you've created custom catalogs or workgroups, enter their names as defined in your Athena environment.
+Under
+Glue Database
+, select one or more databases from the
+Available
+list and move them to the
+Selected
+list.
+These are fetched from the AWS Glue Data Catalog.
+Configuring Data Retrieval
+Scenario 1: Use an Existing Glue Catalog
+Select the Glue
+Catalog
+from the dropdown menu, and input the
+Staging Bucket
+and
+Folder
+.
+Scenario 2: Create a New Glue Catalog
+Enable 'Create New' button
+Create Source Bucket:
+Click
++ Create
+next to
+S3 Source Bucket
+.
+DvSum recommends using the prefix
+"dvsum-s3-source-"
+to ensure a unique bucket name.
+Enter a valid bucket name (
+AWS Bucket Naming Rules
+) and click
+Save
+. The bucket will be created and automatically added to the dropdown list.
+How to Create an AWS S3 Bucket?
+Create Staging Bucket:
+Click
++ Create
+next to
+S3 Staging Bucket
+.
+Use the recommended prefix
+"dvsum-s3-source-"
+to create a unique bucket name.
+Ensure that the
+Source Bucket
+and
+Staging Bucket
+have distinct names.
+Enter a valid bucket name and click
+Save
+. The bucket will be created and added to the dropdown list.
+Set Folders (Optional):
+Specify folders for the
+S3 Source Bucket
+and
+S3 Staging Bucket
+if required.
+Files within the specified folder in the
+Source Bucket
+will be cataloged.
+Temporary staging files will be created in the specified folder in the
+Staging Bucket
+.
+Create Glue Database:
+Click
++ Create
+next to
+Glue Database
+.
+Define a database name that complies with
+AWS Glue Database naming requirements
+(
+The name must be in lowercase letters and cannot be longer than 255 characters
+) and provide a description.
+Click
+Save
+.
+How to Create an AWS Glue Database?
+Create Glue Crawler:
+Click
++ Create
+next to
+Glue Crawler
+.
+Define a crawler name that follows AWS Glue Crawler naming requirements (
+The name you choose can be up to 255 characters long, but certain special characters and symbols are not allowed.
+) and provide a description.
+Click
+Save
+.
+How to Create an AWS Glue Crawler?
+Note:
+If the action fails, the user should verify and check the following:
+Certain special characters are not supported in column names. Examples of unsupported characters include:
+Comma separator in column names (e.g., A,B)
+Control characters (e.g., U+0000)
+Ensure that there are no carriage returns within the column data, and it should be presented in a single line.
+Step 3: Save Connection Information
+After the credentials are authenticated, scroll to the top of the page.
+Click the
+Done
+button in the top-right corner.
+Click
+Save
+to save the source connection.
+Finally, click
+Test Connection
+to verify the setup.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+Step 4: Scan the Source
+Navigate to the
+Scan History Page
+and click the
+"Scan Now"
+button.
+A job will be created, and once its status shows
+Completed
+, the scan for the new Amazon S3 source will be finished successfully.
+After the scan is complete, click on the
+Scan Name
+to open the
+Scan Summary
+page for this scan.
+On the
+Scan Summary
+page, you will see insights from the scan, including the number of new tables and columns retrieved from the database that was selected earlier.
+To gain more insights into the details of the tables, click on
+"Data Dictionary"
+from the sidebar. A table listing view will appear. Then, click on the
+"Recently Refreshed"
+tab. This tab will display all the tables fetched in the recent scan. Click on the table names to view more details on the respective table's detail page.

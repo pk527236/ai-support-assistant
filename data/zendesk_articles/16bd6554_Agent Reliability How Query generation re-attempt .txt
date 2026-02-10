@@ -1,0 +1,7 @@
+Title: Agent Reliability; How Query generation re-attempt works
+URL: https://dvsum.zendesk.com/hc/en-us/articles/23892690705684-Agent-Reliability-How-Query-generation-re-attempt-works
+================================================================================
+
+Sometimes in CADDI, we encounter issues where a question triggers an error state due to an incorrectly generated query. To address this problem, if a question enters an error state due to query generation issues, CADDI will attempt to rectify the error by identifying the mistake in the query and re-attempting query generation. If the initial attempt fails, it will make another try to generate a correct query. Once a correct query is successfully generated and executed, it will provide insights. If the question still fails, the user can provide feedback to help train the agent.
+When example shows how query generation re-attempt will look on UI:
+Once the question goes into a successful state then it will show the insights:

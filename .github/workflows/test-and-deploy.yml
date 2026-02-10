@@ -1,0 +1,190 @@
+name: Test and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Check Python syntax
+      run: |
+        python -m py_compile app.py
+        python -m py_compile data_ingestion.py
+        python -m py_compile smart_hybrid_search.py
+        python -m py_compile zendesk_scraper.py
+    
+    - name: Test imports
+      run: |
+        python -c "import flask; import langchain; import chromadb; print('✅ All imports successful')"
+    
+    - name: Verify file structure
+      run: |
+        echo "Checking required files..."
+        test -f app.py && echo "✓ app.py" || exit 1
+        test -f index.html && echo "✓ index.html" || exit 1
+        test -f requirements.txt && echo "✓ requirements.txt" || exit 1
+        test -f smart_hybrid_search.py && echo "✓ smart_hybrid_search.py" || exit 1
+        echo "✅ All required files present"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Deploy to EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      run: |
+        # Save private key to file
+        echo "$PRIVATE_KEY" > private_key.pem
+        chmod 600 private_key.pem
+        
+        # Add EC2 to known hosts
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        
+        # Deploy via SSH
+        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << 'ENDSSH'
+          set -e
+          
+          echo "🚀 Starting deployment..."
+          echo "Time: $(date)"
+          
+          # Navigate to app directory
+          cd ~/ai-support-bot || {
+            echo "Creating app directory..."
+            mkdir -p ~/ai-support-bot
+            cd ~/ai-support-bot
+          }
+          
+          # Backup current version
+          if [ -d .git ]; then
+            BACKUP_DIR=~/ai-support-bot-backup-$(date +%Y%m%d-%H%M%S)
+            echo "📦 Creating backup at $BACKUP_DIR"
+            cp -r ~/ai-support-bot $BACKUP_DIR
+          fi
+          
+          # Pull latest code
+          if [ -d .git ]; then
+            echo "📥 Pulling latest changes..."
+            git fetch origin
+            git reset --hard origin/main || git reset --hard origin/master
+            git pull origin main || git pull origin master
+          else
+            echo "📥 Cloning repository..."
+            git clone https://github.com/${{ github.repository }} .
+          fi
+          
+          # Update .env file with secrets (preserve other env vars)
+          echo "🔧 Updating environment variables..."
+          if [ -f .env ]; then
+            # Update existing .env
+            grep -v "^GROQ_API_KEY=" .env > .env.tmp || true
+            echo "GROQ_API_KEY=$GROQ_API_KEY" >> .env.tmp
+            mv .env.tmp .env
+          else
+            # Create new .env
+            cat > .env << EOF
+        GROQ_API_KEY=$GROQ_API_KEY
+        FRESHSERVICE_DOMAIN=yourcompany.freshservice.com
+        FRESHSERVICE_API_KEY=your_api_key_here
+        EOF
+          fi
+          
+          # Activate virtual environment or create if not exists
+          if [ ! -d venv ]; then
+            echo "🐍 Creating virtual environment..."
+            python3 -m venv venv
+          fi
+          
+          source venv/bin/activate
+          
+          # Install/Update dependencies
+          echo "📦 Installing/updating dependencies..."
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          
+          # Check if data directory exists
+          if [ ! -d data ]; then
+            echo "📁 Creating data directory..."
+            mkdir -p data
+          fi
+          
+          # Restart the Flask app using systemd
+          echo "🔄 Restarting application..."
+          if systemctl is-active --quiet dvsum-bot.service; then
+            sudo systemctl restart dvsum-bot.service
+            echo "✅ Service restarted"
+          else
+            echo "⚠️ Service not running, attempting to start..."
+            sudo systemctl start dvsum-bot.service || echo "❌ Failed to start service"
+          fi
+          
+          # Wait for service to stabilize
+          sleep 5
+          
+          # Check application status
+          echo "✅ Checking application status..."
+          if systemctl is-active --quiet dvsum-bot.service; then
+            echo "✅ Service is running"
+          else
+            echo "❌ Service failed to start"
+            sudo journalctl -u dvsum-bot.service -n 20 --no-pager
+            exit 1
+          fi
+          
+          # Test health endpoint
+          echo "🏥 Testing health endpoint..."
+          if curl -f -s http://localhost:5000/health > /dev/null; then
+            echo "✅ Health check passed"
+          else
+            echo "⚠️ Health check failed (service may still be starting)"
+          fi
+          
+          echo "✅ Deployment completed successfully!"
+          echo "Time: $(date)"
+        ENDSSH
+        
+        # Cleanup
+        rm -f private_key.pem
+    
+    - name: Deployment Success Notification
+      if: success()
+      run: |
+        echo "✅ Deployment to EC2 successful!"
+        echo "🌐 Application is live at http://${{ secrets.EC2_HOST }}"
+    
+    - name: Deployment Failure Notification
+      if: failure()
+      run: |
+        echo "❌ Deployment failed!"
+        echo "Check the logs above for details"
+        exit 1

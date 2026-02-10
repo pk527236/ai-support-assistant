@@ -1,0 +1,56 @@
+Title: How to Create View in Jobs and Job Executions
+URL: https://dvsum.zendesk.com/hc/en-us/articles/35132550978452-How-to-Create-View-in-Jobs-and-Job-Executions
+================================================================================
+
+In this Article:
+Navigating to Definition and Job Executions
+Creating a Custom View in Jobs
+Clone View
+Share View
+Delete View
+Export View
+Overview
+DvSum enables users to create custom views for Jobs and Job Executions, allowing better tracking, management, and analysis. Views help users focus on relevant data by filtering and organizing job records efficiently.
+Navigating to Definition and Job Executions
+Open the
+Administration
+tab on the left and choose
+Jobs
+menu.
+From the drop down, click on
+Definition
+tab to access the Job Listing page.
+Creating a Custom View in Jobs
+Click on
+Definition
+in the left menu to open the Job Listing page.
+Select
+Create View
+.
+Enter a
+View Name
+.
+Customize the view by:
+Adding or removing columns.
+Specifying criteria for filtering records.
+Click
+Save
+to store the custom view.
+For details on job creation, refer to the
+Creating a New Job
+article.
+Note:
+The user will not be able to Edit/ Share and Save the default view. These buttons will remain disabled.
+The columns available in the current view will be automatically pre-selected.
+Clone View:
+To create a clone of any view, users can click on the Edit pencil icon next to the view name. This action will reveal the clone button, allowing users to duplicate the selected view.
+Share View:
+The view can be shared with other users by granting "Editor" or "Viewer" access.
+Users with "Editor" access have the capability to Edit, Clone, Delete, Share, Save, and Export operations with a view.
+Users with "Viewer" access can perform Share, Save, and Export operations with a view.
+Delete View:
+To delete a particular view, click on the Edit button, and you will find a delete button available.
+Export View:
+Simply click on the download button, and users can download the records available in the grid as an Excel file.
+Note:
+Users can also create their own view in Job Executions, following the same procedure as creating a view in Jobs.

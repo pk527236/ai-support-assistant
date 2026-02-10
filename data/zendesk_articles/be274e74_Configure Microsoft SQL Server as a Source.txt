@@ -1,0 +1,101 @@
+Title: Configure Microsoft SQL Server as a Source
+URL: https://dvsum.zendesk.com/hc/en-us/articles/10618954602004-Configure-Microsoft-SQL-Server-as-a-Source
+================================================================================
+
+In this Article:
+Overview
+Step-by-Step Configuration Guide
+Add a New Data Source
+Configure Connection
+Option 1: Connect Using DvSum Web Service (Recommended)
+Option 2: Connect Using DvSum Edge Gateway (For On-Premises SQL Server)
+Select Database & Schemas
+Scan the Data Source
+Browsing the Data Catalog
+Video Tutorial
+Additional Resources
+Overview
+This article describes the steps needed to configure Microsoft SQL Server as a source in DvSum Data Catalog (DC). The same steps apply to configure a source in DvSum Data Quality (DQ) with only a slight variation.
+Step-by-Step Configuration Guide
+1. Add a New Data Source
+Navigate to
+Administration
+→
+Data Sources
+.
+Click
+⊕ Add Source
+.
+Select
+Microsoft SQL Server
+.
+Provide a name for the source and click
+Save
+.
+2. Configure Connection
+Once the source is saved, the connection settings detail page appears.
+Option 1: Connect Using DvSum Web Service (Recommended)
+Whitelist the DvSum application
+by IP address as indicated in the settings.
+Enter the required connection details:
+Host
+: SQL Server hostname or IP.
+Port
+: Default is 1433 unless changed.
+Instance Name
+: (if applicable).
+DB Login & Password
+: Use SQL Authentication credentials.
+Click
+Authenticate
+to verify credentials.
+Option 2: Connect Using DvSum Edge Gateway (For On-Premises SQL Server)
+Install
+install a DvSum Edge Gateway
+behind the firewall.
+Connect to SQL Server using the installed web service.
+Authenticate the source.
+3. Select Database & Schemas
+Once authenticated:
+Choose the
+Database
+from the available list.
+(Optional) Limit the scan to specific schemas by selecting them.
+Click
+Done
+(top-right corner) and then
+Save
+.
+Note:
+When adding or editing a Data Source, if incorrect details or invalid credentials are entered, it will still allows to save the Data Source. However, authentication will fail, and the Data Source will be marked as unusable with a red icon. The Data Source will not be usable until the correct credentials are provided.
+The connection is saved, but it cannot be used until valid authentication details are updated.
+4. Scan the Data Source
+Navigate to
+Scan History Page
+.
+Click
+Scan Now
+.
+Once the scan completes, the status will change to
+Completed
+.
+Click on the
+Scan Name
+to view the Scan Summary.
+The Scan Summary page displays all the insights of the scan. It indicates how many new tables and columns are fetched in this scan.
+Your SQL Server connection is now fully configured and functional.
+Browsing the Data Catalog
+Navigate to
+Data Dictionary
+.
+Click the
+Recently Refreshed
+tab.
+View newly discovered tables and their details.
+Video Tutorial
+Watch this quick video tutorial of how to add and configure an Microsoft SQL Server source into DvSum app.
+Additional Resources
+Read more about
+DvSum Web Service (Cloud SAWS)
+Read more about
+DvSum Edge Gateway (On-Premises SAWS)

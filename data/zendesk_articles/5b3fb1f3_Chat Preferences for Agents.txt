@@ -1,0 +1,44 @@
+Title: Chat Preferences for Agents
+URL: https://dvsum.zendesk.com/hc/en-us/articles/24639112445716-Chat-Preferences-for-Agents
+================================================================================
+
+Chat Preferences
+The Chat Preferences option is available in the General Settings, allowing users to configure various settings that will impact the generated insights.
+Navigate to My Settings from the top right corner.
+Select "Chat Preference" from My settings page
+Default Answer View
+:
+Within these settings, users can specify their preferred default view for generated insights: either
+Chart
+view or Table view. Note that if the data set cannot be displayed in a chart, then it will fall back to a table view of the data.
+Default Chart Sorting
+:
+In the Default Chart Sorting settings, users have the option to set the default sorting order for generated insights on charts. They can choose between Ascending or Descending order, which will determine how charts are sorted by default. The image below shows these Default Chart Sorting.
+By default, the Descending option will be set for users, which can be changed at any time. If the user selects the Ascending option, the chart will be sorted in Ascending order as shown below.
+Ascending option was selected and settings were saved
+Chart shows up sorted in Ascending order on first Y-Axis
+If the user selects the Descending option, then the chart will be sorted in descending order as shown below.
+Chart shows up sorted in Descending order on first Y-Axis
+Conditions under which Default Chart Sorting works
+:
+There are certain conditions under which this default sorting will work. These default chart sortings will only apply to those questions for which the bar chart shows up by default and the generated query of the question doesn't have the Order By clause. Note that the bar chart will be sorted based on the first Y-axis which is Y1 axis. However, if a chart has been modified by the user, such as changing the sorting or altering the X or Y axis, then the default sorting will be removed.
+These default sorting settings do not apply to line charts, as sorting is automatically applied to the time series column on the X-axis by default for line charts. Additionally, if a question displays a bar chart by default but the generated query includes an Order By clause, the default sorting settings will not apply to that question
+Default Answer Outputs
+:
+In the default answer output, users can specify their preferred output settings, including '
+Show Log
+', '
+Show Code
+', and '
+Show Explanation
+'. By default, admins have 'Show Code' and 'Show Explanation' enabled, while other users default to 'Show Explanation' only.
+Within these settings, users can select different Answer outputs. If a user toggles on the 'Show Log' option and saves the settings, logs will subsequently appear for each newly asked question.
+Only log details are displayed for the question.
+If a user wants the Query block to appear by default with insights, they can toggle on the 'Show Code' option
+Only the Query code is displayed.
+Likewise, if a user prefers the Query Explanation to appear by default for each answer, they can toggle on the 'Show Explanation' option.
+Only Query Explanation is displayed.
+Any changes made in the "Chat Preferences" will require the user to save the changes at the end.
+Regardless of the settings chosen for Default Answer outputs, users can hide/show Logs, Query code, and Query Explanation at the individual question level. This means that users can adjust these settings for each specific question as per their need, without affecting the default settings. For example, even if Code is set to appear by default according to the chat preferences, a user can choose to hide Code for a particular question if desired. These changes are specific to each question and do not impact the settings for other questions or the default settings.
+This chat preference page is also available in the Talk to Your Data interface.
+The chat preferences pages in both 'My settings' and 'Talk to Your Data' are synchronized.

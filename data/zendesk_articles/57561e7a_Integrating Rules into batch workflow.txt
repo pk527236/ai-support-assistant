@@ -1,0 +1,41 @@
+Title: Integrating Rules into batch workflow
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360006820634-Integrating-Rules-into-batch-workflow
+================================================================================
+
+Rules in DvSum can be executed from the UI, scheduled through the scheduler and can also be called programmatically using an API. To run a rule or set of rules through a script, you can generate a script for those rules using the Schedule Rule Menu.
+The script takes the form of
+https://<saws
+address>:<saws_port>/runJob?jobId=<jobid>
+The script runs the rule exactly like running from the UI or the Scheduler, with the difference being what is returned back from the script. Below is a screenshot of what is returned from the script. The 2 elements are  return_code and return_remark.
+The return_code always contains 3 values
+0  - PASS if rule has 0 exceptions or exceptions are less than lower bound of threshold
+-1 - WARN if the rule has exceptions but exceptions are greater than lower bound but less than upper bound
+-2  - FAIL if the rule has exceptions that are greater than upper bound limit.
+The return_remark contains text that will provide the name of the rule additional information that you typically see in system remark field in the Rule Detail page.
+Example
+This rule has threshold set between 0 - 300
+Since exception are 256 which is > 0 but less than <300, the return_code is -1 as a Warning.
+Executing the rule via API:
+Users can generate the script for the rule and use the script URL to execute the rule. Lets get started step by step:
+Step 1:
+Open the Dvsum application, go to Audit >> Manage Rules >> select any existing rule >> click More action >> select Schedule Rule as shown below:
+Step 2:
+Dynamic Source Script Generation
+Go to Generate Script tab and click on the button at the bottom to generate the script as shown below;
+Step 2.1:
+A job is created against the rule. Now go to the main scheduler page, search the rule, and a newly created job will be visible with a description and status as “stand by”.
+Step 3:
+Copy the script url and paste it into Google Chrome and press Enter. Execution starts and on dvsum application, the job description and status get executed as well.
+Step 3.1:
+Once the execution is completed. it will print the remarks same as shown on the rule detail page in Dvsum.
+On the Scheduler page, the job status changes to "Completed".
+Executing the rule API via ADF:
+Step 1:
+For the existing Rule, select schedule to Generate the script URL as shown above, and copy the url.
+Step 1.1:
+A job is created against the rule. Now go to the main scheduler page, search the rule, and a newly created job will be visible with a description and status as “stand by”.
+Step 2:
+Go to Azure Data Factory and paste the copied URL in api call. Click on Debug button to start the execution.
+Step 2.1:
+Once the execution is completed. it will print the remarks in API call output same as shown on the rule detail page in Dvsum.
+On the Scheduler page, the job status changes to "Completed".

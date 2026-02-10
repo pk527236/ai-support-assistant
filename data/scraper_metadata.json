@@ -1,0 +1,1185 @@
+{
+  "articles": {
+    "https://dvsum.zendesk.com/hc/en-us/articles/43220623721876-DvSum-AWS-PrivateLink-Setup-Customer-Guide": {
+      "title": "DvSum AWS PrivateLink Setup (Customer Guide)",
+      "content_hash": "eb361acd9ae29226f38fe8a629f0b304",
+      "last_scraped": "2026-02-02 15:26:34"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/42943305742612-IP-Allow-List": {
+      "title": "IP Allow List",
+      "content_hash": "25f6fbd05d2b5fab7c38037835af332c",
+      "last_scraped": "2026-02-02 15:26:39"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/42333972028436-Audit-Trail-Logs": {
+      "title": "Audit Trail Logs",
+      "content_hash": "a6d7ea51354477e8eb1351b310b0c4b4",
+      "last_scraped": "2026-02-02 15:26:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35305937125268-Configure-SAML-for-Okta": {
+      "title": "Configure SAML for Okta",
+      "content_hash": "21ca89fe1b7ad1446309822fa1909f10",
+      "last_scraped": "2026-02-02 15:26:50"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/4403180875156-Enabling-SAML-Based-Single-Sign-On-SSO": {
+      "title": "Enabling SAML-Based Single Sign-On (SSO)",
+      "content_hash": "419c6da0b4bc58177d744fd30a66770f",
+      "last_scraped": "2026-02-02 15:26:55"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41264497137684-Power-BI-Source-Permissions": {
+      "title": "Power BI Source Permissions",
+      "content_hash": "66f8fbb2e4bbb50893636fed1b4c7bf9",
+      "last_scraped": "2026-02-02 15:27:00"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41243166846740-Azure-SQL-Azure-Synapse-Analytics-User-Setup-and-Query-Store-Configuration-for-Metadata-Extraction": {
+      "title": "Azure SQL & Azure Synapse Analytics User Setup and Query Store Configuration for Metadata Extraction",
+      "content_hash": "3d15b3901a3dd13deafa22352220eac3",
+      "last_scraped": "2026-02-02 15:27:04"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35169298078356-Configure-File-Upload-as-a-Data-Source": {
+      "title": "Configure File Upload as a Data Source",
+      "content_hash": "53774e8bd30dea826f454889498fecb0",
+      "last_scraped": "2026-02-02 15:27:10"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/32779279948052-Configure-Amazon-S3-as-a-Data-Source": {
+      "title": "Configure Amazon S3 as a Data Source",
+      "content_hash": "4481e967072fc27fb5100ea777a94691",
+      "last_scraped": "2026-02-02 15:27:15"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/31133806684948-Configure-Netezza-as-a-Data-Source": {
+      "title": "Configure Netezza as a Data Source",
+      "content_hash": "b50cdec8ef78e0b8732b5b22c3114040",
+      "last_scraped": "2026-02-02 15:27:20"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/29763482203028-Configure-IBM-Db2-as-a-Source": {
+      "title": "Configure IBM Db2 as a Source",
+      "content_hash": "0ab65937e0bdab9cf03db1407b64b0aa",
+      "last_scraped": "2026-02-02 15:27:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41098426049172-Data-Governance-Roles-and-Responsibilities": {
+      "title": "Data Governance Roles and Responsibilities",
+      "content_hash": "d4581cb18082b697f0bca7fc50e28ef5",
+      "last_scraped": "2026-02-02 15:27:30"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/32742836074516-Default-Roles-Access-Matrix": {
+      "title": "Default Roles Access Matrix",
+      "content_hash": "72bfd3a537451f2d538d53306567cc3d",
+      "last_scraped": "2026-02-02 15:27:35"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/17327470244244-User-Role-and-Module-Settings": {
+      "title": "User Role and Module Settings",
+      "content_hash": "6c21909619e05e1e432eaddeb011183b",
+      "last_scraped": "2026-02-02 15:27:40"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/203082210-Manage-Users": {
+      "title": "Manage Users",
+      "content_hash": "1bbb39df687a78c91018702cbf85ebf6",
+      "last_scraped": "2026-02-02 15:27:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/45315196278804-SSL-Certificate-Types-Supported-for-Gateway-Installation": {
+      "title": "SSL Certificate Types Supported for Gateway Installation",
+      "content_hash": "5f4f03a9de756214657cab7fb3fb7c2f",
+      "last_scraped": "2026-02-02 15:27:50"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/30864921622676-Gateway-Upgrade-Process": {
+      "title": "Gateway Upgrade Process",
+      "content_hash": "cb061fd36279eedd7df34e050c7804d2",
+      "last_scraped": "2026-02-02 15:27:54"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/29756078237460-DvSum-Gateway-Installer-Links": {
+      "title": "DvSum Gateway Installer Links",
+      "content_hash": "734135fc114618f205aad64b5c56fb40",
+      "last_scraped": "2026-02-02 15:27:59"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/29188280659988-Gateway-Installation": {
+      "title": "Gateway Installation",
+      "content_hash": "af547ed435ea01476725b58e01b893af",
+      "last_scraped": "2026-02-02 15:28:04"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/24882110844692-Gateway-Downloads": {
+      "title": "Gateway Downloads",
+      "content_hash": "03a36d9804b90669afc80af0913b7623",
+      "last_scraped": "2026-02-02 15:28:09"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/23896259032596-Sample-Data-and-On-Premises-Gateway": {
+      "title": "Sample Data and On-Premises Gateway",
+      "content_hash": "202e4d00b1f47c942b4ab577b9d8ec74",
+      "last_scraped": "2026-02-02 15:28:14"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/22643550730132-Configure-Azure-Databricks-Service-Principal-Access": {
+      "title": "Configure Azure Databricks (Service Principal Access)",
+      "content_hash": "3e0c6be4bfe71cf329bd6ad0c653eb58",
+      "last_scraped": "2026-02-02 15:28:20"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/21582531523348-Scan-Logs": {
+      "title": "Scan Logs",
+      "content_hash": "c2306fd2342e6fe7119f55a0ec6f0a8d",
+      "last_scraped": "2026-02-02 15:28:24"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/20310539391252-Catalog-Profile-Lineage-Scan-on-Data-Sources": {
+      "title": "Catalog, Profile & Lineage Scan on Data Sources",
+      "content_hash": "3f20edd43e05aefd61cb786912db675d",
+      "last_scraped": "2026-02-02 15:28:30"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/19345773418388-Configure-Salesforce-as-a-Source": {
+      "title": "Configure Salesforce as a Source",
+      "content_hash": "8ff34c01b686e49446eadf6713fc7762",
+      "last_scraped": "2026-02-02 15:28:36"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/17494822453524-Configure-MongoDB-as-a-Source": {
+      "title": "Configure MongoDB as a Source",
+      "content_hash": "02b456446842a739d3d0fd5aaffbb62c",
+      "last_scraped": "2026-02-02 15:28:43"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/12597290833172-Configure-PostgreSQL-as-a-Source": {
+      "title": "Configure PostgreSQL as a Source",
+      "content_hash": "012c33d4b20420fa48fcafe87ee5eff1",
+      "last_scraped": "2026-02-02 15:28:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/11918822204436-Configure-Databricks-as-a-Source": {
+      "title": "Configure Databricks as a Source",
+      "content_hash": "98e8b7f381ab8ad84934d0c995b516c3",
+      "last_scraped": "2026-02-02 15:28:56"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10713006510868-Configure-Tableau-as-a-Source": {
+      "title": "Configure Tableau as a Source",
+      "content_hash": "fd2bde332e0be21d0c96f972c76990fb",
+      "last_scraped": "2026-02-02 15:29:04"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10636157522708-Configure-MySQL-as-a-Source": {
+      "title": "Configure MySQL as a Source",
+      "content_hash": "6989a89724914b5bcfbece1563f78c1a",
+      "last_scraped": "2026-02-02 15:29:09"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10636132296852-Configure-Azure-SQL-Azure-Synapse-Analytics": {
+      "title": "Configure Azure SQL & Azure Synapse Analytics",
+      "content_hash": "e24a70d2b19c1108fd7f8f49355c8e53",
+      "last_scraped": "2026-02-02 15:29:16"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10627532986004-Configure-Snowflake-as-a-Source": {
+      "title": "Configure Snowflake as a Source",
+      "content_hash": "a5c1d151c4631345e719629732ad827e",
+      "last_scraped": "2026-02-02 15:29:24"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10618954602004-Configure-Microsoft-SQL-Server-as-a-Source": {
+      "title": "Configure Microsoft SQL Server as a Source",
+      "content_hash": "d46db59c133d8c50e203ee3b09c80bbe",
+      "last_scraped": "2026-02-02 15:29:31"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10583264674836-Configure-Oracle-as-a-Source": {
+      "title": "Configure Oracle as a Source",
+      "content_hash": "038157866c0e7895ab393734097b9d48",
+      "last_scraped": "2026-02-02 15:29:37"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/8960509886868-Configure-Microsoft-Power-BI-as-a-Source": {
+      "title": "Configure Microsoft Power BI as a Source",
+      "content_hash": "d5599acfecdab24c6c937675414bac7a",
+      "last_scraped": "2026-02-02 15:29:44"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/6067542488724-Supported-Connectors-Data-Sources": {
+      "title": "Supported Connectors/Data Sources",
+      "content_hash": "fdce76c5dccd861b072b7e6ef1cee371",
+      "last_scraped": "2026-02-02 15:29:49"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/16448743421716-DvSum-Web-Service-vs-On-Premises-Gateway": {
+      "title": "DvSum Web Service vs On-Premises Gateway",
+      "content_hash": "830cf337e6a767e757fc93277c3cd3f6",
+      "last_scraped": "2026-02-02 15:29:55"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/14609957062164-DvSum-Edge-Gateway-Installation-SAWS-for-Data-Catalog-and-CADDI-on-Linux": {
+      "title": "DvSum Edge Gateway Installation (SAWS) for Data Catalog and CADDI on Linux",
+      "content_hash": "5b7e65f2d22278bd04a6b0e44b9e9a22",
+      "last_scraped": "2026-02-02 15:30:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41740390031764-DvSum-API-Access-and-Authentication-Management": {
+      "title": "DvSum API Access and Authentication Management",
+      "content_hash": "fb343cdd1b014f80c5c3d4bd14b9369a",
+      "last_scraped": "2026-02-02 15:30:09"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/44352096354964-Logical-View": {
+      "title": "Logical View",
+      "content_hash": "babcfaf3a470f757b005b13c480c703c",
+      "last_scraped": "2026-02-02 15:30:15"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/38888864440340-Getting-Started-with-Custom-Assets-and-Attributes-in-DvSum-DI": {
+      "title": "Getting Started with Custom Assets and Attributes in DvSum DI",
+      "content_hash": "a298e9a82810343e684bbbed2a95c1f9",
+      "last_scraped": "2026-02-02 15:30:19"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/38663390098964-Managing-Custom-Assets-in-DvSum": {
+      "title": "Managing Custom Assets in DvSum",
+      "content_hash": "42d5b6b692a15768c5173c56f05f5e5b",
+      "last_scraped": "2026-02-02 15:30:29"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/38568362581908-Creating-and-Managing-Custom-Attributes": {
+      "title": "Creating and Managing Custom Attributes",
+      "content_hash": "5e7198ae3f97ad11cfed24c3c4e29f1e",
+      "last_scraped": "2026-02-02 15:30:35"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35793716144532-Assets-Dictionary": {
+      "title": "Assets Dictionary",
+      "content_hash": "1362916a4ee633b3a3276b16301d5e1e",
+      "last_scraped": "2026-02-02 15:30:41"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/30417646570132-Executing-Jobs-via-API": {
+      "title": "Executing Jobs via API",
+      "content_hash": "7e76d127007e9aafc9fb5fe4eac8356b",
+      "last_scraped": "2026-02-02 15:30:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/27001229007380-Creating-a-new-Job": {
+      "title": "Creating a new Job",
+      "content_hash": "9bb2329755175c4e8a0ef8b57347e097",
+      "last_scraped": "2026-02-02 15:30:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/39824964543764-Data-Exclusion-Policy": {
+      "title": "Data Exclusion Policy",
+      "content_hash": "b577d8704b5098dd2ba38edaf60bf8d2",
+      "last_scraped": "2026-02-02 15:30:59"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/39292360682900-Data-Classification": {
+      "title": "Data Classification",
+      "content_hash": "c7f0adcad9691ba9193ea3ca47ebaadc",
+      "last_scraped": "2026-02-02 15:31:09"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/22680186312468-Data-Security-Admin": {
+      "title": "Data Security Admin",
+      "content_hash": "4bb939a62611eb716e775b99ba325f72",
+      "last_scraped": "2026-02-02 15:31:16"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/36505019344532-Differentiating-Empty-Nulls-Strings": {
+      "title": "Differentiating Empty & Nulls Strings",
+      "content_hash": "c0c927c251cbea2f8b0dba4c4c5e2758",
+      "last_scraped": "2026-02-02 15:31:22"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/23520582795924-Data-Quality-Overview": {
+      "title": "Data Quality Overview",
+      "content_hash": "6e84a6852e2c8594b5fd1e35fccd84a2",
+      "last_scraped": "2026-02-02 15:31:27"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/44369988407572-Pivot-View-Configuration-in-Data-Quality-Rules": {
+      "title": "Pivot View Configuration in Data Quality Rules",
+      "content_hash": "8b8d35ef7f54d3ace5be7d85db7af8fa",
+      "last_scraped": "2026-02-02 15:31:33"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/44350372876308-Cross-System-DQ-Reconciliation-Rule": {
+      "title": "Cross-System DQ - Reconciliation Rule",
+      "content_hash": "174208b7175cd71e947be6443c58d40c",
+      "last_scraped": "2026-02-02 15:31:43"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41467238935700-Jira-Integration-for-DQ-Rules": {
+      "title": "Jira Integration for DQ Rules",
+      "content_hash": "851fc3349796a643a9b09f14a47bb295",
+      "last_scraped": "2026-02-02 15:31:50"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/39028423072916-Configuring-Exception-Settings-for-Rules-in-DvSum": {
+      "title": "Configuring Exception Settings for Rules in DvSum",
+      "content_hash": "5d038002ff6ed350c0bf58a9bfa51c81",
+      "last_scraped": "2026-02-02 15:31:56"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35889122920468-Foundational-Data-Quality-Uniqueness-Rule": {
+      "title": "Foundational Data Quality - Uniqueness Rule",
+      "content_hash": "f45cd91fc3ab1e24dc3517da0889bfc6",
+      "last_scraped": "2026-02-02 15:32:01"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/33018039015828-Access-DQ-Rule-information-via-REST-API": {
+      "title": "Access DQ Rule information via REST API",
+      "content_hash": "4f72e8f7b9c891f644b6d412b6afbbeb",
+      "last_scraped": "2026-02-02 15:32:08"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/28703505711636-Reference-Dictionary-with-Value-Range-Ruleset-Rule": {
+      "title": "Reference Dictionary with Value Range/Ruleset Rule",
+      "content_hash": "6305f90ee377f15ea93df42ddafe7918",
+      "last_scraped": "2026-02-02 15:32:13"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/28688102882196-Reference-Dictionary": {
+      "title": "Reference Dictionary",
+      "content_hash": "499b8ce3ce2ae47eeb17ebcbacb12ce6",
+      "last_scraped": "2026-02-02 15:32:19"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/30481164045588-Dashboard-and-Widgets": {
+      "title": "Dashboard and Widgets",
+      "content_hash": "57ae06ba0a95ac449de13d7c2e675f8e",
+      "last_scraped": "2026-02-02 15:32:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/42041709770772-Table-Detail-Page": {
+      "title": "Table Detail Page",
+      "content_hash": "5c3f4b8db599752004704585ee4ee8f5",
+      "last_scraped": "2026-02-02 15:32:31"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/33861396141076-Enabling-Query-History-for-Data-Sources": {
+      "title": "Enabling Query History for Data Sources",
+      "content_hash": "45062b2ff2c0b7165238a1bc12b8af4a",
+      "last_scraped": "2026-02-02 15:32:36"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/33694180953108-Lineage-in-DvSum": {
+      "title": "Lineage in DvSum",
+      "content_hash": "9b27be86ec326ec5f000f070b2ae7be8",
+      "last_scraped": "2026-02-02 15:32:42"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/27004996852500-Run-Online-Run-Offline": {
+      "title": "Run Online & Run Offline",
+      "content_hash": "e85998a0207e2ad67149cb2af853be61",
+      "last_scraped": "2026-02-02 15:32:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/19960718695700-Entity-Relationship-Diagram-ERD": {
+      "title": "Entity Relationship Diagram - ERD",
+      "content_hash": "a6549ca73a1039e51a75cf1a4dd25673",
+      "last_scraped": "2026-02-02 15:32:52"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/19188186862996-Rich-Text-Additional-Information": {
+      "title": "Rich Text Additional Information",
+      "content_hash": "7ea889dd2bcc8afba9ceaf29a17e6e70",
+      "last_scraped": "2026-02-02 15:32:58"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/36407279883156-Entity-Field-Format-in-the-Field-Dictionary-Template": {
+      "title": "Entity Field Format in the Field Dictionary Template",
+      "content_hash": "322dc3ad27a0e019f685cf04c9bfc83b",
+      "last_scraped": "2026-02-02 15:33:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/34934067464084-Database-Columns": {
+      "title": "Database Columns",
+      "content_hash": "1f350b63767e7bd5dcfe245941632330",
+      "last_scraped": "2026-02-02 15:33:07"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35943193733396-Glossary-Term": {
+      "title": "Glossary Term",
+      "content_hash": "b4e5b8b6b950e873259fe8efca9e9b6a",
+      "last_scraped": "2026-02-02 15:33:12"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/15389497274260-How-to-Sign-Up-for-DvSum-Data-Catalog": {
+      "title": "How to Sign Up for DvSum Data Catalog",
+      "content_hash": "fb1cf8be6e97746d525088b4ffc1c550",
+      "last_scraped": "2026-02-02 15:33:18"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/8596413680020-An-Overview-of-Usage-Analytics": {
+      "title": "An Overview of Usage Analytics",
+      "content_hash": "d3181d6fb99d4f4459bee085a82b3bdf",
+      "last_scraped": "2026-02-02 15:33:22"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/43341691915668-Asset-and-Glossary-Status-Lifecycle": {
+      "title": "Asset and Glossary Status Lifecycle",
+      "content_hash": "86c2cdc93f07d0815c421393d6e6e8f1",
+      "last_scraped": "2026-02-02 15:33:28"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/43031984347924-Visualizing-Agent-Questions-on-Dashboard": {
+      "title": "Visualizing Agent Questions on Dashboard",
+      "content_hash": "42160b1a8997a57c6b2b047c1357adb8",
+      "last_scraped": "2026-02-02 15:33:34"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/42822153397908-Enterprise-Search": {
+      "title": "Enterprise Search",
+      "content_hash": "c13a2b03e65836dded864f0243e79235",
+      "last_scraped": "2026-02-02 15:33:40"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41940755917204-Data-Domains-Data-Sub-Domains": {
+      "title": "Data Domains & Data Sub-Domains",
+      "content_hash": "7771c48e91c829392780106ed52c5508",
+      "last_scraped": "2026-02-02 15:33:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/40953420948884-How-to-Apply-Filters-in-Governance-Views": {
+      "title": "How to Apply Filters in Governance Views",
+      "content_hash": "54152797bb3378af2bb0a0406e43414c",
+      "last_scraped": "2026-02-02 15:33:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/39857375831956-Exception-Storage-Integration-for-Rules": {
+      "title": "Exception Storage Integration for Rules",
+      "content_hash": "ec36ac9a577a1a86dcd37c6eed5ba7e8",
+      "last_scraped": "2026-02-02 15:33:57"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/26973748320532-Rule-Detail-page": {
+      "title": "Rule Detail page",
+      "content_hash": "e0c1309cd604e2fc94bd039da9ca61d3",
+      "last_scraped": "2026-02-02 15:34:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18139200580116-Adaptive-Thresholds": {
+      "title": "Adaptive Thresholds",
+      "content_hash": "17f52601ed4ad2e6d9e06f48f5c76fda",
+      "last_scraped": "2026-02-02 15:34:07"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/27010646948884-Clone-Rule": {
+      "title": "Clone Rule",
+      "content_hash": "c6698314c090bb5fa954c1cb32055d72",
+      "last_scraped": "2026-02-02 15:34:12"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/26980095608596-Column-Sequencing": {
+      "title": "Column Sequencing",
+      "content_hash": "3a97f09b59933fad6ee929eac63407fc",
+      "last_scraped": "2026-02-02 15:34:19"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25404616533524-Cross-System-DQ-Compare-Schema-Rule": {
+      "title": "Cross-System DQ - Compare Schema Rule",
+      "content_hash": "68e681a64f6bf9cd8b4f30145cdd4d9e",
+      "last_scraped": "2026-02-02 15:34:24"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25404439140372-Cross-System-DQ-Compare-Metric-Rule": {
+      "title": "Cross-System DQ - Compare Metric Rule",
+      "content_hash": "afa73c5a0d7296ebd4f736291c1d61de",
+      "last_scraped": "2026-02-02 15:34:29"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25403824473364-Cross-System-DQ-Orphan-Keys-Rule": {
+      "title": "Cross-System DQ - Orphan Keys Rule",
+      "content_hash": "3de066589577089fedfa8fb81c46340a",
+      "last_scraped": "2026-02-02 15:34:35"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25403704015636-Cross-System-DQ-Orphan-Records-Rule": {
+      "title": "Cross-System DQ - Orphan Records Rule",
+      "content_hash": "47b313534fdbbcf2fbf1a88560033414",
+      "last_scraped": "2026-02-02 15:34:39"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25247261939604-Pipeline-Checks-Metric-Rule": {
+      "title": "Pipeline Checks - Metric Rule",
+      "content_hash": "ba7eb00b1be1766da22df327f990e25a",
+      "last_scraped": "2026-02-02 15:34:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25246892783380-Pipeline-Checks-Freshness-rule": {
+      "title": "Pipeline Checks - Freshness rule",
+      "content_hash": "515f501d446d1a212a2181777307f2f5",
+      "last_scraped": "2026-02-02 15:34:50"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25246624213396-Pipeline-Checks-Count-Rule": {
+      "title": "Pipeline Checks - Count Rule",
+      "content_hash": "f2bbf7d8a3f4e9d5e9aa40f5a54ebca9",
+      "last_scraped": "2026-02-02 15:34:55"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25246448647828-Foundational-DQ-Ruleset": {
+      "title": "Foundational DQ - Ruleset",
+      "content_hash": "692aa7c014bcf1edbe41d9a92773508f",
+      "last_scraped": "2026-02-02 15:35:00"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25211951751060-Foundational-DQ-Custom-Query": {
+      "title": "Foundational DQ - Custom Query",
+      "content_hash": "254aa58fd6690a4e359d84352fee9a67",
+      "last_scraped": "2026-02-02 15:35:06"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25211808095892-Foundational-DQ-Unique-Values-Rule": {
+      "title": "Foundational DQ - Unique Values Rule",
+      "content_hash": "12cf5b15f7d8c32e2874cb899fa55c67",
+      "last_scraped": "2026-02-02 15:35:10"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25211047471124-Foundational-DQ-Value-Range-Rule": {
+      "title": "Foundational DQ - Value Range Rule",
+      "content_hash": "25f721cade7eb6e5e97b4ec51dc58694",
+      "last_scraped": "2026-02-02 15:35:16"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25210951110420-Foundational-DQ-Data-Format-Rule": {
+      "title": "Foundational DQ - Data Format Rule",
+      "content_hash": "4898be616888c533f473b34366553056",
+      "last_scraped": "2026-02-02 15:35:21"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25210423692564-Foundational-DQ-Blanks-Rule": {
+      "title": "Foundational DQ - Blanks Rule",
+      "content_hash": "dac67964982c2b37717d657ab8b98d11",
+      "last_scraped": "2026-02-02 15:35:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/27005589675796-How-is-DQ-Score-calculated-for-rules": {
+      "title": "How is DQ Score calculated for rules?",
+      "content_hash": "77890a533f7232b739324bb5f364412b",
+      "last_scraped": "2026-02-02 15:35:31"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/39826074221332-Post-Import-Steps-for-Workflow-Enabled-Domains": {
+      "title": "Post-Import Steps for Workflow-Enabled Domains",
+      "content_hash": "cf14f7445aeb29db6e02231f48815303",
+      "last_scraped": "2026-02-02 15:35:36"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/39824926810644-Post-Import-Steps-for-Non-Workflow-Domains": {
+      "title": "Post-Import Steps for Non-Workflow Domains",
+      "content_hash": "13485d2411047cb54baf2fad7b33925b",
+      "last_scraped": "2026-02-02 15:35:42"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/37654166387860-Usability-Score": {
+      "title": "Usability Score",
+      "content_hash": "dc7b6980d4eea704996f348124382071",
+      "last_scraped": "2026-02-02 15:35:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/37053578369684-Configure-Amazon-S3-permissions-Use-Existing-Resources-Limited-Permissions": {
+      "title": "Configure Amazon S3 permissions: Use Existing Resources (Limited Permissions)",
+      "content_hash": "c343a149b3e270ec7a6aeb236929f97a",
+      "last_scraped": "2026-02-02 15:35:52"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/37016421057428-How-to-Configure-External-Recipients-Whitelist-Domains": {
+      "title": "How to Configure External Recipients & Whitelist Domains",
+      "content_hash": "8a29736a490dfb4e5155588ca19ceaa7",
+      "last_scraped": "2026-02-02 15:35:57"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/37016023734036-How-to-set-the-exception-record-limit-for-rules": {
+      "title": "How to set the exception record limit for rules",
+      "content_hash": "96a6e0e5d28fd596c0c29c8739401df5",
+      "last_scraped": "2026-02-02 15:36:01"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/36793238343060-How-to-Reset-Password-on-the-DI-Platform": {
+      "title": "How to Reset Password on the DI Platform",
+      "content_hash": "1ae0c595edd9d3be22c84874681c9a56",
+      "last_scraped": "2026-02-02 15:36:06"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/36043768656020-How-to-Link-Terms-to-Columns": {
+      "title": "How to Link Terms to Columns",
+      "content_hash": "7538b55de0b632317dee4e9e4e038b56",
+      "last_scraped": "2026-02-02 15:36:12"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35968933714196-How-to-Manage-Relationships-Between-Assets": {
+      "title": "How to Manage Relationships Between Assets",
+      "content_hash": "251dc92acaf8a8ad66104779e00b1ad9",
+      "last_scraped": "2026-02-02 15:36:17"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35301308681876-How-to-Execute-Selective-Rules-in-DvSum": {
+      "title": "How to Execute Selective Rules in DvSum",
+      "content_hash": "a56f8a757a16aeae57116b42bf46a27b",
+      "last_scraped": "2026-02-02 15:36:22"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35213710872468-How-to-re-set-password-after-disabling-SSO": {
+      "title": "How to re-set password after disabling SSO?",
+      "content_hash": "1aff6a47bf05aa23a8c9bc16a9aeaba7",
+      "last_scraped": "2026-02-02 15:36:27"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35166590464404-How-to-delete-a-table-in-Data-Dictionary": {
+      "title": "How to delete a table in Data Dictionary?",
+      "content_hash": "ed3c18d44ccbd7f2746bb63ebfba2558",
+      "last_scraped": "2026-02-02 15:36:32"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/35132550978452-How-to-Create-View-in-Jobs-and-Job-Executions": {
+      "title": "How to Create View in Jobs and Job Executions",
+      "content_hash": "1c36585bf767a94a39a5d1c54c4ce89d",
+      "last_scraped": "2026-02-02 15:36:38"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10673319844884-How-to-create-a-Tag": {
+      "title": "How to create a Tag",
+      "content_hash": "65a9b3d99dc72654cb2651b79e919f4e",
+      "last_scraped": "2026-02-02 15:36:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360055209472-Configure-Amazon-S3-permissions-manage-data-source-in-DvSum-Elevated-Permissions-Required": {
+      "title": "Configure Amazon S3 permissions: manage data source in DvSum (Elevated Permissions Required)",
+      "content_hash": "5cd3e14f2556f2e6e86a5b1041d11f12",
+      "last_scraped": "2026-02-02 15:36:50"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/11795434280212-Tracking-Data-Set-Usage-in-Data-Catalog": {
+      "title": "Tracking Data Set Usage in Data Catalog",
+      "content_hash": "5d86ffc82a69b9e18028e0ad3616969d",
+      "last_scraped": "2026-02-02 15:36:56"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10534035730836-How-to-Use-Global-Filters": {
+      "title": "How to Use Global Filters",
+      "content_hash": "41135a611d929a4afa5b4483ba3aeedc",
+      "last_scraped": "2026-02-02 15:37:05"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10582893963924-How-To-Mass-Update": {
+      "title": "How To: Mass Update",
+      "content_hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "last_scraped": "2026-02-02 15:37:13"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18727787422228-How-to-Schedule-a-Job-for-Data-Sources": {
+      "title": "How to Schedule a Job for Data Sources",
+      "content_hash": "676fe6a8768336a19d73439ce4df734e",
+      "last_scraped": "2026-02-02 15:37:20"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/11525283492500-How-to-find-help-using-our-in-product-Help-Center-in-Dvsum-App": {
+      "title": "How to find help using our in-product Help Center in Dvsum App",
+      "content_hash": "196cb0c214d52afab264dbcf624160cb",
+      "last_scraped": "2026-02-02 15:37:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/11197801100820-Data-Import": {
+      "title": "Data Import",
+      "content_hash": "37d23060e89e3d4ca44e834ccd992d07",
+      "last_scraped": "2026-02-02 15:37:32"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10860307282580-How-to-do-Target-Scan-of-Data-Sources": {
+      "title": "How to do Target Scan of Data Sources",
+      "content_hash": "de92b3cd5e65213d69fe9ad71e6781a4",
+      "last_scraped": "2026-02-02 15:37:37"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10027321551380-How-to-create-Governance-Views": {
+      "title": "How to create Governance Views",
+      "content_hash": "5fd572732872656e90fbe2052bdf5346",
+      "last_scraped": "2026-02-02 15:37:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/8946385941140-How-to-use-Certification-and-Quality-Tagset": {
+      "title": "How to use Certification and Quality Tagset?",
+      "content_hash": "432a46f1788bce424e7c108c270c8877",
+      "last_scraped": "2026-02-02 15:37:52"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/19390168472852-Catalog-and-Datasets-Reports-Approval": {
+      "title": "Catalog and Datasets/Reports Approval",
+      "content_hash": "cdf63cc0a090e4d43d136761bd258643",
+      "last_scraped": "2026-02-02 15:37:58"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/15536676968724-Approving-Glossary-Terms": {
+      "title": "Approving Glossary Terms",
+      "content_hash": "a5fdfa61ecfac5db3016d4d9cc3f55a1",
+      "last_scraped": "2026-02-02 15:38:05"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/41054809831572-Execution-Modes-Model-Workflow-Configurations-in-Tool": {
+      "title": "Execution Modes, Model & Workflow Configurations in Tool",
+      "content_hash": "60147d50cd51bc6f58451d8dbd627b63",
+      "last_scraped": "2026-02-02 15:38:10"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25996549175828-Co-Pilot-in-Data-Intelligence": {
+      "title": "Co-Pilot in Data Intelligence",
+      "content_hash": "16fdb1af31963bc1336af3368244fd58",
+      "last_scraped": "2026-02-02 15:38:15"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18534685180948-CADDI-Chat-Talk-to-your-Data": {
+      "title": "CADDI Chat (Talk to your Data)",
+      "content_hash": "bb231f7dbda17455e2a9381648d7b529",
+      "last_scraped": "2026-02-02 15:38:21"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/45239604841108-How-CADDI-Agents-Interpret-Questions-and-Follow-Up-Requests": {
+      "title": "How CADDI Agents Interpret Questions and Follow-Up Requests",
+      "content_hash": "afda4d63aaa3df0a254174394e8cda61",
+      "last_scraped": "2026-02-02 15:38:25"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/28138720331796-Feedback-Analytics": {
+      "title": "Feedback Analytics",
+      "content_hash": "32bfde7759cccaa9d7a67d18dabddb8e",
+      "last_scraped": "2026-02-02 15:38:30"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/27034936667924-Agent-Analytics": {
+      "title": "Agent Analytics",
+      "content_hash": "f8edc44b0634e299730ac5f212e61bd8",
+      "last_scraped": "2026-02-02 15:38:36"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/27022713765524-Training-of-CADDI-Agents": {
+      "title": "Training of CADDI Agents",
+      "content_hash": "ea108f9481cb5ac5e52b11a3ca5b399f",
+      "last_scraped": "2026-02-02 15:38:41"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/25334871881364-Question-level-Menu-items-for-CADDI-Agents": {
+      "title": "Question level Menu items for CADDI Agents",
+      "content_hash": "71cea9ac9495f9fb430ed41437b5477a",
+      "last_scraped": "2026-02-02 15:38:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/24639112445716-Chat-Preferences-for-Agents": {
+      "title": "Chat Preferences for Agents",
+      "content_hash": "905ab1172f54c034a778156d73b8b7fb",
+      "last_scraped": "2026-02-02 15:38:53"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/23892690705684-Agent-Reliability-How-Query-generation-re-attempt-works": {
+      "title": "Agent Reliability; How Query generation re-attempt works",
+      "content_hash": "d632bdc811eef8536ac627704e09bac7",
+      "last_scraped": "2026-02-02 15:38:57"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/23891989976084-Query-Explanation-in-CADDI": {
+      "title": "Query Explanation in CADDI",
+      "content_hash": "fbc307a10483fc8594443aed6ed76354",
+      "last_scraped": "2026-02-02 15:39:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/22955304388628-Adding-a-context-in-CADDI-and-Agents": {
+      "title": "Adding a context in CADDI and Agents",
+      "content_hash": "45fd0f94971505bf24640ba6685012c0",
+      "last_scraped": "2026-02-02 15:39:10"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18540310425748-Pivot-Tables-in-CADDI": {
+      "title": "Pivot Tables in CADDI",
+      "content_hash": "5d24d77e8b56ec279bc02ff6a42d416d",
+      "last_scraped": "2026-02-02 15:39:15"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18506870411284-Chart-Settings-in-CADDI": {
+      "title": "Chart Settings in CADDI",
+      "content_hash": "ac45c47fc0eedab35d224d530224ee55",
+      "last_scraped": "2026-02-02 15:39:20"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18497031217428-Configuring-CADDI-Creating-Agents": {
+      "title": "Configuring CADDI - Creating Agents",
+      "content_hash": "b60479526d9cfad1038376ceccf64fdf",
+      "last_scraped": "2026-02-02 15:39:31"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/16290044151828-How-to-get-a-guided-set-of-follow-up-questions-to-ask-in-CADDI": {
+      "title": "How to get a guided set of follow up questions to ask in CADDI",
+      "content_hash": "6b67a5a7c8a7f568a7d824b1ba0019cb",
+      "last_scraped": "2026-02-02 15:39:35"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/15168396488852-How-to-talk-to-your-data": {
+      "title": "How to talk to your data",
+      "content_hash": "a7c0be3f4b4e3077fab3adbcf92d9f19",
+      "last_scraped": "2026-02-02 15:39:41"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000991833-Why-can-I-see-only-300-exceptions-in-Analysis-tab-when-Rule-Run-Result-shows-more": {
+      "title": "Why can I see only 300 exceptions in Analysis tab when Rule Run Result shows more ?",
+      "content_hash": "12ca36d41f31bf5a8950d448bf3ac1bc",
+      "last_scraped": "2026-02-02 15:39:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115005116933-How-do-you-select-the-right-Catalog-View": {
+      "title": "How do you select the right Catalog View?",
+      "content_hash": "0b2e2ac6528c4ec1527737165b4ec100",
+      "last_scraped": "2026-02-02 15:39:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115006294588-Add-an-IP-Address-to-the-White-List": {
+      "title": "Add an IP Address to the White List",
+      "content_hash": "619bb33ecd317306d826d83967caa98f",
+      "last_scraped": "2026-02-02 15:39:56"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/22706867079700-How-to-add-Dataset-Group": {
+      "title": "How to add Dataset Group?",
+      "content_hash": "6605a78666dd723940c9f6ead8f3dcb6",
+      "last_scraped": "2026-02-02 15:40:01"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360056932812-Guide-on-using-Address-Validation-API": {
+      "title": "Guide on using Address Validation API",
+      "content_hash": "5e0374a293b8a897bf8b11bc3431c3c6",
+      "last_scraped": "2026-02-02 15:40:05"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360045674733-How-to-Configure-Email-Notifications": {
+      "title": "How to Configure Email Notifications ?",
+      "content_hash": "36f742ea92669ca1f5b46f148c1f47d9",
+      "last_scraped": "2026-02-02 15:40:10"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/21781811462676-Data-Security-Admin": {
+      "title": "Data Security Admin",
+      "content_hash": "441c034498600e5bbbacedf78ef7a232",
+      "last_scraped": "2026-02-02 15:40:15"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/21103301641748-Data-Masking": {
+      "title": "Data Masking",
+      "content_hash": "c17254cb00509e84eb0c157ad75a2db8",
+      "last_scraped": "2026-02-02 15:40:20"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360052075952-Manage-Roles": {
+      "title": "Manage Roles",
+      "content_hash": "d74bdee9179cc026d1e5c077b6a8bba0",
+      "last_scraped": "2026-02-02 15:40:27"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360049346552-Schedule-Cataloging": {
+      "title": "Schedule Cataloging",
+      "content_hash": "3c7303cb956f47444d8cbb5cfadd79a2",
+      "last_scraped": "2026-02-02 15:40:32"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360050817613-User-Access-at-DQ-Rules-Level": {
+      "title": "User Access at DQ Rules Level",
+      "content_hash": "f4237c49909c80389a75c4592a203b29",
+      "last_scraped": "2026-02-02 15:40:40"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360021928854-DvSum-Edge-Gateway-Installation-SAWS-for-Data-Quality": {
+      "title": "DvSum Edge Gateway Installation (SAWS) for Data Quality",
+      "content_hash": "7d4139a89aee5e1d2012b916767ebb7e",
+      "last_scraped": "2026-02-02 15:40:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360052125833-Advanced-Dashboards": {
+      "title": "Advanced Dashboards",
+      "content_hash": "77461cb908029bafd6ff24124e95adbc",
+      "last_scraped": "2026-02-02 15:40:52"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360049313234-History-Trend-Widget-using-Power-BI-Template-Reports": {
+      "title": "History Trend Widget using Power BI Template Reports",
+      "content_hash": "726eabf55b46f65361aa7a60948c6c40",
+      "last_scraped": "2026-02-02 15:40:58"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360045131774-History-Trend-Widget-Dashboards": {
+      "title": "History Trend Widget – Dashboards",
+      "content_hash": "377fe6c97412a950c0261bda578351c0",
+      "last_scraped": "2026-02-02 15:41:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360021231094-Advanced-Analytics-Integrating-Power-BI-reports-into-DvSum": {
+      "title": "Advanced Analytics - Integrating Power BI reports into DvSum",
+      "content_hash": "9a7ae7489e242ea362d36a55b1a7eabc",
+      "last_scraped": "2026-02-02 15:41:08"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360021222614-Workflow-Digest-Emails": {
+      "title": "Workflow Digest Emails",
+      "content_hash": "5f2c2e2b6ad1368d71ea5e2e365e1c3a",
+      "last_scraped": "2026-02-02 15:41:12"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360007921813-DvSum-export-options-for-reports": {
+      "title": "DvSum export options for reports",
+      "content_hash": "1bb5fdc5e7f66a6939d138418cce77c4",
+      "last_scraped": "2026-02-02 15:41:20"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/23084323535124-Configure-Oracle-as-Source": {
+      "title": "Configure Oracle as Source",
+      "content_hash": "375fde0ffefec92fcbd8305aabff5c88",
+      "last_scraped": "2026-02-02 15:41:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/18826674587796-Configure-Oracle-ADW-as-a-Source": {
+      "title": "Configure Oracle ADW as a Source",
+      "content_hash": "87bf3dc61c4026329c6d92f915caed19",
+      "last_scraped": "2026-02-02 15:41:33"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/12893404920980-Configure-Azure-Synapse-Analytics-as-a-Source": {
+      "title": "Configure Azure Synapse Analytics as a Source",
+      "content_hash": "71c28c4c9e5772fbaea6fb94fe213723",
+      "last_scraped": "2026-02-02 15:41:38"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/9830486369428-Configure-Databricks-as-a-Source": {
+      "title": "Configure Databricks as a Source",
+      "content_hash": "0a9f130a07bd84fb61733cd692159376",
+      "last_scraped": "2026-02-02 15:41:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/4403282434324-Configure-Google-BigQuery-as-a-source": {
+      "title": "Configure Google BigQuery as a source",
+      "content_hash": "e46885e5665074747658b2847464a92e",
+      "last_scraped": "2026-02-02 15:41:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360050674571-Configure-Snowflake-as-a-Source": {
+      "title": "Configure Snowflake as a Source",
+      "content_hash": "e1a365fe4b44c50d55fea666e1acc289",
+      "last_scraped": "2026-02-02 15:41:55"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/17457787570452-Catalog-Table-Detail-Page": {
+      "title": "Catalog Table Detail Page",
+      "content_hash": "2a864c40c04b167a4aca9fac5d8e6354",
+      "last_scraped": "2026-02-02 15:42:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360052123973-Data-Catalog": {
+      "title": "Data Catalog",
+      "content_hash": "320c4e26066362d8e5dcaa26c2527ff2",
+      "last_scraped": "2026-02-02 15:42:11"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360016874754-Blend-Views": {
+      "title": "Blend Views",
+      "content_hash": "8c205d53f471ea3b3c5763f36328b89a",
+      "last_scraped": "2026-02-02 15:42:16"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360005669534-Reference-Dictionary": {
+      "title": "Reference Dictionary",
+      "content_hash": "06925c1f900249153b9ece923f7e772e",
+      "last_scraped": "2026-02-02 15:42:21"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115005116733-Creating-and-editing-a-Catalog-View": {
+      "title": "Creating and editing a Catalog View",
+      "content_hash": "2971a19388af4e5df8c0b7715b2734d0",
+      "last_scraped": "2026-02-02 15:42:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/202846854-Review-Profiling-Results": {
+      "title": "Review Profiling Results",
+      "content_hash": "3d86446154db26479ff9bae66809719a",
+      "last_scraped": "2026-02-02 15:42:31"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/17472157533076-Run-Online-and-Run-Offline": {
+      "title": "Run Online and Run Offline",
+      "content_hash": "37cce2783272ec4b94caa2ed3d11e5c8",
+      "last_scraped": "2026-02-02 15:42:36"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/17468996404756-DQ-Rule-Details": {
+      "title": "DQ Rule Details",
+      "content_hash": "03a6a6ef90b0acb9a86aff555dee36f8",
+      "last_scraped": "2026-02-02 15:42:43"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/17457922936468-Rules": {
+      "title": "Rules",
+      "content_hash": "29455ab003334d7d08afef1b30af6ae2",
+      "last_scraped": "2026-02-02 15:42:48"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/15714519528980-Creating-a-CUSTOM-QUERY-DQ-Rule": {
+      "title": "Creating a CUSTOM QUERY DQ Rule",
+      "content_hash": "fbeb8c89992d229b6809fc5d4219100a",
+      "last_scraped": "2026-02-02 15:42:53"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/13070366457620-How-to-Create-Assign-Remove-Rule-Group-or-Val-group-Batch-Scheduling": {
+      "title": "How to Create/Assign/Remove Rule Group or Val group & Batch Scheduling",
+      "content_hash": "68e0bccf48543c52d102853605c60dce",
+      "last_scraped": "2026-02-02 15:42:58"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/10311781361556-Executing-the-rule-API-via-ADF": {
+      "title": "Executing the rule API via ADF",
+      "content_hash": "fa3695765bbb19f535832668f72156b7",
+      "last_scraped": "2026-02-02 15:43:03"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115000205853-Execute-run-Scheduled-Jobs": {
+      "title": "Execute/run Scheduled Jobs",
+      "content_hash": "341af9b0ade3b79efef8a673388123e3",
+      "last_scraped": "2026-02-02 15:43:07"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360014113613-File-upload-to-DvSum-and-creating-rules-on-file": {
+      "title": "File upload to DvSum and creating rules on file",
+      "content_hash": "4ccf08bf8fb64425d0f3c74611196704",
+      "last_scraped": "2026-02-02 15:43:13"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360013799514-Excel-Cleansing-Upon-File-Upload": {
+      "title": "Excel Cleansing Upon File Upload",
+      "content_hash": "f427cbe741fca905b44b365a357f36a3",
+      "last_scraped": "2026-02-02 15:43:19"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360035713813-Data-Preparation-Workbench": {
+      "title": "Data Preparation Workbench",
+      "content_hash": "4b7280c56dfb416279823ff881db7f4d",
+      "last_scraped": "2026-02-02 15:43:24"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360013797874-Off-line-Write-back-to-Source-in-DQ-workflow": {
+      "title": "Off-line Write-back to Source in DQ workflow",
+      "content_hash": "2beacd969f1e86ac199cdd306a606928",
+      "last_scraped": "2026-02-02 15:43:28"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/219786788-Cleansing-Work-Bench-and-Audit-Trail": {
+      "title": "Cleansing Work Bench and Audit Trail",
+      "content_hash": "f2c97c1c4770250fa51af69078fbb467",
+      "last_scraped": "2026-02-02 15:43:32"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360033768933-How-to-create-a-Workflow-with-excel-file-as-input": {
+      "title": "How to create a Workflow with excel file as input ?",
+      "content_hash": "cc211e31f97d1aff7ffbd3fb43a4038e",
+      "last_scraped": "2026-02-02 15:43:37"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360022912733-Why-is-Data-Analysis-tab-not-showing-for-the-profiled-table": {
+      "title": "Why is Data Analysis tab not showing for the profiled table?",
+      "content_hash": "2ed4b70dda3dfdb29452fddd878d5182",
+      "last_scraped": "2026-02-02 15:43:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360021780333-Staging-Configuration-How-to-set-up-staging-table": {
+      "title": "Staging Configuration: How to set up staging table ?",
+      "content_hash": "851be7a63aea30e591e714b8519e58c7",
+      "last_scraped": "2026-02-02 15:43:52"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360021367293-How-can-I-send-Scheduler-job-emails-to-other-users": {
+      "title": "How can I send Scheduler job emails to other users?",
+      "content_hash": "8dceea9aaa3d2a8fa9dc5ee8018db79d",
+      "last_scraped": "2026-02-02 15:43:57"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360013703693-Can-I-add-new-columns-to-my-already-cataloged-and-profiled-EXCEL-source": {
+      "title": "Can I add new columns to my already cataloged and profiled EXCEL source?",
+      "content_hash": "e18b64cfaa139b164536751eff785fe9",
+      "last_scraped": "2026-02-02 15:44:02"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360008059154-How-to-create-Custom-Governance-Views-for-Rules": {
+      "title": "How to create Custom Governance Views for Rules?",
+      "content_hash": "670a9ddebe3e1b186e14c4a7a5aa92fb",
+      "last_scraped": "2026-02-02 15:44:08"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360006879773-How-can-I-export-download-Rule-Exception-Report": {
+      "title": "How can I export/download Rule Exception Report?",
+      "content_hash": "c1b1b2946e2b3ba2f07c67d2b2a94aa2",
+      "last_scraped": "2026-02-02 15:44:12"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360002074473-Why-don-t-I-see-all-users-in-list-of-owners-in-glossary": {
+      "title": "Why don't I see all users in list of owners in glossary?",
+      "content_hash": "644a864af82d72cac3a0dbe69cc842ed",
+      "last_scraped": "2026-02-02 15:44:17"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360001182373-Edge-Gateway-SAWS-not-accessible": {
+      "title": "Edge Gateway (SAWS) not accessible",
+      "content_hash": "0261a4ec684b9c20e10a04871453a97a",
+      "last_scraped": "2026-02-02 15:44:22"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000260754-How-to-create-a-Custom-Dashboard": {
+      "title": "How to create a Custom Dashboard?",
+      "content_hash": "c843b55bdfbb452f1b62a57544628675",
+      "last_scraped": "2026-02-02 15:44:27"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000024413-How-do-you-select-the-right-chart-based-on-your-data": {
+      "title": "How do you select the right chart based on your data?",
+      "content_hash": "19b898c338dfd5227c469ecfe84a87ab",
+      "last_scraped": "2026-02-02 15:44:32"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000018334-How-do-my-Scheduled-jobs-execute-with-MultiSaws": {
+      "title": "How do my Scheduled jobs execute with MultiSaws?",
+      "content_hash": "9d46e07b2f544227905ce76c99533298",
+      "last_scraped": "2026-02-02 15:44:37"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115001891934-How-to-reassign-responsibilities-of-a-user-upon-deletion": {
+      "title": "How to reassign responsibilities of a user upon deletion?",
+      "content_hash": "db5bd53195772a1e23565f2f0b99df1a",
+      "last_scraped": "2026-02-02 15:44:41"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115001889873-What-is-Fine-Grain-and-Global-Workflow-Access-Control": {
+      "title": "What is Fine-Grain and Global Workflow Access Control?",
+      "content_hash": "87409f9eebc9f0853015a4b2481842b8",
+      "last_scraped": "2026-02-02 15:44:47"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115000143513-Why-can-User-A-see-more-Source-Tables-than-User-B": {
+      "title": "Why can User A see more Source Tables than User B?",
+      "content_hash": "5cc31a7e1f1b43fddcdcb3d9cb0b48d7",
+      "last_scraped": "2026-02-02 15:44:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/225558507-Error-File-is-corrupted-and-cannot-be-opened": {
+      "title": "Error - 'File is corrupted and cannot be opened'",
+      "content_hash": "e905aa3c32dd7070c4335c61e04fb5b7",
+      "last_scraped": "2026-02-02 15:44:56"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/222595948-Address-Validation-rule-is-becoming-Invalid": {
+      "title": "Address Validation rule is becoming Invalid",
+      "content_hash": "ba3bd310810ac90357bf61958de243aa",
+      "last_scraped": "2026-02-02 15:45:01"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/221853427-Scheduler-not-executing-jobs-error-in-SAWS-log-related-to-SUN-PKIX-Path-Building-Failed": {
+      "title": "Scheduler not executing jobs / error in SAWS.log related to SUN PKIX Path Building Failed",
+      "content_hash": "72009c1a8be0c0ebc4d1f2941e0f3e16",
+      "last_scraped": "2026-02-02 15:45:07"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/221403867-Why-only-certain-fields-are-available-in-the-Data-Analysis-screen": {
+      "title": "Why only certain fields are available in the Data Analysis screen",
+      "content_hash": "af66c7dde2819ad7c9d9bb6bbd8074ad",
+      "last_scraped": "2026-02-02 15:45:11"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/202846784-How-to-Create-Rules-Standard-Data-Quality-Ruleset-Business-Rules-DAE": {
+      "title": "How to Create Rules (Standard, Data Quality Ruleset, Business Rules DAE)",
+      "content_hash": "529052c45ca57e9b8bc877e3b27f6bb9",
+      "last_scraped": "2026-02-02 15:45:16"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360021118474-How-to-Install-Python-service-for-Excel-Excel-in-Memory-Source": {
+      "title": "How to Install Python service for Excel, Excel in Memory Source?",
+      "content_hash": "762f1d75078ad9f2fb3aa9651f403345",
+      "last_scraped": "2026-02-02 15:45:22"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360018196733-Is-there-a-limit-of-how-much-data-we-can-extract-to-a-file-on-azure-blob-S3-bucket-or-to-folder": {
+      "title": "Is there a limit of how much data we can extract to a file on azure blob/S3 bucket or to folder?",
+      "content_hash": "49199ed4542937de485312f56c50a1f8",
+      "last_scraped": "2026-02-02 15:45:26"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360015361094-On-Premise-Gateway-SAWS-Advanced-Settings-Configuration-properties-file": {
+      "title": "On Premise Gateway (SAWS) Advanced Settings (Configuration properties file)",
+      "content_hash": "b669db431b4c749102d55398287594cc",
+      "last_scraped": "2026-02-02 15:45:31"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360005670514-Deleting-the-data-source-Owner-and-Administrators": {
+      "title": "Deleting the data source. (Owner and Administrators)",
+      "content_hash": "eddf93ec3429807224699b8eaae62351",
+      "last_scraped": "2026-02-02 15:45:36"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360005093774-Export-options-for-Rule-Results-Administrators-and-Super-Users": {
+      "title": "Export options for Rule Results (Administrators and Super Users)",
+      "content_hash": "084df63c31165d91be9e3c63000800dc",
+      "last_scraped": "2026-02-02 15:45:41"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360002717393-SAWS-Alert-Notification-controls-Owners-only": {
+      "title": "SAWS Alert Notification controls (Owners only)",
+      "content_hash": "ae68cf08ff1e212d133e9dacc09c8382",
+      "last_scraped": "2026-02-02 15:45:46"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360002610433-What-is-a-Not-Connected-DataSource": {
+      "title": "What is a \"Not-Connected DataSource\"?",
+      "content_hash": "5616afae47c27e272830cec32ed909e1",
+      "last_scraped": "2026-02-02 15:45:51"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000764854-DQ-SAWS-Update-For-Owner-Account": {
+      "title": "DQ SAWS Update (For Owner Account)",
+      "content_hash": "ddfa2a8bfdc87eccc5a937d693bd3bf0",
+      "last_scraped": "2026-02-02 15:45:58"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000247253-Configure-one-Data-Source-with-Multiple-SAWS": {
+      "title": "Configure one Data Source with Multiple SAWS",
+      "content_hash": "e2aefae3886e4e894a102d614ee69044",
+      "last_scraped": "2026-02-02 15:46:03"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/225102967-Updates-to-database-source-data-catalog": {
+      "title": "Updates to database source data catalog",
+      "content_hash": "6933634e94807d3e0c4783d11c2e1e68",
+      "last_scraped": "2026-02-02 15:46:08"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360003300593-Change-of-language-in-DvSum": {
+      "title": "Change of language in DvSum",
+      "content_hash": "a7b44ceaa658f9d42e2eb9973a1d7315",
+      "last_scraped": "2026-02-02 15:46:13"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000024353-Dashboard-templates-and-blank-widgets": {
+      "title": "Dashboard templates and blank widgets",
+      "content_hash": "f5a34e6fbf02e43ff43eb2f603b27a17",
+      "last_scraped": "2026-02-02 15:46:18"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000017313-What-do-I-see-on-Advanced-Dashboard-based-on-user-roles": {
+      "title": "What do I see on Advanced Dashboard based on user roles?",
+      "content_hash": "3cd65471f44d58a9e71e5bb67738390e",
+      "last_scraped": "2026-02-02 15:46:23"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360000018374-What-is-new-in-Advanced-Dashboards": {
+      "title": "What is new in Advanced Dashboards?",
+      "content_hash": "4d2b7372a637002e0b66c46381057e6d",
+      "last_scraped": "2026-02-02 15:46:29"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360049829631-Configure-Salesforce-as-a-Source": {
+      "title": "Configure Salesforce as a Source",
+      "content_hash": "5bd8ea89653776332eae048d347aba38",
+      "last_scraped": "2026-02-02 15:46:35"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360033961454-SQLEXPRESS-connection-to-SAWS": {
+      "title": "SQLEXPRESS connection to SAWS",
+      "content_hash": "aa66e5451879b9a00e17e4a08573ba50",
+      "last_scraped": "2026-02-02 15:46:40"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115000641314-Configure-Excel-CSV-files": {
+      "title": "Configure Excel/CSV files?",
+      "content_hash": "96cc0aa29438da055266837412a03029",
+      "last_scraped": "2026-02-02 15:46:45"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360061493952-Job-Execution-Using-Dynamic-Schema": {
+      "title": "Job Execution Using Dynamic Schema",
+      "content_hash": "817a8a5de32797820b2fff0cd3311c64",
+      "last_scraped": "2026-02-02 15:46:49"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360054484771-Address-Validation-Rule": {
+      "title": "Address Validation Rule",
+      "content_hash": "e37af42d0d03d7c31a7c7e8cf467b560",
+      "last_scraped": "2026-02-02 15:46:54"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360051535313-Allow-Blanks-in-SAP-Writeback": {
+      "title": "Allow Blanks in SAP Writeback",
+      "content_hash": "d0df451b6ba0f2b5a3eb0847c0232d12",
+      "last_scraped": "2026-02-02 15:47:00"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360050083754-Clone-Rule": {
+      "title": "Clone Rule",
+      "content_hash": "735f87717db2cbe2f9dcbe52aa9e3881",
+      "last_scraped": "2026-02-02 15:47:07"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360050837013-Rule-Status": {
+      "title": "Rule Status",
+      "content_hash": "1f40909d02ee5a525d7169854a22d6a6",
+      "last_scraped": "2026-02-02 15:47:12"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360047799993-SAP-Writeback-Configuration-Setup-For-Writeback-from-Flat-to-Classification-table-Mapping": {
+      "title": "SAP Writeback Configuration Setup For Writeback from Flat to Classification table Mapping",
+      "content_hash": "9a1bbabea737aeb9e815007e057d9874",
+      "last_scraped": "2026-02-02 15:47:18"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360046573114-Column-Sequencing": {
+      "title": "Column Sequencing",
+      "content_hash": "91be53c611c94bce001a5ab81e3b0a18",
+      "last_scraped": "2026-02-02 15:47:23"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360045992074-Enable-Writeback-on-Custom-Query-DQ-Rules": {
+      "title": "Enable Writeback on Custom Query DQ Rules",
+      "content_hash": "a97526b5f20c29261f079f06b86a2ef8",
+      "last_scraped": "2026-02-02 15:47:28"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360045900614-SAP-Writeback-Overview": {
+      "title": "SAP Writeback - Overview",
+      "content_hash": "ea9c73b054c0172a5ed791bb8e331077",
+      "last_scraped": "2026-02-02 15:47:34"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360043550373-SAP-Connector-Installation-and-Configuration-Guide": {
+      "title": "SAP Connector Installation and Configuration Guide",
+      "content_hash": "76ee94a039764a81de325667abc3ade9",
+      "last_scraped": "2026-02-02 15:47:39"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360035985334-How-is-Readiness-Score-calculated-for-rules": {
+      "title": "How is Readiness Score calculated for rules?",
+      "content_hash": "c170fc725a4c6e947b8173091c64d82b",
+      "last_scraped": "2026-02-02 15:47:43"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360013705873-Data-Format-Rule": {
+      "title": "Data Format Rule",
+      "content_hash": "6ba1e4c5465b23e82ee9af05a0d5ec4c",
+      "last_scraped": "2026-02-02 15:47:48"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360009027514-Add-an-Orphan-Records-check-between-two-datasets": {
+      "title": "Add an Orphan Records check between two datasets",
+      "content_hash": "823c5c89a30864d5b356643db2444274",
+      "last_scraped": "2026-02-02 15:47:53"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360007001653-Field-Dictionary": {
+      "title": "Field Dictionary",
+      "content_hash": "8eb18973daec1b5456fabebf5f18ea66",
+      "last_scraped": "2026-02-02 15:47:58"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360006916294-Features-of-Value-Range-Rule": {
+      "title": "Features of Value Range Rule",
+      "content_hash": "6351cbb3477246240066c7c021368be3",
+      "last_scraped": "2026-02-02 15:48:03"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/360006820634-Integrating-Rules-into-batch-workflow": {
+      "title": "Integrating Rules into batch workflow",
+      "content_hash": "994332698115a1286026837e39cef010",
+      "last_scraped": "2026-02-02 15:48:08"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/115000728633-Use-Rule-Groups-as-tags-for-better-management-of-Rules": {
+      "title": "Use Rule Groups as tags for better management of Rules",
+      "content_hash": "325aaae5fd8696c7f91e1665f3477eb1",
+      "last_scraped": "2026-02-02 15:48:13"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/230178488-Types-of-Rules-Wizards": {
+      "title": "Types of Rules Wizards",
+      "content_hash": "40312165df1c1432ac58f27dd4bc3bf5",
+      "last_scraped": "2026-02-02 15:48:17"
+    },
+    "https://dvsum.zendesk.com/hc/en-us/articles/203082320-Validation-Rule-Reference-Information": {
+      "title": "Validation Rule Reference Information",
+      "content_hash": "174f2e70dd6ba2fc5285b73b70876b86",
+      "last_scraped": "2026-02-02 15:48:23"
+    }
+  },
+  "last_run": "2026-02-02 15:48:24"
+}

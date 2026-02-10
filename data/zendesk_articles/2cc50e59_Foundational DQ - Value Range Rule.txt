@@ -1,0 +1,79 @@
+Title: Foundational DQ - Value Range Rule
+URL: https://dvsum.zendesk.com/hc/en-us/articles/25211047471124-Foundational-DQ-Value-Range-Rule
+================================================================================
+
+In this article:
+Introduction
+How to Set Up the Value Range Rule
+Step 1: Navigate to Data Quality Rules
+Step 2: Add a New Rule
+Step 3: Configure Rule Parameters
+Single Value
+Range Value
+Reference Dictionary
+Step 4: Validate the Rule
+Introduction
+The Foundational DQ Value Range Rule ensures that data values fall within an acceptable range, preventing incorrect or outlier values. This rule is crucial for maintaining data accuracy in fields such as transaction amounts, dates, and numerical identifiers.
+For example, in manufacturing, the rule might enforce that the yield percentage should always be between 0.01 and 1. Similarly, in sales orders, the order type should be limited to specific values like ZOST, ZOCO, or ZOFR. In another scenario, for shipments, the item_category should only include values listed in the item_category reference.
+By applying this rule, data integrity is maintained, ensuring that values are within acceptable boundaries or options, thus enhancing the reliability of analyses and processes relying on this data.
+For further information about the rule detail page including scope, threshold, notifications, etc., please see the detailed article
+Rule Detail page.
+How to Set Up the Value Range Rule
+Step 1: Navigate to Data Quality Rules
+Log in to DvSum.
+Go to Dictionaries > Database Tables.
+Select the relevant Data Source and Table Name.
+Step 2: Add a New Rule
+Select the table name and go to the Data Quality tab.
+Choose Available Rules.
+Click on the ⊕ Add Rule button.
+Select Foundational DQ and choose Value Range.
+Step 3: Configure Rule Parameters
+In the Rule Wizard's Basic Input section:
+Rule Description: Enter a meaningful description.
+Column Name: Select the column to apply the rule.
+Comparison Type: Choose one of the three options:
+Single Value
+Range Value
+Reference Dictionary
+Single Value
+As the name suggests, for a single value there is a single threshold. From the list of operators, you can define the threshold on a column name. When comparison type is mentioned then the user can further select 3 more options from Value which are:
+Absolute Value
+Expression
+Reference Column
+The above different Value types are explained below with examples for better understanding.
+Consider an example, where we want to create a VR rule on "Population" which should be greater than equal to the "Relative Budget". Specifying this as a "Valid" range, this rule will show the records where "Population" is less than "Relative Budget" as exceptions.
+Another example is that we can select the option "Absolute Rule Value" and in this case, only the value mentioned will be considered as valid value
+Another example is that here we have defined an expression " > 100 " which means that the data will be valid where the column "Population" has values greater than 100:
+One more example is that here we have defined an expression ">DATEADD(day, 7, CURRENT_DATE()) which means that the data will be valid where the column "Population" has values greater than 7 days from the current date.
+Range Value
+For the Range values, you need to provide the minimum and maximum threshold. Values which will be not in range will be marked as exceptions.
+Reference Dictionary
+In the Rule Wizard's Basic Input section, Select "Ref Dictionary" from dropdown in Comparison type.
+Select the Dictionary and add relevant source fields.
+If user selects,
+Treat Empty Strings as Valid Values
+: Empty strings ("") will be considered
+valid
+and allowed by the rule.
+Treat Null as Valid Values:
+NULL values will be considered
+valid
+. They’ll be treated as acceptable data
+and allowed by the rule.
+Ignore Case:
+The rule will
+not differentiate between uppercase and lowercase
+characters.
+For example, "Shipping" and "shipping" would be treated as
+equal
+.
+Note:
+To know more about Empty and Null values for Value rage rule, refer the article
+Null and Empty Values
+.
+Step 4: Validate the Rule
+Save the rule and check its definition.
+Click
+Run
+to execute and test the rule.

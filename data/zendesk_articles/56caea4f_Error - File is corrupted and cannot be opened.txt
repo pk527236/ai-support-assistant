@@ -1,0 +1,23 @@
+Title: Error - 'File is corrupted and cannot be opened'
+URL: https://dvsum.zendesk.com/hc/en-us/articles/225558507-Error-File-is-corrupted-and-cannot-be-opened
+================================================================================
+
+Issue:
+When attempting to open a downloaded report by clicking on the "Download report" link in Rule detail or via the link provided in the email alert, an error occurs where Excel displays the message "File is corrupt and cannot be opened."
+Reason:
+Excel prevents opening files downloaded from the internet, impacting not just DvSum but also files from colleagues or other websites.
+Resolution:
+Change the settings in Excel Options
+Step 1: Open Excel --> Click on File --> Options
+Step 2: Click on Trust Center on left menu
+Step 3: Click on Trust Center Settings
+Step 4: Click on Protected View
+Step 5: Uncheck the first check-box
+Step 6: Close Excel
+Starting now, your files should open without any issues.
+If changing your Trust Center settings isn't possible or you prefer not to, you can manually unblock the Excel file to open it.
+Step 1: Navigate to the folder (e.g. Downloads) where the report is downloaded
+Step 2: Right click on the excel file and click on Properties
+Step3: Click on Unblock at the bottom of the dialog
+Step4: Close dialog
+Now this file can be opened in Excel.

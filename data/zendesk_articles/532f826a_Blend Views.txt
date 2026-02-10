@@ -1,0 +1,28 @@
+Title: Blend Views
+URL: https://dvsum.zendesk.com/hc/en-us/articles/360016874754-Blend-Views
+================================================================================
+
+Overview
+A Blend View combines data from two or more tables of the same source. It's useful in cases the data model is normalized, and a data steward reviewing and correcting errors needs to see fields from multiple related tables. It can also be useful to aggregate data saved at different granularities in different tables.
+Blend Views are available for most data sources, but the exact details will depend on the source technology. If your relational database technology does not support full outer joins, then you may not use a full outer join in your blend view--though DvSum will not prevent you from defining such a view.
+Create a Blend View
+Begin by selecting Profile → Profiling → "⊕ Create View" (visible in the upper-right corner of the page)
+In the
+Create View
+wizard, specify the View Type as shown below.
+In Step 2 of the
+Create View
+wizard, select 2 or more tables. To create a join between them, click and drag from one table to the other.
+The Join configuration pop up will provide you the option to select the join type and the columns. DvSum supports join types of inner, outer, left, or right joins, but you should confirm that your relational database technology supports your selected type. DvSum intelligently guesses which columns should be used for the join, but you may add columns or alter the columns used.
+Once you save the join configurations, the translated join condition will appear.
+Advanced Option:
+The FUI interaction provides a simpler user experience in most cases. But an advanced user can provide the Join Query. As soon as you start typing query in the "Translated Join Condition" box, DvSum will try to determine the tables for you and automatically reverse engineer the specified join into graph above.
+You may not see a success message. Sometimes DvSum will not be able to translate the join condition you have provided into a graph. It does not mean there is necessarily a mistake. If you are confident your join condition is correct, then these three steps will suffice to define the joins:
+Select the Join Tables.
+Enter the Translated Join Condition.
+Validate the join condition.
+In Step 2 of the
+Create View
+wizard, the fields of all tables will be displayed on the left. Select the desired fields for your view.
+Save the Blend View.
+The detail page for this view will open. From here chose "Run Profiler" to populate field values. You may use this Blend View as you would use any other table.

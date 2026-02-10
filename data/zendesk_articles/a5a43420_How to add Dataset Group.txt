@@ -1,0 +1,19 @@
+Title: How to add Dataset Group?
+URL: https://dvsum.zendesk.com/hc/en-us/articles/22706867079700-How-to-add-Dataset-Group
+================================================================================
+
+Dataset Groups serve as
+tags
+enabling you to categorize your datasets. These tags can be applied to organize datasets, functioning similarly to folders. However, unlike folders, a single dataset can have multiple Dataset Group tags, and conversely, a Dataset Group can include multiple datasets.
+Create Dataset Group
+A Dataset group can be created by users through Mass Update. Simply follow these steps:
+Select Dataset -> More Action -> Mass Update.
+As users input data into the "Value" field, previously established Dataset groups will become visible. If the desired Dataset group is not displayed, you can easily create a new one by pressing the Enter key.
+Remove/ Replace Dataset Group
+In
+Mass Update
+, users have the ability to remove or replace existing Dataset groups. You can do this by selecting the Dataset you want, going to "More Actions," and then choosing "Mass Update." From there, you can remove or replace the selected Dataset Group.
+Here are the available choices related to Dataset groups:
+Add the following Dataset Groups.
+Replace existing Dataset Groups with the following Dataset Group.
+Remove the following Dataset Groups.

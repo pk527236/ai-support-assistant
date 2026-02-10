@@ -1,0 +1,132 @@
+Title: Executing Jobs via API
+URL: https://dvsum.zendesk.com/hc/en-us/articles/30417646570132-Executing-Jobs-via-API
+================================================================================
+
+In this article:
+Overview
+Prerequisites & API Authentication
+API Endpoints for Job Execution
+Request Parameters
+Job Setup
+Examples of Job Execution via API
+Manual Execution
+Using Postman
+Script Automation
+Overview
+DvSum allows users to execute jobs programmatically using APIs. This guide provides step-by-step instructions to trigger jobs, check execution status, and handle API responses efficiently.
+Each job can run in one of two distinct modes: it can either be scheduled to run at predetermined times or triggered via an API for on-demand execution. However, only one method can be active at a time; jobs cannot operate as both scheduled and API-triggered simultaneously. The mode of execution should be chosen based on specific requirements to ensure consistent operation under a single, exclusive mode.
+For more details on how to create a job, refer to the
+Creating
+a
+New
+Job
+article.
+Prerequisites
+Before executing a job via API, ensure you have the following:
+A Job:
+The job must be configured for API execution (it cannot be scheduled).
+OAuth Client Credentials:
+You can create an OAuth2 Client from the Application Security tab and use the Client ID and Secret or enable API Access at the User Role level.
+Access Token:
+Using the above OAuth credentials, generate an access token through the Authentication API mentioned in the
+API Documentation.
+Refer to the article
+‘
+DvSum API Access and Authentication Management
+’
+for details on creating an authentication client and generating access tokens.
+API Endpoints for Job Execution
+1. Execute Job (POST Request)
+This endpoint triggers the execution of a job.
+Endpoint:
+POST https://apis.dvsum.ai/integration/jobs/[job_id]/execute
+2. Get Job Execution Details (GET Request)
+This endpoint retrieves the status and details of the job execution.
+Endpoint:
+GET https://apis.dvsum.ai/integration/jobs/[execution_id]/details
+Request Parameters
+Include the following headers for both POST and GET requests:
+Authorization:
+Bearer <access_token>
+Content-Type:
+application/json
+Note:
+The access token is valid for 1 hour. Generate a new token using your Client ID and Secret when it expires.
+Step 1: Configure the Job for API Execution
+Navigate to the
+Schedule
+tab in the DvSum platform.
+Select the schedule type as
+Execute via API
+.
+For detailed instructions, refer to the
+Creating
+a
+Job
+article.
+Step 2: Generate API URLs
+Click on
+Generate API URL
+. This will generate both the POST and GET request URLs needed for API execution.
+Examples of Job Execution via API
+To facilitate job execution via API in DvSum, three main approaches are available: manual execution, using Postman, and script automation. Each method provides options for managing job execution and monitoring through the API, with step-by-step instructions provided for each option below. The approach can be selected based on workflow and technical requirements.
+Manual Execution
+This section covers the process for manually executing jobs via API. If you prefer direct control over job execution, follow this step-by-step guide.
+Step-by-Step Guide to Executing Jobs via API
+Step 1: Execute the Job
+curl -X POST
+https://apis.dvsum.ai/integration/jobs/[job_id/execute
+-H "Authorization: Bearer <access_token>" \
+-H "Content-Type: application/json" \
+Copy the POST request URL and paste it into your command prompt or API client (e.g., Postman).
+Run the command to execute the job:
+POST
+"https://apis.dvsum.ai/integration/jobs/[job_id]/execute"
+Step 2: Retrieve Execution Details
+curl -X GET
+https://apis.dvsum.ai/integration/jobs/[execution_id]/details
+-H "Authorization: Bearer <access_token>"
+-H "Content-Type: application/json"\
+After executing the job, copy the GET request URL and paste it into your command prompt or API client.
+Replace the following placeholders:
+[execution_id]
+with the execution ID from the POST request.
+[<access_token>]
+with your valid access token obtained using OAuth Client credentials or User Role based credentials
+Run the GET request to retrieve job execution details:
+GET
+"https://apis.dvsum.ai/integration/jobs/[execution_id]/details"
+Step 3: View Execution Details
+The GET request will display the status and other details of the job execution once completed.
+Step 4: Fetch Exception Records
+Case1:
+On-prem Gateway
+For an on-prem gateway, exception records can be downloaded, and the requested URL can be accessed using the provided
+x-api-key
+in the response.
+Case 2:
+Cloud Gateway
+For a cloud gateway, exception records can be downloaded using the
+pre-signed URL
+provided in the response.
+Note:
+Exception records can only be downloaded up to a limit of
+10,000 records
+.
+Using Postman
+Enhance the process by importing the API requests into Postman for more structured testing. This method allows you to interact with the API and automate requests efficiently visually.
+Calling API Endpoints for Job Execution
+1. Execute Job (POST Request)
+This endpoint triggers the execution of a job.
+Endpoint:
+POST
+https://apis.dvsum.ai/integration/jobs/[job_id]/execute
+2. Retrieve Execution Details (GET Request)
+This endpoint retrieves the status and details of the job execution.
+Endpoint:
+GET
+https://apis.dvsum.ai/integration/jobs/[execution_id]/details
+3. View Execution Details
+The provided download request URL in the execution details can be used to view the execution details.
+Script Automation
+Automate job execution by using a script. This method is ideal for users who want to integrate the API into their workflow. Sample scripts can be provided for reference to help automate repetitive tasks.

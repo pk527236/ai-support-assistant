@@ -1836,7 +1836,7 @@ settings appear with two options. If set to
 Enabled
 , any newly added domain will automatically have its workflow activated, removing the need for manual configuration.
 Consider this example: Governance is enabled for the domain
-"Engineering 100"
+"Default"
 and all terms within it. However, terms tagged as
 "Restricted"
 will remain excluded from governance.
@@ -4379,22 +4379,13 @@ Before IP whitelisting
 After IP whitelisting
 Advantages Over Local On-Premises SAWS
 What is DvSum Web Service?
-DvSum Web Service (sometimes referred to as
-Cloud SAWS) is an online connector designed to facilitate seamless connectivity to sources available online. It provides analogous functionality to the on-premises gateway (sometimes referred to as SAWS), but it eliminates the need for users to install the connector locally on their machines. The
-DvSum Web Service
-enables users to establish connections with various online sources, such as APIs, databases, or services, without the burden of setting up and managing local installations.
-By leveraging the
-DvSum Web Service
-, users can access and interact with online sources directly, streamlining the process of retrieving data or integrating with external systems. The connector is hosted in the cloud, offering convenience, scalability, and ease of use for users. They can utilize Cloud SAWS to securely connect to authorized online sources, leveraging its capabilities to fetch data, make requests, or perform desired actions without the need for local installation.
+DvSum Web Service (sometimes referred to as Cloud SAWS) is an online connector designed to facilitate seamless connectivity to sources available online. It provides analogous functionality to the on-premises gateway (sometimes referred to as SAWS), but it eliminates the need for users to install the connector locally on their machines. The DvSum Web Service enables users to establish connections with various online sources, such as APIs, databases, or services, without the burden of setting up and managing local installations.
+By leveraging the DvSum Web Service, users can access and interact with online sources directly, streamlining the process of retrieving data or integrating with external systems. The connector is hosted in the cloud, offering convenience, scalability, and ease of use for users. They can utilize Cloud SAWS to securely connect to authorized online sources, leveraging its capabilities to fetch data, make requests, or perform desired actions without the need for local installation.
 DvSum connects to data sources using one of these:
 DvSum Web Service
 On-Premises Gateway
-In this article, we will be covering the process through which a source can be connected using the
-DvSum Web Service
-and how this compares to using an on-premises gateway.
-By default when any source is added, it will be connected using the
-DvSum Web Service,
-so there is no extra step required for connection. But if the user chooses to authenticate using the on-premises gateway then they will need to enable the checkbox of On-premises Web Service.
+In this article, we will be covering the process through which a source can be connected using the DvSum Web Service and how this compares to using an on-premises gateway.
+By default when any source is added, it will be connected using the DvSum Web Service, so there is no extra step required for connection. But if the user chooses to authenticate using the on-premises gateway then they will need to enable the checkbox of On-premises Web Service.
 For Configuring of Data Source (Snowflake) using On-Premises Local Saws, click
 here
 IP Whitelisting:
@@ -5713,7 +5704,7 @@ Send email on job delay
 is selected, a configuration panel appears with the following settings:
 Duration Threshold
 Automatically Determined Duration
-(default): Uses outlier detection (Interquartile Range) to identify delays.
+(default): Uses Interquartile Range (IQR) outlier detection on job run times to identify delays. Manual edits are allowed until four executions, after which thresholds auto-adjust.
 Set Custom Duration
 : Manually specify the maximum expected duration. An alert is triggered if the job exceeds this time.
 Input format:
@@ -12934,8 +12925,7 @@ Additionally, it includes different Reports-related sources like
 Tableau
 &
 Power BI
-.
-Comprehensive articles are available for each of these sources, providing step-by-step guides on how to add and configure them within the application. To access the detailed instructions for a specific source, simply click on the corresponding link mentioned above, and it will direct you to the relevant article.
+. Comprehensive articles are available for each of these sources, providing step-by-step guides on how to add and configure them within the application. To access the detailed instructions for a specific source, simply click on the corresponding link mentioned above, and it will direct you to the relevant article.
 
 --------------------------------------------------------------------------------
 

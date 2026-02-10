@@ -1,0 +1,165 @@
+Title: User Role and Module Settings
+URL: https://dvsum.zendesk.com/hc/en-us/articles/17327470244244-User-Role-and-Module-Settings
+================================================================================
+
+In this article:
+Introduction
+How to Add a New User Role
+Fine-Grained Control (Admin)
+How Section-Level Permissions Work
+Fine-Grained Control (System Catalog)
+Fine-Grained Control (Business Glossary)
+Configuring Module Settings in DvSum
+Best Practices for Assigning Roles and Configuring Module Settings
+Link Between User Roles and Module Settings
+Introduction
+With
+DvSum Data Intelligence
+, users can access specific datasets and glossary terms. In environments with numerous tables and terms, granting individual access is crucial. Simply instructing users to avoid certain tables isn’t a practical approach.
+When assigning specific access levels—such as "View" for some tables or terms and "Edit" for others—it can become complex. However, DvSum’s
+User Roles
+and
+Fine Grain
+settings enable administrators to precisely control access. They can define whether a user has viewing or editing privileges for each table or term.
+Another key feature, alongside
+User Roles
+, is
+Module Settings
+. Users can configure governance and workflow settings for different data domains or sub-domains. Additionally, at the table level, they can enable or disable features like
+Chat with Data
+and
+Data Quality
+. This article will provide further details on these capabilities.
+How to Add a New User Role
+Go to Administration Tab and then Users Management > User Roles
+Click on User Roles.
+Click Add Role and enter a name for the new role.
+Assign a user group to the role (this group will define which users inherit the role’s permissions).
+Configure access settings under Admin, System Catalog, and Business Glossary Tabs.
+Click Save Changes.
+From the Admin tab, users can select Admin permissions, which include options for No Admin, Admin, or custom permissions through fine-grained control.
+Fine-Grained Control (Admin)
+DvSum allows administrators to assign
+No Access
+,
+View
+, or
+Edit
+permissions to various sections of the Administration Panel. These permissions help tailor access for different user groups based on their responsibilities.
+How Section-Level Permissions Work
+Some sections in the Administration Panel represent a group of related features. When you assign a permission level to such a section,
+that level is automatically applied to all features within it
+.
+Example: Jobs Section
+The
+Jobs
+section includes:
+Job Definition
+Job Execution
+If you assign
+View
+access to the
+Jobs
+section, users will be able to view both
+Definition
+and
+Execution
+. Similarly, selecting
+Edit
+will allow users to modify both.
+This ensures consistent access control across related features without needing to configure each one individually.
+Permissions can be configured directly from the
+System Catalog
+and
+Business Glossary
+tabs.
+Fine-Grained Control (System Catalog)
+Fine Grain allows further control over Data Sources and Tables inside them for Catalog and the same goes for Terms in the Glossary. Imagine you're an Admin, and a colleague wants to edit a Snowflake catalog. With Fine Grain control, you can grant them edit permissions for that specific dataset.
+In the above example, edit permissions will be granted to this user role only for the enabled data source. The admin can decide the level of access he wants to give, he can either give "View & Chat" or "Edit" Permissions. Now admin can further filter the data source by using the Table Exclusion criteria below.
+Note: There are two options for Table Exclusion criteria which are shown above.
+Let us say that in the data source to which you have given access, you do not want to give this user role access to the tables which have sensitive tags then you will need to mention the criteria like this:
+This change would have reflected like this:
+On the Admin account:
+The both highlighted tables above won't be showing in my user account which will have the user role settings that are mentioned above because these tables have Sensitive tags. On the User account, it will show like this:
+Here not only did we restrict the access of this user to specific Tables but we further restricted the edit access of this user. Now this user can make edit changes on any of the tables.
+One Important thing is that Fine Grain Control will only be available if the permission above selected is either Editor or Viewer, otherwise, Fine Grain Control won't show on the UI.
+Fine-Grained Control (Business Glossary)
+Imagine you're a Glossary admin with access to all domains and sub-domains. A glossary editor requests access to specific domains and terms within them, but you only want to display terms in this domain with the status "Published." Fine Grain Control allows you to achieve this level of precision.
+This can be achieved as follows:
+In this instance, Edit Access is granted to the "Securities" domain and its sub-domains, along with the terms inside it. An additional filter is applied, ensuring that only terms with the status "Published" can be edited.
+For Example, on the Admin Account, we have three terms that are not published:
+Now the User who will have the user role settings above won't be able to see the highlighted terms because they are fulfilling the exclusion criteria. Here is the view of User account:
+Note:
+For complete details on user roles and responsibilities, refer to the
+Data Governance Roles and Responsibilities
+article
+Configuring Module Settings in DvSum
+Module Settings control governance workflows, Chat with Data, and Data Quality features at a global level. These settings affect all users in the organization.
+How to Access Module Settings
+Go to Administration > Account Settings > Module Settings.
+Choose from the three available module settings:
+Governance
+Chat with Data
+Data Quality
+Enable or disable these settings as needed.
+1. Governance
+In the
+Governance
+tab, activating the
+Data Governance
+checkbox enables the workflow for domains and sub-domains. If this checkbox is disabled, the workflow option for a domain or sub-domain becomes inaccessible.
+Similar to
+User Roles
+,
+Fine Grain Control
+in
+Module Settings
+allows for applying specific filters. When
+Fine Grain
+is enabled, the
+Default
+settings appear with two options. If set to
+Enabled
+, any newly added domain will automatically have its workflow activated, removing the need for manual configuration.
+Consider this example: Governance is enabled for the domain
+"Default"
+and all terms within it. However, terms tagged as
+"Restricted"
+will remain excluded from governance.
+Now once the governance is enabled user can enable workflow from the Data Domain or Sub domain:
+After the workflow is enabled every term in this domain will have governance enabled except for the term which has the tag "Restricted" as mentioned in the exclusion criteria:
+And the existing Term which has the exclusion criteria won't have governance enabled:
+2. Chat with Data
+When enabled, Chat with Data allows users to interact with datasets using AI-powered agents.
+How to Configure Chat with Data
+Navigate to Module Settings > Chat with Data.
+Enable the Chat with Data Checkbox.
+Select specific data sources for Chat with Data.
+Use Fine-Grained Control to exclude specific tables or columns (e.g., exclude columns tagged as "Sensitive").
+Click Save Changes.
+Below the Default settings, the user can enable Chat with Data for specific tables. For example, if the user wants to enable agent for one specific source then that source can be moved to Enabled:
+This can be further filtered by adding Table exclusion criteria or Column exclusion criteria. For Example if the user does not want to include some tables in agents that have the "Restricted Tag" and columns that have the "Sensitive" tag then these tables and columns will not be available on the agents of that particular source.
+So the expected behavior would be that all the tables inside the Datasource "Snowflake_4th_August" will be included in agents except for the Tables that will have the tag "Restricted". Now here is an example of a table "Dwh.Nyc City Bikes" that has the exclusion criteria:
+And for columns that are excluded from the Agents will be excluded from the chat and shown like this:
+3. Data Quality
+When enabled, the
+Data Quality
+module facilitates monitoring of data integrity and quality scores.
+How to Enable Data Quality Monitoring
+Navigate to Module Settings > Data Quality.
+Enable the Data Quality Checkbox.
+Select specific data sources for Data Quality monitoring.
+Use Fine-Grained Control to exclude specific tables or columns (e.g., exclude columns tagged as "Sensitive").
+Click Save Changes.
+Below are the Default settings, the user can enable Data Quality for specific tables. For example, if the user wants to enable the Data quality tab for one specific source then that source can be moved to Enabled:
+This can be further filtered by adding Table exclusion criteria or Column exclusion criteria. Like if the user wants to disable the DQ tab for tables that have the "Restricted Tag" and columns which have the "Sensitive" tag should be disabled in the chat.
+So the expected behavior would be that all the tables inside the Datasource "Snowflake_DWH" will have the Data Quality tab enabled except for the Tables which will have the tag "Restricted":
+Columns that are not included in the Data Quality tab will simply not appear under the "Details" heading on the Data Quality tab:
+Best Practices for Assigning Roles and Configuring Module Settings
+Assign Admin roles only to necessary personnel to prevent unauthorized system modifications.
+Use Viewer roles for non-technical users who only need read-only access.
+Enable Fine-Grained Control to give selective permissions rather than broad access.
+Regularly review role assignments to ensure users have the correct level of access.
+Use module settings strategically to enable governance, Chat with Data, and Data Quality only where necessary.
+Link Between User Role and Module Settings
+User role settings are specific to individual users, while module settings apply globally, affecting all associated users and the admin account. For instance, if the admin grants View and Chat access for certain sources in user roles, enabling Chat with Data in module settings is necessary to activate Chat topics. This establishes a kind of parent-child relationship between Module settings and User roles, but they can also function independently based on specific requirements.
