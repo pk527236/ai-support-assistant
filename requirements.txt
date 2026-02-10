@@ -1,26 +1,37 @@
-# Core dependencies
+# =================================================
+# Core API
+# =================================================
 flask==3.0.0
 flask-cors==4.0.0
 python-dotenv==1.0.0
 requests==2.31.0
 
-# LangChain and AI components
+# =================================================
+# LangChain / LLM
+# =================================================
 langchain==0.1.0
 langchain-community==0.0.13
 langchain-groq==0.0.1
 
+# =================================================
 # Embeddings
+# =================================================
 sentence-transformers==2.2.2
 
-# Vector store
+# =================================================
+# Vector Store (Chroma)
+# =================================================
 chromadb==0.4.22
-pysqlite3-binary==0.5.2
+pysqlite3-binary==0.5.4
 
-# Web scraping
+# =================================================
+# Web Scraping
+# =================================================
+selenium==4.21.0
 beautifulsoup4==4.12.2
 lxml==5.1.0
 
-# Optional (if using Ollama)
-# ollama==0.1.7
-
-#pip install python-docx
+# =================================================
+# Stability / Fixes
+# =================================================
+packaging>=24.0

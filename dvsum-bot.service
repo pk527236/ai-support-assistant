@@ -1,0 +1,19 @@
+[Unit]
+Description=DVSum AI Support Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/ai-support-bot
+Environment="PATH=/home/ubuntu/ai-support-bot/venv/bin"
+ExecStart=/home/ubuntu/ai-support-bot/venv/bin/python app.py
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/dvsum-bot/output.log
+StandardError=append:/var/log/dvsum-bot/error.log
+
+[Install]
+WantedBy=multi-user.target
