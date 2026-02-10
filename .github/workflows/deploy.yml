@@ -1,69 +1,52 @@
-name: Deploy to EC2
+- name: Deploy to EC2
+  env:
+    PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+    HOST: ${{ secrets.EC2_HOST }}
+    USER: ${{ secrets.EC2_USER }}
+    GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
-on:
-  push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
+  run: |
+    echo "$PRIVATE_KEY" > private_key.pem
+    chmod 600 private_key.pem
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    # ⭐ FIX: create ssh folder first
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
 
-    steps:
-    - uses: actions/checkout@v3
+    ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
-    - name: Deploy to EC2
-      env:
-        PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-        HOST: ${{ secrets.EC2_HOST }}
-        USER: ${{ secrets.EC2_USER }}
-        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << ENDSSH
+    set -e
 
-      run: |
-        echo "$PRIVATE_KEY" > private_key.pem
-        chmod 600 private_key.pem
+    echo "🚀 Starting deployment..."
 
-        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+    mkdir -p ~/ai-support-bot
+    cd ~/ai-support-bot
 
-        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << ENDSSH
-        set -e
+    if [ -d .git ]; then
+      git pull origin main || git pull origin master
+    else
+      git clone https://github.com/${{ github.repository }} .
+    fi
 
-        echo "🚀 Starting deployment..."
+    printf "GROQ_API_KEY=%s\nFRESHSERVICE_DOMAIN=%s\nFRESHSERVICE_API_KEY=%s\n" \
+    "$GROQ_API_KEY" \
+    "yourcompany.freshservice.com" \
+    "your_api_key_here" > .env
 
-        mkdir -p ~/ai-support-bot
-        cd ~/ai-support-bot
+    if [ ! -d venv ]; then
+      python3 -m venv venv
+    fi
 
-        if [ -d .git ]; then
-          git pull origin main || git pull origin master
-        else
-          git clone https://github.com/${{ github.repository }} .
-        fi
+    source venv/bin/activate
+    pip install --upgrade pip
+    pip install -r requirements.txt
 
-        echo "🔧 Writing .env"
+    mkdir -p data
 
-        printf "GROQ_API_KEY=%s\nFRESHSERVICE_DOMAIN=%s\nFRESHSERVICE_API_KEY=%s\n" \
-        "$GROQ_API_KEY" \
-        "yourcompany.freshservice.com" \
-        "your_api_key_here" > .env
+    sudo systemctl restart dvsum-bot.service || true
 
-        if [ ! -d venv ]; then
-          python3 -m venv venv
-        fi
+    echo "✅ Deployment finished"
+    ENDSSH
 
-        source venv/bin/activate
-        pip install --upgrade pip
-        pip install -r requirements.txt
-
-        mkdir -p data
-
-        sudo systemctl restart dvsum-bot.service || true
-
-        echo "✅ Deployment finished"
-        ENDSSH
-
-        rm -f private_key.pem
-
-    - name: Done
-      run: echo "✅ Deployment successful"
+    rm -f private_key.pem
