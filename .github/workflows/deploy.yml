@@ -1,52 +1,126 @@
-- name: Deploy to EC2
-  env:
-    PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-    HOST: ${{ secrets.EC2_HOST }}
-    USER: ${{ secrets.EC2_USER }}
-    GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+name: Deploy to EC2
 
-  run: |
-    echo "$PRIVATE_KEY" > private_key.pem
-    chmod 600 private_key.pem
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
 
-    # ⭐ FIX: create ssh folder first
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
+jobs:
+  name: Deploy to EC2
 
-    ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
 
-    ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << ENDSSH
-    set -e
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-    echo "🚀 Starting deployment..."
+    steps:
+    # -------------------------------------------------
+    # Checkout repo
+    # -------------------------------------------------
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-    mkdir -p ~/ai-support-bot
-    cd ~/ai-support-bot
+    # -------------------------------------------------
+    # Deploy
+    # -------------------------------------------------
+    - name: Deploy to EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
-    if [ -d .git ]; then
-      git pull origin main || git pull origin master
-    else
-      git clone https://github.com/${{ github.repository }} .
-    fi
+      run: |
+        set -e
 
-    printf "GROQ_API_KEY=%s\nFRESHSERVICE_DOMAIN=%s\nFRESHSERVICE_API_KEY=%s\n" \
-    "$GROQ_API_KEY" \
-    "yourcompany.freshservice.com" \
-    "your_api_key_here" > .env
+        echo "🔑 Setting up SSH key..."
 
-    if [ ! -d venv ]; then
-      python3 -m venv venv
-    fi
+        echo "$PRIVATE_KEY" > private_key.pem
+        chmod 600 private_key.pem
 
-    source venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
+        # ⭐ FIX 1: create ssh folder (prevents known_hosts error)
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
 
-    mkdir -p data
+        # add host fingerprint
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
-    sudo systemctl restart dvsum-bot.service || true
+        echo "🚀 Connecting to EC2 and deploying..."
 
-    echo "✅ Deployment finished"
-    ENDSSH
+        # ⭐ IMPORTANT: NO QUOTES after ENDSSH (allows secrets expansion)
+        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << ENDSSH
 
-    rm -f private_key.pem
+        set -e
+
+        echo "📁 Preparing app directory..."
+        mkdir -p ~/ai-support-bot
+        cd ~/ai-support-bot
+
+        # -------------------------------------------------
+        # Pull latest code
+        # -------------------------------------------------
+        if [ -d .git ]; then
+          echo "📥 Pulling latest changes..."
+          git pull origin main || git pull origin master
+        else
+          echo "📥 Cloning repository..."
+          git clone https://github.com/${{ github.repository }} .
+        fi
+
+        # -------------------------------------------------
+        # Write .env safely (no heredoc errors)
+        # -------------------------------------------------
+        echo "🔧 Writing .env file..."
+
+        printf "GROQ_API_KEY=%s\nFRESHSERVICE_DOMAIN=%s\nFRESHSERVICE_API_KEY=%s\n" \
+        "$GROQ_API_KEY" \
+        "yourcompany.freshservice.com" \
+        "your_api_key_here" > .env
+
+        # -------------------------------------------------
+        # Python setup
+        # -------------------------------------------------
+        if [ ! -d venv ]; then
+          echo "🐍 Creating virtual environment..."
+          python3 -m venv venv
+        fi
+
+        source venv/bin/activate
+
+        echo "📦 Installing dependencies..."
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+        # -------------------------------------------------
+        # Ensure folders
+        # -------------------------------------------------
+        mkdir -p data
+
+        # -------------------------------------------------
+        # Restart systemd service
+        # -------------------------------------------------
+        echo "🔄 Restarting service..."
+        sudo systemctl restart dvsum-bot.service || true
+
+        echo "📊 Service status:"
+        sudo systemctl status dvsum-bot.service --no-pager || true
+
+        echo "✅ Deployment finished successfully!"
+
+        ENDSSH
+
+        rm -f private_key.pem
+
+    # -------------------------------------------------
+    # Final status
+    # -------------------------------------------------
+    - name: Done
+      run: echo "✅ Deployment successful"
