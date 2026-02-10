@@ -12,41 +12,45 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # -------------------------------------------------
-    # Checkout repo
-    # -------------------------------------------------
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # -------------------------------------------------
-    # Deploy
-    # -------------------------------------------------
     - name: Deploy to EC2
       env:
         PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
         HOST: ${{ secrets.EC2_HOST }}
         USER: ${{ secrets.EC2_USER }}
         GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        REPO: ${{ github.repository }}
 
       run: |
         set -e
 
         echo "🔑 Setting up SSH key..."
 
-        echo "$PRIVATE_KEY" > private_key.pem
-        chmod 600 private_key.pem
-
-        # ⭐ FIX 1: create ssh folder (prevents known_hosts error)
+        # Create .ssh directory
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
 
-        # add host fingerprint
-        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        # Save private key with proper formatting
+        echo "$PRIVATE_KEY" > private_key.pem
+        chmod 600 private_key.pem
+
+        # Verify the key format
+        echo "Verifying private key format..."
+        head -1 private_key.pem
+
+        # Add host fingerprint
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts 2>/dev/null
 
         echo "🚀 Connecting to EC2 and deploying..."
 
-        # ⭐ IMPORTANT: NO QUOTES after ENDSSH (allows secrets expansion)
-        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << ENDSSH
+        # Export variables for SSH session
+        export GROQ_KEY="$GROQ_API_KEY"
+        export REPO_NAME="$REPO"
+
+        # Deploy via SSH
+        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST "export GROQ_API_KEY='$GROQ_KEY' REPO='$REPO_NAME'; bash -s" << 'ENDSSH'
 
         set -e
 
@@ -54,30 +58,22 @@ jobs:
         mkdir -p ~/ai-support-bot
         cd ~/ai-support-bot
 
-        # -------------------------------------------------
         # Pull latest code
-        # -------------------------------------------------
         if [ -d .git ]; then
           echo "📥 Pulling latest changes..."
           git pull origin main || git pull origin master
         else
           echo "📥 Cloning repository..."
-          git clone https://github.com/${{ github.repository }} .
+          git clone https://github.com/${REPO} .
         fi
 
-        # -------------------------------------------------
-        # Write .env safely (no heredoc errors)
-        # -------------------------------------------------
+        # Write .env file
         echo "🔧 Writing .env file..."
+        echo "GROQ_API_KEY=${GROQ_API_KEY}" > .env
+        echo "FRESHSERVICE_DOMAIN=yourcompany.freshservice.com" >> .env
+        echo "FRESHSERVICE_API_KEY=your_api_key_here" >> .env
 
-        printf "GROQ_API_KEY=%s\nFRESHSERVICE_DOMAIN=%s\nFRESHSERVICE_API_KEY=%s\n" \
-        "$GROQ_API_KEY" \
-        "yourcompany.freshservice.com" \
-        "your_api_key_here" > .env
-
-        # -------------------------------------------------
         # Python setup
-        # -------------------------------------------------
         if [ ! -d venv ]; then
           echo "🐍 Creating virtual environment..."
           python3 -m venv venv
@@ -89,14 +85,10 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
 
-        # -------------------------------------------------
         # Ensure folders
-        # -------------------------------------------------
         mkdir -p data
 
-        # -------------------------------------------------
         # Restart systemd service
-        # -------------------------------------------------
         echo "🔄 Restarting service..."
         sudo systemctl restart dvsum-bot.service || true
 
@@ -109,8 +101,5 @@ jobs:
 
         rm -f private_key.pem
 
-    # -------------------------------------------------
-    # Final status
-    # -------------------------------------------------
     - name: Done
       run: echo "✅ Deployment successful"
