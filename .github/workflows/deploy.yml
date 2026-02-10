@@ -22,12 +22,17 @@ jobs:
         USER: ${{ secrets.EC2_USER }}
         GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: |
+        # Create .ssh directory if it doesn't exist
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
+        
         # Save private key to file
         echo "$PRIVATE_KEY" > private_key.pem
         chmod 600 private_key.pem
         
         # Add EC2 to known hosts
-        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts 2>/dev/null
+        chmod 644 ~/.ssh/known_hosts
         
         # Deploy via SSH
         ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST << 'ENDSSH'
@@ -80,10 +85,10 @@ jobs:
           # Update .env file with secrets
           echo "🔧 Updating environment variables..."
           cat > .env << EOF
-        GROQ_API_KEY=$GROQ_API_KEY
-        FRESHSERVICE_DOMAIN=yourcompany.freshservice.com
-        FRESHSERVICE_API_KEY=your_api_key_here
-        EOF
+GROQ_API_KEY=$GROQ_API_KEY
+FRESHSERVICE_DOMAIN=yourcompany.freshservice.com
+FRESHSERVICE_API_KEY=your_api_key_here
+EOF
           
           # Activate virtual environment or create if not exists
           if [ ! -d venv ]; then
